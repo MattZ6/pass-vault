@@ -1,0 +1,14 @@
+{
+  "title": "Configurações",
+  "app": {
+    "title": "Aplicativo",
+    "theme": "Tema",
+    "language": "Idioma"
+  },
+  "about": {
+    "title": "Sobre",
+    "version": "Versão",
+    "last-update": "Atualizado em",
+    "changelog": "Novidades"
+  }
+}

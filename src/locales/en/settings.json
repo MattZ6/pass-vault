@@ -1,0 +1,14 @@
+{
+  "title": "Settings",
+  "app": {
+    "title": "App",
+    "theme": "Theme",
+    "language": "Language"
+  },
+  "about": {
+    "title": "About",
+    "version": "Version",
+    "last-update": "Updated at",
+    "changelog": "Changelog"
+  }
+}

@@ -1,178 +1,52 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
-import { useNetInfo, NetInfoStateType, NetInfoState } from '@react-native-community/netinfo';
+import { View, Text, StyleSheet, ScrollView, Button, TouchableNativeFeedback, ToastAndroid } from "react-native";
 import { theme } from "@/theme";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Fragment } from "react";
+import { Header } from "@/components";
+import { useState } from "react";
+import Animated, { FadeInRight, FadeOutRight, LinearTransition } from "react-native-reanimated";
 
-const connectionType = {
-  [NetInfoStateType.bluetooth]: 'Bluetooth',
-  [NetInfoStateType.cellular]: 'Internet móvel',
-  [NetInfoStateType.ethernet]: 'Ethernet',
-  [NetInfoStateType.none]: 'Nenhuma',
-  [NetInfoStateType.other]: 'Outra',
-  [NetInfoStateType.unknown]: 'Desconhecido',
-  [NetInfoStateType.vpn]: 'VPN',
-  [NetInfoStateType.wifi]: 'Wi-Fi',
-  [NetInfoStateType.wimax]: 'WiMax',
-}
-
-function getFields(info: NetInfoState) {
-  if (info.type === NetInfoStateType.cellular) {
-    return [
-      {
-        label: 'Carrier',
-        value: info.details.carrier
-      },
-      {
-        label: 'Velocidade',
-        value: info.details.cellularGeneration
-      }
-    ]
-  }
-
-  if (info.type === NetInfoStateType.ethernet) {
-    return [
-      {
-        label: 'Endereço de IP',
-        value: info.details.ipAddress
-      },
-      {
-        label: 'Máscara de sub rede',
-        value: info.details.subnet
-      }
-    ]
-  }
-
-  if (info.type === NetInfoStateType.wifi) {
-    return [
-      {
-        label: 'Frequência',
-        value: `${info.details.frequency} GHz`
-      },
-      {
-        label: 'Endereço de IP',
-        value: info.details.ipAddress
-      },
-      {
-        label: 'Máscara de sub rede',
-        value: info.details.subnet
-      },
-      {
-        label: 'BSSID',
-        value: info.details.bssid
-      },
-      {
-        label: 'SSID',
-        value: info.details.ssid
-      },
-      {
-        label: 'Intensidade do sinal',
-        value: `${info.details.strength}%`
-      },
-      {
-        label: 'Velocidade',
-        value: `${info.details.linkSpeed} Mbps`
-      },
-      {
-        label: 'Velocidade de download',
-        value: `${info.details.rxLinkSpeed} Mbps`
-      },
-      {
-        label: 'Velocidade de upload',
-        value: `${info.details.txLinkSpeed} Mbps`
-      },
-    ]
-  }
-
-  return [];
+type Provider = {
+  id: string
+  name: string
+  account: string
 }
 
 export default function HomePage() {
-  const info = useNetInfo()
-
-  if (!info) {
-    return null
-  }
-
-  const extraFields = getFields(info);
+  const [providers, setProviders] = useState<Provider[]>([])
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
+      <Header />
+
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <View style={styles.card}>
-          <View style={styles.header}>
-            <Text style={styles.title}>Conexão</Text>
-          </View>
+        {
+          providers.map(provider => (
+            <Animated.View key={provider.id} entering={FadeInRight} exiting={FadeOutRight} layout={LinearTransition}>
+              <TouchableNativeFeedback
+                onLongPress={() => ToastAndroid.show('Abrir bottom sheet', ToastAndroid.SHORT)}
+                onPress={() => ToastAndroid.show('Abrir página', ToastAndroid.SHORT)}
+                background={TouchableNativeFeedback.Ripple(theme.colors.mauve5, false)}
+              >
+                <View style={styles.provider} >
+                  <View style={styles.providerIconContainer}></View>
 
-          <View style={styles.field}>
-            <Text style={styles.label}>
-              Tipo
-            </Text>
-            <Text style={styles.value}>
-              {connectionType[info.type]}
-            </Text>
-          </View>
-
-          <View style={styles.divider} />
-
-          <View style={styles.field}>
-            <Text style={styles.label}>
-              WiFi habilitado
-            </Text>
-            <Text style={styles.value}>
-              {info.isWifiEnabled ? 'Sim' : 'Não'}
-            </Text>
-          </View>
-
-          <View style={styles.divider} />
-
-          <View style={styles.field}>
-            <Text style={styles.label}>
-              Conectado à alguma rede
-            </Text>
-            <Text style={styles.value}>
-              {info.isConnected ? 'Sim' : 'Não'}
-            </Text>
-          </View>
-
-          <View style={styles.divider} />
-
-          <View style={styles.field}>
-            <Text style={styles.label}>
-              Com acesso à internet
-            </Text>
-            <Text style={styles.value}>
-              {info.isInternetReachable ? 'Sim' : 'Não'}
-            </Text>
-          </View>
-        </View>
-
-        {!!extraFields.length && (
-          <View style={styles.card}>
-            <View style={styles.header}>
-              <Text style={styles.title}>Sobre a rede</Text>
-            </View>
-
-            {extraFields.map((field, index) => (
-              <Fragment key={field.label}>
-                <View style={styles.field}>
-                  <Text style={styles.label}>
-                    {field.label}
-                  </Text>
-                  <Text style={styles.value}>
-                    {field.value}
-                  </Text>
+                  <View style={styles.providerContent}>
+                    <Text style={styles.label}>YoutTube</Text>
+                    <Text style={styles.value}>john@doe.com</Text>
+                  </View>
                 </View>
-
-                {!!(index < extraFields.length - 1) && (
-                  <View style={styles.divider} />
-                )}
-              </Fragment>
-            ))}
-          </View>
-        )}
+              </TouchableNativeFeedback>
+            </Animated.View>
+          ))
+        }
       </ScrollView>
-    </SafeAreaView>
+
+      <Button title="Adicionar" onPress={() => setProviders(state => [{ id: Date.now().toString(), name: 'YouTube', account: 'john@doe.com' }, ...state])} />
+      <Button color="red" title="Remove" onPress={() => setProviders(state => {
+        const [_, ...rest] = state
+
+        return rest
+      })} />
+    </View>
   )
 }
 
@@ -181,9 +55,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContainer: {
-    padding: 16,
-
-    gap: 24,
   },
   card: {
     borderWidth: 1,
@@ -205,7 +76,7 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: theme.colors.mauve6,
   },
-  field: {
+  provider: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -213,6 +84,19 @@ const styles = StyleSheet.create({
 
     paddingHorizontal: 16,
     paddingVertical: 16,
+  },
+  providerIconContainer: {
+    flexShrink: 0,
+
+    width: 48,
+    height: 48,
+    borderRadius: theme.radii.md,
+
+    backgroundColor: theme.colors.mauve3,
+  },
+  providerContent: {
+    flex: 1,
+    flexDirection: 'column',
   },
   label: {
     fontFamily: theme.fonts.family.regular,

@@ -3,10 +3,10 @@ import { ConfigContext, ExpoConfig } from 'expo/config'
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
 
-  name: 'Minha Conexão',
-  slug: 'my-connection',
+  name: 'Pass Vault',
+  slug: 'pass-vault',
   version: '0.1.0',
-  scheme: 'com.myconnection',
+  scheme: 'pass-vault',
   orientation: 'default',
 
   icon: "./assets/icon.png",
@@ -30,8 +30,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     supportsTablet: true
   },
   android: {
-    versionCode: 2,
-    package: 'com.myconnection',
+    versionCode: 1,
+    package: 'com.passvault',
     adaptiveIcon: {
       foregroundImage: "./assets/adaptive-icon.png",
       backgroundColor: "#121113",
@@ -42,11 +42,12 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   plugins: [
     "expo-router",
-    "expo-font"
+    "expo-font",
+    "expo-localization"
   ],
   extra: {
     eas: {
-      projectId: "ae48172c-0960-40e5-b46a-1dcf6ce1db40"
+      projectId: "be904ac7-2434-437b-a4ae-c5e9412d3168"
     }
   }
 })

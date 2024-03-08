@@ -1,0 +1,45 @@
+{
+  "extends": ["@rocketseat/eslint-config/react"],
+  "plugins": [
+    "eslint-plugin-import-helpers"
+  ],
+  "rules": {
+    "camelcase": "off",
+    "react/self-closing-comp": "error",
+    "no-async-promise-executor": "off",
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "args": "all",
+        "argsIgnorePattern": "^_",
+        "caughtErrors": "all",
+        "caughtErrorsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "module",
+          "/^@/config/",
+          "/^@/contexts/",
+          "/^@/hooks/",
+          "/^@/services/",
+          "/^@/utils/",
+          "/^@/components/",
+          "/^@/lib/",
+          "/^@/assets/",
+          "/^./components/",
+          "/^./styles/",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ]
+  }
+}

@@ -1,53 +1,59 @@
 import { ConfigContext, ExpoConfig } from 'expo/config'
 
+import { darkTheme, lightTheme } from '@/lib/unistyles/themes'
+
+import { version, name } from './package.json'
+
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
-
   name: 'Pass Vault',
-  slug: 'pass-vault',
-  version: '0.1.0',
-  scheme: 'pass-vault',
+  slug: name,
+  version,
+  scheme: name,
   orientation: 'default',
-
-  icon: "./assets/icon.png",
-  userInterfaceStyle: "automatic",
-  backgroundColor: '#121113',
-  primaryColor: '#eeeef0',
+  icon: './assets/icon.png',
+  userInterfaceStyle: 'automatic',
+  backgroundColor: darkTheme.colors.mauve1,
+  primaryColor: darkTheme.colors.mauve12,
   androidNavigationBar: {
-    backgroundColor: '#121113'
+    backgroundColor: darkTheme.colors.mauve1,
   },
   androidStatusBar: {
     barStyle: 'light-content',
   },
-
-  splash: {
-    image: "./assets/splash.png",
-    resizeMode: "contain",
-    backgroundColor: "#121113",
-  },
-  assetBundlePatterns: ["**/*"],
+  assetBundlePatterns: ['**/*'],
   ios: {
-    supportsTablet: true
-  },
-  android: {
-    versionCode: 1,
-    package: 'com.passvault',
-    adaptiveIcon: {
-      foregroundImage: "./assets/adaptive-icon.png",
-      backgroundColor: "#121113",
+    supportsTablet: true,
+    splash: {
+      image: './assets/adaptive-icon.png',
+      resizeMode: 'contain',
+      backgroundColor: lightTheme.colors.mauve1,
+      dark: {
+        backgroundColor: darkTheme.colors.mauve1,
+      },
     },
   },
-  web: {
-    favicon: "./assets/favicon.png"
+  android: {
+    versionCode: 2,
+    package: 'com.passvault',
+    splash: {
+      image: './assets/adaptive-icon.png',
+      resizeMode: 'contain',
+      backgroundColor: lightTheme.colors.mauve1,
+      dark: {
+        backgroundColor: darkTheme.colors.mauve1,
+      },
+    },
+    adaptiveIcon: {
+      foregroundImage: './assets/adaptive-icon.png',
+      backgroundColor: darkTheme.colors.mauve1,
+    },
   },
-  plugins: [
-    "expo-router",
-    "expo-font",
-    "expo-localization"
-  ],
+  platforms: ['android', 'ios'],
+  plugins: ['expo-router', 'expo-font', 'expo-localization'],
   extra: {
     eas: {
-      projectId: "be904ac7-2434-437b-a4ae-c5e9412d3168"
-    }
-  }
+      projectId: 'be904ac7-2434-437b-a4ae-c5e9412d3168',
+    },
+  },
 })

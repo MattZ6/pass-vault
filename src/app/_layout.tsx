@@ -1,16 +1,33 @@
-import 'react-native-gesture-handler';
-
+import {
+  useFonts,
+  Poppins_500Medium,
+  Poppins_400Regular,
+  Poppins_700Bold,
+} from '@expo-google-fonts/poppins'
+import { Stack } from 'expo-router'
 import * as SplashScreen from 'expo-splash-screen'
-import { Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar'
+import { useStyles } from 'react-native-unistyles'
 
-import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { useFonts, Poppins_500Medium, Poppins_400Regular, Poppins_700Bold } from '@expo-google-fonts/poppins';
-import { theme } from '@/theme';
-import { StatusBar } from 'expo-status-bar';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { Provider } from '@/contexts/Provider';
+import { Provider } from '@/contexts/Provider'
 
 SplashScreen.preventAutoHideAsync()
+
+function AppStack() {
+  const { theme } = useStyles()
+
+  return (
+    <Stack
+      screenOptions={{
+        freezeOnBlur: true,
+        headerShown: false,
+        contentStyle: {
+          backgroundColor: theme.colors.mauve1,
+        },
+      }}
+    />
+  )
+}
 
 export default function MainLayout() {
   const [fontsLoaded] = useFonts({
@@ -23,24 +40,13 @@ export default function MainLayout() {
     return null
   }
 
-  SplashScreen.hideAsync();
+  SplashScreen.hideAsync()
 
   return (
-    <SafeAreaProvider>
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <Provider>
-          <StatusBar style='light' />
+    <Provider>
+      <StatusBar style="light" />
 
-          <Stack screenOptions={{
-            freezeOnBlur: true,
-            headerShown: false,
-            contentStyle: {
-              backgroundColor: theme.colors.mauve1,
-            }
-          }}
-          />
-        </Provider>
-      </GestureHandlerRootView>
-    </SafeAreaProvider>
+      <AppStack />
+    </Provider>
   )
 }

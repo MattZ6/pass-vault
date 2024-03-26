@@ -2,6 +2,8 @@ import { ConfigContext, ExpoConfig } from 'expo/config'
 
 import { version, name } from './package.json'
 
+const buildNumber = 3
+
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
   name: 'Pass Vault',
@@ -23,6 +25,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   assetBundlePatterns: ['**/*'],
   ios: {
+    bundleIdentifier: 'com.passvault',
+    buildNumber: String(buildNumber),
     supportsTablet: true,
     userInterfaceStyle: 'automatic',
     splash: {
@@ -35,7 +39,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     },
   },
   android: {
-    versionCode: 2,
+    versionCode: buildNumber,
     package: 'com.passvault',
     userInterfaceStyle: 'automatic',
     splash: {

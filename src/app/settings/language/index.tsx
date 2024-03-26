@@ -3,21 +3,21 @@ import { useTranslation } from 'react-i18next'
 import {
   FlatList,
   ListRenderItemInfo,
-  Pressable,
   Text,
   TouchableNativeFeedback,
   View,
 } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { useStyles } from 'react-native-unistyles'
 
 import { useLanguage } from '@/hooks/useLanguage'
+import { useTheme } from '@/hooks/useTheme'
+
+import { Header } from '@/components'
 
 import { stylesheet } from './styles'
 
 export default function LanguagePage() {
-  const { styles, theme } = useStyles(stylesheet)
-  const insets = useSafeAreaInsets()
+  const { theme } = useTheme()
+  const styles = stylesheet(theme)
   const { language, languages, changeLanguage } = useLanguage()
   const { t: languageT } = useTranslation('language')
   const { t } = useTranslation('languages')
@@ -47,22 +47,11 @@ export default function LanguagePage() {
 
   return (
     <View>
-      <View
-        style={[
-          styles.header,
-          { paddingTop: styles.header.padding + insets.top },
-        ]}
-      >
-        <Pressable>
-          <MaterialIcon
-            name="arrow-back"
-            size={24}
-            color={theme.colors.mauve11}
-          />
-        </Pressable>
+      <Header.Root>
+        <Header.BackButton />
 
-        <Text style={styles.title}>{languageT('title')}</Text>
-      </View>
+        <Header.Title>{languageT('title')}</Header.Title>
+      </Header.Root>
 
       <FlatList
         contentContainerStyle={styles.scrollContent}

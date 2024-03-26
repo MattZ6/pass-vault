@@ -1,6 +1,7 @@
-import { useMMKVObject } from 'react-native-mmkv'
+import { useState } from 'react'
+// import { useMMKVObject } from 'react-native-mmkv'
 
-import { globalInstance } from '@/lib/mmkv'
+// import { globalInstance } from '@/lib/mmkv'
 
 type Provider = {
   id: string
@@ -10,5 +11,6 @@ type Provider = {
 }
 
 export function useProviders() {
-  return useMMKVObject<Provider[]>('providers', globalInstance)
+  return useState<Provider[]>([])
+  // return useMMKVObject<Provider[]>('providers', globalInstance)
 }

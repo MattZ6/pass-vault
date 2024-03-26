@@ -4,17 +4,32 @@ import {
   Poppins_400Regular,
   Poppins_700Bold,
 } from '@expo-google-fonts/poppins'
+import * as ExpoNavigationBar from 'expo-navigation-bar'
 import { Stack } from 'expo-router'
 import * as SplashScreen from 'expo-splash-screen'
 import { StatusBar } from 'expo-status-bar'
-import { useStyles } from 'react-native-unistyles'
+import * as ExpoSystemUi from 'expo-system-ui'
+import { useEffect } from 'react'
 
 import { Provider } from '@/contexts/Provider'
+
+import { useTheme } from '@/hooks/useTheme'
 
 SplashScreen.preventAutoHideAsync()
 
 function AppStack() {
-  const { theme } = useStyles()
+  const { theme, resolvedOption } = useTheme()
+
+  useEffect(() => {
+    ExpoNavigationBar.setButtonStyleAsync(resolvedOption)
+  }, [resolvedOption])
+
+  useEffect(() => {
+    ExpoNavigationBar.setPositionAsync('absolute')
+    ExpoNavigationBar.setBackgroundColorAsync('#ffffff00')
+
+    ExpoSystemUi.setBackgroundColorAsync(theme.colors.mauve1)
+  }, [theme.colors.mauve1])
 
   return (
     <Stack
@@ -22,7 +37,7 @@ function AppStack() {
         freezeOnBlur: true,
         headerShown: false,
         contentStyle: {
-          backgroundColor: theme.colors.mauve1,
+          backgroundColor: 'transparent',
         },
       }}
     />

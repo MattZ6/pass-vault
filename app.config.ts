@@ -1,7 +1,5 @@
 import { ConfigContext, ExpoConfig } from 'expo/config'
 
-import { darkTheme, lightTheme } from '@/lib/unistyles/themes'
-
 import { version, name } from './package.json'
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
@@ -13,40 +11,44 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   orientation: 'default',
   icon: './assets/icon.png',
   userInterfaceStyle: 'automatic',
-  backgroundColor: darkTheme.colors.mauve1,
-  primaryColor: darkTheme.colors.mauve12,
+  backgroundColor: '#121214',
+  primaryColor: '#ffffff',
   androidNavigationBar: {
-    backgroundColor: darkTheme.colors.mauve1,
+    backgroundColor: '#121214',
   },
   androidStatusBar: {
     barStyle: 'light-content',
+    translucent: true,
+    backgroundColor: '#00000000',
   },
   assetBundlePatterns: ['**/*'],
   ios: {
     supportsTablet: true,
+    userInterfaceStyle: 'automatic',
     splash: {
       image: './assets/adaptive-icon.png',
       resizeMode: 'contain',
-      backgroundColor: lightTheme.colors.mauve1,
+      backgroundColor: '#ffffff',
       dark: {
-        backgroundColor: darkTheme.colors.mauve1,
+        backgroundColor: '#121214',
       },
     },
   },
   android: {
     versionCode: 2,
     package: 'com.passvault',
+    userInterfaceStyle: 'automatic',
     splash: {
       image: './assets/adaptive-icon.png',
       resizeMode: 'contain',
-      backgroundColor: lightTheme.colors.mauve1,
+      backgroundColor: '#ffffff',
       dark: {
-        backgroundColor: darkTheme.colors.mauve1,
+        backgroundColor: '#121214',
       },
     },
     adaptiveIcon: {
       foregroundImage: './assets/adaptive-icon.png',
-      backgroundColor: darkTheme.colors.mauve1,
+      backgroundColor: '#121214',
     },
   },
   platforms: ['android', 'ios'],

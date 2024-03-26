@@ -7,8 +7,10 @@
   },
   "about": {
     "title": "Sobre",
+    "name": "Nome",
     "version": "Versão",
-    "last-update": "Atualizado em",
+    "installation-date": "Instalado em",
+    "last-update-date": "Atualizado em",
     "changelog": "Novidades"
   }
 }

@@ -1,3 +1,5 @@
+import * as ExpoHaptics from 'expo-haptics'
+import { Link } from 'expo-router'
 import { useCallback } from 'react'
 import {
   View,
@@ -6,23 +8,29 @@ import {
   Button,
   TouchableNativeFeedback,
   ToastAndroid,
+  Pressable,
 } from 'react-native'
 import Animated, {
   FadeInRight,
   FadeOutRight,
   LinearTransition,
 } from 'react-native-reanimated'
-import { useStyles } from 'react-native-unistyles'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { useProviders } from '@/hooks/useProviders'
+import { useTheme } from '@/hooks/useTheme'
 
 import { Header } from '@/components'
+
+import { Icon } from '@/lib/icon'
 
 import { stylesheet } from './styles'
 
 export default function HomePage() {
+  const insets = useSafeAreaInsets()
   const [providers, setProviders] = useProviders()
-  const { styles, theme } = useStyles(stylesheet)
+  const { theme } = useTheme()
+  const styles = stylesheet(theme)
 
   const handleAddProvider = useCallback(() => {
     setProviders([
@@ -43,8 +51,18 @@ export default function HomePage() {
   }, [providers, setProviders])
 
   return (
-    <View style={styles.container}>
-      <Header />
+    <View style={[styles.container, { paddingBottom: insets.bottom }]}>
+      <Header.Root>
+        <Text style={styles.headerTitle}>PassVault</Text>
+
+        <Header.Actions>
+          <Link href="/settings" asChild>
+            <Pressable>
+              <Icon name="settings" size={24} color={theme.colors.mauve11} />
+            </Pressable>
+          </Link>
+        </Header.Actions>
+      </Header.Root>
 
       {!!providers && (
         <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -56,12 +74,14 @@ export default function HomePage() {
               layout={LinearTransition}
             >
               <TouchableNativeFeedback
-                onLongPress={() =>
+                onLongPress={() => {
+                  ExpoHaptics.impactAsync(ExpoHaptics.ImpactFeedbackStyle.Heavy)
                   ToastAndroid.show('Abrir bottom sheet', ToastAndroid.SHORT)
-                }
-                onPress={() =>
+                }}
+                onPress={() => {
+                  ExpoHaptics.impactAsync(ExpoHaptics.ImpactFeedbackStyle.Light)
                   ToastAndroid.show('Abrir página', ToastAndroid.SHORT)
-                }
+                }}
                 background={TouchableNativeFeedback.Ripple(
                   theme.colors.mauve5,
                   false,

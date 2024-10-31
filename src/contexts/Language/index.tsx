@@ -3,6 +3,9 @@ import i18next from 'i18next'
 import { createContext, useCallback, useEffect, useMemo, useState } from 'react'
 import { initReactI18next, useTranslation } from 'react-i18next'
 
+import { Application } from '@/lib/application'
+import { MMKVStorage } from '@/lib/mmkv'
+
 import { locales as resources } from '../../locales'
 import {
   LanguageContextTypes as ContextTypes,
@@ -21,6 +24,13 @@ const LanguageContext = createContext({} as ContextTypes.Context)
 
 const LANGUAGE_OPTIONS: ContextTypes.Language[] = ['en', 'pt']
 
+const LANGUAGE_KEY = 'theme'
+let storage: MMKVStorage | null = null
+
+if (!Application.isRunningInExpo) {
+  storage = new MMKVStorage()
+}
+
 function LanguageProvider(props: ProviderTypes.Props) {
   const [initialized, setInitialized] = useState(false)
   const { i18n } = useTranslation(undefined, { i18n: i18next })
@@ -30,14 +40,26 @@ function LanguageProvider(props: ProviderTypes.Props) {
   // TODO: (Android) On app state changes, set locale
 
   const changeLanguage = useCallback((language: ContextTypes.Language) => {
+    if (storage) {
+      storage.store({ key: LANGUAGE_KEY, payload: String(language) })
+    }
+
     i18next.changeLanguage(language)
-    // TODO: Save language on local storage (mmkv)
   }, [])
 
   useEffect(() => {
-    // TODO: Read previous saved language from local storage (mmkv)
+    let languageToSelect = deviceLocale.languageCode as ContextTypes.Language
 
-    i18next.changeLanguage(deviceLocale.languageCode as ContextTypes.Language)
+    if (storage) {
+      const storedLanguage =
+        storage.retrieve<ContextTypes.Language>(LANGUAGE_KEY)
+
+      if (storedLanguage) {
+        languageToSelect = storedLanguage
+      }
+    }
+
+    i18next.changeLanguage(languageToSelect)
 
     setInitialized(true)
   }, [])

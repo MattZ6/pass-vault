@@ -10,7 +10,8 @@
     "name": "Name",
     "version": "Version",
     "installation-date": "Installed at",
-    "last-update-date": "Updated em",
-    "changelog": "Changelog"
+    "last-update-date": "Updated at",
+    "changelog": "Changelog",
+    "licenses": "Licenses"
   }
 }

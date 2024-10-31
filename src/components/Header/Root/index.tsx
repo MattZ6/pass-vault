@@ -28,7 +28,7 @@ export function HeaderRoot(props: HeaderRootProps) {
         {...props}
         style={[
           styles.header,
-          { paddingTop: styles.header.padding + insets.top },
+          { paddingTop: styles.header.paddingVertical + insets.top },
         ]}
       />
     </>

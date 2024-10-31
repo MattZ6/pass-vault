@@ -10,6 +10,7 @@ import * as SplashScreen from 'expo-splash-screen'
 import { StatusBar } from 'expo-status-bar'
 import * as ExpoSystemUi from 'expo-system-ui'
 import { useEffect } from 'react'
+import { Platform } from 'react-native'
 
 import { Provider } from '@/contexts/Provider'
 
@@ -21,14 +22,19 @@ function AppStack() {
   const { theme, resolvedOption } = useTheme()
 
   useEffect(() => {
-    ExpoNavigationBar.setButtonStyleAsync(resolvedOption)
+    console.log(Platform.OS)
+
+    if (Platform.OS === 'android') {
+      ExpoNavigationBar.setButtonStyleAsync(resolvedOption)
+    }
   }, [resolvedOption])
 
   useEffect(() => {
-    ExpoNavigationBar.setPositionAsync('absolute')
-    ExpoNavigationBar.setBackgroundColorAsync('#ffffff00')
-
-    ExpoSystemUi.setBackgroundColorAsync(theme.colors.mauve1)
+    if (Platform.OS === 'android') {
+      ExpoNavigationBar.setPositionAsync('absolute')
+      ExpoNavigationBar.setBackgroundColorAsync('#ffffff00')
+      ExpoSystemUi.setBackgroundColorAsync(theme.colors.mauve1)
+    }
   }, [theme.colors.mauve1])
 
   return (

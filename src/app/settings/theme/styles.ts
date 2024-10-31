@@ -4,6 +4,10 @@ import { Theme } from '@/styles/themes/types'
 
 export function stylesheet(theme: Theme) {
   return StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: theme.colors.mauve1,
+    },
     header: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -22,7 +26,8 @@ export function stylesheet(theme: Theme) {
       color: theme.colors.mauve12,
     },
     scrollContent: {
-      paddingVertical: 24,
+      paddingTop: 8,
+      paddingBottom: 24,
     },
     divider: {
       height: 1,
@@ -32,6 +37,7 @@ export function stylesheet(theme: Theme) {
       flexDirection: 'row',
       gap: 16,
 
+      minHeight: 56,
       paddingVertical: 16,
       paddingHorizontal: 16,
     },

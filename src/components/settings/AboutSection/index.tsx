@@ -8,6 +8,7 @@ import {
   ChangelogItem,
   InstallationDateItem,
   LastUpdateDateItem,
+  LicensesItem,
   NameItem,
   VersionItem,
 } from './components'
@@ -62,6 +63,10 @@ export function AboutSection() {
         <Section.Divider />
 
         <ChangelogItem label={t('changelog')} />
+
+        <Section.Divider />
+
+        <LicensesItem label={t('licenses')} />
       </Section.Content>
     </Section.Root>
   )

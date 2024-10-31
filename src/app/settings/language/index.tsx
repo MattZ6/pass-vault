@@ -46,7 +46,7 @@ export default function LanguagePage() {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <Header.Root>
         <Header.BackButton />
 

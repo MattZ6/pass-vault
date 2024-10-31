@@ -13,6 +13,10 @@ export function stylesheet(theme: Theme) {
       backgroundColor: theme.colors.mauve2,
 
       overflow: 'hidden',
+
+      borderWidth: 1,
+      borderStyle: 'solid',
+      borderColor: theme.colors.mauve4,
     },
   })
 }

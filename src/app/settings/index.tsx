@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { ScrollView, View } from 'react-native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { useTheme } from '@/hooks/useTheme'
 
@@ -10,6 +11,7 @@ import { AboutSection } from '@/components/settings/AboutSection'
 import { stylesheet } from './styles'
 
 export default function SettingsPage() {
+  const insets = useSafeAreaInsets()
   const { theme } = useTheme()
   const styles = stylesheet(theme)
   const { t } = useTranslation('settings')
@@ -22,7 +24,12 @@ export default function SettingsPage() {
         <Header.Title>{t('title')}</Header.Title>
       </Header.Root>
 
-      <ScrollView contentContainerStyle={styles.scrollContent}>
+      <ScrollView
+        contentContainerStyle={[
+          styles.scrollContent,
+          { paddingLeft: insets.left, paddingRight: insets.right },
+        ]}
+      >
         <AppSection />
 
         <AboutSection />

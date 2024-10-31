@@ -2,7 +2,7 @@ import { ConfigContext, ExpoConfig } from 'expo/config'
 
 import { version, name } from './package.json'
 
-const buildNumber = 3
+const buildNumber = 4
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,

@@ -24,7 +24,7 @@ const LanguageContext = createContext({} as ContextTypes.Context)
 
 const LANGUAGE_OPTIONS: ContextTypes.Language[] = ['en', 'pt']
 
-const LANGUAGE_KEY = 'theme'
+const LANGUAGE_KEY = 'language'
 let storage: MMKVStorage | null = null
 
 if (!Application.isRunningInExpo) {

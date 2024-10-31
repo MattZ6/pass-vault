@@ -1,16 +1,7 @@
 import * as ExpoHaptics from 'expo-haptics'
 import { Link } from 'expo-router'
 import { useCallback } from 'react'
-import {
-  View,
-  Text,
-  ScrollView,
-  Button,
-  TouchableNativeFeedback,
-  ToastAndroid,
-  Pressable,
-  Platform,
-} from 'react-native'
+import { ScrollView, Button, ToastAndroid, Platform } from 'react-native'
 import Animated, {
   FadeInRight,
   FadeOutRight,
@@ -22,8 +13,11 @@ import { useProviders } from '@/hooks/useProviders'
 import { useTheme } from '@/hooks/useTheme'
 
 import { Header } from '@/components'
+import { TouchableScale } from '@/components/TouchableScale'
 
-import { Icon } from '@/lib/icon'
+import { Icon } from '@/lib/Icon'
+import { Text } from '@/lib/Text'
+import { View } from '@/lib/View'
 
 import { stylesheet } from './styles'
 
@@ -58,9 +52,9 @@ export default function HomePage() {
 
         <Header.Actions>
           <Link href="/settings" asChild>
-            <Pressable>
+            <TouchableScale>
               <Icon name="settings" size={24} color={theme.colors.mauve11} />
-            </Pressable>
+            </TouchableScale>
           </Link>
         </Header.Actions>
       </Header.Root>
@@ -74,7 +68,7 @@ export default function HomePage() {
               exiting={FadeOutRight}
               layout={LinearTransition}
             >
-              <TouchableNativeFeedback
+              <TouchableScale
                 onLongPress={() => {
                   ExpoHaptics.impactAsync(ExpoHaptics.ImpactFeedbackStyle.Heavy)
 
@@ -88,10 +82,6 @@ export default function HomePage() {
                     ToastAndroid.show('Abrir página', ToastAndroid.SHORT)
                   }
                 }}
-                background={TouchableNativeFeedback.Ripple(
-                  theme.colors.mauve5,
-                  false,
-                )}
               >
                 <View style={styles.provider}>
                   <View style={styles.providerIconContainer} />
@@ -101,7 +91,7 @@ export default function HomePage() {
                     <Text style={styles.value}>{provider.account}</Text>
                   </View>
                 </View>
-              </TouchableNativeFeedback>
+              </TouchableScale>
             </Animated.View>
           ))}
         </ScrollView>

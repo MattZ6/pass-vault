@@ -1,17 +1,15 @@
 import MaterialIcon from '@expo/vector-icons/MaterialIcons'
 import { useTranslation } from 'react-i18next'
-import {
-  FlatList,
-  ListRenderItemInfo,
-  Text,
-  TouchableNativeFeedback,
-  View,
-} from 'react-native'
+import { FlatList, ListRenderItemInfo } from 'react-native'
 
 import { useLanguage } from '@/hooks/useLanguage'
 import { useTheme } from '@/hooks/useTheme'
 
 import { Header } from '@/components'
+import { TouchableScale } from '@/components/TouchableScale'
+
+import { Text } from '@/lib/Text'
+import { View } from '@/lib/View'
 
 import { stylesheet } from './styles'
 
@@ -27,10 +25,7 @@ export default function LanguagePage() {
     const isSelected = language === item
 
     return (
-      <TouchableNativeFeedback
-        background={TouchableNativeFeedback.Ripple(theme.colors.mauve5, false)}
-        onPress={() => changeLanguage(item)}
-      >
+      <TouchableScale onPress={() => changeLanguage(item)}>
         <View style={styles.button}>
           <View style={styles.buttonContent}>
             <Text style={styles.buttonLabel}>{t(`${item}.title`)}</Text>
@@ -41,7 +36,7 @@ export default function LanguagePage() {
             <MaterialIcon name="check" size={24} color={theme.colors.mauve12} />
           )}
         </View>
-      </TouchableNativeFeedback>
+      </TouchableScale>
     )
   }
 

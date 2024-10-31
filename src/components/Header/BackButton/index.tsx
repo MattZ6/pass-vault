@@ -1,11 +1,13 @@
 import * as Haptics from 'expo-haptics'
 import { router } from 'expo-router'
 import { useCallback } from 'react'
-import { InteractionManager, TouchableNativeFeedback } from 'react-native'
+import { InteractionManager } from 'react-native'
 
 import { useTheme } from '@/hooks/useTheme'
 
-import { Icon } from '@/lib/icon'
+import { TouchableScale } from '@/components/TouchableScale'
+
+import { Icon } from '@/lib/Icon'
 import { View } from '@/lib/View'
 
 import { stylesheet } from './styles'
@@ -30,14 +32,11 @@ export function HeaderBackButton() {
 
   return (
     <View style={styles.wrapper}>
-      <TouchableNativeFeedback
-        background={TouchableNativeFeedback.Ripple(theme.colors.mauve5, true)}
-        onPress={handleBack}
-      >
+      <TouchableScale onPress={handleBack}>
         <View style={styles.content}>
           <Icon name="arrow-back" size={24} color={theme.colors.mauve11} />
         </View>
-      </TouchableNativeFeedback>
+      </TouchableScale>
     </View>
   )
 }

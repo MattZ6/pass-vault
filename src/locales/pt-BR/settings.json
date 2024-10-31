@@ -11,6 +11,7 @@
     "version": "Versão",
     "installation-date": "Instalado em",
     "last-update-date": "Atualizado em",
-    "changelog": "Novidades"
+    "changelog": "Novidades",
+    "licenses": "Licenças"
   }
 }

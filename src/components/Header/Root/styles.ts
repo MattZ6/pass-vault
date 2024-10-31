@@ -9,7 +9,8 @@ export function stylesheet(theme: Theme) {
       alignItems: 'center',
       gap: 8,
 
-      padding: 16,
+      paddingVertical: 8,
+      paddingHorizontal: 16,
 
       borderBottomWidth: 1,
       borderBottomColor: theme.colors.mauve4,

@@ -6,6 +6,7 @@ export function stylesheet(theme: Theme) {
   return StyleSheet.create({
     container: {
       flex: 1,
+      backgroundColor: theme.colors.mauve1,
     },
     scrollContainer: {},
     headerTitle: {

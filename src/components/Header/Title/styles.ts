@@ -6,7 +6,7 @@ export function stylesheet(theme: Theme) {
   return StyleSheet.create({
     title: {
       fontFamily: theme.fonts.family.medium,
-      fontSize: theme.fonts.size.heading.lg,
+      fontSize: theme.fonts.size.heading.md,
       color: theme.colors.mauve12,
     },
   })

@@ -21,7 +21,6 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   androidStatusBar: {
     barStyle: 'light-content',
     translucent: true,
-    backgroundColor: '#00000000',
   },
   assetBundlePatterns: ['**/*'],
   ios: {

@@ -9,6 +9,7 @@ import {
   TouchableNativeFeedback,
   ToastAndroid,
   Pressable,
+  Platform,
 } from 'react-native'
 import Animated, {
   FadeInRight,
@@ -76,11 +77,16 @@ export default function HomePage() {
               <TouchableNativeFeedback
                 onLongPress={() => {
                   ExpoHaptics.impactAsync(ExpoHaptics.ImpactFeedbackStyle.Heavy)
-                  ToastAndroid.show('Abrir bottom sheet', ToastAndroid.SHORT)
+
+                  if (Platform.OS === 'android') {
+                    ToastAndroid.show('Abrir bottom sheet', ToastAndroid.SHORT)
+                  }
                 }}
                 onPress={() => {
                   ExpoHaptics.impactAsync(ExpoHaptics.ImpactFeedbackStyle.Light)
-                  ToastAndroid.show('Abrir página', ToastAndroid.SHORT)
+                  if (Platform.OS === 'android') {
+                    ToastAndroid.show('Abrir página', ToastAndroid.SHORT)
+                  }
                 }}
                 background={TouchableNativeFeedback.Ripple(
                   theme.colors.mauve5,

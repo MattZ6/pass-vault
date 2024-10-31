@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import {
   FlatList,
   ListRenderItemInfo,
@@ -17,6 +18,7 @@ import { stylesheet } from './styles'
 export default function ThemePage() {
   const { option, options, changeTheme, theme } = useTheme()
   const styles = stylesheet(theme)
+  const { t } = useTranslation('theme')
 
   function renderItem({ item }: ListRenderItemInfo<typeof option>) {
     const isSelected = item === option
@@ -28,7 +30,7 @@ export default function ThemePage() {
       >
         <View style={styles.button}>
           <View style={styles.buttonContent}>
-            <Text style={styles.buttonLabel}>{item}</Text>
+            <Text style={styles.buttonLabel}>{t(`options.${item}`)}</Text>
           </View>
 
           {isSelected && (
@@ -40,17 +42,18 @@ export default function ThemePage() {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <Header.Root>
         <Header.BackButton />
 
-        <Header.Title>Theme</Header.Title>
+        <Header.Title>{t('title')}</Header.Title>
       </Header.Root>
 
       <FlatList
         data={options}
         keyExtractor={(item) => String(item)}
         renderItem={renderItem}
+        contentContainerStyle={styles.scrollContent}
       />
     </View>
   )

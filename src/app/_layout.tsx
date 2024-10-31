@@ -22,8 +22,6 @@ function AppStack() {
   const { theme, resolvedOption } = useTheme()
 
   useEffect(() => {
-    console.log(Platform.OS)
-
     if (Platform.OS === 'android') {
       ExpoNavigationBar.setButtonStyleAsync(resolvedOption)
     }

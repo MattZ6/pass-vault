@@ -1,4 +1,5 @@
 import * as ExpoApplication from 'expo-application'
+import ExpoConstants, { AppOwnership } from 'expo-constants'
 import { Platform } from 'react-native'
 
 export const Application = {
@@ -6,6 +7,7 @@ export const Application = {
   version: ExpoApplication.nativeApplicationVersion,
   buildNumber: ExpoApplication.nativeBuildVersion,
   package: ExpoApplication.applicationId,
+  isRunningInExpo: ExpoConstants.appOwnership === AppOwnership.Expo,
   dates: async () => {
     const promises = [ExpoApplication.getInstallationTimeAsync()]
 

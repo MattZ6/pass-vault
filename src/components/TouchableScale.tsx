@@ -1,115 +1,47 @@
-// import React, { useMemo } from 'react'
-// import type { ViewProps } from 'react-native'
-// import {
-//   TapGestureHandler,
-//   TapGestureHandlerGestureEvent,
-// } from 'react-native-gesture-handler'
-// import Reanimated, {
-//   cancelAnimation,
-//   runOnJS,
-//   withDelay,
-//   useAnimatedGestureHandler,
-//   useAnimatedStyle,
-//   useSharedValue,
-//   withSpring,
-//   WithSpringConfig,
-// } from 'react-native-reanimated'
+import React, { forwardRef, ReactNode, useCallback, useRef } from 'react'
+import { Animated, Pressable, PressableProps, View } from 'react-native'
 
-// export const PRESSABLE_IN_LIST_DELAY = 50 // react-native uses 130ms for this
+type Props = Omit<PressableProps, 'style' | 'onPressIn' | 'onPressOut'> & {
+  children: ReactNode
+}
 
-// export interface NativePressableScaleProps
-//   extends ViewProps,
-//     Partial<Omit<WithSpringConfig, 'mass'>> {}
+export const TouchableScale = forwardRef<View, Props>(
+  ({ children, ...props }, ref) => {
+    const scale = useRef(new Animated.Value(1)).current
+    const opacity = scale.interpolate({
+      inputRange: [0.96, 1],
+      outputRange: [0.4, 1],
+    })
 
-// /**
-//  * A Pressable that scales down when pressed. Uses the native responder system from react-native-gesture-handler instead of the JS Pressability API.
-//  */
-// export function NativePressableScale(
-//   props: NativePressableScaleProps,
-// ): React.ReactElement {
-//   const {
-//     activeScale = 0.95,
-//     isInList,
-//     damping = 15,
-//     weight = 'heavy',
-//     stiffness = 150,
-//     overshootClamping = true,
-//     restSpeedThreshold = 0.001,
-//     restDisplacementThreshold = 0.001,
-//     disabled = false,
-//     ref,
-//     style,
-//     onPress,
-//     ...passThroughProps
-//   } = props
+    const handlePressIn = useCallback(() => {
+      Animated.spring(scale, {
+        toValue: 0.96,
+        friction: 4,
+        useNativeDriver: true,
+      }).start()
+    }, [scale])
 
-//   const mass = useMemo(() => {
-//     switch (weight) {
-//       case 'light':
-//         return 0.15
-//       case 'medium':
-//         return 0.2
-//       case 'heavy':
-//       default:
-//         return 0.3
-//     }
-//   }, [weight])
+    const handlePressOut = useCallback(() => {
+      Animated.spring(scale, {
+        toValue: 1,
+        friction: 4,
+        useNativeDriver: true,
+      }).start()
+    }, [scale])
 
-//   const scale = useSharedValue(1)
-//   const springConfig = useMemo<WithSpringConfig>(
-//     () => ({
-//       damping,
-//       mass,
-//       stiffness,
-//       overshootClamping,
-//       restSpeedThreshold,
-//       restDisplacementThreshold,
-//     }),
-//     [
-//       damping,
-//       mass,
-//       overshootClamping,
-//       restDisplacementThreshold,
-//       restSpeedThreshold,
-//       stiffness,
-//     ],
-//   )
-//   const animatedStyle = useAnimatedStyle(
-//     () => ({ transform: [{ scale: scale.value }] }),
-//     [scale],
-//   )
+    return (
+      <Pressable
+        ref={ref}
+        {...props}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
+      >
+        <Animated.View style={{ opacity, transform: [{ scale }] }}>
+          {children}
+        </Animated.View>
+      </Pressable>
+    )
+  },
+)
 
-//   const onGestureEvent =
-//     useAnimatedGestureHandler<TapGestureHandlerGestureEvent>(
-//       {
-//         onStart: () => {
-//           cancelAnimation(scale)
-//           scale.value = isInList
-//             ? withDelay(
-//                 PRESSABLE_IN_LIST_DELAY,
-//                 withSpring(activeScale, springConfig),
-//               )
-//             : withSpring(activeScale, springConfig)
-//         },
-//         onEnd: () => {
-//           runOnJS(onPress)()
-//         },
-//         onFinish: () => {
-//           cancelAnimation(scale)
-//           scale.value = withSpring(1, springConfig)
-//         },
-//       },
-//       [scale, isInList, activeScale, springConfig, onPress],
-//     )
-
-//   return (
-//     <TapGestureHandler
-//       ref={ref}
-//       onGestureEvent={onGestureEvent}
-//       enabled={!disabled}
-//       shouldCancelWhenOutside={true}
-//     >
-//       <Reanimated.View style={[style, animatedStyle]} {...passThroughProps} />
-//     </TapGestureHandler>
-//   )
-// }
+TouchableScale.displayName = 'TouchableScale'

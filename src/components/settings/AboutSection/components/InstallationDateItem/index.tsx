@@ -5,7 +5,7 @@ import { DateUtils } from '@/utils/Date'
 
 import { SectionItem } from '@/components/Section/Item'
 
-import { Icon } from '@/lib/icon'
+import { Icon } from '@/lib/Icon'
 
 type Props = {
   label: string

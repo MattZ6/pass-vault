@@ -1,12 +1,12 @@
 import * as ExpoHaptics from 'expo-haptics'
 import { useCallback } from 'react'
-import { TouchableNativeFeedback } from 'react-native'
 
 import { useTheme } from '@/hooks/useTheme'
 
 import { SectionItem } from '@/components/Section/Item'
+import { TouchableScale } from '@/components/TouchableScale'
 
-import { Icon } from '@/lib/icon'
+import { Icon } from '@/lib/Icon'
 
 type Props = {
   label: string
@@ -20,10 +20,7 @@ export function ChangelogItem({ label }: Props) {
   }, [])
 
   return (
-    <TouchableNativeFeedback
-      background={TouchableNativeFeedback.Ripple(theme.colors.mauve5, false)}
-      onPress={handleClick}
-    >
+    <TouchableScale onPress={handleClick}>
       <SectionItem.Root>
         <Icon name="history-edu" size={24} color={theme.colors.mauve11} />
 
@@ -31,6 +28,6 @@ export function ChangelogItem({ label }: Props) {
 
         <Icon name="chevron-right" size={24} color={theme.colors.mauve11} />
       </SectionItem.Root>
-    </TouchableNativeFeedback>
+    </TouchableScale>
   )
 }

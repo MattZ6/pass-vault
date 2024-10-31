@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { ScrollView, View } from 'react-native'
+import { ScrollView } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { useTheme } from '@/hooks/useTheme'
@@ -7,6 +7,8 @@ import { useTheme } from '@/hooks/useTheme'
 import { Header } from '@/components'
 import { AppSection } from '@/components/settings'
 import { AboutSection } from '@/components/settings/AboutSection'
+
+import { View } from '@/lib/View'
 
 import { stylesheet } from './styles'
 

@@ -1,11 +1,14 @@
 import React, { forwardRef, ReactNode, useCallback, useRef } from 'react'
 import { Animated, Pressable, PressableProps, View } from 'react-native'
 
-type Props = Omit<PressableProps, 'style' | 'onPressIn' | 'onPressOut'> & {
+export type TouchableScaleProps = Omit<
+  PressableProps,
+  'style' | 'onPressIn' | 'onPressOut'
+> & {
   children: ReactNode
 }
 
-export const TouchableScale = forwardRef<View, Props>(
+export const TouchableScale = forwardRef<View, TouchableScaleProps>(
   ({ children, ...props }, ref) => {
     const scale = useRef(new Animated.Value(1)).current
     const opacity = scale.interpolate({

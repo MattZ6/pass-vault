@@ -13,6 +13,7 @@ import { useProviders } from '@/hooks/useProviders'
 import { useTheme } from '@/hooks/useTheme'
 
 import { Header } from '@/components'
+import { IconButton } from '@/components/IconButton'
 import { TouchableScale } from '@/components/TouchableScale'
 
 import { Icon } from '@/lib/Icon'
@@ -52,9 +53,9 @@ export default function HomePage() {
 
         <Header.Actions>
           <Link href="/settings" asChild>
-            <TouchableScale>
+            <IconButton>
               <Icon name="settings" size={24} color={theme.colors.mauve11} />
-            </TouchableScale>
+            </IconButton>
           </Link>
         </Header.Actions>
       </Header.Root>

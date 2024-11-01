@@ -10,6 +10,7 @@ export function stylesheet(_: Theme) {
       gap: 8,
 
       marginLeft: 'auto',
+      marginRight: -10,
     },
   })
 }

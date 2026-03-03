@@ -1,16 +1,16 @@
-import { useTheme } from '@/hooks/useTheme'
+import { useTheme } from "@/hooks/useTheme";
 
-import { Text } from '@/lib/Text'
+import { Text } from "@/lib/Text";
 
-import { SectionItemValueStyles as Styles } from './styles'
+import { SectionItemValueStyles as Styles } from "./styles";
 
 export type SectionItemValueProps = {
-  children: string
-}
+	children: string;
+};
 
 export function SectionItemValue(props: SectionItemValueProps) {
-  const { theme } = useTheme()
-  const styles = Styles.stylesheet(theme)
+	const { theme } = useTheme();
+	const styles = Styles.stylesheet(theme);
 
-  return <Text {...props} style={styles.value} />
+	return <Text {...props} style={styles.value} />;
 }

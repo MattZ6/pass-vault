@@ -1,5 +1,5 @@
-import { colors } from './colors/light'
-import { fonts } from './fonts'
-import { radii } from './radii'
+import { colors } from "./colors/light";
+import { fonts } from "./fonts";
+import { radii } from "./radii";
 
-export const lightTheme = { fonts, radii, colors }
+export const lightTheme = { fonts, radii, colors };

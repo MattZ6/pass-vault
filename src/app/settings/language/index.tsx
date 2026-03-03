@@ -1,59 +1,59 @@
-import MaterialIcon from '@expo/vector-icons/MaterialIcons'
-import { useTranslation } from 'react-i18next'
-import { FlatList, ListRenderItemInfo } from 'react-native'
+import MaterialIcon from "@expo/vector-icons/MaterialIcons";
+import { useTranslation } from "react-i18next";
+import { FlatList, type ListRenderItemInfo } from "react-native";
 
-import { useLanguage } from '@/hooks/useLanguage'
-import { useTheme } from '@/hooks/useTheme'
+import { Header } from "@/components/Header";
+import { TouchableScale } from "@/components/TouchableScale";
 
-import { Header } from '@/components'
-import { TouchableScale } from '@/components/TouchableScale'
+import { useLanguage } from "@/hooks/useLanguage";
+import { useTheme } from "@/hooks/useTheme";
 
-import { Text } from '@/lib/Text'
-import { View } from '@/lib/View'
+import { Text } from "@/lib/Text";
+import { View } from "@/lib/View";
 
-import { stylesheet } from './styles'
+import { stylesheet } from "./styles";
 
 export default function LanguagePage() {
-  const { theme } = useTheme()
-  const styles = stylesheet(theme)
-  const { language, languages, changeLanguage } = useLanguage()
-  const { t: languageT } = useTranslation('language')
-  const { t } = useTranslation('languages')
+	const { theme } = useTheme();
+	const styles = stylesheet(theme);
+	const { language, languages, changeLanguage } = useLanguage();
+	const { t: languageT } = useTranslation("language");
+	const { t } = useTranslation("languages");
 
-  function renderItem({ item }: ListRenderItemInfo<typeof language>) {
-    const label = t(`${item}.label`)
-    const isSelected = language === item
+	function renderItem({ item }: ListRenderItemInfo<typeof language>) {
+		const label = t(`${item}.label`);
+		const isSelected = language === item;
 
-    return (
-      <TouchableScale onPress={() => changeLanguage(item)}>
-        <View style={styles.button}>
-          <View style={styles.buttonContent}>
-            <Text style={styles.buttonLabel}>{t(`${item}.title`)}</Text>
-            {label && <Text style={styles.buttonValue}>{label}</Text>}
-          </View>
+		return (
+			<TouchableScale onPress={() => changeLanguage(item)}>
+				<View style={styles.button}>
+					<View style={styles.buttonContent}>
+						<Text style={styles.buttonLabel}>{t(`${item}.title`)}</Text>
+						{label && <Text style={styles.buttonValue}>{label}</Text>}
+					</View>
 
-          {isSelected && (
-            <MaterialIcon name="check" size={24} color={theme.colors.mauve12} />
-          )}
-        </View>
-      </TouchableScale>
-    )
-  }
+					{isSelected && (
+						<MaterialIcon name="check" size={24} color={theme.colors.mauve12} />
+					)}
+				</View>
+			</TouchableScale>
+		);
+	}
 
-  return (
-    <View style={styles.container}>
-      <Header.Root>
-        <Header.BackButton />
+	return (
+		<View style={styles.container}>
+			<Header.Root>
+				<Header.BackButton />
 
-        <Header.Title>{languageT('title')}</Header.Title>
-      </Header.Root>
+				<Header.Title>{languageT("title")}</Header.Title>
+			</Header.Root>
 
-      <FlatList
-        contentContainerStyle={styles.scrollContent}
-        data={languages}
-        keyExtractor={(item) => item}
-        renderItem={renderItem}
-      />
-    </View>
-  )
+			<FlatList
+				contentContainerStyle={styles.scrollContent}
+				data={languages}
+				keyExtractor={(item) => item}
+				renderItem={renderItem}
+			/>
+		</View>
+	);
 }

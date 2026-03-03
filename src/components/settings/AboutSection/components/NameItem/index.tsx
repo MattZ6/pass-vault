@@ -1,24 +1,24 @@
-import { useTheme } from '@/hooks/useTheme'
+import { SectionItem } from "@/components/Section/Item";
 
-import { SectionItem } from '@/components/Section/Item'
+import { useTheme } from "@/hooks/useTheme";
 
-import { Icon } from '@/lib/Icon'
+import { Icon } from "@/lib/Icon";
 
 type Props = {
-  label: string
-  name: string
-}
+	label: string;
+	name: string;
+};
 
 export function NameItem({ label, name }: Props) {
-  const { theme } = useTheme()
+	const { theme } = useTheme();
 
-  return (
-    <SectionItem.Root>
-      <Icon name="explore" size={24} color={theme.colors.mauve11} />
+	return (
+		<SectionItem.Root>
+			<Icon name="explore" size={24} color={theme.colors.mauve11} />
 
-      <SectionItem.Label>{label}</SectionItem.Label>
+			<SectionItem.Label>{label}</SectionItem.Label>
 
-      <SectionItem.Value>{name}</SectionItem.Value>
-    </SectionItem.Root>
-  )
+			<SectionItem.Value>{name}</SectionItem.Value>
+		</SectionItem.Root>
+	);
 }

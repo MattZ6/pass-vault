@@ -1,32 +1,32 @@
-import { forwardRef } from 'react'
-import { View } from 'react-native'
-
-import { useTheme } from '@/hooks/useTheme'
+import { forwardRef } from "react";
+import type { View } from "react-native";
 
 import {
-  TouchableScale,
-  TouchableScaleProps,
-} from '@/components/TouchableScale'
+	TouchableScale,
+	type TouchableScaleProps,
+} from "@/components/TouchableScale";
 
-import { View as PerformantView } from '@/lib/View'
+import { useTheme } from "@/hooks/useTheme";
 
-import { stylesheet } from './styles'
+import { View as PerformantView } from "@/lib/View";
 
-type Props = TouchableScaleProps
+import { stylesheet } from "./styles";
+
+type Props = TouchableScaleProps;
 
 export const IconButton = forwardRef<View, Props>(
-  ({ children, ...props }, ref) => {
-    const { theme } = useTheme()
-    const styles = stylesheet(theme)
+	({ children, ...props }, ref) => {
+		const { theme } = useTheme();
+		const styles = stylesheet(theme);
 
-    return (
-      <PerformantView style={styles.wrapper}>
-        <TouchableScale ref={ref} {...props}>
-          <PerformantView style={styles.content}>{children}</PerformantView>
-        </TouchableScale>
-      </PerformantView>
-    )
-  },
-)
+		return (
+			<PerformantView style={styles.wrapper}>
+				<TouchableScale ref={ref} {...props}>
+					<PerformantView style={styles.content}>{children}</PerformantView>
+				</TouchableScale>
+			</PerformantView>
+		);
+	},
+);
 
-IconButton.displayName = 'IconButton'
+IconButton.displayName = "IconButton";

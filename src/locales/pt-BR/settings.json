@@ -1,17 +1,17 @@
 {
-  "title": "Configurações",
-  "app": {
-    "title": "Aplicativo",
-    "theme": "Tema",
-    "language": "Idioma"
-  },
-  "about": {
-    "title": "Sobre",
-    "name": "Nome",
-    "version": "Versão",
-    "installation-date": "Instalado em",
-    "last-update-date": "Atualizado em",
-    "changelog": "Novidades",
-    "licenses": "Licenças"
-  }
+	"title": "Configurações",
+	"app": {
+		"title": "Aplicativo",
+		"theme": "Tema",
+		"language": "Idioma"
+	},
+	"about": {
+		"title": "Sobre",
+		"name": "Nome",
+		"version": "Versão",
+		"installation-date": "Instalado em",
+		"last-update-date": "Atualizado em",
+		"changelog": "Novidades",
+		"licenses": "Licenças"
+	}
 }

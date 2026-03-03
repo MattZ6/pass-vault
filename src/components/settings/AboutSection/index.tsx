@@ -1,73 +1,73 @@
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from "react-i18next";
 
-import { useApplication } from '@/hooks/useApplication'
+import { Section } from "@/components/Section";
 
-import { Section } from '@/components/Section'
+import { useApplication } from "@/hooks/useApplication";
 
 import {
-  ChangelogItem,
-  InstallationDateItem,
-  LastUpdateDateItem,
-  LicensesItem,
-  NameItem,
-  VersionItem,
-} from './components'
+	ChangelogItem,
+	InstallationDateItem,
+	LastUpdateDateItem,
+	LicensesItem,
+	NameItem,
+	VersionItem,
+} from "./components";
 
 export function AboutSection() {
-  const { t } = useTranslation('settings', { keyPrefix: 'about' })
-  const { data: application } = useApplication()
+	const { t } = useTranslation("settings", { keyPrefix: "about" });
+	const { data: application } = useApplication();
 
-  if (!application) {
-    return null
-  }
+	if (!application) {
+		return null;
+	}
 
-  return (
-    <Section.Root>
-      <Section.Header>
-        <Section.Title>{t('title')}</Section.Title>
-      </Section.Header>
+	return (
+		<Section.Root>
+			<Section.Header>
+				<Section.Title>{t("title")}</Section.Title>
+			</Section.Header>
 
-      <Section.Content>
-        <NameItem label={t('name')} name={application.name} />
+			<Section.Content>
+				<NameItem label={t("name")} name={application.name} />
 
-        <Section.Divider />
+				<Section.Divider />
 
-        <VersionItem
-          label={t('version')}
-          version={application.version}
-          buildNumber={application.buildNumber}
-        />
+				<VersionItem
+					label={t("version")}
+					version={application.version}
+					buildNumber={application.buildNumber}
+				/>
 
-        {!!application?.installDate && (
-          <>
-            <Section.Divider />
+				{!!application?.installDate && (
+					<>
+						<Section.Divider />
 
-            <InstallationDateItem
-              label={t('installation-date')}
-              date={application.installDate}
-            />
-          </>
-        )}
+						<InstallationDateItem
+							label={t("installation-date")}
+							date={application.installDate}
+						/>
+					</>
+				)}
 
-        {application?.lastUpdateDate && (
-          <>
-            <Section.Divider />
+				{application?.lastUpdateDate && (
+					<>
+						<Section.Divider />
 
-            <LastUpdateDateItem
-              label={t('last-update-date')}
-              date={application.lastUpdateDate}
-            />
-          </>
-        )}
+						<LastUpdateDateItem
+							label={t("last-update-date")}
+							date={application.lastUpdateDate}
+						/>
+					</>
+				)}
 
-        <Section.Divider />
+				<Section.Divider />
 
-        <ChangelogItem label={t('changelog')} />
+				<ChangelogItem label={t("changelog")} />
 
-        <Section.Divider />
+				<Section.Divider />
 
-        <LicensesItem label={t('licenses')} />
-      </Section.Content>
-    </Section.Root>
-  )
+				<LicensesItem label={t("licenses")} />
+			</Section.Content>
+		</Section.Root>
+	);
 }

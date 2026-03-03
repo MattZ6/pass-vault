@@ -1,16 +1,16 @@
-import { useTheme } from '@/hooks/useTheme'
+import { useTheme } from "@/hooks/useTheme";
 
-import { Text } from '@/lib/Text'
+import { Text } from "@/lib/Text";
 
-import { SectionItemLabelStyles as Styles } from './styles'
+import { SectionItemLabelStyles as Styles } from "./styles";
 
 export type SectionItemLabelProps = {
-  children: string
-}
+	children: string;
+};
 
 export function SectionItemLabel(props: SectionItemLabelProps) {
-  const { theme } = useTheme()
-  const styles = Styles.stylesheet(theme)
+	const { theme } = useTheme();
+	const styles = Styles.stylesheet(theme);
 
-  return <Text {...props} style={styles.label} />
+	return <Text {...props} style={styles.label} />;
 }

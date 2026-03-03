@@ -1,17 +1,17 @@
 {
-  "title": "Settings",
-  "app": {
-    "title": "App",
-    "theme": "Theme",
-    "language": "Language"
-  },
-  "about": {
-    "title": "About",
-    "name": "Name",
-    "version": "Version",
-    "installation-date": "Installed at",
-    "last-update-date": "Updated at",
-    "changelog": "Changelog",
-    "licenses": "Licenses"
-  }
+	"title": "Settings",
+	"app": {
+		"title": "App",
+		"theme": "Theme",
+		"language": "Language"
+	},
+	"about": {
+		"title": "About",
+		"name": "Name",
+		"version": "Version",
+		"installation-date": "Installed at",
+		"last-update-date": "Updated at",
+		"changelog": "Changelog",
+		"licenses": "Licenses"
+	}
 }

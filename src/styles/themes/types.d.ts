@@ -1,3 +1,3 @@
-import { lightTheme } from './light'
+import type { lightTheme } from "./light";
 
-export type Theme = typeof lightTheme
+export type Theme = typeof lightTheme;

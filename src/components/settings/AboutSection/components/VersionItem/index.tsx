@@ -1,27 +1,27 @@
-import { useTheme } from '@/hooks/useTheme'
+import { SectionItem } from "@/components/Section/Item";
 
-import { SectionItem } from '@/components/Section/Item'
+import { useTheme } from "@/hooks/useTheme";
 
-import { Icon } from '@/lib/Icon'
+import { Icon } from "@/lib/Icon";
 
 type Props = {
-  label: string
-  version: string
-  buildNumber: string
-}
+	label: string;
+	version: string;
+	buildNumber: string;
+};
 
 export function VersionItem({ label, version, buildNumber }: Props) {
-  const { theme } = useTheme()
+	const { theme } = useTheme();
 
-  const versionText = `v${version} (${buildNumber})`
+	const versionText = `v${version} (${buildNumber})`;
 
-  return (
-    <SectionItem.Root>
-      <Icon name="code" size={24} color={theme.colors.mauve11} />
+	return (
+		<SectionItem.Root>
+			<Icon name="code" size={24} color={theme.colors.mauve11} />
 
-      <SectionItem.Label>{label}</SectionItem.Label>
+			<SectionItem.Label>{label}</SectionItem.Label>
 
-      <SectionItem.Value>{versionText}</SectionItem.Value>
-    </SectionItem.Root>
-  )
+			<SectionItem.Value>{versionText}</SectionItem.Value>
+		</SectionItem.Root>
+	);
 }

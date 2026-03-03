@@ -1,16 +1,12 @@
-import { useTheme } from '@/hooks/useTheme'
+import { useTheme } from "@/hooks/useTheme";
 
-import { View } from '@/lib/View'
+import { View } from "@/lib/View";
 
-import { stylesheet } from './styles'
+import { stylesheet } from "./styles";
 
-export type SectionDividerProps = {
-  //
-}
+export function SectionDivider() {
+	const { theme } = useTheme();
+	const styles = stylesheet(theme);
 
-export function SectionDivider(props: SectionDividerProps) {
-  const { theme } = useTheme()
-  const styles = stylesheet(theme)
-
-  return <View {...props} style={styles.divider} />
+	return <View style={styles.divider} />;
 }

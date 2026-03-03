@@ -1,8 +1,8 @@
-import { createElement } from 'react'
-import type { TextProps as RNTextProps } from 'react-native'
+import { createElement } from "react";
+import type { TextProps as RNTextProps } from "react-native";
 
-export type TextProps = RNTextProps
+export type TextProps = RNTextProps;
 
 export function Text(props: TextProps) {
-  return createElement('RCTText', props)
+	return createElement("RCTText", props);
 }

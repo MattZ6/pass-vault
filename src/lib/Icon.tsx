@@ -1,3 +1,3 @@
-import Icon from '@expo/vector-icons/MaterialIcons'
+import Icon from "@expo/vector-icons/MaterialIcons";
 
-export { Icon }
+export { Icon };

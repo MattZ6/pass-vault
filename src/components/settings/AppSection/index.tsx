@@ -1,25 +1,25 @@
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from "react-i18next";
 
-import { Section } from '@/components/Section'
+import { Section } from "@/components/Section";
 
-import { LanguageItem, ThemeItem } from './components'
+import { LanguageItem, ThemeItem } from "./components";
 
 export function AppSection() {
-  const { t } = useTranslation('settings', { keyPrefix: 'app' })
+	const { t } = useTranslation("settings", { keyPrefix: "app" });
 
-  return (
-    <Section.Root>
-      <Section.Header>
-        <Section.Title>{t('title')}</Section.Title>
-      </Section.Header>
+	return (
+		<Section.Root>
+			<Section.Header>
+				<Section.Title>{t("title")}</Section.Title>
+			</Section.Header>
 
-      <Section.Content>
-        <ThemeItem label={t('theme')} />
+			<Section.Content>
+				<ThemeItem label={t("theme")} />
 
-        <Section.Divider />
+				<Section.Divider />
 
-        <LanguageItem label={t('language')} />
-      </Section.Content>
-    </Section.Root>
-  )
+				<LanguageItem label={t("language")} />
+			</Section.Content>
+		</Section.Root>
+	);
 }

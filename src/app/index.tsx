@@ -60,43 +60,41 @@ export default function HomePage() {
         </Header.Actions>
       </Header.Root>
 
-      {!!providers && (
-        <ScrollView contentContainerStyle={styles.scrollContainer}>
-          {providers.map((provider) => (
-            <Animated.View
-              key={provider.id}
-              entering={FadeInRight}
-              exiting={FadeOutRight}
-              layout={LinearTransition}
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        {providers.map((provider) => (
+          <Animated.View
+            key={provider.id}
+            entering={FadeInRight}
+            exiting={FadeOutRight}
+            layout={LinearTransition}
+          >
+            <TouchableScale
+              onLongPress={() => {
+                ExpoHaptics.impactAsync(ExpoHaptics.ImpactFeedbackStyle.Heavy)
+
+                if (Platform.OS === 'android') {
+                  ToastAndroid.show('Abrir bottom sheet', ToastAndroid.SHORT)
+                }
+              }}
+              onPress={() => {
+                ExpoHaptics.impactAsync(ExpoHaptics.ImpactFeedbackStyle.Light)
+                if (Platform.OS === 'android') {
+                  ToastAndroid.show('Abrir página', ToastAndroid.SHORT)
+                }
+              }}
             >
-              <TouchableScale
-                onLongPress={() => {
-                  ExpoHaptics.impactAsync(ExpoHaptics.ImpactFeedbackStyle.Heavy)
+              <View style={styles.provider}>
+                <View style={styles.providerIconContainer} />
 
-                  if (Platform.OS === 'android') {
-                    ToastAndroid.show('Abrir bottom sheet', ToastAndroid.SHORT)
-                  }
-                }}
-                onPress={() => {
-                  ExpoHaptics.impactAsync(ExpoHaptics.ImpactFeedbackStyle.Light)
-                  if (Platform.OS === 'android') {
-                    ToastAndroid.show('Abrir página', ToastAndroid.SHORT)
-                  }
-                }}
-              >
-                <View style={styles.provider}>
-                  <View style={styles.providerIconContainer} />
-
-                  <View style={styles.providerContent}>
-                    <Text style={styles.label}>{provider.name}</Text>
-                    <Text style={styles.value}>{provider.account}</Text>
-                  </View>
+                <View style={styles.providerContent}>
+                  <Text style={styles.label}>{provider.name}</Text>
+                  <Text style={styles.value}>{provider.account}</Text>
                 </View>
-              </TouchableScale>
-            </Animated.View>
-          ))}
-        </ScrollView>
-      )}
+              </View>
+            </TouchableScale>
+          </Animated.View>
+        ))}
+      </ScrollView>
 
       <Button title="Adicionar" onPress={handleAddProvider} />
       <Button color="red" title="Remove" onPress={handleRemoveProvider} />

@@ -44,7 +44,7 @@
     "@rocketseat/eslint-config": "2.2.2",
     "@tanstack/eslint-plugin-query": "5.91.4",
     "@types/react": "19.1.10",
-    "ajv": "8.17.1",
+    "ajv": "8.18.0",
     "eslint": "9.39.2",
     "eslint-plugin-import-helpers": "2.0.1",
     "typescript": "5.9.3"

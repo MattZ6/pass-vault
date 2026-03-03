@@ -6,7 +6,7 @@ import {
 } from '@expo-google-fonts/poppins'
 import * as ExpoNavigationBar from 'expo-navigation-bar'
 import { Stack } from 'expo-router'
-import * as SplashScreen from 'expo-splash-screen'
+import * as ExpoSplashScreen from 'expo-splash-screen'
 import { StatusBar } from 'expo-status-bar'
 import * as ExpoSystemUi from 'expo-system-ui'
 import { useEffect } from 'react'
@@ -16,7 +16,12 @@ import { Provider } from '@/contexts/Provider'
 
 import { useTheme } from '@/hooks/useTheme'
 
-SplashScreen.preventAutoHideAsync()
+ExpoSplashScreen.preventAutoHideAsync()
+
+ExpoSplashScreen.setOptions({
+  duration: 1000,
+  fade: true,
+})
 
 function AppStack() {
   const { theme, resolvedOption } = useTheme()
@@ -41,7 +46,7 @@ function AppStack() {
         freezeOnBlur: true,
         headerShown: false,
         contentStyle: {
-          backgroundColor: 'transparent',
+          backgroundColor: theme.colors.mauve1,
         },
       }}
     />
@@ -59,11 +64,11 @@ export default function MainLayout() {
     return null
   }
 
-  SplashScreen.hideAsync()
+  ExpoSplashScreen.hide()
 
   return (
     <Provider>
-      <StatusBar style="light" />
+      <StatusBar translucent style="light" />
 
       <AppStack />
     </Provider>

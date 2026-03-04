@@ -1,55 +1,45 @@
-import { forwardRef, type ReactNode, useCallback, useRef } from "react";
-import {
-	Animated,
-	Pressable,
-	type PressableProps,
-	type View,
-} from "react-native";
+import { useCallback } from "react";
+import { Pressable, type PressableProps } from "react-native";
+import Animated, {
+  interpolate,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from "react-native-reanimated";
 
-export type TouchableScaleProps = Omit<
-	PressableProps,
-	"style" | "onPressIn" | "onPressOut"
-> & {
-	children: ReactNode;
+const SCALE = {
+  PRESSED: 0.97,
+  RELEASED: 1,
 };
 
-export const TouchableScale = forwardRef<View, TouchableScaleProps>(
-	({ children, ...props }, ref) => {
-		const scale = useRef(new Animated.Value(1)).current;
-		const opacity = scale.interpolate({
-			inputRange: [0.96, 1],
-			outputRange: [0.4, 1],
-		});
+type Props = Omit<PressableProps, "onPressIn" | "onPressOut"> & {
+  children: React.ReactNode;
+};
 
-		const handlePressIn = useCallback(() => {
-			Animated.spring(scale, {
-				toValue: 0.96,
-				friction: 4,
-				useNativeDriver: true,
-			}).start();
-		}, [scale]);
+export function TouchableOpacity({ children, ...props }: Props) {
+  const scale = useSharedValue(SCALE.RELEASED);
 
-		const handlePressOut = useCallback(() => {
-			Animated.spring(scale, {
-				toValue: 1,
-				friction: 4,
-				useNativeDriver: true,
-			}).start();
-		}, [scale]);
+  const handlePressIn = useCallback(() => {
+    scale.value = withSpring(SCALE.PRESSED, { damping: 50 });
+  }, [scale]);
 
-		return (
-			<Pressable
-				ref={ref}
-				{...props}
-				onPressIn={handlePressIn}
-				onPressOut={handlePressOut}
-			>
-				<Animated.View style={{ opacity, transform: [{ scale }] }}>
-					{children}
-				</Animated.View>
-			</Pressable>
-		);
-	},
-);
+  const handlePressOut = useCallback(() => {
+    scale.value = withSpring(SCALE.RELEASED, { damping: 50 });
+  }, [scale]);
 
-TouchableScale.displayName = "TouchableScale";
+  const animatedStyle = useAnimatedStyle(() => ({
+    opacity: interpolate(
+      scale.value,
+      [SCALE.PRESSED, SCALE.RELEASED],
+      [0.85, 1],
+      "clamp",
+    ),
+    transform: [{ scale: scale.value }],
+  }));
+
+  return (
+    <Pressable {...props} onPressIn={handlePressIn} onPressOut={handlePressOut}>
+      <Animated.View style={animatedStyle}>{children}</Animated.View>
+    </Pressable>
+  );
+}

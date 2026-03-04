@@ -1,5 +1,5 @@
-import { useCallback } from "react";
-import { Pressable, type PressableProps } from "react-native";
+import { forwardRef, useCallback } from "react";
+import { Pressable, type PressableProps, type View } from "react-native";
 import Animated, {
   interpolate,
   useAnimatedStyle,
@@ -12,11 +12,17 @@ const SCALE = {
   RELEASED: 1,
 };
 
-type Props = Omit<PressableProps, "onPressIn" | "onPressOut"> & {
+export type TouchableScaleOpacityProps = Omit<
+  PressableProps,
+  "onPressIn" | "onPressOut"
+> & {
   children: React.ReactNode;
 };
 
-export function TouchableOpacity({ children, ...props }: Props) {
+export const TouchableScaleOpacity = forwardRef<
+  View,
+  TouchableScaleOpacityProps
+>(({ children, ...props }, ref) => {
   const scale = useSharedValue(SCALE.RELEASED);
 
   const handlePressIn = useCallback(() => {
@@ -38,8 +44,13 @@ export function TouchableOpacity({ children, ...props }: Props) {
   }));
 
   return (
-    <Pressable {...props} onPressIn={handlePressIn} onPressOut={handlePressOut}>
+    <Pressable
+      ref={ref}
+      {...props}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
+    >
       <Animated.View style={animatedStyle}>{children}</Animated.View>
     </Pressable>
   );
-}
+});

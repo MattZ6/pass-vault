@@ -11,7 +11,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Header } from "@/components";
 import { IconButton } from "@/components/IconButton";
-import { TouchableScale } from "@/components/TouchableScale";
+import { TouchableScaleOpacity } from "@/components/ui/touchable-scale-opacity";
 
 import { useProviders } from "@/hooks/useProviders";
 import { useTheme } from "@/hooks/useTheme";
@@ -68,7 +68,7 @@ export function HomeScreen() {
             exiting={FadeOutRight}
             layout={LinearTransition}
           >
-            <TouchableScale
+            <TouchableScaleOpacity
               onLongPress={() => {
                 ExpoHaptics.impactAsync(ExpoHaptics.ImpactFeedbackStyle.Heavy);
 
@@ -91,7 +91,7 @@ export function HomeScreen() {
                   <Text style={styles.value}>{provider.account}</Text>
                 </View>
               </View>
-            </TouchableScale>
+            </TouchableScaleOpacity>
           </Animated.View>
         ))}
       </ScrollView>

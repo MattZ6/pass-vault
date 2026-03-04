@@ -3,34 +3,34 @@ import { Link } from "expo-router";
 import { useCallback } from "react";
 
 import { SectionItem } from "@/components/Section/Item";
-import { TouchableScale } from "@/components/TouchableScale";
+import { TouchableScaleOpacity } from "@/components/ui/touchable-scale-opacity";
 
 import { useTheme } from "@/hooks/useTheme";
 
 import { Icon } from "@/lib/Icon";
 
 type Props = {
-	label: string;
+  label: string;
 };
 
 export function LicensesItem({ label }: Props) {
-	const { theme } = useTheme();
+  const { theme } = useTheme();
 
-	const handleClick = useCallback(() => {
-		ExpoHaptics.impactAsync(ExpoHaptics.ImpactFeedbackStyle.Light);
-	}, []);
+  const handleClick = useCallback(() => {
+    ExpoHaptics.impactAsync(ExpoHaptics.ImpactFeedbackStyle.Light);
+  }, []);
 
-	return (
-		<Link href="/settings/licenses" asChild>
-			<TouchableScale onPress={handleClick}>
-				<SectionItem.Root>
-					<Icon name="description" size={24} color={theme.colors.mauve11} />
+  return (
+    <Link href="/settings/licenses" asChild>
+      <TouchableScaleOpacity onPress={handleClick}>
+        <SectionItem.Root>
+          <Icon name="description" size={24} color={theme.colors.mauve11} />
 
-					<SectionItem.Label>{label}</SectionItem.Label>
+          <SectionItem.Label>{label}</SectionItem.Label>
 
-					<Icon name="chevron-right" size={24} color={theme.colors.mauve11} />
-				</SectionItem.Root>
-			</TouchableScale>
-		</Link>
-	);
+          <Icon name="chevron-right" size={24} color={theme.colors.mauve11} />
+        </SectionItem.Root>
+      </TouchableScaleOpacity>
+    </Link>
+  );
 }

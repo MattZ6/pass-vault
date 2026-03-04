@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { FlatList, type ListRenderItemInfo } from "react-native";
 
 import { Header } from "@/components/Header";
-import { TouchableScale } from "@/components/TouchableScale";
+import { TouchableScaleOpacity } from "@/components/ui/touchable-scale-opacity";
 
 import { useLanguage } from "@/hooks/useLanguage";
 import { useTheme } from "@/hooks/useTheme";
@@ -25,7 +25,7 @@ export function LanguageScreen() {
     const isSelected = language === item;
 
     return (
-      <TouchableScale onPress={() => changeLanguage(item)}>
+      <TouchableScaleOpacity onPress={() => changeLanguage(item)}>
         <View style={styles.button}>
           <View style={styles.buttonContent}>
             <Text style={styles.buttonLabel}>{t(`${item}.title`)}</Text>
@@ -36,7 +36,7 @@ export function LanguageScreen() {
             <MaterialIcon name="check" size={24} color={theme.colors.mauve12} />
           )}
         </View>
-      </TouchableScale>
+      </TouchableScaleOpacity>
     );
   }
 

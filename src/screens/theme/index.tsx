@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { FlatList, type ListRenderItemInfo } from "react-native";
 
 import { Header } from "@/components/Header";
-import { TouchableScale } from "@/components/TouchableScale";
+import { TouchableScaleOpacity } from "@/components/ui/touchable-scale-opacity";
 
 import { useTheme } from "@/hooks/useTheme";
 
@@ -29,7 +29,7 @@ export function ThemeScreen() {
     const isSelected = item === option;
 
     return (
-      <TouchableScale onPress={() => handleChangeTheme(item)}>
+      <TouchableScaleOpacity onPress={() => handleChangeTheme(item)}>
         <View style={styles.button}>
           <View style={styles.buttonContent}>
             <Text style={styles.buttonLabel}>{t(`options.${item}`)}</Text>
@@ -39,7 +39,7 @@ export function ThemeScreen() {
             <Icon name="check" size={24} color={theme.colors.mauve12} />
           )}
         </View>
-      </TouchableScale>
+      </TouchableScaleOpacity>
     );
   }
 

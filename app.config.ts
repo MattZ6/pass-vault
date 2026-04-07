@@ -51,7 +51,12 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     },
   },
   platforms: ["android", "ios"],
-  plugins: ["expo-router", "expo-font", "expo-localization"],
+  plugins: [
+    "expo-router",
+    "expo-font",
+    "expo-localization",
+    "expo-secure-store",
+  ],
   extra: {
     eas: {
       projectId: "be904ac7-2434-437b-a4ae-c5e9412d3168",

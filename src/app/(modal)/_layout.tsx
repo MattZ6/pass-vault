@@ -6,8 +6,9 @@ export default function ModalLayout() {
     <Stack
       screenOptions={{
         headerShown: false,
+        animation: "slide_from_right",
         contentStyle: {
-          backgroundColor: colors.mauve1,
+          backgroundColor: colors.mauve2,
         },
       }}
     />

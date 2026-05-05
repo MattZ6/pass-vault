@@ -1,13 +1,25 @@
 import { Link, Stack } from "expo-router";
 import { SymbolView } from "expo-symbols";
+import { useCallback } from "react";
 import { Platform, Pressable, ScrollView, View } from "react-native";
+
 import { Text } from "@/components/ui/text";
+
+import { useHaptics } from "@/hooks/use-haptics";
 import { useStyles } from "@/hooks/use-styles";
+
 import { ToolbarActions } from "./components/toolbar-actions";
+
 import { getStyles } from "./styles";
 
 export function HomeScreen() {
   const { styles, theme } = useStyles(getStyles);
+  const { performTapFeedback } = useHaptics();
+
+  const handlePress = useCallback(
+    () => performTapFeedback(),
+    [performTapFeedback],
+  );
 
   return (
     <>
@@ -42,6 +54,7 @@ export function HomeScreen() {
           <Pressable
             android_disableSound
             android_ripple={theme.colors.androidRipple}
+            onPress={handlePress}
           >
             <View
               style={{

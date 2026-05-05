@@ -1,16 +1,21 @@
 import { Stack, useRouter } from "expo-router";
 import { useCallback } from "react";
 
+import { useHaptics } from "@/hooks/use-haptics";
+
 export function ToolbarActions() {
   const router = useRouter();
+  const { performTapFeedback } = useHaptics();
 
   const handleNavigateToSettings = useCallback(() => {
+    performTapFeedback();
     router.push("/settings");
-  }, [router.push]);
+  }, [router.push, performTapFeedback]);
 
   const handleNavigateToNewCredential = useCallback(() => {
+    performTapFeedback();
     router.push("/credentials/new");
-  }, [router.push]);
+  }, [router.push, performTapFeedback]);
 
   return (
     <>

@@ -1,16 +1,18 @@
 import { Link, Stack } from "expo-router";
 import { SymbolView } from "expo-symbols";
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { type Insets, View } from "react-native";
 
 import { IconButton } from "@/components/ui/icon-button";
 
+import { useHaptics } from "@/hooks/use-haptics";
 import { useStyles } from "@/hooks/use-styles";
 
 import { getStyles } from "./styles";
 
 export function ToolbarActions() {
   const { styles, theme } = useStyles(getStyles);
+  const { performTapFeedback } = useHaptics();
 
   const hitSlop = useMemo(() => {
     const leftButton: Insets = {
@@ -30,6 +32,11 @@ export function ToolbarActions() {
     };
   }, [theme.spacing]);
 
+  const handlePress = useCallback(
+    () => performTapFeedback(),
+    [performTapFeedback],
+  );
+
   return (
     <Stack.Toolbar placement="right" asChild>
       <View style={styles.actionsContainer}>
@@ -37,6 +44,7 @@ export function ToolbarActions() {
           <IconButton
             accessibilityLabel="Create a new credential"
             hitSlop={hitSlop.leftButton}
+            onPress={handlePress}
           >
             <SymbolView
               name={{ android: "add" }}
@@ -49,6 +57,7 @@ export function ToolbarActions() {
           <IconButton
             accessibilityLabel="Navigate to settings page"
             hitSlop={hitSlop.rightButton}
+            onPress={handlePress}
           >
             <SymbolView
               name={{ android: "more_horiz" }}

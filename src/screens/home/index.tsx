@@ -1,6 +1,7 @@
 import { Link, Stack } from "expo-router";
 import { SymbolView } from "expo-symbols";
 import { useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { Platform, Pressable, ScrollView, View } from "react-native";
 
 import { Text } from "@/components/ui/text";
@@ -13,6 +14,7 @@ import { ToolbarActions } from "./components/toolbar-actions";
 import { getStyles } from "./styles";
 
 export function HomeScreen() {
+  const { t } = useTranslation("home", { keyPrefix: "meta" });
   const { styles, theme } = useStyles(getStyles);
   const { performTapFeedback } = useHaptics();
 
@@ -37,7 +39,7 @@ export function HomeScreen() {
           color: theme.colors.content.base.toString(),
         }}
       >
-        Pass Vault
+        {t("title")}
       </Stack.Screen.Title>
 
       <ToolbarActions />

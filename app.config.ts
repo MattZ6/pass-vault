@@ -46,6 +46,11 @@ const variantConfig = {
         },
       },
     },
+    locales: {
+      en: "./languages/variants/dev/en.json",
+      pt: "./languages/variants/dev/pt.json",
+      es: "./languages/variants/dev/es.json",
+    },
   },
   preview: {
     name: "Pass Vault (Preview)",
@@ -88,6 +93,11 @@ const variantConfig = {
         },
       },
     },
+    locales: {
+      en: "./languages/variants/preview/en.json",
+      pt: "./languages/variants/preview/pt.json",
+      es: "./languages/variants/preview/es.json",
+    },
   },
   production: {
     name: "Pass Vault",
@@ -129,6 +139,11 @@ const variantConfig = {
           imagePath: "./assets/icon.png",
         },
       },
+    },
+    locales: {
+      en: "./languages/variants/prod/en.json",
+      pt: "./languages/variants/prod/pt.json",
+      es: "./languages/variants/prod/es.json",
     },
   },
 } as const;
@@ -174,6 +189,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
         resizeMode: "contain",
       },
     },
+    infoPlist: {
+      CFBundleAllowMixedLocalizations: true,
+    },
   },
 
   android: {
@@ -194,6 +212,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     },
   },
 
+  locales: variant.locales,
+
   plugins: [
     "expo-router",
     "expo-font",
@@ -201,13 +221,18 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       "expo-localization",
       {
         supportedLocales: {
-          ios: ["en", "pt"],
-          android: ["en", "pt"],
+          ios: ["en", "pt", "es"],
+          android: ["en", "pt", "es"],
         },
       },
     ],
     "expo-secure-store",
-    ["expo-dev-client", { launchMode: "launcher" }],
+    [
+      "expo-dev-client",
+      {
+        launchMode: "launcher",
+      },
+    ],
   ],
   extra: {
     eas: {

@@ -1,0 +1,8 @@
+{
+  "ios": {
+    "CFBundleDisplayName": "Pass Vault (Preview)"
+  },
+  "android": {
+    "app_name": "Pass Vault (Preview)"
+  }
+}

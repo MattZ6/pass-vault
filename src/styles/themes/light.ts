@@ -1,6 +1,7 @@
 import { colors } from "./semantic/colors/light";
 import { typography } from "./semantic/typography";
 import { radii } from "./tokens/radii";
+import { size } from "./tokens/size";
 import { spacing } from "./tokens/spacing";
 import { fontFamily } from "./tokens/text/font-family";
 import { fontSize } from "./tokens/text/font-size";
@@ -15,4 +16,5 @@ export const lightTheme: Theme = {
   radii,
   colors,
   spacing,
+  size,
 };

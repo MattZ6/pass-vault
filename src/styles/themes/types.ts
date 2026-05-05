@@ -1,6 +1,7 @@
 import type { Colors } from "./semantic/colors/types";
 import type { Typography } from "./semantic/typography";
 import type { Radii } from "./tokens/radii";
+import type { Size } from "./tokens/size";
 import type { Spacing } from "./tokens/spacing";
 import type { FontFamily } from "./tokens/text/font-family";
 import type { FontSize } from "./tokens/text/font-size";
@@ -15,6 +16,7 @@ export type Theme = {
   fontSize: FontSize;
   lineHeight: LineHeight;
   spacing: Spacing;
+  size: Size;
   radii: Radii;
   colors: Colors;
 };

@@ -1,9 +1,13 @@
-import type { OpaqueColorValue } from "react-native";
+import type {
+  OpaqueColorValue,
+  PressableAndroidRippleConfig,
+} from "react-native";
 
 type AppColorValue = OpaqueColorValue | string;
 
 type Surface = {
   base: AppColorValue;
+  elevated: AppColorValue;
 };
 
 type Content = {
@@ -19,4 +23,5 @@ export type Colors = {
   surface: Surface;
   content: Content;
   border: Border;
+  androidRipple: PressableAndroidRippleConfig;
 };

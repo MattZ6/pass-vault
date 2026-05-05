@@ -5,6 +5,7 @@ import type { Colors } from "./types";
 export const colors: Colors = {
   surface: {
     base: palette.gray["1"],
+    elevated: palette.gray["2"],
   },
 
   content: {
@@ -14,5 +15,10 @@ export const colors: Colors = {
 
   border: {
     default: palette.gray["6"],
+  },
+
+  androidRipple: {
+    foreground: true,
+    color: `${palette.gray["12"]}1A`,
   },
 };

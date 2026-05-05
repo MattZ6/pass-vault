@@ -1,4 +1,5 @@
 import type { Colors } from "./semantic/colors/types";
+import type { Typography } from "./semantic/typography";
 import type { Radii } from "./tokens/radii";
 import type { Spacing } from "./tokens/spacing";
 import type { FontFamily } from "./tokens/text/font-family";
@@ -9,6 +10,7 @@ export type ResolvedThemeOptions = "light" | "dark";
 export type ThemeOptions = "system" | ResolvedThemeOptions;
 
 export type Theme = {
+  typography: Typography;
   fontFamily: FontFamily;
   fontSize: FontSize;
   lineHeight: LineHeight;

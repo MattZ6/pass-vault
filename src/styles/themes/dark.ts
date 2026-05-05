@@ -1,4 +1,5 @@
 import { colors } from "./semantic/colors/dark";
+import { typography } from "./semantic/typography";
 import { radii } from "./tokens/radii";
 import { spacing } from "./tokens/spacing";
 import { fontFamily } from "./tokens/text/font-family";
@@ -7,6 +8,7 @@ import { lineHeight } from "./tokens/text/line-height";
 import type { Theme } from "./types";
 
 export const darkTheme: Theme = {
+  typography,
   fontFamily,
   fontSize,
   lineHeight,

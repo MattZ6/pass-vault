@@ -13,10 +13,10 @@ import {
   SafeAreaProvider,
 } from "react-native-safe-area-context";
 
-import { useTheme } from "@/hooks/useTheme";
+import { useTheme } from "@/hooks/use-theme";
 
 import { LanguageProvider } from "./Language";
-import { ThemeProvider } from "./Theme";
+import { ThemeProvider } from "./theme";
 
 type Props = {
   children: ReactNode;
@@ -40,28 +40,28 @@ export function Provider(props: Props) {
   );
 }
 
-type NavigationProviderProps = {
-  children: ReactNode;
-};
-
-function NavigationProvider({ children }: NavigationProviderProps) {
-  const { resolvedOption } = useTheme();
-
-  return (
-    <NavigationThemeProvider
-      value={resolvedOption === "dark" ? DarkTheme : DefaultTheme}
-    >
-      <StatusBar
-        animated
-        style={resolvedOption === "dark" ? "light" : "dark"}
-      />
-      {children}
-    </NavigationThemeProvider>
-  );
-}
-
 const styles = StyleSheet.create({
   fill: {
     flex: 1,
   },
 });
+
+type NavigationProviderProps = {
+  children: ReactNode;
+};
+
+function NavigationProvider({ children }: NavigationProviderProps) {
+  const { resolvedThemeOption } = useTheme();
+
+  return (
+    <NavigationThemeProvider
+      value={resolvedThemeOption === "dark" ? DarkTheme : DefaultTheme}
+    >
+      <StatusBar
+        animated
+        style={resolvedThemeOption === "dark" ? "light" : "dark"}
+      />
+      {children}
+    </NavigationThemeProvider>
+  );
+}

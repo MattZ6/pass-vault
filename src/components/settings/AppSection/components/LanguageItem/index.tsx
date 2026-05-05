@@ -5,8 +5,8 @@ import { useTranslation } from "react-i18next";
 
 import { SectionItem } from "@/components/Section/Item";
 import { TouchableScaleOpacity } from "@/components/ui/touchable-scale-opacity";
+import { useLanguage } from "@/hooks/use-language";
 import { useTheme } from "@/hooks/use-theme";
-import { useLanguage } from "@/hooks/useLanguage";
 
 import { Icon } from "@/lib/Icon";
 

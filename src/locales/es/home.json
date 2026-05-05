@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "title": "Pass Vault"
+  },
+  "toolbar": {
+    "actions": {
+      "add_credential": {
+        "label": "Guardar una nueva credencial"
+      },
+      "settings": {
+        "label": "Ir a la pantalla de ajustes"
+      }
+    }
+  }
+}

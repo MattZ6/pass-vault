@@ -1,6 +1,6 @@
 import { SectionItem } from "@/components/Section/Item";
+import { useLanguage } from "@/hooks/use-language";
 import { useTheme } from "@/hooks/use-theme";
-import { useLanguage } from "@/hooks/useLanguage";
 
 import { Icon } from "@/lib/Icon";
 

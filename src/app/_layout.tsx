@@ -1,3 +1,5 @@
+import "@/contexts/language/i18n";
+
 import {
   Poppins_400Regular,
   Poppins_500Medium,

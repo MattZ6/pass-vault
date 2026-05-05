@@ -1,10 +1,12 @@
 import { Stack, useRouter } from "expo-router";
 import { useCallback } from "react";
+import { useTranslation } from "react-i18next";
 
 import { useHaptics } from "@/hooks/use-haptics";
 
 export function ToolbarActions() {
   const router = useRouter();
+  const { t } = useTranslation("home", { keyPrefix: "toolbar.actions" });
   const { performTapFeedback } = useHaptics();
 
   const handleNavigateToSettings = useCallback(() => {
@@ -21,7 +23,7 @@ export function ToolbarActions() {
     <>
       <Stack.Toolbar placement="left">
         <Stack.Toolbar.Button
-          accessibilityLabel="Navigate to settings page"
+          accessibilityLabel={t("settings.label")}
           onPress={handleNavigateToSettings}
         >
           <Stack.Toolbar.Icon sf="ellipsis" />
@@ -30,7 +32,7 @@ export function ToolbarActions() {
 
       <Stack.Toolbar placement="right">
         <Stack.Toolbar.Button
-          accessibilityLabel="Create a new credential"
+          accessibilityLabel={t("add_credential.label")}
           onPress={handleNavigateToNewCredential}
         >
           <Stack.Toolbar.Icon sf="plus" />

@@ -2,7 +2,7 @@ import home from "./home.json";
 import newCredential from "./new-credential.json";
 import settings from "./settings.json";
 
-export const en = {
+export const es = {
   home,
   settings,
   "new-credential": newCredential,

@@ -1,6 +1,7 @@
 import { Link, Stack } from "expo-router";
 import { SymbolView } from "expo-symbols";
 import { useCallback, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { type Insets, View } from "react-native";
 
 import { IconButton } from "@/components/ui/icon-button";
@@ -11,6 +12,7 @@ import { useStyles } from "@/hooks/use-styles";
 import { getStyles } from "./styles";
 
 export function ToolbarActions() {
+  const { t } = useTranslation("home", { keyPrefix: "toolbar.actions" });
   const { styles, theme } = useStyles(getStyles);
   const { performTapFeedback } = useHaptics();
 
@@ -42,7 +44,7 @@ export function ToolbarActions() {
       <View style={styles.actionsContainer}>
         <Link href={{ pathname: "/credentials/new" }} asChild>
           <IconButton
-            accessibilityLabel="Create a new credential"
+            accessibilityLabel={t("add_credential.label")}
             hitSlop={hitSlop.leftButton}
             onPress={handlePress}
           >
@@ -55,7 +57,7 @@ export function ToolbarActions() {
 
         <Link href={{ pathname: "/settings" }} asChild>
           <IconButton
-            accessibilityLabel="Navigate to settings page"
+            accessibilityLabel={t("settings.label")}
             hitSlop={hitSlop.rightButton}
             onPress={handlePress}
           >

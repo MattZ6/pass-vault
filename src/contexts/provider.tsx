@@ -15,7 +15,7 @@ import {
 
 import { useTheme } from "@/hooks/use-theme";
 
-import { LanguageProvider } from "./Language";
+import { LanguageProvider } from "./language";
 import { PreferencesProvider } from "./preferences";
 import { ThemeProvider } from "./theme";
 

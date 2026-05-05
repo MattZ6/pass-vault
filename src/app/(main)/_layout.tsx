@@ -1,18 +1,22 @@
 import { Stack } from "expo-router";
 import { Platform } from "react-native";
 
-import { colors } from "@/styles/themes/colors/dark";
+import { useTheme } from "@/hooks/use-theme";
 
 export default function MainLayout() {
+  const { theme } = useTheme();
+
   return (
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor:
-            Platform.OS === "ios" ? "transparent" : colors.mauve1,
+          backgroundColor: Platform.select({
+            ios: "transparent",
+            default: theme.colors.surface.base.toString(),
+          }),
         },
         contentStyle: {
-          backgroundColor: colors.mauve1,
+          backgroundColor: theme.colors.surface.base,
         },
       }}
     />

@@ -6,14 +6,12 @@ export function getStyles(theme: Theme) {
   return StyleSheet.create({
     container: {
       flex: 1,
+      backgroundColor: theme.colors.surface.base,
     },
-    scrollContainer: {},
-    toolbar: {
-      paddingVertical: theme.spacing[6],
+    scrollContainer: {
+      paddingVertical: theme.spacing[4],
       paddingHorizontal: theme.spacing[4],
-    },
-    title: {
-      textAlign: "center",
+      gap: theme.spacing[8],
     },
   });
 }

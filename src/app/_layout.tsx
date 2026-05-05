@@ -8,8 +8,10 @@ import {
 import { Stack } from "expo-router";
 import * as ExpoSplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import { Platform } from "react-native";
 
 import { Provider } from "@/contexts/provider";
+
 import { useTheme } from "@/hooks/use-theme";
 
 ExpoSplashScreen.preventAutoHideAsync();
@@ -58,6 +60,12 @@ function RootStack() {
           presentation: "formSheet",
           sheetGrabberVisible: true,
           sheetAllowedDetents: [0.85],
+          contentStyle: {
+            backgroundColor: Platform.select({
+              ios: "transparent",
+              default: theme.colors.surface.elevated,
+            }),
+          },
         }}
       />
     </Stack>

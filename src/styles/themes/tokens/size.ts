@@ -15,4 +15,4 @@ export const size = {
 } as const;
 
 export type Size = typeof size;
-export type SizingOptions = keyof Size;
+export type SizeOptions = keyof Size;

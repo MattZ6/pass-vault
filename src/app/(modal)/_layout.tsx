@@ -1,14 +1,21 @@
 import { Stack } from "expo-router";
-import { colors } from "@/styles/themes/colors/dark";
+import { Platform } from "react-native";
+
+import { useTheme } from "@/hooks/use-theme";
 
 export default function ModalLayout() {
+  const { theme } = useTheme();
+
   return (
     <Stack
       screenOptions={{
-        headerShown: false,
         animation: "slide_from_right",
+        headerShown: false,
         contentStyle: {
-          backgroundColor: colors.mauve2,
+          backgroundColor: Platform.select({
+            ios: "transparent",
+            default: theme.colors.surface.elevated,
+          }),
         },
       }}
     />

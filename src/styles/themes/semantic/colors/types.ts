@@ -5,23 +5,25 @@ import type {
 
 type AppColorValue = OpaqueColorValue | string;
 
-type Surface = {
+type SurfaceColors = {
   base: AppColorValue;
   elevated: AppColorValue;
 };
 
-type Content = {
+type ContentColors = {
   base: AppColorValue;
   muted: AppColorValue;
 };
+
+export type ContentColorsOptions = keyof ContentColors;
 
 type Border = {
   default: AppColorValue;
 };
 
 export type Colors = {
-  surface: Surface;
-  content: Content;
+  surface: SurfaceColors;
+  content: ContentColors;
   border: Border;
   androidRipple: PressableAndroidRippleConfig;
 };

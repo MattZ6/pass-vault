@@ -16,6 +16,7 @@ import {
 import { useTheme } from "@/hooks/use-theme";
 
 import { LanguageProvider } from "./Language";
+import { PreferencesProvider } from "./preferences";
 import { ThemeProvider } from "./theme";
 
 type Props = {
@@ -31,7 +32,9 @@ export function Provider(props: Props) {
         <QueryClientProvider client={queryClient}>
           <ThemeProvider>
             <LanguageProvider>
-              <NavigationProvider {...props} />
+              <PreferencesProvider defaultHapticsEnabled={true}>
+                <NavigationProvider {...props} />
+              </PreferencesProvider>
             </LanguageProvider>
           </ThemeProvider>
         </QueryClientProvider>

@@ -5,7 +5,7 @@ import { InteractionManager } from "react-native";
 
 import { IconButton } from "@/components/IconButton";
 
-import { useTheme } from "@/hooks/useTheme";
+import { useTheme } from "@/hooks/use-theme";
 
 import { Icon } from "@/lib/Icon";
 import { View } from "@/lib/View";
@@ -13,28 +13,28 @@ import { View } from "@/lib/View";
 import { stylesheet } from "./styles";
 
 export function HeaderBackButton() {
-	const { theme } = useTheme();
-	const styles = stylesheet();
+  const { theme } = useTheme();
+  const styles = stylesheet();
 
-	const handleBack = useCallback(() => {
-		InteractionManager.runAfterInteractions(() => {
-			Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+  const handleBack = useCallback(() => {
+    InteractionManager.runAfterInteractions(() => {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
 
-			const canGoBack = router.canGoBack();
+      const canGoBack = router.canGoBack();
 
-			if (!canGoBack) {
-				return;
-			}
+      if (!canGoBack) {
+        return;
+      }
 
-			router.back();
-		});
-	}, []);
+      router.back();
+    });
+  }, []);
 
-	return (
-		<View style={styles.wrapper}>
-			<IconButton onPress={handleBack}>
-				<Icon name="arrow-back" size={24} color={theme.colors.mauve11} />
-			</IconButton>
-		</View>
-	);
+  return (
+    <View style={styles.wrapper}>
+      <IconButton onPress={handleBack}>
+        <Icon name="arrow-back" size={24} color={theme.colors.content.muted} />
+      </IconButton>
+    </View>
+  );
 }

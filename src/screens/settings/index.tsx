@@ -6,7 +6,7 @@ import { Header } from "@/components/Header";
 import { AppSection } from "@/components/settings";
 import { AboutSection } from "@/components/settings/AboutSection";
 
-import { useTheme } from "@/hooks/useTheme";
+import { useTheme } from "@/hooks/use-theme";
 
 import { View } from "@/lib/View";
 

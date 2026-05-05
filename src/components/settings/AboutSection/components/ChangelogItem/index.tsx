@@ -4,7 +4,7 @@ import { useCallback } from "react";
 import { SectionItem } from "@/components/Section/Item";
 import { TouchableScaleOpacity } from "@/components/ui/touchable-scale-opacity";
 
-import { useTheme } from "@/hooks/useTheme";
+import { useTheme } from "@/hooks/use-theme";
 
 import { Icon } from "@/lib/Icon";
 
@@ -22,11 +22,15 @@ export function ChangelogItem({ label }: Props) {
   return (
     <TouchableScaleOpacity onPress={handleClick}>
       <SectionItem.Root>
-        <Icon name="history-edu" size={24} color={theme.colors.mauve11} />
+        <Icon name="history-edu" size={24} color={theme.colors.content.muted} />
 
         <SectionItem.Label>{label}</SectionItem.Label>
 
-        <Icon name="chevron-right" size={24} color={theme.colors.mauve11} />
+        <Icon
+          name="chevron-right"
+          size={24}
+          color={theme.colors.content.muted}
+        />
       </SectionItem.Root>
     </TouchableScaleOpacity>
   );

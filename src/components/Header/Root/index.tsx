@@ -2,35 +2,35 @@ import { StatusBar } from "expo-status-bar";
 import type { ReactNode } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { useTheme } from "@/hooks/useTheme";
+import { useTheme } from "@/hooks/use-theme";
 
 import { View } from "@/lib/View";
 
 import { stylesheet } from "./styles";
 
 export type HeaderRootProps = {
-	children: ReactNode;
+  children: ReactNode;
 };
 
 export function HeaderRoot(props: HeaderRootProps) {
-	const insets = useSafeAreaInsets();
-	const { resolvedOption, theme } = useTheme();
-	const styles = stylesheet(theme);
+  const insets = useSafeAreaInsets();
+  const { resolvedThemeOption, theme } = useTheme();
+  const styles = stylesheet(theme);
 
-	return (
-		<>
-			<StatusBar
-				style={resolvedOption === "dark" ? "light" : "dark"}
-				animated
-			/>
+  return (
+    <>
+      <StatusBar
+        style={resolvedThemeOption === "dark" ? "light" : "dark"}
+        animated
+      />
 
-			<View
-				{...props}
-				style={[
-					styles.header,
-					{ paddingTop: styles.header.paddingVertical + insets.top },
-				]}
-			/>
-		</>
-	);
+      <View
+        {...props}
+        style={[
+          styles.header,
+          { paddingTop: styles.header.paddingVertical + insets.top },
+        ]}
+      />
+    </>
+  );
 }

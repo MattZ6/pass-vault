@@ -5,9 +5,8 @@ import { useTranslation } from "react-i18next";
 
 import { SectionItem } from "@/components/Section/Item";
 import { TouchableScaleOpacity } from "@/components/ui/touchable-scale-opacity";
-
+import { useTheme } from "@/hooks/use-theme";
 import { useLanguage } from "@/hooks/useLanguage";
-import { useTheme } from "@/hooks/useTheme";
 
 import { Icon } from "@/lib/Icon";
 
@@ -28,13 +27,17 @@ export function LanguageItem({ label }: Props) {
     <Link href="/settings/language" asChild>
       <TouchableScaleOpacity onPress={handleClick}>
         <SectionItem.Root>
-          <Icon name="translate" size={24} color={theme.colors.mauve11} />
+          <Icon name="translate" size={24} color={theme.colors.content.muted} />
 
           <SectionItem.Label>{label}</SectionItem.Label>
 
           <SectionItem.Value>{t(`${language}.title`)}</SectionItem.Value>
 
-          <Icon name="chevron-right" size={24} color={theme.colors.mauve11} />
+          <Icon
+            name="chevron-right"
+            size={24}
+            color={theme.colors.content.muted}
+          />
         </SectionItem.Root>
       </TouchableScaleOpacity>
     </Link>

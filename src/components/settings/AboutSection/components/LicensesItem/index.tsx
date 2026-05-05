@@ -5,7 +5,7 @@ import { useCallback } from "react";
 import { SectionItem } from "@/components/Section/Item";
 import { TouchableScaleOpacity } from "@/components/ui/touchable-scale-opacity";
 
-import { useTheme } from "@/hooks/useTheme";
+import { useTheme } from "@/hooks/use-theme";
 
 import { Icon } from "@/lib/Icon";
 
@@ -24,11 +24,19 @@ export function LicensesItem({ label }: Props) {
     <Link href="/settings/licenses" asChild>
       <TouchableScaleOpacity onPress={handleClick}>
         <SectionItem.Root>
-          <Icon name="description" size={24} color={theme.colors.mauve11} />
+          <Icon
+            name="description"
+            size={24}
+            color={theme.colors.content.muted}
+          />
 
           <SectionItem.Label>{label}</SectionItem.Label>
 
-          <Icon name="chevron-right" size={24} color={theme.colors.mauve11} />
+          <Icon
+            name="chevron-right"
+            size={24}
+            color={theme.colors.content.muted}
+          />
         </SectionItem.Root>
       </TouchableScaleOpacity>
     </Link>

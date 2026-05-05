@@ -12,9 +12,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Header } from "@/components";
 import { IconButton } from "@/components/IconButton";
 import { TouchableScaleOpacity } from "@/components/ui/touchable-scale-opacity";
-
+import { useTheme } from "@/hooks/use-theme";
 import { useProviders } from "@/hooks/useProviders";
-import { useTheme } from "@/hooks/useTheme";
 
 import { Icon } from "@/lib/Icon";
 import { Text } from "@/lib/Text";
@@ -54,7 +53,11 @@ export function HomeScreen() {
         <Header.Actions>
           <Link href="/settings" asChild>
             <IconButton>
-              <Icon name="settings" size={24} color={theme.colors.mauve11} />
+              <Icon
+                name="settings"
+                size={24}
+                color={theme.colors.content.muted}
+              />
             </IconButton>
           </Link>
         </Header.Actions>

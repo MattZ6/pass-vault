@@ -4,9 +4,8 @@ import { FlatList, type ListRenderItemInfo } from "react-native";
 
 import { Header } from "@/components/Header";
 import { TouchableScaleOpacity } from "@/components/ui/touchable-scale-opacity";
-
+import { useTheme } from "@/hooks/use-theme";
 import { useLanguage } from "@/hooks/useLanguage";
-import { useTheme } from "@/hooks/useTheme";
 
 import { Text } from "@/lib/Text";
 import { View } from "@/lib/View";
@@ -33,7 +32,11 @@ export function LanguageScreen() {
           </View>
 
           {isSelected && (
-            <MaterialIcon name="check" size={24} color={theme.colors.mauve12} />
+            <MaterialIcon
+              name="check"
+              size={24}
+              color={theme.colors.content.base}
+            />
           )}
         </View>
       </TouchableScaleOpacity>

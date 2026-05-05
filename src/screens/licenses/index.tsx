@@ -12,7 +12,7 @@ import licenses from "@/assets/licenses.json";
 
 import { Header } from "@/components/Header";
 
-import { useTheme } from "@/hooks/useTheme";
+import { useTheme } from "@/hooks/use-theme";
 
 import { Text } from "@/lib/Text";
 import { View } from "@/lib/View";
@@ -61,7 +61,7 @@ export function LicensesScreen() {
 
   const insetsBottom = Platform.select({
     android: insets.bottom,
-    native: 0,
+    default: 0,
   });
 
   const renderItem = useCallback(

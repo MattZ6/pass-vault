@@ -6,7 +6,7 @@ import {
   type TouchableScaleOpacityProps,
 } from "@/components/ui/touchable-scale-opacity";
 
-import { useTheme } from "@/hooks/useTheme";
+import { useTheme } from "@/hooks/use-theme";
 
 import { View as PerformantView } from "@/lib/View";
 

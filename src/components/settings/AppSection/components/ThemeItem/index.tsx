@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { SectionItem } from "@/components/Section/Item";
 import { TouchableScaleOpacity } from "@/components/ui/touchable-scale-opacity";
 
-import { useTheme } from "@/hooks/useTheme";
+import { useTheme } from "@/hooks/use-theme";
 
 import { Icon } from "@/lib/Icon";
 
@@ -15,7 +15,7 @@ type Props = {
 };
 
 export function ThemeItem({ label }: Props) {
-  const { theme, option } = useTheme();
+  const { theme, themeOption } = useTheme();
   const { t } = useTranslation("theme");
 
   const handleClick = useCallback(() => {
@@ -26,13 +26,17 @@ export function ThemeItem({ label }: Props) {
     <Link href="/settings/theme" asChild>
       <TouchableScaleOpacity onPress={handleClick}>
         <SectionItem.Root>
-          <Icon name="palette" size={24} color={theme.colors.mauve11} />
+          <Icon name="palette" size={24} color={theme.colors.content.muted} />
 
           <SectionItem.Label>{label}</SectionItem.Label>
 
-          <SectionItem.Value>{t(option)}</SectionItem.Value>
+          <SectionItem.Value>{t(themeOption)}</SectionItem.Value>
 
-          <Icon name="chevron-right" size={24} color={theme.colors.mauve11} />
+          <Icon
+            name="chevron-right"
+            size={24}
+            color={theme.colors.content.muted}
+          />
         </SectionItem.Root>
       </TouchableScaleOpacity>
     </Link>

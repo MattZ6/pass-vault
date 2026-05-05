@@ -1,16 +1,16 @@
-import { useTheme } from "@/hooks/useTheme";
+import { useTheme } from "@/hooks/use-theme";
 
 import { Text } from "@/lib/Text";
 
 import { stylesheet } from "./styles";
 
 export type HeaderTitleProps = {
-	children: string;
+  children: string;
 };
 
 export function HeaderTitle(props: HeaderTitleProps) {
-	const { theme } = useTheme();
-	const styles = stylesheet(theme);
+  const { theme } = useTheme();
+  const styles = stylesheet(theme);
 
-	return <Text {...props} style={styles.title} />;
+  return <Text {...props} style={styles.title} />;
 }

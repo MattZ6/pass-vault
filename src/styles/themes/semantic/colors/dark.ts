@@ -6,6 +6,7 @@ export const colors: Colors = {
   surface: {
     base: palette.gray["1"],
     elevated: palette.gray["2"],
+    element: palette.gray["3"],
   },
 
   content: {
@@ -15,6 +16,8 @@ export const colors: Colors = {
 
   border: {
     default: palette.gray["6"],
+    element: palette.gray["7"],
+    active: palette.gray["8"],
   },
 
   androidRipple: {

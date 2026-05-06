@@ -1,9 +1,12 @@
+import { Stack } from "expo-router";
 import { useTranslation } from "react-i18next";
-import { ScrollView, View } from "react-native";
+import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
 
 import { Text } from "@/components/ui/text";
 
 import { useStyles } from "@/hooks/use-styles";
+
+import { NewCredentialForm } from "./components/form";
 
 import { getStyles } from "./styles";
 
@@ -12,19 +15,25 @@ export function NewCredentialScreen() {
   const { styles } = useStyles(getStyles);
 
   return (
-    <ScrollView
-      contentInsetAdjustmentBehavior="automatic"
-      showsVerticalScrollIndicator={false}
-      style={styles.container}
-      contentContainerStyle={styles.scrollContainer}
-      stickyHeaderIndices={[0]}
-    >
-      <View style={styles.toolbar}>
-        <Text weight="semiBold" typography="subtitle" style={styles.title}>
-          {t("title")}
-        </Text>
-      </View>
-      <Text color="muted">Here goes the form to create a new credential.</Text>
-    </ScrollView>
+    <>
+      <Stack.Screen.Title>{t("title")}</Stack.Screen.Title>
+
+      <KeyboardAvoidingView style={styles.container}>
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          style={styles.container}
+          contentContainerStyle={styles.scrollContainer}
+        >
+          {Platform.OS === "android" && (
+            <View style={styles.toolbar}>
+              <Text weight="semiBold" typography="body" style={styles.title}>
+                {t("title")}
+              </Text>
+            </View>
+          )}
+          <NewCredentialForm />
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </>
   );
 }

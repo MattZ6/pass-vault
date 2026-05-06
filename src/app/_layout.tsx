@@ -11,9 +11,7 @@ import { Stack } from "expo-router";
 import * as ExpoSplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { Platform } from "react-native";
-
 import { Provider } from "@/contexts/provider";
-
 import { useTheme } from "@/hooks/use-theme";
 
 ExpoSplashScreen.preventAutoHideAsync();
@@ -59,14 +57,19 @@ function RootStack() {
       <Stack.Screen
         name="(modal)"
         options={{
-          presentation: "formSheet",
-          sheetGrabberVisible: true,
-          sheetAllowedDetents: [0.85],
-          contentStyle: {
+          headerStyle: {
             backgroundColor: Platform.select({
               ios: "transparent",
-              default: theme.colors.surface.elevated,
+              default: theme.colors.surface.base.toString(),
             }),
+          },
+          presentation: "formSheet",
+          sheetAllowedDetents: Platform.select({
+            ios: [1],
+            default: [0.85, 1],
+          }),
+          contentStyle: {
+            backgroundColor: theme.colors.surface.elevated,
           },
         }}
       />

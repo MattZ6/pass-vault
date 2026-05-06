@@ -8,6 +8,7 @@ type AppColorValue = OpaqueColorValue | string;
 type SurfaceColors = {
   base: AppColorValue;
   elevated: AppColorValue;
+  element: AppColorValue;
 };
 
 type ContentColors = {
@@ -19,6 +20,8 @@ export type ContentColorsOptions = keyof ContentColors;
 
 type Border = {
   default: AppColorValue;
+  element: AppColorValue;
+  active: AppColorValue;
 };
 
 export type Colors = {

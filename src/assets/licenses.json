@@ -11,6 +11,12 @@
         "licenseUrl": "https://github.com/react-hook-form/resolvers/raw/master/LICENSE",
         "parents": "pass-vault"
     },
+    "@legendapp/list@2.0.19": {
+        "licenses": "MIT",
+        "repository": "github:LegendApp/legend-list",
+        "licenseUrl": "github:LegendApp/legend-list",
+        "parents": "pass-vault"
+    },
     "@tanstack/react-query@5.100.9": {
         "licenses": "MIT",
         "repository": "https://github.com/TanStack/query",

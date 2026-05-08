@@ -37,7 +37,7 @@ export const createCredentialsMetaSlice: StateCreator<
 
     const credentialsMeta = get().credentialsMeta;
 
-    const updatedCredentialsMeta = [newCredentialMeta, ...credentialsMeta];
+    const updatedCredentialsMeta = [...credentialsMeta, newCredentialMeta];
 
     set({ credentialsMeta: updatedCredentialsMeta });
   },

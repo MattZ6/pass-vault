@@ -4,10 +4,12 @@ import { name, version } from "./package.json";
 
 type Variant = "development" | "preview" | "production";
 
+const packageName = "dev.zanin.passvault";
+
 const variantConfig = {
   development: {
     name: "Pass Vault (Dev Client)",
-    package: "com.passvault.dev",
+    package: `${packageName}.dev`,
     primaryColor: "#ffffff",
     splash: {
       android: {
@@ -54,7 +56,7 @@ const variantConfig = {
   },
   preview: {
     name: "Pass Vault (Preview)",
-    package: "com.passvault.preview",
+    package: `${packageName}.preview`,
     primaryColor: "#ffffff",
     splash: {
       android: {
@@ -101,7 +103,7 @@ const variantConfig = {
   },
   production: {
     name: "Pass Vault",
-    package: "com.passvault",
+    package: packageName,
     primaryColor: "#ffffff",
     splash: {
       android: {

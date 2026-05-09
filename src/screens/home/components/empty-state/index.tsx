@@ -1,80 +1,39 @@
 import FeatherIcon from "@expo/vector-icons/Feather";
-import * as ExpoHaptics from "expo-haptics";
-import { useRouter } from "expo-router";
-import { useCallback } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Link } from "expo-router";
+import { useTranslation } from "react-i18next";
+import { Pressable, Text, View } from "react-native";
 
-import { TouchableScaleOpacity } from "@/components/ui/touchable-scale-opacity";
+import { useHaptics } from "@/hooks/use-haptics";
+import { useStyles } from "@/hooks/use-styles";
 
-import { colors } from "@/styles/themes/colors/dark";
+import { getStyles } from "./styles";
 
 export function EmptyState() {
-  const router = useRouter();
-
-  const handlePress = useCallback(() => {
-    ExpoHaptics.impactAsync(ExpoHaptics.ImpactFeedbackStyle.Light);
-    router.push("/new");
-  }, [router.push]);
+  const { t } = useTranslation("home", { keyPrefix: "list.empty" });
+  const { performTapFeedback } = useHaptics();
+  const { styles, theme } = useStyles(getStyles);
 
   return (
-    <TouchableScaleOpacity style={styles.pressable} onPress={handlePress}>
-      <View style={styles.content}>
-        <View style={styles.iconContainer}>
-          <FeatherIcon name="key" size={48} color={colors.mauve11} />
+    <Link href="/credentials/new" asChild>
+      <Pressable
+        android_disableSound
+        android_ripple={theme.colors.androidRipple}
+        style={styles.pressable}
+        onPress={performTapFeedback}
+      >
+        <View style={styles.content}>
+          <View style={styles.iconContainer}>
+            <FeatherIcon
+              name="key"
+              size={48}
+              color={theme.colors.content.muted}
+            />
+          </View>
+          <Text style={styles.title}>{t("title")}</Text>
+          <Text style={styles.description}>{t("description")}</Text>
+          <Text style={styles.hint}>{t("hint")}</Text>
         </View>
-        <Text style={styles.title}>Yout vault is empty</Text>
-        <Text style={styles.description}>
-          Add your first password to get started
-        </Text>
-        <Text style={styles.hint}>Tap to continue</Text>
-      </View>
-    </TouchableScaleOpacity>
+      </Pressable>
+    </Link>
   );
 }
-
-const styles = StyleSheet.create({
-  pressable: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 16,
-    padding: 24,
-  },
-  content: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 16,
-    padding: 24,
-  },
-  iconContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-
-    width: 96,
-    height: 96,
-    borderRadius: 24,
-    marginBottom: 24,
-
-    borderWidth: 1,
-    borderColor: colors.mauve4,
-
-    backgroundColor: colors.mauve1,
-  },
-  title: {
-    fontWeight: "500",
-    fontSize: 18,
-    lineHeight: 24,
-    color: colors.mauve12,
-  },
-  description: {
-    color: colors.mauve11,
-    fontSize: 16,
-    lineHeight: 24,
-  },
-  hint: {
-    color: colors.mauve9,
-    fontSize: 16,
-    lineHeight: 24,
-  },
-});

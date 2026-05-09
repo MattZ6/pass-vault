@@ -11,5 +11,12 @@
         "label": "Ir a la pantalla de ajustes"
       }
     }
+  },
+  "list": {
+    "empty": {
+      "title": "Tu caja fuerte está vacía",
+      "description": "Añade tu primera contraseña para empezar",
+      "hint": "Toca para continuar"
+    }
   }
 }

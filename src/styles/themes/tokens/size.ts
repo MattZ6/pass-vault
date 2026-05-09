@@ -12,6 +12,7 @@ export const size = {
   10: 40,
   11: 44,
   12: 48,
+  24: 96,
 } as const;
 
 export type Size = typeof size;

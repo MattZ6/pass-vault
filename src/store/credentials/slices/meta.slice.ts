@@ -1,6 +1,6 @@
 import type { StateCreator } from "zustand";
 
-type CredentialMeta = {
+export type CredentialMeta = {
   id: string;
   username: string;
   provider: string;
@@ -37,7 +37,7 @@ export const createCredentialsMetaSlice: StateCreator<
 
     const credentialsMeta = get().credentialsMeta;
 
-    const updatedCredentialsMeta = [newCredentialMeta, ...credentialsMeta];
+    const updatedCredentialsMeta = [...credentialsMeta, newCredentialMeta];
 
     set({ credentialsMeta: updatedCredentialsMeta });
   },

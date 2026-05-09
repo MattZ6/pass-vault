@@ -1,27 +1,30 @@
-import { Link, Stack } from "expo-router";
-import { SymbolView } from "expo-symbols";
-import { useCallback } from "react";
+import { LegendList, type LegendListRenderItemProps } from "@legendapp/list";
+import { Stack } from "expo-router";
 import { useTranslation } from "react-i18next";
-import { Platform, Pressable, ScrollView, View } from "react-native";
+import { Platform } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { Text } from "@/components/ui/text";
-
-import { useHaptics } from "@/hooks/use-haptics";
 import { useStyles } from "@/hooks/use-styles";
 
+import type { CredentialMeta } from "@/store/credentials/slices/meta.slice";
+import { useVaultStore } from "@/store/credentials/vault.store";
+
+import { CredentialItem } from "./components/credential-item";
+import { EmptyState } from "./components/empty-state";
+import { ItemSeparator } from "./components/item-separator";
 import { ToolbarActions } from "./components/toolbar-actions";
 
 import { getStyles } from "./styles";
 
 export function HomeScreen() {
   const { t } = useTranslation("home", { keyPrefix: "meta" });
-  const { styles, theme } = useStyles(getStyles);
-  const { performTapFeedback } = useHaptics();
+  const safeInsets = useSafeAreaInsets();
+  const { styles, theme } = useStyles((input) => getStyles(input, safeInsets));
+  const credentialsMeta = useVaultStore((s) => s.credentialsMeta);
 
-  const handlePress = useCallback(
-    () => performTapFeedback(),
-    [performTapFeedback],
-  );
+  const renderItem = ({ item }: LegendListRenderItemProps<CredentialMeta>) => {
+    return <CredentialItem credential={item} />;
+  };
 
   return (
     <>
@@ -44,51 +47,22 @@ export function HomeScreen() {
 
       <ToolbarActions />
 
-      <ScrollView
+      <LegendList
         contentInsetAdjustmentBehavior="automatic"
-        showsVerticalScrollIndicator={false}
+        automaticallyAdjustsScrollIndicatorInsets
+        fadingEdgeLength={{
+          start: 8,
+          end: 32,
+        }}
         style={styles.container}
         contentContainerStyle={styles.scrollContainer}
-      >
-        <Text color="muted">Here goes the credentials list.</Text>
-
-        <Link href={`/credentials/example-id`} asChild>
-          <Pressable
-            android_disableSound
-            android_ripple={theme.colors.androidRipple}
-            onPress={handlePress}
-          >
-            <View
-              style={{
-                paddingVertical: theme.spacing[4],
-                flexDirection: "row",
-                alignItems: "center",
-                gap: theme.spacing[4],
-              }}
-            >
-              <View
-                style={{
-                  flex: 1,
-                }}
-              >
-                <Text>Credential example</Text>
-                <Text typography="bodySmall" color="muted">
-                  This is an example of a credential
-                </Text>
-              </View>
-
-              <SymbolView
-                name={{ android: "chevron_right", ios: "chevron.right" }}
-                size={Platform.select({
-                  ios: 16,
-                  default: 24,
-                })}
-                tintColor={theme.colors.content.muted}
-              />
-            </View>
-          </Pressable>
-        </Link>
-      </ScrollView>
+        data={credentialsMeta}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        ItemSeparatorComponent={ItemSeparator}
+        ListEmptyComponent={EmptyState}
+        recycleItems
+      />
     </>
   );
 }

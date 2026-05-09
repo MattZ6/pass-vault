@@ -11,5 +11,12 @@
         "label": "Ir para tela de configurações"
       }
     }
+  },
+  "list": {
+    "empty": {
+      "title": "Seu cofre está vazio",
+      "description": "Adicione sua primeira senha para começar",
+      "hint": "Toque para continuar"
+    }
   }
 }

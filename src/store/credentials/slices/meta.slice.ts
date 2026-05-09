@@ -1,6 +1,6 @@
 import type { StateCreator } from "zustand";
 
-type CredentialMeta = {
+export type CredentialMeta = {
   id: string;
   username: string;
   provider: string;

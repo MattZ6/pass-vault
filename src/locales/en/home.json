@@ -11,5 +11,12 @@
         "label": "Go to settings screnn"
       }
     }
+  },
+  "list": {
+    "empty": {
+      "title": "Your vault is empty",
+      "description": "Add your first password to get started",
+      "hint": "Tap to continue"
+    }
   }
 }

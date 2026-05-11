@@ -48,6 +48,7 @@ function RootStack() {
     <Stack
       initialRouteName="(main)"
       screenOptions={{
+        headerShadowVisible: false,
         headerShown: false,
         contentStyle: {
           backgroundColor: theme.colors.surface.base,

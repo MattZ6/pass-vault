@@ -1,6 +1,5 @@
 import { Stack } from "expo-router";
 import { Platform } from "react-native";
-
 import { useTheme } from "@/hooks/use-theme";
 
 export default function MainLayout() {
@@ -9,6 +8,7 @@ export default function MainLayout() {
   return (
     <Stack
       screenOptions={{
+        headerShadowVisible: false,
         headerStyle: {
           backgroundColor: Platform.select({
             ios: "transparent",

@@ -7,13 +7,13 @@ export function getStyles(theme: Theme) {
     wrapper: {
       borderRadius: theme.radii[8],
       overflow: "hidden",
+      backgroundColor: theme.colors.surface.elevated,
     },
     button: {
       padding: theme.spacing[4],
       flexDirection: "row",
       alignItems: "center",
       gap: theme.spacing[4],
-      backgroundColor: theme.colors.surface.elevated,
       borderRadius: theme.radii[8],
     },
     iconContainer: {

@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "title": "Appearance"
+  },
+  "screen": {
+    "sections": {
+      "theme": {
+        "label": "Theme",
+        "options": {
+          "system": {
+            "label": "System",
+            "description": "Follow system colors"
+          },
+          "light": {
+            "label": "Light"
+          },
+          "dark": {
+            "label": "Dark"
+          }
+        }
+      }
+    }
+  }
+}

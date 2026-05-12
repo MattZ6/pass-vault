@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "title": "Aparência"
+  },
+  "screen": {
+    "sections": {
+      "theme": {
+        "label": "Tema",
+        "options": {
+          "system": {
+            "label": "Sistema",
+            "description": "Usar as cores do dispositivo"
+          },
+          "light": {
+            "label": "Claro"
+          },
+          "dark": {
+            "label": "Escuro"
+          }
+        }
+      }
+    }
+  }
+}

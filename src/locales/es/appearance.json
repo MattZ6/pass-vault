@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "title": "Apariencia"
+  },
+  "screen": {
+    "sections": {
+      "theme": {
+        "label": "Tema",
+        "options": {
+          "system": {
+            "label": "Sistema",
+            "description": "Utilizar los núcleos del dispositivo"
+          },
+          "light": {
+            "label": "Claro"
+          },
+          "dark": {
+            "label": "Oscuro"
+          }
+        }
+      }
+    }
+  }
+}

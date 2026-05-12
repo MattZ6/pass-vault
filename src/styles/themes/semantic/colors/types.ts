@@ -11,9 +11,12 @@ type SurfaceColors = {
   element: AppColorValue;
 };
 
+export type SurfaceColorsOptions = keyof SurfaceColors;
+
 type ContentColors = {
   base: AppColorValue;
   muted: AppColorValue;
+  element: AppColorValue;
 };
 
 export type ContentColorsOptions = keyof ContentColors;

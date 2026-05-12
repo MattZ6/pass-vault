@@ -12,6 +12,7 @@ export const colors: Colors = {
   content: {
     base: palette.gray["12"],
     muted: palette.gray["11"],
+    element: palette.gray["9"],
   },
 
   border: {

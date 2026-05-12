@@ -1,10 +1,10 @@
-import { Text as RNText, type TextProps } from "react-native";
+import { Text as RNText, type TextProps as RNTextProps } from "react-native";
 
 import { useStyles } from "@/hooks/use-styles";
 
 import { getStyles, type TextStyledOptions } from "./styles";
 
-type Props = TextProps & Partial<TextStyledOptions>;
+export type TextProps = RNTextProps & Partial<TextStyledOptions>;
 
 export function Text({
   style,
@@ -12,7 +12,7 @@ export function Text({
   typography = "body",
   color = "base",
   ...props
-}: Props) {
+}: TextProps) {
   const { styles } = useStyles((input) =>
     getStyles(input, { weight, typography, color }),
   );

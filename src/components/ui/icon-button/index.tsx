@@ -11,7 +11,7 @@ type Props = Omit<
 > &
   Partial<IconButtonStyledOptions>;
 
-export function IconButton({ children, size = 11, ...props }: Props) {
+export function IconButton({ children, size = 12, ...props }: IconButtonProps) {
   const { styles, theme } = useStyles((input) => getStyles(input, { size }));
 
   return (

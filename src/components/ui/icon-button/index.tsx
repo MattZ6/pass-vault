@@ -5,13 +5,13 @@ import { useStyles } from "@/hooks/use-styles";
 
 import { getStyles, type IconButtonStyledOptions } from "./styles";
 
-type Props = Omit<
+export type IconButtonProps = Omit<
   PressableProps,
   "android_disableSound" | "android_ripple" | "style"
 > &
   Partial<IconButtonStyledOptions>;
 
-export function IconButton({ children, size = 11, ...props }: Props) {
+export function IconButton({ children, size = 12, ...props }: IconButtonProps) {
   const { styles, theme } = useStyles((input) => getStyles(input, { size }));
 
   return (

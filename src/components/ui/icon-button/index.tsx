@@ -5,7 +5,7 @@ import { useStyles } from "@/hooks/use-styles";
 
 import { getStyles, type IconButtonStyledOptions } from "./styles";
 
-type Props = Omit<
+export type IconButtonProps = Omit<
   PressableProps,
   "android_disableSound" | "android_ripple" | "style"
 > &

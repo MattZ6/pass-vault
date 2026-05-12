@@ -1,5 +1,17 @@
 {
   "meta": {
     "title": "Settings"
+  },
+  "screen": {
+    "sections": {
+      "preferences": {
+        "label": "Preferences",
+        "fields": {
+          "appearance": {
+            "label": "Appearance"
+          }
+        }
+      }
+    }
   }
 }

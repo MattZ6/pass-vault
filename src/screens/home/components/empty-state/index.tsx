@@ -1,4 +1,4 @@
-import FeatherIcon from "@expo/vector-icons/Feather";
+// import FeatherIcon from "@expo/vector-icons/Feather";
 import { Link } from "expo-router";
 import { useTranslation } from "react-i18next";
 import { Pressable, Text, View } from "react-native";
@@ -23,11 +23,11 @@ export function EmptyState() {
       >
         <View style={styles.content}>
           <View style={styles.iconContainer}>
-            <FeatherIcon
+            {/* <FeatherIcon
               name="key"
               size={48}
               color={theme.colors.content.muted}
-            />
+            /> */}
           </View>
           <Text style={styles.title}>{t("title")}</Text>
           <Text style={styles.description}>{t("description")}</Text>

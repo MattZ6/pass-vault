@@ -2,6 +2,7 @@ import { View, type ViewProps } from "react-native";
 
 import { useStyles } from "@/hooks/use-styles";
 
+import { SectionItemContentDescription } from "./components/description";
 import { SectionItemContentTitle } from "./components/title";
 
 import { getStyles } from "./styles";
@@ -15,3 +16,4 @@ export function SectionItemContent({ style, ...props }: Props) {
 }
 
 SectionItemContent.Title = SectionItemContentTitle;
+SectionItemContent.Description = SectionItemContentDescription;

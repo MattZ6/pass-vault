@@ -179,18 +179,6 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       dark: variant.icon.ios.dark.imagePath,
       tinted: variant.icon.ios.tinted.imagePath,
     },
-    splash: {
-      image: variant.splash.ios.imagePath,
-      tabletImage: variant.splash.ios.imagePath,
-      backgroundColor: variant.splash.ios.light.backgroundColor,
-      resizeMode: "contain",
-      dark: {
-        image: variant.splash.ios.imagePath,
-        tabletImage: variant.splash.ios.imagePath,
-        backgroundColor: variant.splash.ios.dark.backgroundColor,
-        resizeMode: "contain",
-      },
-    },
     infoPlist: {
       CFBundleAllowMixedLocalizations: true,
     },
@@ -201,16 +189,6 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     adaptiveIcon: {
       foregroundImage: variant.icon.android.imagePath,
       backgroundColor: variant.icon.android.backgroundColor,
-    },
-    splash: {
-      image: variant.splash.android.imagePath,
-      backgroundColor: variant.splash.android.light.backgroundColor,
-      resizeMode: "contain",
-      dark: {
-        image: variant.splash.android.imagePath,
-        backgroundColor: variant.splash.android.dark.backgroundColor,
-        resizeMode: "contain",
-      },
     },
   },
 
@@ -233,6 +211,33 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       "expo-dev-client",
       {
         launchMode: "launcher",
+      },
+    ],
+    [
+      "expo-splash-screen",
+      {
+        android: {
+          image: variant.splash.android.imagePath,
+          backgroundColor: variant.splash.android.light.backgroundColor,
+          resizeMode: "contain",
+          dark: {
+            image: variant.splash.android.imagePath,
+            backgroundColor: variant.splash.android.dark.backgroundColor,
+            resizeMode: "contain",
+          },
+        },
+        ios: {
+          image: variant.splash.ios.imagePath,
+          tabletImage: variant.splash.ios.imagePath,
+          backgroundColor: variant.splash.ios.light.backgroundColor,
+          resizeMode: "contain",
+          dark: {
+            image: variant.splash.ios.imagePath,
+            tabletImage: variant.splash.ios.imagePath,
+            backgroundColor: variant.splash.ios.dark.backgroundColor,
+            resizeMode: "contain",
+          },
+        },
       },
     ],
   ],

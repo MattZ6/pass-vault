@@ -54,6 +54,11 @@ export function ThemeSection() {
                   <Section.Item.Content.Title>
                     {t(`options.${option}.label`)}
                   </Section.Item.Content.Title>
+                  {option === "system" && (
+                    <Section.Item.Content.Description>
+                      {t(`options.${option}.description`)}
+                    </Section.Item.Content.Description>
+                  )}
                 </Section.Item.Content>
 
                 <Section.Item.Trailing>

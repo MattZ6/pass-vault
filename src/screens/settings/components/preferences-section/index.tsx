@@ -22,6 +22,14 @@ export function PreferencesSection() {
           href="/settings/appearance"
           leadingIcon={{ ios: "paintpalette.fill", android: "palette" }}
         />
+
+        <Section.Divider />
+
+        <MenuItem
+          title={t("fields.language.label")}
+          href="/settings/language"
+          leadingIcon={{ ios: "translate", android: "translate" }}
+        />
       </Card>
     </Section.Root>
   );

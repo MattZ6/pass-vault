@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "title": "Idioma"
+  },
+  "screen": {
+    "sections": {
+      "language": {
+        "label": "Idioma",
+        "options": {
+          "en": {
+            "title": "English",
+            "description": "Inglés"
+          },
+          "pt": {
+            "title": "Português (Brasil)",
+            "description": "Portugués de Brasil"
+          },
+          "es": {
+            "title": "Español"
+          }
+        }
+      }
+    }
+  }
+}

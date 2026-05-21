@@ -9,6 +9,9 @@
         "fields": {
           "appearance": {
             "label": "Apariencia"
+          },
+          "language": {
+            "label": "Idioma"
           }
         }
       }

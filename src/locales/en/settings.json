@@ -14,6 +14,14 @@
             "label": "Language"
           }
         }
+      },
+      "about": {
+        "label": "About",
+        "fields": {
+          "licenses": {
+            "label": "Licenses"
+          }
+        }
       }
     }
   }

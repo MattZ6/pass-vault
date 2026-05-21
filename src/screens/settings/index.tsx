@@ -3,6 +3,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useStyles } from "@/hooks/use-styles";
 
+import { AboutSection } from "./components/about-section";
 import { PreferencesSection } from "./components/preferences-section";
 import { ScreenHeader } from "./components/screen-header";
 
@@ -22,6 +23,7 @@ export function SettingsScreen() {
         contentContainerStyle={styles.scrollContainer}
       >
         <PreferencesSection />
+        <AboutSection />
       </ScrollView>
     </>
   );

@@ -2,9 +2,12 @@ import { getLocales } from "expo-localization";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-export const lng = getLocales()[0].languageCode ?? "en";
-
 import { locales } from "@/locales";
+
+import { PreferencesRepository } from "@/repositories/preferences.repository";
+
+export const lng =
+  PreferencesRepository.getLanguage() ?? getLocales()[0].languageCode ?? "en";
 
 i18n.use(initReactI18next).init({
   resources: locales,

@@ -1,6 +1,8 @@
 import { createContext, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
+import { PreferencesRepository } from "@/repositories/preferences.repository";
+
 import i18next from "./i18n";
 
 import type {
@@ -20,6 +22,7 @@ function LanguageProvider(props: ProviderTypes.Props) {
   const changeLanguage = useCallback(
     (language: ContextTypes.Language) => {
       i18n.changeLanguage(language);
+      PreferencesRepository.saveLanguage(language);
     },
     [i18n.changeLanguage],
   );

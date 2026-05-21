@@ -1,6 +1,8 @@
 import { createContext, useCallback, useMemo, useState } from "react";
 import { useColorScheme } from "react-native";
 
+import { PreferencesRepository } from "@/repositories/preferences.repository";
+
 import { darkTheme } from "@/styles/themes/dark";
 import { lightTheme } from "@/styles/themes/light";
 
@@ -17,7 +19,10 @@ export const ThemeContext = createContext({} as ThemeContextTypes.Context);
 export function ThemeProvider({ children }: ThemeProviderTypes.Props) {
   const deviceColorScheme = useColorScheme();
   const [appColorMode, setAppColorMode] =
-    useState<ThemeContextTypes.ThemeOption>("system");
+    useState<ThemeContextTypes.ThemeOption>(() => {
+      const storedTheme = PreferencesRepository.getTheme();
+      return storedTheme ?? "system";
+    });
 
   const resolvedColorMode = useMemo(() => {
     if (appColorMode === "system") {
@@ -45,6 +50,7 @@ export function ThemeProvider({ children }: ThemeProviderTypes.Props) {
 
   const changeTheme = useCallback((input: ThemeContextTypes.ThemeOption) => {
     setAppColorMode(input);
+    PreferencesRepository.saveTheme(input);
   }, []);
 
   const contextValue = useMemo<ThemeContextTypes.Context>(

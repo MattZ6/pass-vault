@@ -1,4 +1,12 @@
-import { createContext, useCallback, useMemo, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+
+import { PreferencesRepository } from "@/repositories/preferences.repository";
 
 import type {
   PreferencesContextTypes,
@@ -14,12 +22,18 @@ export function PreferencesProvider({
   defaultHapticsEnabled,
 }: PreferencesProviderTypes.Props) {
   const [isHapticsEnabled, setIsHapticsEnabled] = useState(() => {
-    return defaultHapticsEnabled;
+    const storedHapticsEnabled = PreferencesRepository.getHaptics();
+    return storedHapticsEnabled ?? defaultHapticsEnabled;
   });
 
   const toggleHaptics = useCallback(
     () => setIsHapticsEnabled((prev) => !prev),
     [],
+  );
+
+  useEffect(
+    () => PreferencesRepository.saveHaptics(isHapticsEnabled),
+    [isHapticsEnabled],
   );
 
   const contextValue = useMemo<PreferencesContextTypes.Context>(

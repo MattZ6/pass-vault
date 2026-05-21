@@ -52,7 +52,7 @@ export function ThemeSection() {
 
                 <Section.Item.Content>
                   <Section.Item.Content.Title>
-                    {t(`options.${option}.title`)}
+                    {t(`options.${option}.label`)}
                   </Section.Item.Content.Title>
                 </Section.Item.Content>
 

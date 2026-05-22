@@ -7,7 +7,7 @@ export function getStyles(theme: Theme) {
     wrapper: {
       borderRadius: theme.radii[8],
       overflow: "hidden",
-      backgroundColor: theme.colors.surface.elevated,
+      backgroundColor: theme.colors.surface.element,
     },
     button: {
       padding: theme.spacing[4],

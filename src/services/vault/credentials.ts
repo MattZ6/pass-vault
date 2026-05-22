@@ -6,18 +6,23 @@ import { CryptographyService } from "@/services/cryptography/cryptography";
 import { useVaultStore } from "@/store/credentials/vault.store";
 
 type CreateCredentialInput = {
-  app: string;
+  provider: string;
   username: string;
   password: string;
 };
 
 export const VaultService = {
+  loadCredentialsIntoStore: async () => {
+    const credentialsMeta = await CredentialsMetaRepository.getAllMetadata();
+
+    useVaultStore.getState().setupCredentialsMeta(credentialsMeta);
+  },
   createCredential: async (input: CreateCredentialInput) => {
     const id = CryptographyService.generateUUID();
 
     await CredentialsMetaRepository.saveMetadata({
       id,
-      app: input.app,
+      provider: input.provider,
       username: input.username,
     });
 
@@ -32,7 +37,7 @@ export const VaultService = {
 
     useVaultStore.getState().addCredentialMeta({
       id,
-      provider: input.app,
+      provider: input.provider,
       username: input.username,
     });
   },

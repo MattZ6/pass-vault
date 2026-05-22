@@ -32,7 +32,7 @@ export function NewCredentialForm() {
   const onSubmit = useCallback(
     async (input: FormOutput) => {
       await VaultService.createCredential({
-        app: input.provider,
+        provider: input.provider,
         username: input.username,
         password: input.password,
       });

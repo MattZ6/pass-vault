@@ -1,10 +1,13 @@
 import { LegendList, type LegendListRenderItemProps } from "@legendapp/list";
 import { Stack } from "expo-router";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Platform } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useStyles } from "@/hooks/use-styles";
+
+import { VaultService } from "@/services/vault/credentials";
 
 import type { CredentialMeta } from "@/store/credentials/slices/meta.slice";
 import { useVaultStore } from "@/store/credentials/vault.store";
@@ -25,6 +28,10 @@ export function HomeScreen() {
   const renderItem = ({ item }: LegendListRenderItemProps<CredentialMeta>) => {
     return <CredentialItem credential={item} />;
   };
+
+  useEffect(() => {
+    VaultService.loadCredentialsIntoStore();
+  }, []);
 
   return (
     <>

@@ -7,20 +7,47 @@ function getStorage() {
   });
 }
 
+type CredentialMeta = {
+  id: string;
+  provider: string;
+  username: string;
+};
+
 type SaveInput = {
   id: string;
-  app: string;
+  provider: string;
   username: string;
 };
 
 export const CredentialsMetaRepository = {
+  getAllMetadata: async () => {
+    const storage = await getStorage();
+
+    const keys = storage.getAllKeys();
+
+    return keys.map<CredentialMeta>((key) => {
+      const storedCredential = storage.getString(key);
+
+      if (!storedCredential) {
+        return { id: key, provider: "?", username: "?" };
+      }
+
+      const parsedObject = JSON.parse(storedCredential);
+
+      return {
+        id: key,
+        provider: parsedObject.provider ?? parsedObject.app,
+        username: parsedObject.username,
+      };
+    });
+  },
   saveMetadata: async (input: SaveInput) => {
     const storage = await getStorage();
 
     storage.set(
       input.id,
       JSON.stringify({
-        app: input.app,
+        provider: input.provider,
         username: input.username,
       }),
     );

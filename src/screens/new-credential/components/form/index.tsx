@@ -2,149 +2,155 @@ import { useRouter } from "expo-router";
 import { useCallback } from "react";
 import { Controller } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { Pressable, TextInput, View } from "react-native";
+import { ActivityIndicator, View } from "react-native";
 
+import { Button } from "@/components/ui/button";
+import { Field } from "@/components/ui/field";
 import { Text } from "@/components/ui/text";
 
 import { useHaptics } from "@/hooks/use-haptics";
 import { useStyles } from "@/hooks/use-styles";
 
-import type { AddCredentialMetaInput } from "@/store/credentials/slices/meta.slice";
-import { useVaultStore } from "@/store/credentials/vault.store";
+import { VaultService } from "@/services/vault/credentials";
 
-import { useNewCredentialForm } from "./hooks/use-new-credential-form";
+import {
+  type FormOutput,
+  useNewCredentialForm,
+} from "./hooks/use-new-credential-form";
 
 import { getStyles } from "./styles";
 
 export function NewCredentialForm() {
   const router = useRouter();
   const { t } = useTranslation("new-credential", { keyPrefix: "screen.form" });
-  const addCredentialMeta = useVaultStore((s) => s.addCredentialMeta);
-  const { notifySuccess, notifyFailure } = useHaptics();
+  const { notifySuccess, notifyFailure, performTapFeedback } = useHaptics();
   const { styles, theme } = useStyles(getStyles);
   const { control, handleSubmit, formState } = useNewCredentialForm();
 
+  const isSubmitting = formState.isValid && formState.isSubmitting;
+
   const onSubmit = useCallback(
-    (input: AddCredentialMetaInput) => {
+    async (input: FormOutput) => {
+      await VaultService.createCredential({
+        app: input.provider,
+        username: input.username,
+        password: input.password,
+      });
+
       notifySuccess();
-      addCredentialMeta(input);
       router.back();
     },
-    [notifySuccess, router, addCredentialMeta],
+    [notifySuccess, router.back],
   );
 
+  const handleSubmitPress = useCallback(() => {
+    performTapFeedback();
+    handleSubmit(onSubmit, notifyFailure)();
+  }, [handleSubmit, notifyFailure, onSubmit, performTapFeedback]);
+
   return (
-    <View style={styles.container}>
+    <View style={styles.form}>
       <View style={styles.fields}>
-        <View style={styles.field}>
-          <Text weight="medium" typography="bodySmall">
-            {t("fields.provider.label")}
-          </Text>
+        <Field.Root invalid={!!formState.errors.provider?.type}>
+          <Field.Label>{t("fields.provider.label")}</Field.Label>
           <Controller
             control={control}
             name="provider"
             render={({ field }) => (
-              <TextInput
+              <Field.TextInput
                 ref={field.ref}
                 onChangeText={field.onChange}
                 value={field.value}
                 onBlur={field.onBlur}
-                editable={field.disabled}
-                style={styles.input}
-                placeholderTextColor={theme.colors.content.muted}
-                selectionColor={theme.colors.content.base}
+                editable={!isSubmitting}
                 keyboardType="default"
-                placeholder={t("fields.provider.placeholder")}
                 returnKeyType="next"
               />
             )}
           />
-          <Text weight="regular" typography="bodySmall">
-            {formState.errors.provider?.type
-              ? t(
-                  `fields.provider.validations.${formState.errors.provider?.type}`,
-                )
-              : ""}
-          </Text>
-        </View>
+          <Field.Error>
+            {formState.errors.provider?.type && (
+              <Field.Error.Text>
+                {t(
+                  `fields.provider.validations.${formState.errors.provider.type}`,
+                )}
+              </Field.Error.Text>
+            )}
+          </Field.Error>
+        </Field.Root>
 
-        <View style={styles.field}>
-          <Text weight="medium" typography="bodySmall">
-            {t("fields.username.label")}
-          </Text>
+        <Field.Root invalid={!!formState.errors.username?.type}>
+          <Field.Label>{t("fields.username.label")}</Field.Label>
           <Controller
             control={control}
             name="username"
             render={({ field }) => (
-              <TextInput
+              <Field.TextInput
                 ref={field.ref}
                 onChangeText={field.onChange}
                 value={field.value}
                 onBlur={field.onBlur}
-                editable={field.disabled}
-                style={styles.input}
-                placeholderTextColor={theme.colors.content.muted}
-                selectionColor={theme.colors.content.base}
+                editable={!isSubmitting}
                 keyboardType="email-address"
-                placeholder={t("fields.username.placeholder")}
-                returnKeyType="send"
+                returnKeyType="next"
               />
             )}
           />
-          <Text weight="regular" typography="bodySmall">
-            {formState.errors.username?.type
-              ? t(
-                  `fields.username.validations.${formState.errors.username?.type}`,
-                )
-              : ""}
-          </Text>
-        </View>
+          <Field.Error>
+            {formState.errors.username?.type && (
+              <Field.Error.Text>
+                {t(
+                  `fields.username.validations.${formState.errors.username.type}`,
+                )}
+              </Field.Error.Text>
+            )}
+          </Field.Error>
+        </Field.Root>
 
-        <View style={styles.field}>
-          <Text weight="medium" typography="bodySmall">
-            {t("fields.password.label")}
-          </Text>
+        <Field.Root invalid={!!formState.errors.password?.type}>
+          <Field.Label>{t("fields.password.label")}</Field.Label>
           <Controller
             control={control}
             name="password"
             render={({ field }) => (
-              <TextInput
+              <Field.TextInput
                 ref={field.ref}
                 onChangeText={field.onChange}
                 value={field.value}
                 onBlur={field.onBlur}
-                editable={field.disabled}
-                style={styles.input}
-                placeholderTextColor={theme.colors.content.muted}
-                selectionColor={theme.colors.content.base}
-                keyboardType="email-address"
-                placeholder={t("fields.password.placeholder")}
+                editable={!isSubmitting}
                 returnKeyType="send"
+                secureTextEntry
               />
             )}
           />
-          <Text weight="regular" typography="bodySmall">
-            {formState.errors.password?.type
-              ? t(
-                  `fields.password.validations.${formState.errors.password?.type}`,
-                )
-              : ""}
-          </Text>
-        </View>
+          <Field.Error>
+            {formState.errors.password?.type && (
+              <Field.Error.Text>
+                {t(
+                  `fields.password.validations.${formState.errors.password.type}`,
+                )}
+              </Field.Error.Text>
+            )}
+          </Field.Error>
+        </Field.Root>
       </View>
 
       <View style={styles.buttonWrapper}>
-        <Pressable
-          android_disableSound
-          android_ripple={theme.colors.androidRipple}
-          onPress={handleSubmit(onSubmit, notifyFailure)}
-        >
+        <Button onPress={handleSubmitPress} disabled={isSubmitting}>
           <View style={styles.buttonContent}>
-            <Text weight="medium" typography="body">
-              {t("actions.save.label")}
-            </Text>
+            {isSubmitting ? (
+              <ActivityIndicator
+                size="large"
+                color={theme.colors.surface.base}
+              />
+            ) : (
+              <Text weight="medium" typography="body" style={styles.buttonText}>
+                {t("actions.save.label")}
+              </Text>
+            )}
           </View>
-        </Pressable>
+        </Button>
       </View>
     </View>
   );

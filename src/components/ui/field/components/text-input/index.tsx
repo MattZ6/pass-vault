@@ -29,6 +29,7 @@ export const FieldTextInput = forwardRef<Ref, Props>(
   ({ onFocus, onBlur, ...props }, ref) => {
     const { invalid } = useFieldContext();
 
+    const isEditableProgress = useSharedValue(0);
     const isFocused = useSharedValue(0);
     const isInvalidProgress = useSharedValue(0);
 
@@ -62,6 +63,14 @@ export const FieldTextInput = forwardRef<Ref, Props>(
 
     const animatedStyles = useAnimatedStyle(() => {
       return {
+        backgroundColor: interpolateColor(
+          isEditableProgress.value,
+          [0, 1],
+          [
+            theme.colors.surface.base.toString(),
+            theme.colors.surface.element.toString(),
+          ],
+        ),
         borderColor: interpolateColor(
           isInvalidProgress.value,
           [0, 1],
@@ -85,6 +94,12 @@ export const FieldTextInput = forwardRef<Ref, Props>(
         duration: ANIMATION_DURATION_IN_MS,
       });
     }, [invalid, isInvalidProgress]);
+
+    useEffect(() => {
+      isEditableProgress.value = withTiming(props.editable ? 1 : 0, {
+        duration: ANIMATION_DURATION_IN_MS,
+      });
+    }, [props.editable, isEditableProgress]);
 
     return (
       <AnimatedTextInput

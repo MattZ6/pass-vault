@@ -6,11 +6,7 @@ export type CredentialMeta = {
   provider: string;
 };
 
-export type AddCredentialMetaInput = Pick<
-  CredentialMeta,
-  "username" | "provider"
->;
-
+export type AddCredentialMetaInput = CredentialMeta;
 export type GetCredentialMetaInput = Pick<CredentialMeta, "id">;
 
 export type CredentialsMetaSlice = {

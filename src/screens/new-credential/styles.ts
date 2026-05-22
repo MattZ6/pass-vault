@@ -7,13 +7,11 @@ export function getStyles(theme: Theme) {
     container: {
       flex: 1,
     },
-    scrollContainer: {},
-    toolbar: {
-      paddingVertical: theme.spacing[6],
-      paddingHorizontal: theme.spacing[4],
+    list: {
+      flex: 1,
     },
-    title: {
-      textAlign: "center",
+    scrollContainer: {
+      padding: theme.spacing[4],
     },
   });
 }

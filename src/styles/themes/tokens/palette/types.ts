@@ -13,6 +13,6 @@ export type PaletteScale = {
   12: string;
 };
 
-type ColorPalette = "gray";
+type ColorPalette = "gray" | "red";
 
 export type Palette = Record<ColorPalette, PaletteScale>;

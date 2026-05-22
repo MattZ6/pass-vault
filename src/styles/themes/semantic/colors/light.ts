@@ -13,12 +13,14 @@ export const colors: Colors = {
     base: palette.gray["12"],
     muted: palette.gray["11"],
     element: palette.gray["9"],
+    error: palette.red["9"],
   },
 
   border: {
     default: palette.gray["6"],
     element: palette.gray["7"],
     active: palette.gray["8"],
+    error: palette.red["7"],
   },
 
   androidRipple: {

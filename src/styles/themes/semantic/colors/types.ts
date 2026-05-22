@@ -17,6 +17,7 @@ type ContentColors = {
   base: AppColorValue;
   muted: AppColorValue;
   element: AppColorValue;
+  error: AppColorValue;
 };
 
 export type ContentColorsOptions = keyof ContentColors;
@@ -25,6 +26,7 @@ type Border = {
   default: AppColorValue;
   element: AppColorValue;
   active: AppColorValue;
+  error: AppColorValue;
 };
 
 export type Colors = {

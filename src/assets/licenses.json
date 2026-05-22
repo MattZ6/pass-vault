@@ -35,6 +35,12 @@
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
         "parents": "pass-vault"
     },
+    "expo-crypto@56.0.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/expo/expo",
+        "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
+        "parents": "pass-vault"
+    },
     "expo-dev-client@56.0.14": {
         "licenses": "MIT",
         "repository": "https://github.com/expo/expo",

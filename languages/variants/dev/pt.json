@@ -1,6 +1,7 @@
 {
   "ios": {
-    "CFBundleDisplayName": "Pass Vault (Dev Client)"
+    "CFBundleDisplayName": "Pass Vault (Dev Client)",
+    "NSFaceIDUsageDescription": "Use o Face ID para desbloquear e visualizar suas senhas com segurança."
   },
   "android": {
     "app_name": "Pass Vault (Dev Client)"

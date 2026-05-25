@@ -1,5 +1,4 @@
 import type { ConfigContext, ExpoConfig } from "expo/config";
-
 import { name, version } from "./package.json";
 
 type Variant = "development" | "preview" | "production";
@@ -197,6 +196,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   plugins: [
     "expo-router",
     "expo-font",
+    "expo-local-authentication",
     [
       "expo-localization",
       {

@@ -10,6 +10,7 @@ import { Text } from "@/components/ui/text";
 import { useHaptics } from "@/hooks/use-haptics";
 import { useStyles } from "@/hooks/use-styles";
 
+import { LocalAuthenticationService } from "@/services/device/local-authentication";
 import { VaultService } from "@/services/vault/credentials";
 
 import { PasswordField } from "./components/password-field";
@@ -32,6 +33,23 @@ export function PasswordSection({ credentialId }: Props) {
     performTapFeedback();
 
     try {
+      const isEnrolled =
+        await LocalAuthenticationService.checkIfDeviceIsEnrolled();
+
+      if (!isEnrolled) {
+        // TODO: Exibir mensagem
+
+        return;
+      }
+
+      const localAuthOutput = await LocalAuthenticationService.authenticate();
+
+      if (!localAuthOutput.success) {
+        // TODO: Exibir mensagem
+
+        return;
+      }
+
       const password = await VaultService.getPassword({ credentialId });
 
       setPassword(password);

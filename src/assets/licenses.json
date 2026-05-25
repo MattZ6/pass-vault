@@ -71,6 +71,12 @@
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
         "parents": "pass-vault"
     },
+    "expo-local-authentication@56.0.4": {
+        "licenses": "MIT",
+        "repository": "https://github.com/expo/expo",
+        "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
+        "parents": "pass-vault"
+    },
     "expo-localization@56.0.6": {
         "licenses": "MIT",
         "repository": "https://github.com/expo/expo",

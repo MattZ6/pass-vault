@@ -5,10 +5,16 @@ import { CryptographyService } from "@/services/cryptography/cryptography";
 
 import { useVaultStore } from "@/store/credentials/vault.store";
 
+import { BinaryUtils } from "@/utils/binary";
+
 type CreateCredentialInput = {
   provider: string;
   username: string;
   password: string;
+};
+
+type GetPasswordInput = {
+  credentialId: string;
 };
 
 export const VaultService = {
@@ -40,5 +46,22 @@ export const VaultService = {
       provider: input.provider,
       username: input.username,
     });
+  },
+  getPassword: async (input: GetPasswordInput) => {
+    const encryptedBytes = await CredentialsSecretRepository.getSecret({
+      id: input.credentialId,
+    });
+
+    if (!encryptedBytes) {
+      throw new Error(
+        `Password from credential ${input.credentialId} was not stored.`,
+      );
+    }
+
+    const decryptedPassword = await CryptographyService.decrypt({
+      encryptedBytes: BinaryUtils.toUint8Array(encryptedBytes),
+    });
+
+    return decryptedPassword;
   },
 };

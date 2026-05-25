@@ -1,6 +1,7 @@
 {
   "ios": {
-    "CFBundleDisplayName": "Pass Vault"
+    "CFBundleDisplayName": "Pass Vault",
+    "NSFaceIDUsageDescription": "Usa Face ID para desbloquear y ver tus contraseñas de forma segura."
   },
   "android": {
     "app_name": "Pass Vault"

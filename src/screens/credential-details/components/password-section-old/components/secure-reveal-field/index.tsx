@@ -2,13 +2,11 @@ import { useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Animated, {
   interpolate,
-  interpolateColor,
   type SharedValue,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
-import { colors } from "@/styles/themes/colors/dark";
 
 type Props = {
   label: string;
@@ -55,13 +53,13 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 12,
     lineHeight: 20,
-    color: colors.mauve9,
+    // color: colors.mauve9,
     textTransform: "uppercase",
   },
   container: {
     height: 52,
     borderRadius: 12,
-    backgroundColor: colors.mauve1,
+    // backgroundColor: colors.mauve1,
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 16,
@@ -70,7 +68,7 @@ const styles = StyleSheet.create({
   password: {
     fontSize: 16,
     fontWeight: "500",
-    color: colors.mauve12,
+    // color: colors.mauve12,
     letterSpacing: 0.3,
   },
   absolute: {
@@ -84,11 +82,11 @@ type UseAnimatedStylesInput = {
 
 function useAnimatedStyles({ progress }: UseAnimatedStylesInput) {
   const containerAnimatedStyle = useAnimatedStyle(() => ({
-    backgroundColor: interpolateColor(
-      progress.value,
-      [0, 1],
-      [colors.mauve2, colors.mauve3],
-    ),
+    // backgroundColor: interpolateColor(
+    //   progress.value,
+    //   [0, 1],
+    //   [colors.mauve2, colors.mauve3],
+    // ),
     shadowOpacity: interpolate(progress.value, [0, 1], [0, 0.25]),
     transform: [
       {

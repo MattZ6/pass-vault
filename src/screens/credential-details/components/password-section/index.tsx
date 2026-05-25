@@ -1,104 +1,75 @@
-import * as ExpoHaptics from "expo-haptics";
-import { useCallback, useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { useCallback, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { View } from "react-native";
 
-import { CountdownActionButton } from "@/components/ui/countdown-action-button";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Section } from "@/components/ui/section";
+import { Text } from "@/components/ui/text";
 
-import { useRevealPassword } from "@/hooks/security/use-reveal-password";
+import { useHaptics } from "@/hooks/use-haptics";
+import { useStyles } from "@/hooks/use-styles";
 
-import { colors } from "@/styles/themes/colors/dark";
+import { VaultService } from "@/services/vault/credentials";
 
-import { SecureRevealField } from "./components/secure-reveal-field";
+import { PasswordField } from "./components/password-field";
 
-const DURATION = 3_000;
+import { getStyles } from "./styles";
 
-const seconds = Math.ceil(DURATION / 1000);
+type Props = {
+  credentialId: string;
+};
 
-export function PasswordSection() {
-  const { visible, reveal, progress, reset, pause, resume } = useRevealPassword(
-    {
-      duration: DURATION,
-    },
-  );
+export function PasswordSection({ credentialId }: Props) {
+  const { t } = useTranslation("credential-details", {
+    keyPrefix: "screen.sections.password",
+  });
+  const { styles } = useStyles(getStyles);
+  const { performTapFeedback, notifySuccess, notifyFailure } = useHaptics();
+  const [password, setPassword] = useState<string | null>(null);
 
-  const handleRevealPassword = useCallback(() => {
-    ExpoHaptics.selectionAsync();
+  const handleShowPassword = useCallback(async () => {
+    performTapFeedback();
 
-    reveal();
-  }, [reveal]);
+    try {
+      const password = await VaultService.getPassword({ credentialId });
+
+      setPassword(password);
+      notifySuccess();
+    } catch (error) {
+      console.log(error); // TODO: tratar aqui o erro
+      notifyFailure();
+    }
+  }, [performTapFeedback, credentialId, notifyFailure, notifySuccess]);
 
   useEffect(() => {
-    return () => reset(); // Reset animation on unmount
-  }, [reset]);
+    return () => setPassword(null);
+  }, []);
 
   return (
-    <View style={styles.content}>
-      <SecureRevealField
-        label="Password"
-        value="asjbhdaslkjdnasd"
-        visible={visible}
-      />
+    <Section.Root>
+      <Card color="element">
+        <Section.Item.Root>
+          <Section.Item.Content>
+            <Section.Item.Content.Title typography="bodySmall">
+              {t("fields.password.label")}
+            </Section.Item.Content.Title>
+            <PasswordField password={password} />
+          </Section.Item.Content>
+        </Section.Item.Root>
 
-      <View style={styles.field}>
-        {/* TODO: Talvez separar a lógica do scale button em um hook (idea) */}
-
-        <CountdownActionButton
-          progress={progress}
-          onPress={handleRevealPassword}
-          onPressIn={pause}
-          onPressOut={resume}
-          idleText="Reveal password"
-          runningText="Viewing…"
-        />
-
-        <Text style={styles.passwordHint}>Visible for {seconds} seconds</Text>
-      </View>
-    </View>
+        <View style={styles.footer}>
+          <View style={styles.buttonWrapper}>
+            <Button onPress={handleShowPassword}>
+              <View style={styles.buttonContent}>
+                <Text weight="medium" style={styles.buttonText}>
+                  {t("actions.show.label")}
+                </Text>
+              </View>
+            </Button>
+          </View>
+        </View>
+      </Card>
+    </Section.Root>
   );
 }
-
-const styles = StyleSheet.create({
-  content: {
-    gap: 48,
-  },
-  field: {
-    gap: 8,
-  },
-  label: {
-    fontSize: 12,
-    lineHeight: 20,
-    textTransform: "uppercase",
-    color: colors.mauve9,
-  },
-  text: {
-    fontSize: 16,
-    lineHeight: 24,
-    color: colors.mauve12,
-  },
-  passwordContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-
-    height: 56,
-    paddingHorizontal: 16,
-    borderRadius: 12,
-
-    backgroundColor: colors.mauve2,
-  },
-  password: {
-    fontSize: 24,
-    lineHeight: 32,
-    color: colors.mauve11,
-  },
-  passwordHidden: {
-    fontSize: 32,
-    color: colors.mauve11,
-    justifyContent: "center",
-  },
-  passwordHint: {
-    fontSize: 14,
-    lineHeight: 24,
-    color: colors.mauve9,
-    textAlign: "center",
-  },
-});

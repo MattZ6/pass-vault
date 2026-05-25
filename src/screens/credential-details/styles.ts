@@ -1,24 +1,18 @@
 import { StyleSheet } from "react-native";
+import type { EdgeInsets } from "react-native-safe-area-context";
 
 import type { Theme } from "@/styles/themes/types";
 
-export function getStyles(theme: Theme) {
+export function getStyles(theme: Theme, insets: EdgeInsets) {
   return StyleSheet.create({
     container: {
       flex: 1,
     },
     scrollContainer: {
-      padding: theme.spacing[4],
-    },
-    toolbar: {
-      paddingTop: theme.spacing[2],
-      paddingBottom: theme.spacing[6],
-    },
-    title: {
-      textAlign: "center",
-    },
-    field: {
-      gap: theme.spacing[1],
+      paddingTop: theme.spacing[4],
+      paddingBottom: theme.spacing[4] + insets.bottom,
+      paddingHorizontal: theme.spacing[4],
+      gap: theme.spacing[8],
     },
   });
 }

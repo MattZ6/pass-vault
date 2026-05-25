@@ -5,7 +5,7 @@
         "licenseUrl": "https://github.com/expo/google-fonts/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "@hookform/resolvers@5.2.2": {
+    "@hookform/resolvers@5.4.0": {
         "licenses": "MIT",
         "repository": "https://github.com/react-hook-form/resolvers",
         "licenseUrl": "https://github.com/react-hook-form/resolvers/raw/master/LICENSE",
@@ -17,7 +17,7 @@
         "licenseUrl": "github:LegendApp/legend-list",
         "parents": "pass-vault"
     },
-    "@tanstack/react-query@5.100.11": {
+    "@tanstack/react-query@5.100.14": {
         "licenses": "MIT",
         "repository": "https://github.com/TanStack/query",
         "licenseUrl": "https://github.com/TanStack/query/raw/master/LICENSE",
@@ -29,7 +29,7 @@
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "expo-constants@56.0.14": {
+    "expo-constants@56.0.15": {
         "licenses": "MIT",
         "repository": "https://github.com/expo/expo",
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
@@ -41,7 +41,7 @@
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "expo-dev-client@56.0.14": {
+    "expo-dev-client@56.0.15": {
         "licenses": "MIT",
         "repository": "https://github.com/expo/expo",
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
@@ -59,7 +59,7 @@
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "expo-insights@56.0.12": {
+    "expo-insights@56.0.13": {
         "licenses": "MIT",
         "repository": "https://github.com/expo/expo",
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
@@ -83,7 +83,7 @@
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "expo-router@56.2.5": {
+    "expo-router@56.2.6": {
         "licenses": "MIT",
         "repository": "https://github.com/expo/expo",
         "licenseUrl": "https://github.com/expo/expo",
@@ -95,7 +95,7 @@
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "expo-splash-screen@56.0.9": {
+    "expo-splash-screen@56.0.10": {
         "licenses": "MIT",
         "repository": "https://github.com/expo/expo",
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
@@ -119,7 +119,7 @@
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "expo@56.0.3": {
+    "expo@56.0.4": {
         "licenses": "MIT",
         "repository": "https://github.com/expo/expo",
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
@@ -131,7 +131,7 @@
         "licenseUrl": "https://github.com/i18next/i18next/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "react-hook-form@7.76.0": {
+    "react-hook-form@7.76.1": {
         "licenses": "MIT",
         "repository": "https://github.com/react-hook-form/react-hook-form",
         "licenseUrl": "https://github.com/react-hook-form/react-hook-form/raw/master/LICENSE",
@@ -167,7 +167,7 @@
         "licenseUrl": "https://github.com/AppAndFlow/react-native-safe-area-context/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "react-native-screens@4.25.1": {
+    "react-native-screens@4.25.2": {
         "licenses": "MIT",
         "repository": "https://github.com/software-mansion/react-native-screens",
         "licenseUrl": "https://github.com/software-mansion/react-native-screens/raw/master/LICENSE",

@@ -9,7 +9,7 @@ type Props = {
 
 export function CredentialSection({ username }: Props) {
   const { t } = useTranslation("credential-details", {
-    keyPrefix: "screen.sections.credentials",
+    keyPrefix: "screen.sections.credential",
   });
 
   return (

@@ -8,12 +8,14 @@ export type CredentialMeta = {
 
 export type AddCredentialMetaInput = CredentialMeta;
 export type GetCredentialMetaInput = Pick<CredentialMeta, "id">;
+export type RemoveCredentialMetaInput = Pick<CredentialMeta, "id">;
 
 export type CredentialsMetaSlice = {
   credentialsMeta: CredentialMeta[];
   setupCredentialsMeta: (input: CredentialMeta[]) => Promise<void>;
   addCredentialMeta: (input: AddCredentialMetaInput) => void;
   getCredentialMeta: (input: GetCredentialMetaInput) => CredentialMeta | null;
+  removeCredentialMeta: (input: RemoveCredentialMetaInput) => void;
 };
 
 export const createCredentialsMetaSlice: StateCreator<
@@ -52,5 +54,15 @@ export const createCredentialsMetaSlice: StateCreator<
     );
 
     return credential ?? null;
+  },
+
+  removeCredentialMeta(input) {
+    const credentialsMeta = get().credentialsMeta;
+
+    const updatedCredentialsMetaList = credentialsMeta.filter(
+      (credential) => credential.id !== input.id,
+    );
+
+    set({ credentialsMeta: updatedCredentialsMetaList });
   },
 });

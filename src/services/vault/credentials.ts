@@ -17,6 +17,10 @@ type GetPasswordInput = {
   credentialId: string;
 };
 
+type DeleteCredentialInput = {
+  credentialId: string;
+};
+
 export const VaultService = {
   loadCredentialsIntoStore: async () => {
     const credentialsMeta = await CredentialsMetaRepository.getAllMetadata();
@@ -38,7 +42,7 @@ export const VaultService = {
 
     await CredentialsSecretRepository.saveSecret({
       id,
-      encryptedBytes: encryptedPassword,
+      encryptedBytes: BinaryUtils.toArrayBuffer(encryptedPassword),
     });
 
     useVaultStore.getState().addCredentialMeta({
@@ -63,5 +67,13 @@ export const VaultService = {
     });
 
     return decryptedPassword;
+  },
+  deleteCredential: async (input: DeleteCredentialInput) => {
+    await CredentialsSecretRepository.deleteSecret({ id: input.credentialId });
+    await CredentialsMetaRepository.deleteMetadata({ id: input.credentialId });
+
+    useVaultStore.getState().removeCredentialMeta({
+      id: input.credentialId,
+    });
   },
 };

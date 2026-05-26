@@ -29,8 +29,7 @@ export const createCredentialsMetaSlice: StateCreator<
   },
 
   addCredentialMeta(input) {
-    const { username, provider } = input;
-    const id = Date.now().toString();
+    const { id, username, provider } = input;
 
     const newCredentialMeta: CredentialMeta = {
       id,

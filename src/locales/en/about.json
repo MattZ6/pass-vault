@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "title": "About"
+  },
+  "screen": {
+    "sections": {
+      "app": {
+        "label": "App",
+        "fields": {
+          "version": {
+            "label": "Version"
+          },
+          "installed_at": {
+            "label": "Installed at"
+          },
+          "updated_at": {
+            "label": "Updated at"
+          }
+        }
+      },
+      "device": {
+        "label": "Device",
+        "fields": {
+          "manufacturer": {
+            "label": "Manufacturer"
+          },
+          "model": {
+            "label": "Model"
+          },
+          "os": {
+            "label": "OS"
+          },
+          "android_sdk": {
+            "label": "Android SDK"
+          }
+        }
+      }
+    }
+  }
+}

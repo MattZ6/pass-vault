@@ -18,6 +18,9 @@
       "about": {
         "label": "Acerca de",
         "fields": {
+          "about": {
+            "label": "Acerca de"
+          },
           "licenses": {
             "label": "Licencias"
           }

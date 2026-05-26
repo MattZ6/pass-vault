@@ -8,6 +8,7 @@ import { useStyles } from "@/hooks/use-styles";
 import { useVaultStore } from "@/store/credentials/vault.store";
 
 import { CredentialSection } from "./components/credential-section";
+import { DangerSection } from "./components/danger-section";
 import { PasswordSection } from "./components/password-section";
 import { ScreenHeader } from "./components/screen-header";
 
@@ -34,12 +35,12 @@ export function CredentialDetailsScreen({ id }: Props) {
 
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        showsVerticalScrollIndicator={false}
         style={styles.container}
         contentContainerStyle={styles.scrollContainer}
       >
         <CredentialSection username={credential.username} />
         <PasswordSection credentialId={id} />
+        <DangerSection credentialId={id} />
       </ScrollView>
     </>
   );

@@ -13,10 +13,14 @@ type CredentialMeta = {
   username: string;
 };
 
-type SaveInput = {
+type SaveMetadataInput = {
   id: string;
   provider: string;
   username: string;
+};
+
+type DeleteMetadataInput = {
+  id: string;
 };
 
 export const CredentialsMetaRepository = {
@@ -41,7 +45,7 @@ export const CredentialsMetaRepository = {
       };
     });
   },
-  saveMetadata: async (input: SaveInput) => {
+  saveMetadata: async (input: SaveMetadataInput) => {
     const storage = await getStorage();
 
     storage.set(
@@ -51,5 +55,10 @@ export const CredentialsMetaRepository = {
         username: input.username,
       }),
     );
+  },
+  deleteMetadata: async (input: DeleteMetadataInput) => {
+    const storage = await getStorage();
+
+    storage.remove(input.id);
   },
 };

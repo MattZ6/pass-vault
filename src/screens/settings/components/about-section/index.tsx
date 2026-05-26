@@ -18,6 +18,14 @@ export function AboutSection() {
 
       <Card color="element">
         <MenuItem
+          title={t("fields.about.label")}
+          href="/settings/about"
+          leadingIcon={{ ios: "info", android: "info" }}
+        />
+
+        <Section.Divider />
+
+        <MenuItem
           title={t("fields.licenses.label")}
           href="/settings/licenses"
           leadingIcon={{ ios: "doc.text", android: "description" }}

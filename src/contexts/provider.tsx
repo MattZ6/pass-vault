@@ -15,6 +15,7 @@ import {
 
 import { useTheme } from "@/hooks/use-theme";
 
+import { ConfirmProvider } from "./confirm";
 import { LanguageProvider } from "./language";
 import { PreferencesProvider } from "./preferences";
 import { ThemeProvider } from "./theme";
@@ -33,7 +34,9 @@ export function Provider(props: Props) {
           <ThemeProvider>
             <LanguageProvider>
               <PreferencesProvider defaultHapticsEnabled={true}>
-                <NavigationProvider {...props} />
+                <ConfirmProvider>
+                  <NavigationProvider {...props} />
+                </ConfirmProvider>
               </PreferencesProvider>
             </LanguageProvider>
           </ThemeProvider>

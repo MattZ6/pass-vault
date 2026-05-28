@@ -11,7 +11,7 @@
         "licenseUrl": "https://github.com/react-hook-form/resolvers/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "@legendapp/list@2.0.19": {
+    "@legendapp/list@3.0.0": {
         "licenses": "MIT",
         "repository": "github:LegendApp/legend-list",
         "licenseUrl": "github:LegendApp/legend-list",
@@ -131,7 +131,7 @@
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "expo@56.0.5": {
+    "expo@56.0.6": {
         "licenses": "MIT",
         "repository": "https://github.com/expo/expo",
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
@@ -209,7 +209,7 @@
         "licenseUrl": "https://github.com/colinhacks/zod/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "zustand@5.0.13": {
+    "zustand@5.0.14": {
         "licenses": "MIT",
         "repository": "https://github.com/pmndrs/zustand",
         "licenseUrl": "https://github.com/pmndrs/zustand/raw/master/LICENSE",

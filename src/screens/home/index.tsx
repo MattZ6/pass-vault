@@ -1,4 +1,7 @@
-import { LegendList, type LegendListRenderItemProps } from "@legendapp/list";
+import {
+  LegendList,
+  type LegendListRenderItemProps,
+} from "@legendapp/list/react-native";
 import { Stack } from "expo-router";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";

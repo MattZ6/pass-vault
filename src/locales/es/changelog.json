@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "title": "Changelog"
+  },
+  "screen": {
+    "sections": {
+      "latest": {
+        "label": "Última versión"
+      },
+      "history": {
+        "label": "Versiones anteriores"
+      },
+      "alpha": {
+        "label": "Versiones alfa"
+      }
+    }
+  },
+  "changelog": {
+    "meta": {
+      "current": {
+        "v0.2.0": {
+          "title": "Protegiendo la bóveda",
+          "excerpt": "El almacenamiento cifrado local, la autenticación biométrica y la visualización segura de contraseñas ya están disponibles."
+        },
+        "v0.1.0": {
+          "title": "Construyendo la base",
+          "excerpt": "Introducción de la estructura principal de la app, navegación, componentes reutilizables y los primeros flujos de credenciales."
+        }
+      },
+      "early": {
+        "v0.0.0-alpha.5": {
+          "label": "Alfa 5",
+          "title": "Preparando la bóveda",
+          "excerpt": "Esta actualización se centró en los flujos de compilación y la configuración del almacenamiento local, preparando Pass Vault para la persistencia segura de datos en futuras versiones."
+        },
+        "v0.0.0-alpha.4": {
+          "label": "Alfa 4",
+          "title": "Una nueva dirección",
+          "excerpt": "Una gran renovación visual y estructural. Esta versión introdujo mejoras en navegación, temas, componentes y organización general de la aplicación."
+        },
+        "v0.0.0-alpha.3": {
+          "label": "Alfa 3",
+          "title": "Una experiencia más personal",
+          "excerpt": "Pass Vault ahora puede recordar localmente el tema y el idioma preferidos del usuario, haciendo que la experiencia se sienta más personal desde el principio."
+        },
+        "v0.0.0-alpha.2": {
+          "label": "Alfa 2",
+          "title": "Preparando la base",
+          "excerpt": "Esta actualización se centró en mejorar la estructura del proyecto, actualizar dependencias y preparar la aplicación para futuras iteraciones."
+        },
+        "v0.0.0-alpha.1": {
+          "label": "Alfa 1",
+          "title": "El comienzo de Pass Vault",
+          "excerpt": "La primera versión de Pass Vault. Un pequeño comienzo enfocado en construir la base de una bóveda de contraseñas rápida, segura y con sensación nativa."
+        }
+      }
+    }
+  }
+}

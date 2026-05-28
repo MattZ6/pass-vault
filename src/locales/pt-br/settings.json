@@ -21,6 +21,9 @@
           "about": {
             "label": "Sobre"
           },
+          "changelog": {
+            "label": "Changelog"
+          },
           "licenses": {
             "label": "Licenças"
           }

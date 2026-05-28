@@ -26,6 +26,14 @@ export function AboutSection() {
         <Section.Divider />
 
         <MenuItem
+          title={t("fields.changelog.label")}
+          href="/settings/changelog"
+          leadingIcon={{ android: "history_edu", ios: "doc.on.doc" }}
+        />
+
+        <Section.Divider />
+
+        <MenuItem
           title={t("fields.licenses.label")}
           href="/settings/licenses"
           leadingIcon={{ ios: "doc.text", android: "description" }}

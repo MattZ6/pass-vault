@@ -4,7 +4,18 @@ import { Section } from "@/components/ui/section";
 
 import { ReleasesList } from "./components/releases-list";
 
-export function AlphaReleasesSection() {
+type Release = {
+  tag: string;
+  label?: string;
+  title: string;
+  excerpt: string;
+};
+
+type Props = {
+  releases: Release[];
+};
+
+export function AlphaReleasesSection({ releases }: Props) {
   const { t } = useTranslation("changelog", {
     keyPrefix: "screen.sections.alpha",
   });
@@ -15,7 +26,7 @@ export function AlphaReleasesSection() {
         <Section.Header.Title>{t("label")}</Section.Header.Title>
       </Section.Header>
 
-      <ReleasesList />
+      <ReleasesList releases={releases} />
     </Section.Root>
   );
 }

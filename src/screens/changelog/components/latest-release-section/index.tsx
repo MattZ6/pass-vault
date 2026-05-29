@@ -4,7 +4,18 @@ import { Section } from "@/components/ui/section";
 
 import { LatestReleaseCard } from "./components/latest-release-card";
 
-export function LatestReleaseSection() {
+type LatestRelease = {
+  tag: string;
+  label?: string;
+  title: string;
+  excerpt: string;
+};
+
+type Props = {
+  release: LatestRelease;
+};
+
+export function LatestReleaseSection({ release }: Props) {
   const { t } = useTranslation("changelog", {
     keyPrefix: "screen.sections.latest",
   });
@@ -15,7 +26,7 @@ export function LatestReleaseSection() {
         <Section.Header.Title>{t("label")}</Section.Header.Title>
       </Section.Header>
 
-      <LatestReleaseCard />
+      <LatestReleaseCard release={release} />
     </Section.Root>
   );
 }

@@ -1,0 +1,175 @@
+{
+  "v0.2.0": {
+    "paragraphs": [
+      "This release introduced the core security features that define Pass Vault.",
+      "Credentials can now be stored locally using encrypted storage and protected behind biometric authentication, bringing the app much closer to its original vision.",
+      "Alongside these improvements, several usability refinements helped make the overall experience feel more polished and reliable."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Highlights",
+        "highlights": [
+          "Encrypted credential storage",
+          "Biometric authentication",
+          "Secure password reveal",
+          "Credential persistence",
+          "Confirmation dialogs",
+          "Improved form experience"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Dev note",
+      "content": [
+        "For a long time, Pass Vault was mostly structure, navigation and ideas.",
+        "This was the release where the product finally started delivering on its promise. Seeing credentials securely encrypted and unlocked with biometrics felt like a major milestone for the project."
+      ]
+    }
+  },
+  "v0.1.0": {
+    "paragraphs": [
+      "This release marked the beginning of Pass Vault as a real product.",
+      "Core navigation, settings, reusable UI components and the first credential management flows were introduced, creating a complete and usable experience for the first time.",
+      "Many of the systems added in this version would become the foundation for future features and refinements."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Highlights",
+        "highlights": [
+          "One-page navigation",
+          "Credential creation and listing",
+          "Settings and preferences",
+          "Reusable design system",
+          "Haptics support",
+          "Multi-language support"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Dev note",
+      "content": [
+        "This was the first version that truly felt like a product rather than a prototype.",
+        "Many of the ideas explored during the alpha releases finally came together into a cohesive experience. Looking back, this release represents the moment Pass Vault started to find its identity."
+      ]
+    }
+  },
+  "v0.0.0-alpha.5": {
+    "paragraphs": [
+      "The final alpha release focused on preparing Pass Vault for the next stage of development.",
+      "Build workflows were improved and local storage foundations were introduced, paving the way for future credential management features.",
+      "While the changes were mostly behind the scenes, they played an important role in the transition toward the first stable milestones."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Highlights",
+        "highlights": [
+          "Preview build workflow",
+          "MMKV storage setup",
+          "Development pipeline improvements",
+          "Preparation for credential persistence"
+        ]
+      }
+    ]
+  },
+  "v0.0.0-alpha.4": {
+    "paragraphs": [
+      "This release marked a major turning point for Pass Vault.",
+      "A broad visual and structural revamp introduced a clearer direction for the product, improving navigation, theming and overall organization.",
+      "Many of the foundations established during this version would continue to influence future releases."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Highlights",
+        "highlights": [
+          "Visual and structural redesign",
+          "Improved navigation architecture",
+          "New theming foundations",
+          "Project organization improvements"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Dev note",
+      "content": [
+        "Every project eventually reaches a point where it becomes necessary to stop and rethink the direction.",
+        "This release was one of those moments. Many parts of the app were revisited, simplified and reorganized to create a stronger foundation for what Pass Vault would become."
+      ]
+    }
+  },
+  "v0.0.0-alpha.3": {
+    "paragraphs": [
+      "This release focused on making Pass Vault feel more personal.",
+      "Theme and language preferences can now be stored locally, allowing the app to adapt to each user's preferred experience.",
+      "While still an early alpha, this version introduced some of the first customization features that would remain part of the app going forward."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Highlights",
+        "highlights": [
+          "Local theme preference",
+          "Local language preference",
+          "Improved personalization",
+          "New reusable touch interactions"
+        ]
+      }
+    ]
+  },
+  "v0.0.0-alpha.2": {
+    "paragraphs": [
+      "The second alpha focused on strengthening the project's foundations.",
+      "While there were no major user-facing features yet, this release improved the development setup and prepared the codebase for future growth.",
+      "Many of the decisions made during this phase would help shape the architecture used throughout later versions."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Highlights",
+        "highlights": [
+          "Project structure improvements",
+          "Dependency updates",
+          "Architecture refinements",
+          "Preparation for future iterations"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Dev note",
+      "content": [
+        "At this stage, most of the work was happening behind the scenes.",
+        "The app was still in its infancy, but investing time in the foundations early made it much easier to move faster in the versions that followed."
+      ]
+    }
+  },
+  "v0.0.0-alpha.1": {
+    "paragraphs": [
+      "This is where Pass Vault started.",
+      "The very first alpha focused on building the initial foundation of the app and exploring the idea of a fast, native-feeling and privacy-first password vault experience.",
+      "Even though this version was still extremely early, it marked the beginning of the product architecture, UI direction and overall experience that would shape future releases."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Highlights",
+        "highlights": [
+          "Initial app structure",
+          "Early UI exploration",
+          "First navigation experiments",
+          "Foundation for future vault features"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Dev note",
+      "content": [
+        "At this point, Pass Vault was still just an idea taking shape.",
+        "The goal wasn't to build every feature at once, but to create a solid foundation and explore what the experience could become.",
+        "Looking back now, it's interesting to see how many of the ideas from this first alpha are still part of the app today."
+      ]
+    }
+  }
+}

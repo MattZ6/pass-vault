@@ -1,0 +1,175 @@
+{
+  "v0.2.0": {
+    "paragraphs": [
+      "Esta versión introdujo las funciones de seguridad que definen Pass Vault.",
+      "Las credenciales ahora pueden almacenarse localmente mediante almacenamiento cifrado y protegerse con autenticación biométrica, acercando la aplicación a su visión original.",
+      "Además de estas mejoras, varios refinamientos de usabilidad ayudaron a que la experiencia se sintiera más pulida y confiable."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Aspectos destacados",
+        "highlights": [
+          "Almacenamiento cifrado de credenciales",
+          "Autenticación biométrica",
+          "Visualización segura de contraseñas",
+          "Persistencia de credenciales",
+          "Diálogos de confirmación",
+          "Mejoras en la experiencia de formularios"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Nota del desarrollador",
+      "content": [
+        "Durante mucho tiempo, Pass Vault fue principalmente estructura, navegación e ideas.",
+        "Esta fue la versión en la que el producto comenzó a cumplir su promesa. Ver credenciales almacenadas de forma cifrada y desbloqueadas mediante biometría se sintió como un hito importante para el proyecto."
+      ]
+    }
+  },
+  "v0.1.0": {
+    "paragraphs": [
+      "Esta versión marcó el comienzo de Pass Vault como un producto real.",
+      "Se introdujeron la navegación principal, la configuración, los componentes reutilizables y los primeros flujos de gestión de credenciales, creando por primera vez una experiencia completa y utilizable.",
+      "Muchos de los sistemas añadidos en esta versión se convertirían en la base de futuras funciones y mejoras."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Aspectos destacados",
+        "highlights": [
+          "Navegación de una sola página",
+          "Creación y listado de credenciales",
+          "Configuración y preferencias",
+          "Sistema de diseño reutilizable",
+          "Soporte para hápticos",
+          "Soporte para múltiples idiomas"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Nota del desarrollador",
+      "content": [
+        "Esta fue la primera versión que realmente se sintió como un producto en lugar de un simple prototipo.",
+        "Muchas de las ideas exploradas durante las versiones alpha finalmente se unieron en una experiencia coherente. Mirando hacia atrás, esta versión representa el momento en que Pass Vault comenzó a encontrar su propia identidad."
+      ]
+    }
+  },
+  "v0.0.0-alpha.5": {
+    "paragraphs": [
+      "La última versión alpha se centró en preparar Pass Vault para la siguiente etapa de desarrollo.",
+      "Se mejoraron los flujos de compilación y se introdujeron las bases para el almacenamiento local, allanando el camino para futuras funciones de gestión de credenciales.",
+      "Aunque los cambios ocurrieron principalmente detrás de escena, desempeñaron un papel importante en la transición hacia los primeros hitos estables del proyecto."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Aspectos destacados",
+        "highlights": [
+          "Flujo de compilaciones de vista previa",
+          "Configuración de MMKV",
+          "Mejoras en el pipeline de desarrollo",
+          "Preparación para la persistencia de credenciales"
+        ]
+      }
+    ]
+  },
+  "v0.0.0-alpha.4": {
+    "paragraphs": [
+      "Esta versión marcó un importante punto de inflexión para Pass Vault.",
+      "Una amplia renovación visual y estructural introdujo una dirección más clara para el producto, mejorando la navegación, los temas y la organización general.",
+      "Muchas de las bases establecidas durante esta versión continuarían influyendo en futuras actualizaciones."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Aspectos destacados",
+        "highlights": [
+          "Renovación visual y estructural",
+          "Mejoras en la arquitectura de navegación",
+          "Nuevas bases para el sistema de temas",
+          "Mejoras en la organización del proyecto"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Nota del desarrollador",
+      "content": [
+        "Todo proyecto llega a un momento en el que es necesario detenerse y replantear la dirección.",
+        "Esta versión fue uno de esos momentos. Muchas partes de la aplicación fueron revisadas, simplificadas y reorganizadas para crear una base más sólida para lo que Pass Vault llegaría a ser."
+      ]
+    }
+  },
+  "v0.0.0-alpha.3": {
+    "paragraphs": [
+      "Esta versión se centró en hacer que Pass Vault se sintiera más personal.",
+      "Las preferencias de tema e idioma ahora pueden almacenarse localmente, permitiendo que la aplicación se adapte a la experiencia preferida de cada usuario.",
+      "Aunque seguía siendo una versión alpha temprana, introdujo algunas de las primeras opciones de personalización que permanecerían en la aplicación."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Aspectos destacados",
+        "highlights": [
+          "Preferencia de tema local",
+          "Preferencia de idioma local",
+          "Mejoras de personalización",
+          "Nuevas interacciones táctiles reutilizables"
+        ]
+      }
+    ]
+  },
+  "v0.0.0-alpha.2": {
+    "paragraphs": [
+      "La segunda versión alpha se centró en fortalecer las bases del proyecto.",
+      "Aunque todavía no existían grandes funciones visibles para el usuario, esta actualización mejoró la estructura de desarrollo y preparó la base de código para crecer de forma segura.",
+      "Muchas de las decisiones tomadas durante esta etapa ayudarían a definir la arquitectura utilizada en las versiones posteriores."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Aspectos destacados",
+        "highlights": [
+          "Mejoras en la estructura del proyecto",
+          "Actualización de dependencias",
+          "Refinamientos de arquitectura",
+          "Preparación para futuras iteraciones"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Nota del desarrollador",
+      "content": [
+        "En esta etapa, gran parte del trabajo ocurría detrás de escena.",
+        "La aplicación todavía estaba dando sus primeros pasos, pero invertir tiempo en las bases desde el principio hizo mucho más fácil avanzar rápidamente en las versiones siguientes."
+      ]
+    }
+  },
+  "v0.0.0-alpha.1": {
+    "paragraphs": [
+      "Aquí comenzó Pass Vault.",
+      "La primera versión alpha se centró en construir la base inicial de la aplicación y explorar la idea de una experiencia de bóveda de contraseñas rápida, con sensación nativa y enfocada en la privacidad.",
+      "Aunque esta versión todavía era extremadamente temprana, marcó el comienzo de la arquitectura del producto, la dirección visual y la experiencia general que darían forma a las futuras versiones."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Aspectos destacados",
+        "highlights": [
+          "Estructura inicial de la aplicación",
+          "Primeras exploraciones de interfaz",
+          "Primeros experimentos de navegación",
+          "Base para futuras funciones de la bóveda"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Nota del desarrollador",
+      "content": [
+        "En este momento, Pass Vault todavía era solo una idea tomando forma.",
+        "El objetivo no era construir todas las funciones de una sola vez, sino crear una base sólida y explorar en qué podría convertirse la experiencia.",
+        "Mirando hacia atrás, es interesante ver cuántas de las ideas de esta primera versión siguen formando parte de la aplicación hoy."
+      ]
+    }
+  }
+}

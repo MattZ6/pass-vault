@@ -7,6 +7,7 @@ import language from "./language.json";
 import licenses from "./licenses.json";
 import newCredential from "./new-credential.json";
 import settings from "./settings.json";
+import versions from "./versions.json";
 
 export const ptBR = {
   about,
@@ -18,4 +19,5 @@ export const ptBR = {
   licenses,
   "new-credential": newCredential,
   settings,
+  versions,
 };

@@ -4,7 +4,18 @@ import { Section } from "@/components/ui/section";
 
 import { ReleasesList } from "./components/releases-list";
 
-export function HistorySection() {
+type Release = {
+  tag: string;
+  label?: string;
+  title: string;
+  excerpt: string;
+};
+
+type Props = {
+  releases: Release[];
+};
+
+export function HistorySection({ releases }: Props) {
   const { t } = useTranslation("changelog", {
     keyPrefix: "screen.sections.history",
   });
@@ -15,7 +26,7 @@ export function HistorySection() {
         <Section.Header.Title>{t("label")}</Section.Header.Title>
       </Section.Header>
 
-      <ReleasesList />
+      <ReleasesList releases={releases} />
     </Section.Root>
   );
 }

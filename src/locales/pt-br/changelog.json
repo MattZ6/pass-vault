@@ -17,42 +17,45 @@
   },
   "changelog": {
     "meta": {
-      "current": {
-        "v0.2.0": {
-          "title": "Protegendo o cofre",
-          "excerpt": "Armazenamento criptografado local, autenticação biométrica e visualização segura de senhas agora estão disponíveis."
-        },
-        "v0.1.0": {
-          "title": "Construindo a fundação",
-          "excerpt": "Introdução da estrutura principal do app, navegação, componentes reutilizáveis e os primeiros fluxos de credenciais."
-        }
+      "v0.2.0": {
+        "title": "Protegendo o cofre",
+        "excerpt": "Armazenamento criptografado local, autenticação biométrica e visualização segura de senhas agora estão disponíveis.",
+        "date": "2026-05-26"
       },
-      "early": {
-        "v0.0.0-alpha.5": {
-          "label": "Alfa 5",
-          "title": "Preparando o cofre",
-          "excerpt": "Esta atualização focou nos workflows de build e na configuração do armazenamento local, preparando o Pass Vault para persistência segura de dados nas próximas versões."
-        },
-        "v0.0.0-alpha.4": {
-          "label": "Alfa 4",
-          "title": "Uma nova direção",
-          "excerpt": "Uma grande renovação visual e estrutural. Esta versão trouxe melhorias na navegação, tema, componentes e organização geral do app."
-        },
-        "v0.0.0-alpha.3": {
-          "label": "Alfa 3",
-          "title": "Uma experiência mais pessoal",
-          "excerpt": "O Pass Vault agora pode lembrar localmente o tema e idioma preferidos do usuário, deixando a experiência mais pessoal desde o início."
-        },
-        "v0.0.0-alpha.2": {
-          "label": "Alfa 2",
-          "title": "Preparando a base",
-          "excerpt": "Esta atualização focou em melhorar a estrutura do projeto, atualizar dependências e preparar o app para as próximas iterações."
-        },
-        "v0.0.0-alpha.1": {
-          "label": "Alfa 1",
-          "title": "O começo do Pass Vault",
-          "excerpt": "A primeira versão do Pass Vault. Um pequeno começo focado em criar a base para um cofre de senhas rápido, seguro e com sensação nativa."
-        }
+      "v0.1.0": {
+        "title": "O cofre ganha forma",
+        "excerpt": "Introdução da estrutura principal do app, navegação, componentes reutilizáveis e os primeiros fluxos de credenciais.",
+        "date": "2026-05-21"
+      },
+      "v0.0.0-alpha.5": {
+        "label": "Alfa 5",
+        "title": "Preparando o cofre",
+        "excerpt": "Esta atualização focou nos workflows de build e na configuração do armazenamento local, preparando o Pass Vault para persistência segura de dados nas próximas versões.",
+        "date": "2026-03-13"
+      },
+      "v0.0.0-alpha.4": {
+        "label": "Alfa 4",
+        "title": "Uma nova direção",
+        "excerpt": "Uma grande renovação visual e estrutural. Esta versão trouxe melhorias na navegação, tema, componentes e organização geral do app.",
+        "date": "2026-03-13"
+      },
+      "v0.0.0-alpha.3": {
+        "label": "Alfa 3",
+        "title": "Uma experiência mais pessoal",
+        "excerpt": "O Pass Vault agora pode lembrar localmente o tema e idioma preferidos do usuário, deixando a experiência mais pessoal desde o início.",
+        "date": "2024-11-01"
+      },
+      "v0.0.0-alpha.2": {
+        "label": "Alfa 2",
+        "title": "Preparando a base",
+        "excerpt": "Esta atualização focou em melhorar a estrutura do projeto, atualizar dependências e preparar o app para as próximas iterações.",
+        "date": "2024-10-31"
+      },
+      "v0.0.0-alpha.1": {
+        "label": "Alfa 1",
+        "title": "O começo do Pass Vault",
+        "excerpt": "A primeira versão do Pass Vault. Um pequeno começo focado em criar a base para um cofre de senhas rápido, seguro e com sensação nativa.",
+        "date": "2024-03-26"
       }
     }
   }

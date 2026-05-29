@@ -17,42 +17,45 @@
   },
   "changelog": {
     "meta": {
-      "current": {
-        "v0.2.0": {
-          "title": "Securing the vault",
-          "excerpt": "Encrypted local storage, biometric authentication and secure password reveal are now available."
-        },
-        "v0.1.0": {
-          "title": "Building the foundation",
-          "excerpt": "Introduced the core app structure, navigation, reusable UI components and the first credential flows."
-        }
+      "v0.2.0": {
+        "title": "Securing the vault",
+        "excerpt": "Encrypted local storage, biometric authentication and secure password reveal are now available.",
+        "date": "2026-05-26"
       },
-      "early": {
-        "v0.0.0-alpha.5": {
-          "label": "Alpha 5",
-          "title": "Preparing the vault",
-          "excerpt": "This update focused on build workflows and local storage setup, preparing Pass Vault for secure data persistence in future releases."
-        },
-        "v0.0.0-alpha.4": {
-          "label": "Alpha 4",
-          "title": "A new direction",
-          "excerpt": "A major visual and structural revamp. This release introduced improvements to navigation, theming, components and overall app organization."
-        },
-        "v0.0.0-alpha.3": {
-          "label": "Alpha 3",
-          "title": "Personalized experience",
-          "excerpt": "Pass Vault can now remember your preferred theme and language locally, making the experience feel more personal from the very beginning."
-        },
-        "v0.0.0-alpha.2": {
-          "label": "Alpha 2",
-          "title": "Laying the groundwork",
-          "excerpt": "This update focused on improving the project structure, updating dependencies and preparing the app for future iterations."
-        },
-        "v0.0.0-alpha.1": {
-          "label": "Alpha 1",
-          "title": "The beginning of Pass Vault",
-          "excerpt": "The very first version of Pass Vault. A small start focused on building the foundation for a fast, secure and native-feeling password vault."
-        }
+      "v0.1.0": {
+        "title": "The vault takes shape",
+        "excerpt": "Introduced the core app structure, navigation, reusable UI components and the first credential flows.",
+        "date": "2026-05-21"
+      },
+      "v0.0.0-alpha.5": {
+        "label": "Alpha 5",
+        "title": "Preparing the vault",
+        "excerpt": "This update focused on build workflows and local storage setup, preparing Pass Vault for secure data persistence in future releases.",
+        "date": "2026-03-13"
+      },
+      "v0.0.0-alpha.4": {
+        "label": "Alpha 4",
+        "title": "A new direction",
+        "excerpt": "A major visual and structural revamp. This release introduced improvements to navigation, theming, components and overall app organization.",
+        "date": "2026-03-13"
+      },
+      "v0.0.0-alpha.3": {
+        "label": "Alpha 3",
+        "title": "Personalized experience",
+        "excerpt": "Pass Vault can now remember your preferred theme and language locally, making the experience feel more personal from the very beginning.",
+        "date": "2024-11-01"
+      },
+      "v0.0.0-alpha.2": {
+        "label": "Alpha 2",
+        "title": "Laying the groundwork",
+        "excerpt": "This update focused on improving the project structure, updating dependencies and preparing the app for future iterations.",
+        "date": "2024-10-31"
+      },
+      "v0.0.0-alpha.1": {
+        "label": "Alpha 1",
+        "title": "The beginning of Pass Vault",
+        "excerpt": "The very first version of Pass Vault. A small start focused on building the foundation for a fast, secure and native-feeling password vault.",
+        "date": "2024-03-26"
       }
     }
   }

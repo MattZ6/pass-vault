@@ -18,6 +18,7 @@ export function getStyles(theme: Theme, options: IconButtonStyledOptions) {
       overflow: "hidden",
     },
     content: {
+      position: "relative",
       alignItems: "center",
       justifyContent: "center",
       width: theme.size[options.size],

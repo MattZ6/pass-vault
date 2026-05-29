@@ -1,74 +1,60 @@
-import { useMemo } from "react";
+import { Link } from "expo-router";
 import { Fragment } from "react/jsx-runtime";
-import { useTranslation } from "react-i18next";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
 import { Text } from "@/components/ui/text";
 
+import { useHaptics } from "@/hooks/use-haptics";
 import { useStyles } from "@/hooks/use-styles";
 
 import { getStyles } from "./styles";
 
-type RawVersion = {
-  label: string;
+type Release = {
+  tag: string;
+  label?: string;
   title: string;
   excerpt: string;
 };
 
-type RawVersionMap = Record<string, RawVersion>;
+type Props = {
+  releases: Release[];
+};
 
-export function ReleasesList() {
+export function ReleasesList({ releases }: Props) {
   const { styles } = useStyles(getStyles);
-  const { t } = useTranslation("changelog", {
-    keyPrefix: "changelog.meta",
-  });
-
-  const versions = useMemo(() => {
-    const rawVersionsMap = t("current", {
-      returnObjects: true,
-    }) as RawVersionMap;
-
-    const [, ...versions] = Object.entries(rawVersionsMap).map(
-      ([tag, rawVersion]) => {
-        return {
-          tag,
-          title: rawVersion.title,
-        };
-      },
-    );
-
-    return versions;
-  }, [t]);
+  const { performTapFeedback } = useHaptics();
 
   return (
     <Card color="element">
-      {versions.map((item, index) => (
+      {releases.map((item, index) => (
         <Fragment key={item.tag}>
           {index !== 0 && <Section.Divider style={styles.divider} />}
 
-          <Button>
-            <Section.Item.Root>
-              <Section.Item.Leading style={styles.leading}>
-                <Text
-                  typography="bodySmall"
-                  color="muted"
-                  style={styles.version}
-                >
-                  {item.tag}
-                </Text>
-              </Section.Item.Leading>
-              <Section.Item.Content>
-                <Section.Item.Content.Title>
-                  {item.title}
-                </Section.Item.Content.Title>
-              </Section.Item.Content>
-              <Section.Item.Trailing style={styles.trailing}>
-                <Section.Item.Trailing.Icon />
-              </Section.Item.Trailing>
-            </Section.Item.Root>
-          </Button>
+          <Link asChild href={`/settings/changelog/${item.tag}`}>
+            <Button onPress={performTapFeedback}>
+              <Section.Item.Root>
+                <Section.Item.Leading style={styles.leading}>
+                  <Text
+                    typography="bodySmall"
+                    color="muted"
+                    style={styles.version}
+                  >
+                    {item.tag}
+                  </Text>
+                </Section.Item.Leading>
+                <Section.Item.Content>
+                  <Section.Item.Content.Title>
+                    {item.title}
+                  </Section.Item.Content.Title>
+                </Section.Item.Content>
+                <Section.Item.Trailing style={styles.trailing}>
+                  <Section.Item.Trailing.Icon />
+                </Section.Item.Trailing>
+              </Section.Item.Root>
+            </Button>
+          </Link>
         </Fragment>
       ))}
     </Card>

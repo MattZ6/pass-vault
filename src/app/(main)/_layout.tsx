@@ -1,5 +1,6 @@
 import { Stack } from "expo-router";
 import { Platform } from "react-native";
+
 import { useTheme } from "@/hooks/use-theme";
 
 export default function MainLayout() {

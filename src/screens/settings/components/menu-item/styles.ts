@@ -4,29 +4,14 @@ import type { Theme } from "@/styles/themes/types";
 
 export function getStyles(theme: Theme) {
   return StyleSheet.create({
-    content: {
-      padding: theme.spacing[4],
-      gap: theme.spacing[3],
-    },
-    header: {
-      flexDirection: "row",
+    trailing: {
       alignItems: "center",
-      justifyContent: "space-between",
-      gap: theme.spacing[4],
     },
-    left: {
-      flexDirection: "row",
-      alignItems: "center",
-      gap: theme.spacing[2],
-    },
-    newVersionDot: {
+    newsDot: {
       width: theme.size[2],
       height: theme.size[2],
       borderRadius: theme.radii.full,
       backgroundColor: theme.colors.content.error,
-    },
-    date: {
-      textAlign: "right",
     },
   });
 }

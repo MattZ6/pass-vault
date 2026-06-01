@@ -10,13 +10,11 @@ import { Provider } from "@/contexts/provider";
 import { useFontFamily } from "@/hooks/use-font-family";
 import { useTheme } from "@/hooks/use-theme";
 
-ExpoSplashScreen.preventAutoHideAsync();
+import { ChangelogService } from "@/services/changelog/changelog";
 
-Observe.configure({
-  integrations: {
-    "expo-router": true,
-  },
-});
+ChangelogService.initialize();
+ExpoSplashScreen.preventAutoHideAsync();
+Observe.configure({ integrations: { "expo-router": true } });
 
 function RootLayout() {
   const [fontsLoaded] = useFontFamily();

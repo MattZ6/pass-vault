@@ -22,7 +22,7 @@ export function getStyles(theme: Theme) {
       flexShrink: 0,
       width: theme.size[12],
       height: theme.size[12],
-      borderRadius: theme.radii.full,
+      borderRadius: theme.radii[4],
       backgroundColor: theme.colors.surface.base,
     },
     content: {

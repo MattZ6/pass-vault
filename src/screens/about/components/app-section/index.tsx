@@ -18,7 +18,7 @@ export function AppSection() {
   const { language } = useLanguage();
   const { data } = useInstallationDates();
 
-  const version = `v${ApplicationService.version} (${ApplicationService.build})`;
+  const version = `${ApplicationService.version} (${ApplicationService.build})`;
 
   return (
     <Section.Root>

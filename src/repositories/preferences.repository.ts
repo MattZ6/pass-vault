@@ -11,6 +11,7 @@ const KEYS = {
   theme: "theme",
   language: "language",
   haptics: "haptics",
+  lastSeenVersion: "version.last_seen",
 };
 
 export const PreferencesRepository = {
@@ -34,5 +35,12 @@ export const PreferencesRepository = {
   },
   saveHaptics: (haptics: boolean) => {
     storage.set(KEYS.haptics, haptics);
+  },
+  getLastSeenVersion: () => {
+    const storedValue = storage.getString(KEYS.lastSeenVersion);
+    return storedValue ?? null;
+  },
+  setLastSeenVersion: (value: string) => {
+    storage.set(KEYS.lastSeenVersion, value);
   },
 };

@@ -1,16 +1,16 @@
-import * as ExpoHaptics from "expo-haptics";
+import * as Pulsar from "react-native-pulsar";
 
 export const HapticsService = {
   performTapFeedback: () => {
-    ExpoHaptics.selectionAsync();
+    Pulsar.Presets.System.selection();
   },
   performSelectFeedback: () => {
-    ExpoHaptics.selectionAsync();
+    Pulsar.Presets.System.selection();
   },
   performSuccessNotificationFeedback: () => {
-    ExpoHaptics.notificationAsync(ExpoHaptics.NotificationFeedbackType.Success);
+    Pulsar.Presets.System.notificationSuccess();
   },
   performFailureNotificationFeedback: () => {
-    ExpoHaptics.notificationAsync(ExpoHaptics.NotificationFeedbackType.Error);
+    Pulsar.Presets.System.notificationError();
   },
 };

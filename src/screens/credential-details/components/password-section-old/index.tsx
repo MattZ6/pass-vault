@@ -1,4 +1,3 @@
-import * as ExpoHaptics from "expo-haptics";
 import { useCallback, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
@@ -20,8 +19,6 @@ export function PasswordSection() {
   );
 
   const handleRevealPassword = useCallback(() => {
-    ExpoHaptics.selectionAsync();
-
     reveal();
   }, [reveal]);
 

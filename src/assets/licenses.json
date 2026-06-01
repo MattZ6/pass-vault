@@ -89,6 +89,12 @@
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
         "parents": "pass-vault"
     },
+    "expo-observe@56.0.18": {
+        "licenses": "MIT",
+        "repository": "https://github.com/expo/expo",
+        "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
+        "parents": "pass-vault"
+    },
     "expo-quick-actions@6.0.2": {
         "licenses": "MIT",
         "repository": "https://github.com/evanbacon/expo-quick-actions",

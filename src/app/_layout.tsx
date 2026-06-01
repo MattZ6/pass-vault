@@ -1,10 +1,10 @@
 import "@/contexts/language/i18n";
 
+import { Observe, ObserveRoot, useObserve } from "expo-observe";
 import { Stack } from "expo-router";
 import * as ExpoSplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { Platform } from "react-native";
-
 import { Provider } from "@/contexts/provider";
 
 import { useFontFamily } from "@/hooks/use-font-family";
@@ -12,14 +12,22 @@ import { useTheme } from "@/hooks/use-theme";
 
 ExpoSplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+Observe.configure({
+  integrations: {
+    "expo-router": true,
+  },
+});
+
+function RootLayout() {
   const [fontsLoaded] = useFontFamily();
+  const { markInteractive } = useObserve();
 
   useEffect(() => {
     if (fontsLoaded) {
       ExpoSplashScreen.hideAsync();
+      markInteractive();
     }
-  }, [fontsLoaded]);
+  }, [fontsLoaded, markInteractive]);
 
   if (!fontsLoaded) {
     return null;
@@ -68,3 +76,5 @@ function RootStack() {
     </Stack>
   );
 }
+
+export default ObserveRoot.wrap(RootLayout);

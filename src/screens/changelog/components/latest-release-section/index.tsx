@@ -9,6 +9,7 @@ type LatestRelease = {
   label?: string;
   title: string;
   excerpt: string;
+  date: Date;
 };
 
 type Props = {

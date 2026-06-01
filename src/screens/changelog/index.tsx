@@ -5,6 +5,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useStyles } from "@/hooks/use-styles";
 
+import { DateUtils } from "@/utils/date";
+
 import { AlphaReleasesSection } from "./components/alpha-releases-section";
 import { HistorySection } from "./components/history-section";
 import { LatestReleaseSection } from "./components/latest-release-section";
@@ -12,13 +14,21 @@ import { ScreenHeader } from "./components/screen-header";
 
 import { getStyles } from "./styles";
 
+type RawVersion = {
+  label?: string;
+  title: string;
+  excerpt: string;
+  date: string;
+};
+
 type VersionMetadata = {
   label?: string;
   title: string;
   excerpt: string;
+  date: Date;
 };
 
-type VersionsMetadata = Record<string, VersionMetadata>;
+type VersionsMetadata = Record<string, RawVersion>;
 
 type ParsedVersion = VersionMetadata & {
   tag: string;
@@ -36,28 +46,21 @@ export function ChangelogScreen() {
 
     return Object.entries(versionsMetadata).reduce(
       (acc, [tag, meta]) => {
+        const version: ParsedVersion = {
+          tag,
+          label: meta.label,
+          title: meta.title,
+          excerpt: meta.excerpt,
+          date: DateUtils.toDate(meta.date),
+        };
+
         if (!acc.latestRelease.tag) {
-          acc.latestRelease = {
-            tag,
-            label: meta.label,
-            title: meta.title,
-            excerpt: meta.excerpt,
-          };
+          acc.latestRelease = version;
         } else {
           if (tag.includes("alpha")) {
-            acc.alphaReleases.push({
-              tag,
-              label: meta.label,
-              title: meta.title,
-              excerpt: meta.excerpt,
-            });
+            acc.alphaReleases.push(version);
           } else {
-            acc.releases.push({
-              tag,
-              label: meta.label,
-              title: meta.title,
-              excerpt: meta.excerpt,
-            });
+            acc.releases.push(version);
           }
         }
 

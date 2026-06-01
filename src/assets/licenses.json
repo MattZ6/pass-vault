@@ -41,7 +41,7 @@
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "expo-dev-client@56.0.16": {
+    "expo-dev-client@56.0.18": {
         "licenses": "MIT",
         "repository": "https://github.com/expo/expo",
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
@@ -59,13 +59,13 @@
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "expo-insights@56.0.14": {
+    "expo-insights@56.0.15": {
         "licenses": "MIT",
         "repository": "https://github.com/expo/expo",
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "expo-linking@56.0.12": {
+    "expo-linking@56.0.13": {
         "licenses": "MIT",
         "repository": "https://github.com/expo/expo",
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
@@ -89,7 +89,13 @@
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "expo-router@56.2.7": {
+    "expo-quick-actions@6.0.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/evanbacon/expo-quick-actions",
+        "licenseUrl": "https://github.com/evanbacon/expo-quick-actions/raw/master/LICENSE",
+        "parents": "pass-vault"
+    },
+    "expo-router@56.2.8": {
         "licenses": "MIT",
         "repository": "https://github.com/expo/expo",
         "licenseUrl": "https://github.com/expo/expo",
@@ -125,7 +131,7 @@
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "expo@56.0.6": {
+    "expo@56.0.8": {
         "licenses": "MIT",
         "repository": "https://github.com/expo/expo",
         "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
@@ -137,7 +143,7 @@
         "licenseUrl": "https://github.com/i18next/i18next/raw/master/LICENSE",
         "parents": "pass-vault"
     },
-    "react-hook-form@7.76.1": {
+    "react-hook-form@7.77.0": {
         "licenses": "MIT",
         "repository": "https://github.com/react-hook-form/react-hook-form",
         "licenseUrl": "https://github.com/react-hook-form/react-hook-form/raw/master/LICENSE",

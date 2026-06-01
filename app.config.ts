@@ -194,9 +194,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   locales: variant.locales,
 
   plugins: [
-    "expo-router",
-    "expo-font",
-    "expo-local-authentication",
+    ["expo-router"],
+    ["expo-font"],
+    ["expo-local-authentication"],
     [
       "expo-localization",
       {
@@ -206,7 +206,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
         },
       },
     ],
-    "expo-secure-store",
+    ["expo-secure-store"],
     [
       "expo-dev-client",
       {
@@ -240,6 +240,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
         },
       },
     ],
+    ["expo-quick-actions"],
   ],
   extra: {
     eas: {

@@ -8,7 +8,7 @@ export const DeviceService = {
     macos: "MacOS",
     windows: "Windows",
     web: "Web",
-    default: "Unkwon",
+    default: "Uknown",
   }),
   osVersion: ExpoDevice.osVersion,
   androidApiLevel: ExpoDevice.platformApiLevel,

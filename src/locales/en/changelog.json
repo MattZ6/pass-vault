@@ -17,6 +17,11 @@
   },
   "changelog": {
     "meta": {
+      "v0.3.0": {
+        "title": "The story unfolds",
+        "excerpt": "Pass Vault now includes a built-in changelog, version details, update indicators and a new About screen.",
+        "date": "2026-06-02"
+      },
       "v0.2.0": {
         "title": "Securing the vault",
         "excerpt": "Encrypted local storage, biometric authentication and secure password reveal are now available.",

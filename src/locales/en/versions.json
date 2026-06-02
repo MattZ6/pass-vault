@@ -1,4 +1,32 @@
 {
+  "v0.3.0": {
+    "paragraphs": [
+      "This release focused on giving Pass Vault more personality and visibility into its own evolution.",
+      "A built-in changelog was introduced, allowing users to explore version history, detailed release notes and important milestones throughout the project's journey.",
+      "Alongside these additions, several refinements improved haptics, analytics and the overall experience across the app."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Highlights",
+        "highlights": [
+          "Built-in changelog",
+          "Detailed version pages",
+          "New version indicator",
+          "About screen",
+          "Expo Observe integration",
+          "Improved haptics experience"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Dev note",
+      "content": [
+        "Up until this point, every release was focused on building the product itself.",
+        "This version felt different. For the first time, Pass Vault started telling its own story. Looking back through previous releases made me realize how much the project has evolved one small step at a time."
+      ]
+    }
+  },
   "v0.2.0": {
     "paragraphs": [
       "This release introduced the core security features that define Pass Vault.",
@@ -13,8 +41,6 @@
           "Encrypted credential storage",
           "Biometric authentication",
           "Secure password reveal",
-          "Credential persistence",
-          "Confirmation dialogs",
           "Improved form experience"
         ]
       }

@@ -1,4 +1,32 @@
 {
+  "v0.3.0": {
+    "paragraphs": [
+      "Esta versão teve foco em dar mais personalidade ao Pass Vault e tornar sua evolução mais visível.",
+      "Um changelog integrado foi introduzido, permitindo explorar o histórico de versões, notas detalhadas de lançamento e marcos importantes ao longo da jornada do projeto.",
+      "Além dessas adições, diversos refinamentos melhoraram os haptics, a observabilidade e a experiência geral do aplicativo."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Destaques",
+        "highlights": [
+          "Changelog integrado",
+          "Páginas detalhadas para cada versão",
+          "Indicador de nova versão",
+          "Tela Sobre",
+          "Integração com Expo Observe",
+          "Melhorias na experiência de haptics"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Nota do desenvolvedor",
+      "content": [
+        "Até este ponto, cada versão teve como foco principal construir o produto em si.",
+        "Esta atualização teve uma sensação diferente. Pela primeira vez, o Pass Vault começou a contar sua própria história. Revisitar as versões anteriores me fez perceber o quanto o projeto evoluiu, um pequeno passo de cada vez."
+      ]
+    }
+  },
   "v0.2.0": {
     "paragraphs": [
       "Esta versão introduziu os recursos de segurança que definem o Pass Vault.",
@@ -13,8 +41,6 @@
           "Armazenamento criptografado de credenciais",
           "Autenticação biométrica",
           "Visualização segura de senhas",
-          "Persistência de credenciais",
-          "Diálogos de confirmação",
           "Melhorias na experiência dos formulários"
         ]
       }

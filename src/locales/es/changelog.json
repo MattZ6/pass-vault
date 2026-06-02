@@ -17,6 +17,11 @@
   },
   "changelog": {
     "meta": {
+      "v0.3.0": {
+        "title": "La historia se desarrolla",
+        "excerpt": "Pass Vault ahora incluye un changelog integrado, detalles de versiones, indicadores de actualización y una nueva pantalla Acerca de.",
+        "date": "2026-06-02"
+      },
       "v0.2.0": {
         "title": "Protegiendo la bóveda",
         "excerpt": "El almacenamiento cifrado local, la autenticación biométrica y la visualización segura de contraseñas ya están disponibles.",

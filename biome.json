@@ -25,6 +25,7 @@
   },
   "json": {
     "formatter": {
+      "enabled": true,
       "trailingNewline": true
     }
   },

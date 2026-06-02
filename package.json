@@ -9,6 +9,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "deps:check": "bunx npm-check-updates",
+    "typecheck": "tsc --noEmit",
+    "lint:ci": "biome lint .",
     "licenses:generate": "bunx npm-license-crawler -onlyDirectDependencies -json ./src/assets/licenses.json"
   },
   "dependencies": {

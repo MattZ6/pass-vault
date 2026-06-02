@@ -10,8 +10,6 @@ import Animated, {
 } from "react-native-reanimated";
 import type { SpringConfig } from "react-native-reanimated/lib/typescript/animation/spring";
 
-import { colors } from "@/styles/themes/colors/dark";
-
 const SCALE = {
   PRESSED: 0.97,
   RELEASED: 1,
@@ -97,7 +95,7 @@ const styles = StyleSheet.create({
   button: {
     height: 56,
     borderRadius: 14,
-    backgroundColor: colors.mauve3,
+    // backgroundColor: colors.mauve3,
     alignItems: "center",
     justifyContent: "center",
     overflow: "hidden",
@@ -106,12 +104,12 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: "100%",
     height: "100%",
-    backgroundColor: colors.mauve6,
+    // backgroundColor: colors.mauve6,
   },
   text: {
     fontSize: 16,
     fontWeight: "500",
-    color: colors.mauve12,
+    // color: colors.mauve12,
   },
   absolute: {
     position: "absolute",

@@ -3,7 +3,10 @@ import type { StateCreator } from "zustand";
 export type CredentialMeta = {
   id: string;
   username: string;
+  website?: string;
   provider: string;
+  notes?: string;
+  updatedAt?: Date;
 };
 
 export type AddCredentialMetaInput = CredentialMeta;
@@ -31,12 +34,15 @@ export const createCredentialsMetaSlice: StateCreator<
   },
 
   addCredentialMeta(input) {
-    const { id, username, provider } = input;
+    const { id, provider, website, username, notes, updatedAt } = input;
 
     const newCredentialMeta: CredentialMeta = {
       id,
-      username,
       provider,
+      website,
+      username,
+      notes,
+      updatedAt,
     };
 
     const credentialsMeta = get().credentialsMeta;

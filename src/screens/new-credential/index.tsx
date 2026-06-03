@@ -2,7 +2,7 @@ import { KeyboardAvoidingView, ScrollView } from "react-native";
 
 import { useStyles } from "@/hooks/use-styles";
 
-import { NewCredentialForm } from "./components/form";
+import { CreateCredentialForm } from "./components/form";
 import { ScreenHeader } from "./components/screen-header";
 
 import { getStyles } from "./styles";
@@ -20,7 +20,7 @@ export function NewCredentialScreen() {
           style={styles.list}
           contentContainerStyle={styles.scrollContainer}
         >
-          <NewCredentialForm />
+          <CreateCredentialForm />
         </ScrollView>
       </KeyboardAvoidingView>
     </>

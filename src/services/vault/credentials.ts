@@ -9,8 +9,10 @@ import { BinaryUtils } from "@/utils/binary";
 
 type CreateCredentialInput = {
   provider: string;
+  website?: string;
   username: string;
   password: string;
+  notes?: string;
 };
 
 type GetPasswordInput = {

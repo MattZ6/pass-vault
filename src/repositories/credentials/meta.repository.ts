@@ -10,17 +10,30 @@ function getStorage() {
 type CredentialMeta = {
   id: string;
   provider: string;
+  website?: string;
   username: string;
+  notes?: string;
 };
 
 type SaveMetadataInput = {
   id: string;
   provider: string;
+  website?: string;
   username: string;
+  notes?: string;
 };
 
 type DeleteMetadataInput = {
   id: string;
+};
+
+type StoredCredentialMeta = {
+  provider: string;
+  /** @deprecated Use `provider` instead. */
+  app?: string;
+  website?: string;
+  username: string;
+  notes?: string;
 };
 
 export const CredentialsMetaRepository = {
@@ -36,12 +49,14 @@ export const CredentialsMetaRepository = {
         return { id: key, provider: "?", username: "?" };
       }
 
-      const parsedObject = JSON.parse(storedCredential);
+      const parsedObject = JSON.parse(storedCredential) as StoredCredentialMeta;
 
       return {
         id: key,
         provider: parsedObject.provider ?? parsedObject.app,
+        website: parsedObject.website,
         username: parsedObject.username,
+        notes: parsedObject.notes,
       };
     });
   },
@@ -52,7 +67,9 @@ export const CredentialsMetaRepository = {
       input.id,
       JSON.stringify({
         provider: input.provider,
+        website: input.website,
         username: input.username,
+        notes: input.notes,
       }),
     );
   },

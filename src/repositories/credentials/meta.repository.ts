@@ -13,6 +13,7 @@ type CredentialMeta = {
   website?: string;
   username: string;
   notes?: string;
+  updatedAt?: Date;
 };
 
 type SaveMetadataInput = {
@@ -21,6 +22,7 @@ type SaveMetadataInput = {
   website?: string;
   username: string;
   notes?: string;
+  updatedAt?: Date;
 };
 
 type DeleteMetadataInput = {
@@ -34,6 +36,7 @@ type StoredCredentialMeta = {
   website?: string;
   username: string;
   notes?: string;
+  updatedAt?: string;
 };
 
 export const CredentialsMetaRepository = {
@@ -57,21 +60,24 @@ export const CredentialsMetaRepository = {
         website: parsedObject.website,
         username: parsedObject.username,
         notes: parsedObject.notes,
+        updatedAt: parsedObject.updatedAt
+          ? new Date(parsedObject.updatedAt)
+          : undefined,
       };
     });
   },
   saveMetadata: async (input: SaveMetadataInput) => {
     const storage = await getStorage();
 
-    storage.set(
-      input.id,
-      JSON.stringify({
-        provider: input.provider,
-        website: input.website,
-        username: input.username,
-        notes: input.notes,
-      }),
-    );
+    const credentialToStore: StoredCredentialMeta = {
+      provider: input.provider,
+      website: input.website,
+      username: input.username,
+      notes: input.notes,
+      updatedAt: input.updatedAt?.toJSON(),
+    };
+
+    storage.set(input.id, JSON.stringify(credentialToStore));
   },
   deleteMetadata: async (input: DeleteMetadataInput) => {
     const storage = await getStorage();

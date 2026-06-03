@@ -13,6 +13,7 @@ type CreateCredentialInput = {
   username: string;
   password: string;
   notes?: string;
+  updatedAt?: Date;
 };
 
 type GetPasswordInput = {
@@ -31,11 +32,15 @@ export const VaultService = {
   },
   createCredential: async (input: CreateCredentialInput) => {
     const id = CryptographyService.generateUUID();
+    const now = new Date();
 
     await CredentialsMetaRepository.saveMetadata({
       id,
       provider: input.provider,
+      website: input.website,
       username: input.username,
+      notes: input.notes,
+      updatedAt: now,
     });
 
     const encryptedPassword = await CryptographyService.encrypt({
@@ -50,7 +55,10 @@ export const VaultService = {
     useVaultStore.getState().addCredentialMeta({
       id,
       provider: input.provider,
+      website: input.website,
       username: input.username,
+      notes: input.notes,
+      updatedAt: now,
     });
   },
   getPassword: async (input: GetPasswordInput) => {

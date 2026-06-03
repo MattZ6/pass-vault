@@ -38,7 +38,11 @@ export function CredentialDetailsScreen({ id }: Props) {
         style={styles.container}
         contentContainerStyle={styles.scrollContainer}
       >
-        <CredentialSection username={credential.username} />
+        <CredentialSection
+          username={credential.username}
+          website={credential.website}
+          updatedAt={credential.updatedAt}
+        />
         <PasswordSection credentialId={id} />
         <DangerSection credentialId={id} />
       </ScrollView>

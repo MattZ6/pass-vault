@@ -11,6 +11,7 @@ import { Text } from "@/components/ui/text";
 
 import { useHaptics } from "@/hooks/use-haptics";
 import { useStyles } from "@/hooks/use-styles";
+import { useTheme } from "@/hooks/use-theme";
 
 import { VaultService } from "@/services/vault/credentials";
 
@@ -22,8 +23,9 @@ import {
 import { getStyles } from "./styles";
 
 export function CreateCredentialForm() {
-  const { styles, theme } = useStyles(getStyles);
   const router = useRouter();
+  const { resolvedThemeOption } = useTheme();
+  const { styles, theme } = useStyles(getStyles);
   const { performTapFeedback, notifySuccess, notifyFailure } = useHaptics();
   const { control, handleSubmit, formState, setFocus } = useNewCredentialForm();
   const { t } = useTranslation("new-credential", { keyPrefix: "screen.form" });
@@ -73,6 +75,7 @@ export function CreateCredentialForm() {
                 editable={!isSubmitting}
                 placeholder={t("sections.provider.fields.provider.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
+                keyboardAppearance={resolvedThemeOption}
                 enterKeyHint="next"
                 onSubmitEditing={() => setFocus("website")}
                 cursorColor={
@@ -109,6 +112,7 @@ export function CreateCredentialForm() {
                 editable={!isSubmitting}
                 placeholder={t("sections.provider.fields.website.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
+                keyboardAppearance={resolvedThemeOption}
                 enterKeyHint="next"
                 autoComplete="url"
                 keyboardType="url"
@@ -155,6 +159,7 @@ export function CreateCredentialForm() {
                 editable={!isSubmitting}
                 placeholder={t("sections.account.fields.username.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
+                keyboardAppearance={resolvedThemeOption}
                 enterKeyHint="next"
                 autoComplete="username"
                 keyboardType="email-address"
@@ -193,6 +198,7 @@ export function CreateCredentialForm() {
                 editable={!isSubmitting}
                 placeholder={t("sections.account.fields.password.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
+                keyboardAppearance={resolvedThemeOption}
                 enterKeyHint="done"
                 secureTextEntry
                 cursorColor={
@@ -237,6 +243,7 @@ export function CreateCredentialForm() {
                 editable={!isSubmitting}
                 placeholder={t("sections.notes.fields.notes.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
+                keyboardAppearance={resolvedThemeOption}
                 multiline
                 scrollEnabled
                 returnKeyType="done"

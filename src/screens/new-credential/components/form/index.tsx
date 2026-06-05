@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import { useCallback } from "react";
 import { Controller } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { ActivityIndicator, TextInput, View } from "react-native";
 
 import { Button } from "@/components/ui/button";
@@ -9,7 +10,7 @@ import { Section } from "@/components/ui/section";
 import { Text } from "@/components/ui/text";
 
 import { useHaptics } from "@/hooks/use-haptics";
-import { useTheme } from "@/hooks/use-theme";
+import { useStyles } from "@/hooks/use-styles";
 
 import { VaultService } from "@/services/vault/credentials";
 
@@ -18,11 +19,14 @@ import {
   useNewCredentialForm,
 } from "./hooks/use-new-credential-form";
 
+import { getStyles } from "./styles";
+
 export function CreateCredentialForm() {
-  const { theme } = useTheme();
+  const { styles, theme } = useStyles(getStyles);
   const router = useRouter();
   const { performTapFeedback, notifySuccess, notifyFailure } = useHaptics();
   const { control, handleSubmit, formState, setFocus } = useNewCredentialForm();
+  const { t } = useTranslation("new-credential", { keyPrefix: "screen.form" });
 
   const isSubmitting = formState.isValid && formState.isSubmitting;
 
@@ -48,10 +52,12 @@ export function CreateCredentialForm() {
   }, [handleSubmit, onSubmit, performTapFeedback, notifyFailure]);
 
   return (
-    <View style={{ gap: theme.spacing[8] }}>
+    <View style={styles.container}>
       <Section.Root>
         <Section.Header>
-          <Section.Header.Title>App</Section.Header.Title>
+          <Section.Header.Title>
+            {t("sections.provider.label")}
+          </Section.Header.Title>
         </Section.Header>
 
         <Card color="element">
@@ -65,8 +71,8 @@ export function CreateCredentialForm() {
                 value={field.value}
                 onBlur={field.onBlur}
                 editable={!isSubmitting}
-                placeholder="App name"
-                placeholderTextColor={`${theme.colors.content.muted.toString()}8F`}
+                placeholder={t("sections.provider.fields.provider.placeholder")}
+                placeholderTextColor={theme.colors.content.muted}
                 enterKeyHint="next"
                 onSubmitEditing={() => setFocus("website")}
                 cursorColor={
@@ -84,13 +90,7 @@ export function CreateCredentialForm() {
                     ? `${theme.colors.content.error.toString()}1F`
                     : `${theme.colors.content.base.toString()}1F`
                 }
-                style={{
-                  padding: theme.spacing[4],
-                  fontFamily: theme.fontFamily.regular,
-                  fontSize: theme.typography.body.fontSize,
-                  lineHeight: theme.typography.body.lineHeight,
-                  color: theme.colors.content.base,
-                }}
+                style={styles.field}
               />
             )}
           />
@@ -107,8 +107,8 @@ export function CreateCredentialForm() {
                 value={field.value}
                 onBlur={field.onBlur}
                 editable={!isSubmitting}
-                placeholder="Website"
-                placeholderTextColor={`${theme.colors.content.muted.toString()}8F`}
+                placeholder={t("sections.provider.fields.website.placeholder")}
+                placeholderTextColor={theme.colors.content.muted}
                 enterKeyHint="next"
                 autoComplete="url"
                 keyboardType="url"
@@ -128,13 +128,7 @@ export function CreateCredentialForm() {
                     ? `${theme.colors.content.error.toString()}1F`
                     : `${theme.colors.content.base.toString()}1F`
                 }
-                style={{
-                  padding: theme.spacing[4],
-                  fontFamily: theme.fontFamily.regular,
-                  fontSize: theme.typography.body.fontSize,
-                  lineHeight: theme.typography.body.lineHeight,
-                  color: theme.colors.content.base,
-                }}
+                style={styles.field}
               />
             )}
           />
@@ -143,7 +137,9 @@ export function CreateCredentialForm() {
 
       <Section.Root>
         <Section.Header>
-          <Section.Header.Title>Account</Section.Header.Title>
+          <Section.Header.Title>
+            {t("sections.account.label")}
+          </Section.Header.Title>
         </Section.Header>
 
         <Card color="element">
@@ -157,8 +153,8 @@ export function CreateCredentialForm() {
                 value={field.value}
                 onBlur={field.onBlur}
                 editable={!isSubmitting}
-                placeholder="Email or username"
-                placeholderTextColor={`${theme.colors.content.muted.toString()}8F`}
+                placeholder={t("sections.account.fields.username.placeholder")}
+                placeholderTextColor={theme.colors.content.muted}
                 enterKeyHint="next"
                 autoComplete="username"
                 keyboardType="email-address"
@@ -178,14 +174,7 @@ export function CreateCredentialForm() {
                     ? `${theme.colors.content.error.toString()}1F`
                     : `${theme.colors.content.base.toString()}1F`
                 }
-                style={{
-                  margin: 0,
-                  padding: theme.spacing[4],
-                  fontFamily: theme.fontFamily.regular,
-                  fontSize: theme.typography.body.fontSize,
-                  lineHeight: theme.typography.body.lineHeight,
-                  color: theme.colors.content.base,
-                }}
+                style={styles.field}
               />
             )}
           />
@@ -202,8 +191,8 @@ export function CreateCredentialForm() {
                 value={field.value}
                 onBlur={field.onBlur}
                 editable={!isSubmitting}
-                placeholder="Password"
-                placeholderTextColor={`${theme.colors.content.muted.toString()}8F`}
+                placeholder={t("sections.account.fields.password.placeholder")}
+                placeholderTextColor={theme.colors.content.muted}
                 enterKeyHint="done"
                 secureTextEntry
                 cursorColor={
@@ -221,13 +210,7 @@ export function CreateCredentialForm() {
                     ? `${theme.colors.content.error.toString()}1F`
                     : `${theme.colors.content.base.toString()}1F`
                 }
-                style={{
-                  padding: theme.spacing[4],
-                  fontFamily: theme.fontFamily.regular,
-                  fontSize: theme.typography.body.fontSize,
-                  lineHeight: theme.typography.body.lineHeight,
-                  color: theme.colors.content.base,
-                }}
+                style={styles.field}
               />
             )}
           />
@@ -236,7 +219,9 @@ export function CreateCredentialForm() {
 
       <Section.Root>
         <Section.Header>
-          <Section.Header.Title>Notes</Section.Header.Title>
+          <Section.Header.Title>
+            {t("sections.notes.label")}
+          </Section.Header.Title>
         </Section.Header>
 
         <Card color="element">
@@ -250,8 +235,8 @@ export function CreateCredentialForm() {
                 value={field.value}
                 onBlur={field.onBlur}
                 editable={!isSubmitting}
-                placeholder="Add notes"
-                placeholderTextColor={`${theme.colors.content.muted.toString()}8F`}
+                placeholder={t("sections.notes.fields.notes.placeholder")}
+                placeholderTextColor={theme.colors.content.muted}
                 multiline
                 scrollEnabled
                 returnKeyType="done"
@@ -270,53 +255,23 @@ export function CreateCredentialForm() {
                     ? `${theme.colors.content.error.toString()}1F`
                     : `${theme.colors.content.base.toString()}1F`
                 }
-                style={{
-                  alignItems: "flex-start",
-                  justifyContent: "flex-start",
-                  verticalAlign: "top",
-                  padding: theme.spacing[4],
-                  fontFamily: theme.fontFamily.regular,
-                  fontSize: theme.typography.body.fontSize,
-                  lineHeight: theme.typography.body.lineHeight,
-                  color: theme.colors.content.base,
-                  minHeight: 128,
-                }}
+                style={styles.textarea}
               />
             )}
           />
         </Card>
       </Section.Root>
 
-      <View
-        style={{
-          height: theme.size[12],
-          borderRadius: theme.radii.full,
-          overflow: "hidden",
-        }}
-      >
+      <View style={styles.buttonWrapper}>
         <Button onPress={handleSubmitPress}>
-          <View
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              height: theme.size[12],
-              backgroundColor: theme.colors.content.base,
-            }}
-          >
+          <View style={styles.buttonContent}>
             {isSubmitting ? (
               <ActivityIndicator
                 size="large"
                 color={theme.colors.surface.base}
               />
             ) : (
-              <Text
-                weight="medium"
-                typography="body"
-                style={{
-                  textAlign: "center",
-                  color: theme.colors.surface.base,
-                }}
-              >
+              <Text weight="medium" typography="body" style={styles.buttonText}>
                 Save password
               </Text>
             )}

@@ -2,22 +2,18 @@ import { useTranslation } from "react-i18next";
 
 import { Card } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
-import { Text } from "@/components/ui/text";
 
-import { useLanguage } from "@/hooks/use-language";
-import { useTheme } from "@/hooks/use-theme";
+import { useStyles } from "@/hooks/use-styles";
 
-import { DateUtils } from "@/utils/date";
+import { getStyles } from "./styles";
 
 type Props = {
   username: string;
   website?: string;
-  updatedAt?: Date;
 };
 
-export function CredentialSection({ username, website, updatedAt }: Props) {
-  const { theme } = useTheme();
-  const { language } = useLanguage();
+export function CredentialSection({ username, website }: Props) {
+  const { styles } = useStyles(getStyles);
   const { t } = useTranslation("credential-details", {
     keyPrefix: "screen.sections.credential",
   });
@@ -38,7 +34,7 @@ export function CredentialSection({ username, website, updatedAt }: Props) {
 
         {website && (
           <>
-            <Section.Divider style={{ marginLeft: theme.spacing[4] }} />
+            <Section.Divider style={styles.divider} />
 
             <Section.Item.Root>
               <Section.Item.Content>
@@ -64,19 +60,6 @@ export function CredentialSection({ username, website, updatedAt }: Props) {
           </>
         )}
       </Card>
-
-      {updatedAt && (
-        <Text
-          typography="bodySmall"
-          color="muted"
-          style={{ paddingHorizontal: theme.spacing[4] }}
-        >
-          {t("fields.updated_at.label")}{" "}
-          <Text typography="bodySmall" color="base">
-            {DateUtils.formatDate(updatedAt, { language })}
-          </Text>
-        </Text>
-      )}
     </Section.Root>
   );
 }

@@ -17,7 +17,7 @@ export function DangerSection({ credentialId }: Props) {
   return (
     <Section.Root>
       <Section.Header>
-        <Section.Header.Title color="error">{t("label")}</Section.Header.Title>
+        <Section.Header.Title>{t("label")}</Section.Header.Title>
       </Section.Header>
 
       <Card color="element">

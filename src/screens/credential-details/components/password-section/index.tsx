@@ -1,3 +1,4 @@
+import { SymbolView } from "expo-symbols";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
@@ -13,8 +14,6 @@ import { useStyles } from "@/hooks/use-styles";
 import { LocalAuthenticationService } from "@/services/device/local-authentication";
 import { VaultService } from "@/services/vault/credentials";
 
-import { PasswordField } from "./components/password-field";
-
 import { getStyles } from "./styles";
 
 type Props = {
@@ -22,12 +21,12 @@ type Props = {
 };
 
 export function PasswordSection({ credentialId }: Props) {
+  const [password, setPassword] = useState<string | null>(null);
+  const { styles, theme } = useStyles(getStyles);
+  const { performTapFeedback, notifySuccess, notifyFailure } = useHaptics();
   const { t } = useTranslation("credential-details", {
     keyPrefix: "screen.sections.password",
   });
-  const { styles } = useStyles(getStyles);
-  const { performTapFeedback, notifySuccess, notifyFailure } = useHaptics();
-  const [password, setPassword] = useState<string | null>(null);
 
   const handleShowPassword = useCallback(async () => {
     performTapFeedback();
@@ -60,28 +59,42 @@ export function PasswordSection({ credentialId }: Props) {
     }
   }, [performTapFeedback, credentialId, notifyFailure, notifySuccess]);
 
+  const handleHidePassword = useCallback(() => {
+    performTapFeedback();
+    setPassword(null);
+  }, [performTapFeedback]);
+
   useEffect(() => {
     return () => setPassword(null);
   }, []);
 
   return (
     <Section.Root>
+      <Section.Header>
+        <Section.Header.Title>{t("label")}</Section.Header.Title>
+      </Section.Header>
+
       <Card color="element">
-        <Section.Item.Root>
-          <Section.Item.Content>
-            <Section.Item.Content.Title typography="bodySmall">
-              {t("fields.password.label")}
-            </Section.Item.Content.Title>
-            <PasswordField password={password} />
-          </Section.Item.Content>
-        </Section.Item.Root>
+        <View style={styles.passwordContainer}>
+          <Text>{password ?? "●●●●●●●●●●●●"}</Text>
+        </View>
+
+        <Section.Divider style={styles.divider} />
 
         <View style={styles.footer}>
           <View style={styles.buttonWrapper}>
-            <Button onPress={handleShowPassword}>
+            <Button
+              onPress={password ? handleHidePassword : handleShowPassword}
+            >
               <View style={styles.buttonContent}>
+                <SymbolView
+                  name={{
+                    android: password ? "visibility_off" : "visibility",
+                  }}
+                  tintColor={theme.colors.content.base}
+                />
                 <Text weight="medium" style={styles.buttonText}>
-                  {t("actions.show.label")}
+                  {password ? t("actions.hide.label") : t("actions.show.label")}
                 </Text>
               </View>
             </Button>

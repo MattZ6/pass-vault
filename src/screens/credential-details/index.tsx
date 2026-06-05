@@ -9,6 +9,8 @@ import { useVaultStore } from "@/store/credentials/vault.store";
 
 import { CredentialSection } from "./components/credential-section";
 import { DangerSection } from "./components/danger-section";
+import { FooterSection } from "./components/footer-section";
+import { NotesSection } from "./components/notes-section";
 import { PasswordSection } from "./components/password-section";
 import { ScreenHeader } from "./components/screen-header";
 
@@ -41,10 +43,11 @@ export function CredentialDetailsScreen({ id }: Props) {
         <CredentialSection
           username={credential.username}
           website={credential.website}
-          updatedAt={credential.updatedAt}
         />
         <PasswordSection credentialId={id} />
+        <NotesSection notes={credential.notes} />
         <DangerSection credentialId={id} />
+        <FooterSection updatedAt={credential.updatedAt} />
       </ScrollView>
     </>
   );

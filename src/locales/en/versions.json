@@ -1,4 +1,31 @@
 {
+  "v0.4.0": {
+    "paragraphs": [
+      "This release focused on improving the overall experience of using Pass Vault.",
+      "Credential details, forms and supporting screens received several visual refinements to make information easier to scan and interactions feel more natural.",
+      "Behind the scenes, performance measurements were expanded to help monitor startup and navigation responsiveness across the app."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Highlights",
+        "highlights": [
+          "Refined credential details screen",
+          "Improved credential creation form",
+          "Better notes and license screen presentation",
+          "Expanded page performance measurements"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Dev note",
+      "content": [
+        "Not every release needs a major feature.",
+        "This version was all about polishing the experience and improving the small details that make the app feel more comfortable to use every day.",
+        "Many of these changes may go unnoticed individually, but together they help Pass Vault feel more complete and consistent."
+      ]
+    }
+  },
   "v0.3.0": {
     "paragraphs": [
       "This release focused on giving Pass Vault more personality and visibility into its own evolution.",

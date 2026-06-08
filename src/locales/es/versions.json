@@ -1,4 +1,31 @@
 {
+  "v0.4.0": {
+    "paragraphs": [
+      "Esta versión se centró en mejorar la experiencia general de uso de Pass Vault.",
+      "Las pantallas de detalles de credenciales, formularios y pantallas auxiliares recibieron varios ajustes visuales para facilitar la lectura de la información y hacer que las interacciones se sientan más naturales.",
+      "Entre bastidores, se ampliaron las métricas de rendimiento para ayudar a supervisar los tiempos de carga y la capacidad de respuesta de la navegación en toda la aplicación."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Aspectos destacados",
+        "highlights": [
+          "Pantalla de detalles de credenciales refinada",
+          "Formulario de creación de credenciales mejorado",
+          "Mejor presentación de notas y licencias",
+          "Métricas de rendimiento ampliadas"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Nota del desarrollador",
+      "content": [
+        "No todas las versiones necesitan incluir una gran funcionalidad.",
+        "Esta actualización estuvo dedicada a pulir la experiencia y mejorar pequeños detalles que hacen que la aplicación sea más agradable de usar todos los días.",
+        "Muchas de estas mejoras pueden pasar desapercibidas por separado, pero juntas ayudan a que Pass Vault se sienta más consistente y completo."
+      ]
+    }
+  },
   "v0.3.0": {
     "paragraphs": [
       "Esta versión se centró en darle más personalidad a Pass Vault y hacer más visible su evolución.",

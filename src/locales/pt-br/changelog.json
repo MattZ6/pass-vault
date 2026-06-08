@@ -17,6 +17,11 @@
   },
   "changelog": {
     "meta": {
+      "v0.4.0": {
+        "title": "Polindo o cofre",
+        "excerpt": "Melhorias nas telas de credenciais, formulários refinados e monitoramento de performance expandido em todo o app.",
+        "date": "2026-06-08"
+      },
       "v0.3.0": {
         "title": "A história se desenrola",
         "excerpt": "O Pass Vault agora inclui um changelog integrado, detalhes das versões, indicadores de atualização e uma nova tela Sobre.",

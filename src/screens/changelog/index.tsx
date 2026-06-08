@@ -1,4 +1,5 @@
-import { useMemo } from "react";
+import { useObserve } from "expo-observe";
+import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -38,6 +39,7 @@ export function ChangelogScreen() {
   const safeInsets = useSafeAreaInsets();
   const { styles, theme } = useStyles((input) => getStyles(input, safeInsets));
   const { t } = useTranslation("changelog", { keyPrefix: "changelog" });
+  const { markInteractive } = useObserve();
 
   const { latestRelease, releases, alphaReleases } = useMemo(() => {
     const versionsMetadata = t("meta", {
@@ -73,6 +75,10 @@ export function ChangelogScreen() {
       },
     );
   }, [t]);
+
+  useEffect(() => {
+    markInteractive();
+  }, [markInteractive]);
 
   return (
     <>

@@ -2,6 +2,7 @@ import {
   LegendList,
   type LegendListRenderItemProps,
 } from "@legendapp/list/react-native";
+import { useObserve } from "expo-observe";
 import { Stack } from "expo-router";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
@@ -27,6 +28,7 @@ export function HomeScreen() {
   const safeInsets = useSafeAreaInsets();
   const { styles, theme } = useStyles((input) => getStyles(input, safeInsets));
   const credentialsMeta = useVaultStore((s) => s.credentialsMeta);
+  const { markInteractive } = useObserve();
 
   const renderItem = ({ item }: LegendListRenderItemProps<CredentialMeta>) => {
     return <CredentialItem credential={item} />;
@@ -35,6 +37,10 @@ export function HomeScreen() {
   useEffect(() => {
     VaultService.loadCredentialsIntoStore();
   }, []);
+
+  useEffect(() => {
+    markInteractive();
+  }, [markInteractive]);
 
   return (
     <>

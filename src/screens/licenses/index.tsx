@@ -2,7 +2,8 @@ import {
   LegendList,
   type LegendListRenderItemProps,
 } from "@legendapp/list/react-native";
-import { useCallback } from "react";
+import { useObserve } from "expo-observe";
+import { useCallback, useEffect } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useStyles } from "@/hooks/use-styles";
@@ -17,7 +18,12 @@ import { getStyles } from "./styles";
 
 export function LicensesScreen() {
   const safeInsets = useSafeAreaInsets();
+  const { markInteractive } = useObserve();
   const { styles, theme } = useStyles((input) => getStyles(input, safeInsets));
+
+  useEffect(() => {
+    markInteractive();
+  }, [markInteractive]);
 
   const renderItem = useCallback(
     ({ item }: LegendListRenderItemProps<License>) => {

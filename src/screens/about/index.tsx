@@ -1,3 +1,5 @@
+import { useObserve } from "expo-observe";
+import { useEffect } from "react";
 import { ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -12,6 +14,11 @@ import { getStyles } from "./styles";
 export function AboutScreen() {
   const safeInsets = useSafeAreaInsets();
   const { styles } = useStyles((input) => getStyles(input, safeInsets));
+  const { markInteractive } = useObserve();
+
+  useEffect(() => {
+    markInteractive();
+  }, [markInteractive]);
 
   return (
     <>

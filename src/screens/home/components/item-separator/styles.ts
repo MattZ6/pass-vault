@@ -5,7 +5,7 @@ import type { Theme } from "@/styles/themes/types";
 export function getStyles(theme: Theme) {
   return StyleSheet.create({
     separator: {
-      height: theme.size[3],
+      height: theme.size[2],
     },
   });
 }

@@ -6,7 +6,6 @@ export function getStyles(theme: Theme, safeInsets: EdgeInsets) {
   return StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: theme.colors.surface.base,
     },
     scrollContainer: {
       paddingTop: theme.spacing[4],

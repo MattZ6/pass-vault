@@ -1,3 +1,5 @@
+import { useObserve } from "expo-observe";
+import { useEffect } from "react";
 import { ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -22,6 +24,11 @@ export function CredentialDetailsScreen({ id }: Props) {
   const safeInsets = useSafeAreaInsets();
   const credential = useVaultStore((s) => s.getCredentialMeta)({ id });
   const { styles } = useStyles((t) => getStyles(t, safeInsets));
+  const { markInteractive } = useObserve();
+
+  useEffect(() => {
+    markInteractive();
+  }, [markInteractive]);
 
   if (!credential) {
     return (

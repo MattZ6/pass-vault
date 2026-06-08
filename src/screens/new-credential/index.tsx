@@ -1,3 +1,5 @@
+import { useObserve } from "expo-observe";
+import { useEffect } from "react";
 import { KeyboardAvoidingView, ScrollView } from "react-native";
 
 import { useStyles } from "@/hooks/use-styles";
@@ -9,6 +11,11 @@ import { getStyles } from "./styles";
 
 export function NewCredentialScreen() {
   const { styles } = useStyles(getStyles);
+  const { markInteractive } = useObserve();
+
+  useEffect(() => {
+    markInteractive();
+  }, [markInteractive]);
 
   return (
     <>

@@ -1,3 +1,4 @@
+import { useObserve } from "expo-observe";
 import { useEffect } from "react";
 import { ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -22,12 +23,17 @@ type Props = {
 export function ChangelogVersionScreen({ version }: Props) {
   const edgeInsets = useSafeAreaInsets();
   const { styles, theme } = useStyles((input) => getStyles(input, edgeInsets));
+  const { markInteractive } = useObserve();
 
   useEffect(() => {
     if (version === ApplicationService.version) {
       ChangelogService.markCurrentVersionAsSeen();
     }
   }, [version]);
+
+  useEffect(() => {
+    markInteractive();
+  }, [markInteractive]);
 
   return (
     <>

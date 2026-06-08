@@ -29,7 +29,9 @@ export function NotesSection({ notes }: Props) {
       </Section.Header>
 
       <Card color="element" style={styles.card}>
-        <Text color="muted">{notes}</Text>
+        <Text typography="bodySmall" color="muted">
+          {notes}
+        </Text>
       </Card>
     </Section.Root>
   );

@@ -4,16 +4,20 @@ import {
 } from "@legendapp/list/react-native";
 import { useCallback } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+
 import { useStyles } from "@/hooks/use-styles";
+
 import { LicenseItem } from "./components/license-item";
 import { LicensesDivider } from "./components/licenses-divider";
 import { ScreenHeader } from "./components/screen-header";
+
 import { type License, licenses } from "./repositories/licenses";
+
 import { getStyles } from "./styles";
 
 export function LicensesScreen() {
   const safeInsets = useSafeAreaInsets();
-  const { styles } = useStyles((input) => getStyles(input, safeInsets));
+  const { styles, theme } = useStyles((input) => getStyles(input, safeInsets));
 
   const renderItem = useCallback(
     ({ item }: LegendListRenderItemProps<License>) => {
@@ -42,6 +46,10 @@ export function LicensesScreen() {
         contentInsetAdjustmentBehavior="automatic"
         style={styles.list}
         contentContainerStyle={styles.scrollContainer}
+        fadingEdgeLength={{
+          start: theme.size[2],
+          end: theme.size[8],
+        }}
       />
     </>
   );

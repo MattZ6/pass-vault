@@ -1,33 +1,38 @@
 import { StyleSheet } from "react-native";
 
-import type { Theme } from "@/styles/themes/types";
+import type { ResolvedThemeOptions, Theme } from "@/styles/themes/types";
 
-export function getStyles(theme: Theme) {
+export function getStyles(
+  theme: Theme,
+  resolvedThemeOption: ResolvedThemeOptions,
+) {
+  const buttonBackgroundColorMap = {
+    light: theme.colors.surface.element,
+    dark: theme.colors.surface.elevated,
+  };
+
+  const iconContainerBackgroundColorMap = {
+    light: theme.colors.surface.elevated,
+    dark: theme.colors.surface.element,
+  };
+
   return StyleSheet.create({
     wrapper: {
       borderRadius: theme.radii[8],
       overflow: "hidden",
-      backgroundColor: theme.colors.surface.element,
+      backgroundColor: buttonBackgroundColorMap[resolvedThemeOption],
     },
     button: {
-      padding: theme.spacing[4],
-      flexDirection: "row",
-      alignItems: "center",
-      gap: theme.spacing[4],
-      borderRadius: theme.radii[8],
+      padding: theme.spacing[3],
     },
     iconContainer: {
       alignItems: "center",
       justifyContent: "center",
       flexShrink: 0,
-      width: theme.size[12],
-      height: theme.size[12],
-      borderRadius: theme.radii[4],
-      backgroundColor: theme.colors.surface.base,
-    },
-    content: {
-      flex: 1,
-      gap: theme.spacing[1],
+      width: theme.size[14],
+      height: theme.size[14],
+      borderRadius: theme.radii[6],
+      backgroundColor: iconContainerBackgroundColorMap[resolvedThemeOption],
     },
   });
 }

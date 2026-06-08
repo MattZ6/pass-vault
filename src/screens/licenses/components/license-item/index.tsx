@@ -2,7 +2,9 @@ import { ImageBackground, View } from "react-native";
 
 import { Section } from "@/components/ui/section";
 import { Text } from "@/components/ui/text";
+
 import { useStyles } from "@/hooks/use-styles";
+
 import { getStyles } from "./styles";
 
 type Props = {
@@ -35,7 +37,7 @@ export function LicenseItem({ imageUrl, name, licenses, version }: Props) {
       </Section.Item.Content>
 
       <Section.Item.Trailing>
-        <Text color="muted" style={styles.version}>
+        <Text color="muted" typography="bodySmall" style={styles.version}>
           {version}
         </Text>
       </Section.Item.Trailing>

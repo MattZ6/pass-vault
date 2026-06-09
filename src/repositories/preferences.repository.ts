@@ -12,6 +12,7 @@ const KEYS = {
   language: "language",
   haptics: "haptics",
   lastSeenVersion: "version.last_seen",
+  lastUpdateDate: "vault.updated_at",
 };
 
 export const PreferencesRepository = {
@@ -42,5 +43,17 @@ export const PreferencesRepository = {
   },
   setLastSeenVersion: (value: string) => {
     storage.set(KEYS.lastSeenVersion, value);
+  },
+  getLastUpdateDate: () => {
+    const storedValue = storage.getString(KEYS.lastUpdateDate);
+
+    if (!storedValue) {
+      return null;
+    }
+
+    return new Date(storedValue);
+  },
+  setLastUpdateDate: (value: Date) => {
+    storage.set(KEYS.lastUpdateDate, value.toJSON());
   },
 };

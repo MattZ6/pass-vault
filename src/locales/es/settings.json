@@ -28,6 +28,14 @@
             "label": "Licencias"
           }
         }
+      },
+      "storage": {
+        "label": "Datos",
+        "fields": {
+          "storage": {
+            "label": "Almacenamiento"
+          }
+        }
       }
     }
   }

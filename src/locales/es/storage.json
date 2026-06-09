@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "Almacenamiento"
+  },
+  "screen": {
+    "sections": {
+      "vault": {
+        "label": "Bóveda",
+        "fields": {
+          "passwords": {
+            "label": "Contraseñas",
+            "count_zero": "Ninguna",
+            "count_one": "{{count}} almacenada",
+            "count_other": "{{count}} almacenadas"
+          }
+        }
+      },
+      "storage": {
+        "label": "Almacenamiento",
+        "fields": {
+          "size": {
+            "label": "Tamaño de la bóveda"
+          },
+          "updated_at": {
+            "label": "Última actualización",
+            "value": {
+              "empty": "Nunca"
+            }
+          }
+        }
+      },
+      "danger": {
+        "label": "Zona de Peligro",
+        "fields": {
+          "delete": {
+            "label": "Eliminar todas las contraseñas",
+            "description": "Elimina permanentemente todas las contraseñas almacenadas en este dispositivo.",
+            "actions": {
+              "delete": {
+                "title": "¿Eliminar todas las contraseñas?",
+                "description": "Todas las contraseñas almacenadas en este dispositivo serán eliminadas permanentemente.\nEsta acción no se puede deshacer.",
+                "cancel_label": "Cancelar",
+                "confirm_label": "Eliminar todo"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

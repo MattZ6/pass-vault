@@ -15,7 +15,7 @@ export type RemoveCredentialMetaInput = Pick<CredentialMeta, "id">;
 
 export type CredentialsMetaSlice = {
   credentialsMeta: CredentialMeta[];
-  setupCredentialsMeta: (input: CredentialMeta[]) => Promise<void>;
+  setupCredentialsMeta: (input: CredentialMeta[]) => void;
   addCredentialMeta: (input: AddCredentialMetaInput) => void;
   getCredentialMeta: (input: GetCredentialMetaInput) => CredentialMeta | null;
   removeCredentialMeta: (input: RemoveCredentialMetaInput) => void;
@@ -29,7 +29,7 @@ export const createCredentialsMetaSlice: StateCreator<
 > = (set, get) => ({
   credentialsMeta: [],
 
-  async setupCredentialsMeta(input) {
+  setupCredentialsMeta(input) {
     set({ credentialsMeta: input });
   },
 

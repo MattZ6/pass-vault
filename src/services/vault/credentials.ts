@@ -1,5 +1,6 @@
 import { CredentialsMetaRepository } from "@/repositories/credentials/meta.repository";
 import { CredentialsSecretRepository } from "@/repositories/credentials/secret.repository";
+import { PreferencesRepository } from "@/repositories/preferences.repository";
 
 import { CryptographyService } from "@/services/cryptography/cryptography";
 
@@ -26,9 +27,26 @@ type DeleteCredentialInput = {
 
 export const VaultService = {
   loadCredentialsIntoStore: async () => {
-    const credentialsMeta = await CredentialsMetaRepository.getAllMetadata();
+    const [
+      credentialsMeta,
+      metadataStorageSizeInBytes,
+      secretStorageSizeInBytes,
+      lastUpdateDate,
+    ] = await Promise.all([
+      CredentialsMetaRepository.getAllMetadata(),
+      CredentialsMetaRepository.getSizeInBytes(),
+      CredentialsSecretRepository.getSizeInBytes(),
+      PreferencesRepository.getLastUpdateDate(),
+    ]);
+
+    const sizeInBytes = metadataStorageSizeInBytes + secretStorageSizeInBytes;
 
     useVaultStore.getState().setupCredentialsMeta(credentialsMeta);
+    useVaultStore.getState().setStorageSizeInBytes(sizeInBytes);
+
+    if (lastUpdateDate) {
+      useVaultStore.getState().setLastUpdateDate(lastUpdateDate);
+    }
   },
   createCredential: async (input: CreateCredentialInput) => {
     const id = CryptographyService.generateUUID();
@@ -52,6 +70,8 @@ export const VaultService = {
       encryptedBytes: BinaryUtils.toArrayBuffer(encryptedPassword),
     });
 
+    PreferencesRepository.setLastUpdateDate(now);
+
     useVaultStore.getState().addCredentialMeta({
       id,
       provider: input.provider,
@@ -60,6 +80,17 @@ export const VaultService = {
       notes: input.notes,
       updatedAt: now,
     });
+
+    const [metadataStorageSizeInBytes, secretStorageSizeInBytes] =
+      await Promise.all([
+        CredentialsMetaRepository.getSizeInBytes(),
+        CredentialsSecretRepository.getSizeInBytes(),
+      ]);
+
+    const sizeInBytes = metadataStorageSizeInBytes + secretStorageSizeInBytes;
+
+    useVaultStore.getState().setStorageSizeInBytes(sizeInBytes);
+    useVaultStore.getState().setLastUpdateDate(now);
   },
   getPassword: async (input: GetPasswordInput) => {
     const encryptedBytes = await CredentialsSecretRepository.getSecret({
@@ -79,11 +110,47 @@ export const VaultService = {
     return decryptedPassword;
   },
   deleteCredential: async (input: DeleteCredentialInput) => {
+    const now = new Date();
+
     await CredentialsSecretRepository.deleteSecret({ id: input.credentialId });
     await CredentialsMetaRepository.deleteMetadata({ id: input.credentialId });
+
+    PreferencesRepository.setLastUpdateDate(now);
 
     useVaultStore.getState().removeCredentialMeta({
       id: input.credentialId,
     });
+
+    const [metadataStorageSizeInBytes, secretStorageSizeInBytes] =
+      await Promise.all([
+        CredentialsMetaRepository.getSizeInBytes(),
+        CredentialsSecretRepository.getSizeInBytes(),
+      ]);
+
+    const sizeInBytes = metadataStorageSizeInBytes + secretStorageSizeInBytes;
+
+    useVaultStore.getState().setStorageSizeInBytes(sizeInBytes);
+    useVaultStore.getState().setLastUpdateDate(now);
+  },
+  deleteAllCredentials: async () => {
+    const now = new Date();
+
+    await CredentialsSecretRepository.deleteAllSecrets();
+    await CredentialsMetaRepository.deleteAllMetdata();
+
+    PreferencesRepository.setLastUpdateDate(now);
+
+    useVaultStore.getState().setupCredentialsMeta([]);
+
+    const [metadataStorageSizeInBytes, secretStorageSizeInBytes] =
+      await Promise.all([
+        CredentialsMetaRepository.getSizeInBytes(),
+        CredentialsSecretRepository.getSizeInBytes(),
+      ]);
+
+    const sizeInBytes = metadataStorageSizeInBytes + secretStorageSizeInBytes;
+
+    useVaultStore.getState().setStorageSizeInBytes(sizeInBytes);
+    useVaultStore.getState().setLastUpdateDate(now);
   },
 };

@@ -84,4 +84,13 @@ export const CredentialsMetaRepository = {
 
     storage.remove(input.id);
   },
+  deleteAllMetdata: async () => {
+    const storage = await getStorage();
+
+    storage.clearAll();
+  },
+  getSizeInBytes: async () => {
+    const storage = await getStorage();
+    return storage.byteSize;
+  },
 };

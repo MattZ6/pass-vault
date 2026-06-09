@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "Storage"
+  },
+  "screen": {
+    "sections": {
+      "vault": {
+        "label": "Vault",
+        "fields": {
+          "passwords": {
+            "label": "Passwords",
+            "count_zero": "None",
+            "count_one": "{{count}} stored",
+            "count_other": "{{count}} stored"
+          }
+        }
+      },
+      "storage": {
+        "label": "Storage",
+        "fields": {
+          "size": {
+            "label": "Vault size"
+          },
+          "updated_at": {
+            "label": "Last updated",
+            "value": {
+              "empty": "Never"
+            }
+          }
+        }
+      },
+      "danger": {
+        "label": "Danger Zone",
+        "fields": {
+          "delete": {
+            "label": "Delete all passwords",
+            "description": "Permanently remove all stored passwords from this device.",
+            "actions": {
+              "delete": {
+                "title": "Delete all passwords?",
+                "description": "All passwords stored on this device will be permanently deleted.\nThis action cannot be undone.",
+                "cancel_label": "Cancel",
+                "confirm_label": "Delete all"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

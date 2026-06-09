@@ -5,7 +5,7 @@
   "toolbar": {
     "actions": {
       "add_credential": {
-        "label": "Store a new credential"
+        "label": "Store a new password"
       },
       "settings": {
         "label": "Go to settings screnn"

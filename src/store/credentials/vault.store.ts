@@ -4,9 +4,14 @@ import {
   type CredentialsMetaSlice,
   createCredentialsMetaSlice,
 } from "./slices/meta.slice";
+import {
+  type CredentialsStorageSlice,
+  createCredentialsStorageSlice,
+} from "./slices/storage.slice";
 
-type VaultStore = CredentialsMetaSlice;
+type VaultStore = CredentialsMetaSlice & CredentialsStorageSlice;
 
 export const useVaultStore = create<VaultStore>()((...a) => ({
   ...createCredentialsMetaSlice(...a),
+  ...createCredentialsStorageSlice(...a),
 }));

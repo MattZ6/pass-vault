@@ -5,16 +5,16 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useStyles } from "@/hooks/use-styles";
 
-import { AboutSection } from "./components/about-section";
-import { PreferencesSection } from "./components/preferences-section";
+import { DangerSection } from "./components/danger-section";
 import { ScreenHeader } from "./components/screen-header";
 import { StorageSection } from "./components/storage-section";
+import { VaultSection } from "./components/vault-section";
 
 import { getStyles } from "./styles";
 
-export function SettingsScreen() {
-  const { markInteractive } = useObserve();
+export function StorageScreen() {
   const safeInsets = useSafeAreaInsets();
+  const { markInteractive } = useObserve();
   const { styles } = useStyles((input) => getStyles(input, safeInsets));
 
   useEffect(() => {
@@ -30,9 +30,9 @@ export function SettingsScreen() {
         style={styles.container}
         contentContainerStyle={styles.scrollContainer}
       >
-        <PreferencesSection />
-        <AboutSection />
+        <VaultSection />
         <StorageSection />
+        <DangerSection />
       </ScrollView>
     </>
   );

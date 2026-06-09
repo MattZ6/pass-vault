@@ -36,4 +36,13 @@ export const CredentialsSecretRepository = {
 
     storage.remove(input.id);
   },
+  deleteAllSecrets: async () => {
+    const storage = await getStorage();
+
+    storage.clearAll();
+  },
+  getSizeInBytes: async () => {
+    const storage = await getStorage();
+    return storage.byteSize;
+  },
 };

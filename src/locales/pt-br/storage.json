@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "Armazenamento"
+  },
+  "screen": {
+    "sections": {
+      "vault": {
+        "label": "Cofre",
+        "fields": {
+          "passwords": {
+            "label": "Senhas",
+            "count_zero": "Nenhuma",
+            "count_one": "{{count}} armazenada",
+            "count_other": "{{count}} armazenadas"
+          }
+        }
+      },
+      "storage": {
+        "label": "Armazenamento",
+        "fields": {
+          "size": {
+            "label": "Tamanho do cofre"
+          },
+          "updated_at": {
+            "label": "Última atualização",
+            "value": {
+              "empty": "Nunca"
+            }
+          }
+        }
+      },
+      "danger": {
+        "label": "Zona de Perigo",
+        "fields": {
+          "delete": {
+            "label": "Excluir todas as senhas",
+            "description": "Remove permanentemente todas as senhas armazenadas neste dispositivo.",
+            "actions": {
+              "delete": {
+                "title": "Excluir todas as senhas?",
+                "description": "Todas as senhas armazenadas neste dispositivo serão removidas permanentemente.\nEsta ação não pode ser desfeita.",
+                "cancel_label": "Cancelar",
+                "confirm_label": "Excluir tudo"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

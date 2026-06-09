@@ -7,6 +7,7 @@ import language from "./language.json";
 import licenses from "./licenses.json";
 import newCredential from "./new-credential.json";
 import settings from "./settings.json";
+import storage from "./storage.json";
 import versions from "./versions.json";
 
 export const en = {
@@ -19,5 +20,6 @@ export const en = {
   licenses,
   "new-credential": newCredential,
   settings,
+  storage,
   versions,
 };

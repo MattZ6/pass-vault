@@ -28,6 +28,14 @@
             "label": "Licenses"
           }
         }
+      },
+      "storage": {
+        "label": "Data",
+        "fields": {
+          "storage": {
+            "label": "Storage"
+          }
+        }
       }
     }
   }

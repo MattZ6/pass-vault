@@ -30,7 +30,7 @@
         }
       },
       "danger": {
-        "label": "Zona de Perigo",
+        "label": "Área de Risco",
         "fields": {
           "delete": {
             "label": "Excluir todas as senhas",

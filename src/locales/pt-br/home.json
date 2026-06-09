@@ -5,7 +5,7 @@
   "toolbar": {
     "actions": {
       "add_credential": {
-        "label": "Salvar uma nova credencial"
+        "label": "Salvar uma nova senha"
       },
       "settings": {
         "label": "Ir para tela de configurações"

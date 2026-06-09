@@ -5,7 +5,7 @@
   "toolbar": {
     "actions": {
       "add_credential": {
-        "label": "Guardar una nueva credencial"
+        "label": "Guardar una nueva contraseñas"
       },
       "settings": {
         "label": "Ir a la pantalla de ajustes"

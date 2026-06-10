@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "Privacy Policy"
+  },
+  "screen": {
+    "updated_at": {
+      "label": "Last updated on {{date}}"
+    },
+    "sections": [
+      {
+        "title": "Overview",
+        "paragraphs": [
+          "Pass Vault is built around a simple principle: your passwords belong to you.",
+          "Credentials, passwords, websites and notes are stored locally on your device and are not uploaded to Pass Vault servers."
+        ],
+        "hint": {
+          "label": "In simple terms",
+          "content": "Pass Vault uses anonymous performance metrics to help identify slow screens, startup issues and reliability problems. Your credentials and vault contents are never included in these reports."
+        }
+      },
+      {
+        "title": "Data Storage",
+        "paragraphs": [
+          "All vault data is stored locally on your device and protected using encryption before being persisted.",
+          "Pass Vault does not provide account-based storage, cloud synchronization or remote access to your vault."
+        ]
+      },
+      {
+        "title": "Information We Do Not Collect",
+        "list": [
+          "Passwords",
+          "Usernames",
+          "Credential contents",
+          "Websites stored in your vault",
+          "Notes associated with credentials",
+          "Personal account information"
+        ]
+      },
+      {
+        "title": "Diagnostics & Performance Metrics",
+        "paragraphs": [
+          "Pass Vault may collect anonymous diagnostic and performance information to help improve reliability, stability and overall app performance.",
+          "This information never includes passwords, usernames, websites, notes or any vault contents."
+        ],
+        "hint": {
+          "label": "In simple terms",
+          "content": "We may receive anonymous information about how the app performs, but we never receive the contents of your vault."
+        }
+      },
+      {
+        "title": "Security",
+        "paragraphs": [
+          "Pass Vault uses local encryption and platform security features to help protect sensitive information stored on your device.",
+          "When available, biometric authentication can be used before revealing stored passwords."
+        ]
+      },
+      {
+        "title": "Data Deletion",
+        "paragraphs": [
+          "Because Pass Vault stores vault data locally, you remain in control of your information at all times.",
+          "You can delete credentials individually, clear all app data or uninstall the application to remove stored information."
+        ],
+        "hint": {
+          "label": "In simple terms",
+          "content": "There is no account to delete and no vault data stored on our servers. Removing data from the app removes it from Pass Vault."
+        }
+      },
+      {
+        "title": "Third-Party Services",
+        "paragraphs": [
+          "Pass Vault currently uses services provided by Expo for anonymous diagnostics and performance monitoring, including Expo Observe and Expo Analytics.",
+          "These services may receive technical information related to app performance and stability.",
+          "Vault contents, passwords, usernames, websites and notes are never transmitted to these services.",
+          "You can learn more about how these services handle data in their respective privacy documentation."
+        ]
+      },
+      {
+        "title": "Contact",
+        "paragraphs": [
+          "If you have questions about privacy or security, please contact:"
+        ],
+        "actions": [
+          {
+            "type": "email"
+          },
+          {
+            "type": "external_policy",
+            "label": "View online version"
+          }
+        ]
+      }
+    ]
+  }
+}

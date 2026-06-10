@@ -29,6 +29,14 @@
           }
         }
       },
+      "privacy": {
+        "label": "Privacidad",
+        "fields": {
+          "policy": {
+            "label": "Política de Privacidad"
+          }
+        }
+      },
       "storage": {
         "label": "Datos",
         "fields": {

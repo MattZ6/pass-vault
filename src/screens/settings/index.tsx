@@ -8,6 +8,7 @@ import { useStyles } from "@/hooks/use-styles";
 import { AboutSection } from "./components/about-section";
 import { DiagnosticsSection } from "./components/diagnostics-section";
 import { PreferencesSection } from "./components/preferences-section";
+import { PrivacySection } from "./components/privacy-section";
 import { ScreenHeader } from "./components/screen-header";
 import { StorageSection } from "./components/storage-section";
 
@@ -33,6 +34,7 @@ export function SettingsScreen() {
       >
         <PreferencesSection />
         <AboutSection />
+        <PrivacySection />
         <StorageSection />
         <DiagnosticsSection />
       </ScrollView>

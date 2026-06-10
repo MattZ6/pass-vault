@@ -5,11 +5,14 @@ import { Section } from "@/components/ui/section";
 import { Text } from "@/components/ui/text";
 
 import { useLanguage } from "@/hooks/use-language";
+import { useStyles } from "@/hooks/use-styles";
 
 import { useVaultStore } from "@/store/credentials/vault.store";
 
 import { BinaryUtils } from "@/utils/binary";
 import { DateUtils } from "@/utils/date";
+
+import { getStyles } from "./styles";
 
 const today = new Date();
 
@@ -17,6 +20,7 @@ export function StorageSection() {
   const { language } = useLanguage();
   const sizeInBytes = useVaultStore((s) => s.sizeInBytes);
   const updatedAt = useVaultStore((s) => s.updatedAt);
+  const { styles } = useStyles(getStyles);
   const { t } = useTranslation("storage", {
     keyPrefix: "screen.sections.storage",
   });
@@ -44,7 +48,9 @@ export function StorageSection() {
             </Section.Item.Content.Title>
           </Section.Item.Content>
           <Section.Item.Trailing>
-            <Text color="muted">{BinaryUtils.formatBytes(sizeInBytes)}</Text>
+            <Text color="muted" style={styles.value}>
+              {BinaryUtils.formatBytes(sizeInBytes)}
+            </Text>
           </Section.Item.Trailing>
         </Section.Item.Root>
 
@@ -57,7 +63,9 @@ export function StorageSection() {
             </Section.Item.Content.Title>
           </Section.Item.Content>
           <Section.Item.Trailing>
-            <Text color="muted">{lastUpdateDate}</Text>
+            <Text color="muted" style={styles.value}>
+              {lastUpdateDate}
+            </Text>
           </Section.Item.Trailing>
         </Section.Item.Root>
       </Card>

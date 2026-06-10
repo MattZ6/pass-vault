@@ -4,10 +4,15 @@ import { Card } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
 import { Text } from "@/components/ui/text";
 
+import { useStyles } from "@/hooks/use-styles";
+
 import { useVaultStore } from "@/store/credentials/vault.store";
+
+import { getStyles } from "./styles";
 
 export function VaultSection() {
   const totalCount = useVaultStore((s) => s.credentialsMeta).length;
+  const { styles } = useStyles(getStyles);
   const { t } = useTranslation("storage", {
     keyPrefix: "screen.sections.vault",
   });
@@ -26,7 +31,7 @@ export function VaultSection() {
             </Section.Item.Content.Title>
           </Section.Item.Content>
           <Section.Item.Trailing>
-            <Text color="muted">
+            <Text color="muted" style={styles.value}>
               {t("fields.passwords.count", { count: totalCount })}
             </Text>
           </Section.Item.Trailing>

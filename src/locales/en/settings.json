@@ -36,6 +36,14 @@
             "label": "Storage"
           }
         }
+      },
+      "diagnostics": {
+        "label": "Diagnostics",
+        "fields": {
+          "biometrics": {
+            "label": "Biometrics"
+          }
+        }
       }
     }
   }

@@ -36,6 +36,14 @@
             "label": "Almacenamiento"
           }
         }
+      },
+      "diagnostics": {
+        "label": "Diagnósticos",
+        "fields": {
+          "biometrics": {
+            "label": "Biometría"
+          }
+        }
       }
     }
   }

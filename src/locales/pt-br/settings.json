@@ -36,6 +36,14 @@
             "label": "Armazenamento"
           }
         }
+      },
+      "diagnostics": {
+        "label": "Diagnósticos",
+        "fields": {
+          "biometrics": {
+            "label": "Biometria"
+          }
+        }
       }
     }
   }

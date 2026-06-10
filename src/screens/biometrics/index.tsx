@@ -5,18 +5,15 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useStyles } from "@/hooks/use-styles";
 
-import { AboutSection } from "./components/about-section";
-import { DiagnosticsSection } from "./components/diagnostics-section";
-import { PreferencesSection } from "./components/preferences-section";
+import { BiometricsSection } from "./components/biometrics-section";
 import { ScreenHeader } from "./components/screen-header";
-import { StorageSection } from "./components/storage-section";
 
 import { getStyles } from "./styles";
 
-export function SettingsScreen() {
-  const { markInteractive } = useObserve();
+export function BiometricsScreen() {
   const safeInsets = useSafeAreaInsets();
   const { styles } = useStyles((input) => getStyles(input, safeInsets));
+  const { markInteractive } = useObserve();
 
   useEffect(() => {
     markInteractive();
@@ -31,10 +28,7 @@ export function SettingsScreen() {
         style={styles.container}
         contentContainerStyle={styles.scrollContainer}
       >
-        <PreferencesSection />
-        <AboutSection />
-        <StorageSection />
-        <DiagnosticsSection />
+        <BiometricsSection />
       </ScrollView>
     </>
   );

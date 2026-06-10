@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Biometria"
+  },
+  "screen": {
+    "sections": {
+      "capabilities": {
+        "label": "Capacidades",
+        "fields": {
+          "types": {
+            "label": "Tipos suportados",
+            "values": {
+              "fingerprint": "Impressão digital",
+              "facial_recognition": "Reconhecimento facial",
+              "iris": "Íris"
+            }
+          },
+          "hardware": {
+            "label": "Hardware biométrico",
+            "values": {
+              "undefined": "Carregando",
+              "true": "Disponível",
+              "false": "Indisponível"
+            }
+          },
+          "enrollment_status": {
+            "label": "Configuração biométrica",
+            "values": {
+              "undefined": "Carregando",
+              "true": "Concluída",
+              "false": "Não configurada"
+            }
+          },
+          "enrollment_level": {
+            "label": "Nível de segurança",
+            "values": {
+              "none": "Nenhum",
+              "secret": "PIN",
+              "biometric_weak": "Biometria fraca",
+              "biometric_strong": "Biometria forte"
+            }
+          }
+        }
+      }
+    }
+  }
+}

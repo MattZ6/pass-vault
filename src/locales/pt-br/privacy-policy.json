@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "Política de Privacidade"
+  },
+  "screen": {
+    "updated_at": {
+      "label": "Última atualização em {{date}}"
+    },
+    "sections": [
+      {
+        "title": "Visão geral",
+        "paragraphs": [
+          "O Pass Vault foi criado com um princípio simples: suas senhas pertencem a você.",
+          "Credenciais, senhas, sites e anotações são armazenados localmente no seu dispositivo e não são enviados para servidores do Pass Vault."
+        ],
+        "hint": {
+          "label": "Em termos simples",
+          "content": "O Pass Vault utiliza métricas anônimas de desempenho para ajudar a identificar telas lentas, problemas de inicialização e questões de confiabilidade. Suas credenciais e o conteúdo do seu cofre nunca são incluídos nesses relatórios."
+        }
+      },
+      {
+        "title": "Armazenamento de dados",
+        "paragraphs": [
+          "Todos os dados do cofre são armazenados localmente no seu dispositivo e protegidos por criptografia antes de serem persistidos.",
+          "O Pass Vault não oferece armazenamento baseado em conta, sincronização em nuvem ou acesso remoto ao seu cofre."
+        ]
+      },
+      {
+        "title": "Informações que não coletamos",
+        "list": [
+          "Senhas",
+          "Nomes de usuário",
+          "Conteúdo das credenciais",
+          "Sites armazenados no seu cofre",
+          "Anotações associadas às credenciais",
+          "Informações pessoais de contas"
+        ]
+      },
+      {
+        "title": "Diagnósticos e métricas de desempenho",
+        "paragraphs": [
+          "O Pass Vault pode coletar informações anônimas de diagnóstico e desempenho para ajudar a melhorar a confiabilidade, estabilidade e desempenho geral do aplicativo.",
+          "Essas informações nunca incluem senhas, nomes de usuário, sites, anotações ou qualquer conteúdo armazenado no cofre."
+        ],
+        "hint": {
+          "label": "Em termos simples",
+          "content": "Podemos receber informações anônimas sobre o desempenho do aplicativo, mas nunca recebemos o conteúdo do seu cofre."
+        }
+      },
+      {
+        "title": "Segurança",
+        "paragraphs": [
+          "O Pass Vault utiliza criptografia local e recursos de segurança da plataforma para ajudar a proteger informações sensíveis armazenadas no seu dispositivo.",
+          "Quando disponível, a autenticação biométrica pode ser utilizada antes da exibição de senhas armazenadas."
+        ]
+      },
+      {
+        "title": "Exclusão de dados",
+        "paragraphs": [
+          "Como o Pass Vault armazena os dados localmente, você mantém o controle das suas informações o tempo todo.",
+          "Você pode excluir credenciais individualmente, apagar todos os dados do aplicativo ou desinstalar o aplicativo para remover as informações armazenadas."
+        ],
+        "hint": {
+          "label": "Em termos simples",
+          "content": "Não existe uma conta para excluir e nenhum dado do cofre é armazenado em nossos servidores. Remover os dados do aplicativo remove os dados do Pass Vault."
+        }
+      },
+      {
+        "title": "Serviços de terceiros",
+        "paragraphs": [
+          "Atualmente, o Pass Vault utiliza serviços fornecidos pela Expo para diagnósticos anônimos e monitoramento de desempenho, incluindo Expo Observe e Expo Analytics.",
+          "Esses serviços podem receber informações técnicas relacionadas ao desempenho e à estabilidade do aplicativo.",
+          "O conteúdo do cofre, senhas, nomes de usuário, sites e anotações nunca são transmitidos para esses serviços.",
+          "Você pode saber mais sobre como esses serviços tratam dados em suas respectivas documentações de privacidade."
+        ]
+      },
+      {
+        "title": "Contato",
+        "paragraphs": [
+          "Se você tiver dúvidas sobre privacidade ou segurança, entre em contato:"
+        ],
+        "actions": [
+          {
+            "type": "email"
+          },
+          {
+            "type": "external_policy",
+            "label": "Ver versão online"
+          }
+        ]
+      }
+    ]
+  }
+}

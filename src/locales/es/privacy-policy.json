@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "Política de Privacidad"
+  },
+  "screen": {
+    "updated_at": {
+      "label": "Última actualización el {{date}}"
+    },
+    "sections": [
+      {
+        "title": "Descripción general",
+        "paragraphs": [
+          "Pass Vault fue creado con una idea simple: tus contraseñas te pertenecen.",
+          "Las credenciales, contraseñas, sitios web y notas se almacenan localmente en tu dispositivo y no se cargan en servidores de Pass Vault."
+        ],
+        "hint": {
+          "label": "En términos simples",
+          "content": "Pass Vault utiliza métricas anónimas de rendimiento para ayudar a identificar pantallas lentas, problemas de inicio y problemas de confiabilidad. Tus credenciales y el contenido de tu bóveda nunca se incluyen en estos informes."
+        }
+      },
+      {
+        "title": "Almacenamiento de datos",
+        "paragraphs": [
+          "Todos los datos de la bóveda se almacenan localmente en tu dispositivo y se protegen mediante cifrado antes de guardarse.",
+          "Pass Vault no ofrece almacenamiento basado en cuentas, sincronización en la nube ni acceso remoto a tu bóveda."
+        ]
+      },
+      {
+        "title": "Información que no recopilamos",
+        "list": [
+          "Contraseñas",
+          "Nombres de usuario",
+          "Contenido de las credenciales",
+          "Sitios web almacenados en tu bóveda",
+          "Notas asociadas a las credenciales",
+          "Información personal de cuentas"
+        ]
+      },
+      {
+        "title": "Diagnósticos y métricas de rendimiento",
+        "paragraphs": [
+          "Pass Vault puede recopilar información anónima de diagnóstico y rendimiento para ayudar a mejorar la confiabilidad, estabilidad y rendimiento general de la aplicación.",
+          "Esta información nunca incluye contraseñas, nombres de usuario, sitios web, notas ni ningún contenido almacenado en la bóveda."
+        ],
+        "hint": {
+          "label": "En términos simples",
+          "content": "Podemos recibir información anónima sobre el rendimiento de la aplicación, pero nunca recibimos el contenido de tu bóveda."
+        }
+      },
+      {
+        "title": "Seguridad",
+        "paragraphs": [
+          "Pass Vault utiliza cifrado local y funciones de seguridad de la plataforma para ayudar a proteger la información sensible almacenada en tu dispositivo.",
+          "Cuando esté disponible, la autenticación biométrica puede utilizarse antes de mostrar las contraseñas almacenadas."
+        ]
+      },
+      {
+        "title": "Eliminación de datos",
+        "paragraphs": [
+          "Como Pass Vault almacena los datos localmente, mantienes el control de tu información en todo momento.",
+          "Puedes eliminar credenciales individualmente, borrar todos los datos de la aplicación o desinstalar la aplicación para eliminar la información almacenada."
+        ],
+        "hint": {
+          "label": "En términos simples",
+          "content": "No existe una cuenta para eliminar y no almacenamos datos de la bóveda en nuestros servidores. Eliminar los datos de la aplicación elimina los datos de Pass Vault."
+        }
+      },
+      {
+        "title": "Servicios de terceros",
+        "paragraphs": [
+          "Actualmente, Pass Vault utiliza servicios proporcionados por Expo para diagnósticos anónimos y monitoreo de rendimiento, incluidos Expo Observe y Expo Analytics.",
+          "Estos servicios pueden recibir información técnica relacionada con el rendimiento y la estabilidad de la aplicación.",
+          "El contenido de la bóveda, las contraseñas, los nombres de usuario, los sitios web y las notas nunca se transmiten a estos servicios.",
+          "Puedes obtener más información sobre cómo estos servicios manejan los datos en sus respectivas políticas de privacidad."
+        ]
+      },
+      {
+        "title": "Contacto",
+        "paragraphs": [
+          "Si tienes preguntas sobre privacidad o seguridad, ponte en contacto:"
+        ],
+        "actions": [
+          {
+            "type": "email"
+          },
+          {
+            "type": "external_policy",
+            "label": "Ver versión en línea"
+          }
+        ]
+      }
+    ]
+  }
+}

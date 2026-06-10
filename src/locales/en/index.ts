@@ -7,6 +7,7 @@ import home from "./home.json";
 import language from "./language.json";
 import licenses from "./licenses.json";
 import newCredential from "./new-credential.json";
+import privacyPolicy from "./privacy-policy.json";
 import settings from "./settings.json";
 import storage from "./storage.json";
 import versions from "./versions.json";
@@ -21,6 +22,7 @@ export const en = {
   language,
   licenses,
   "new-credential": newCredential,
+  "privacy-policy": privacyPolicy,
   settings,
   storage,
   versions,

@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Biometrics"
+  },
+  "screen": {
+    "sections": {
+      "capabilities": {
+        "label": "Capabilities",
+        "fields": {
+          "types": {
+            "label": "Supported types",
+            "values": {
+              "fingerprint": "Fingerprint",
+              "facial_recognition": "Facial recognition",
+              "iris": "Iris"
+            }
+          },
+          "hardware": {
+            "label": "Biometric hardware",
+            "values": {
+              "undefined": "Loading",
+              "true": "Available",
+              "false": "Unavailable"
+            }
+          },
+          "enrollment_status": {
+            "label": "Biometric setup",
+            "values": {
+              "undefined": "Loading",
+              "true": "Completed",
+              "false": "Not configured"
+            }
+          },
+          "enrollment_level": {
+            "label": "Security level",
+            "values": {
+              "none": "None",
+              "secret": "PIN",
+              "biometric_weak": "Weak biometric",
+              "biometric_strong": "Strong biometric"
+            }
+          }
+        }
+      }
+    }
+  }
+}

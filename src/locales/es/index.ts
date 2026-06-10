@@ -1,5 +1,6 @@
 import about from "./about.json";
 import appearance from "./appearance.json";
+import biometrics from "./biometrics.json";
 import changelog from "./changelog.json";
 import credentialDetails from "./credential-details.json";
 import home from "./home.json";
@@ -13,6 +14,7 @@ import versions from "./versions.json";
 export const es = {
   about,
   appearance,
+  biometrics,
   changelog,
   "credential-details": credentialDetails,
   home,

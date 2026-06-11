@@ -11,6 +11,7 @@ const KEYS = {
   theme: "theme",
   language: "language",
   haptics: "haptics",
+  performanceMonitoring: "performance_monitoring.active",
   lastSeenVersion: "version.last_seen",
   lastUpdateDate: "vault.updated_at",
 };
@@ -55,5 +56,12 @@ export const PreferencesRepository = {
   },
   setLastUpdateDate: (value: Date) => {
     storage.set(KEYS.lastUpdateDate, value.toJSON());
+  },
+  getPerformanceMonitoring: () => {
+    const storedValue = storage.getBoolean(KEYS.performanceMonitoring);
+    return storedValue ?? null;
+  },
+  savePerformanceMonitoring: (isActive: boolean) => {
+    storage.set(KEYS.performanceMonitoring, isActive);
   },
 };

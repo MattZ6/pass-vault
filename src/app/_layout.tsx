@@ -5,16 +5,22 @@ import { Stack } from "expo-router";
 import * as ExpoSplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { Platform } from "react-native";
+
 import { Provider } from "@/contexts/provider";
 
 import { useFontFamily } from "@/hooks/use-font-family";
 import { useTheme } from "@/hooks/use-theme";
 
+import { PerformanceMonitoringService } from "@/services/analytics/performance-monitoring";
 import { ChangelogService } from "@/services/changelog/changelog";
 
-ChangelogService.initialize();
 ExpoSplashScreen.preventAutoHideAsync();
-Observe.configure({ integrations: { "expo-router": true } });
+
+ChangelogService.initialize();
+Observe.configure({
+  integrations: { "expo-router": true },
+  dispatchingEnabled: PerformanceMonitoringService.isEnabled(),
+});
 
 function RootLayout() {
   const [fontsLoaded] = useFontFamily();

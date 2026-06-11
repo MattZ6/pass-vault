@@ -22,6 +22,14 @@ export function PrivacySection() {
           href="/settings/privacy-policy"
           leadingIcon={{ ios: "info", android: "security" }}
         />
+
+        <Section.Divider />
+
+        <MenuItem
+          title={t("fields.performance.label")}
+          href="/settings/performance"
+          leadingIcon={{ ios: "info", android: "query_stats" }}
+        />
       </Card>
     </Section.Root>
   );

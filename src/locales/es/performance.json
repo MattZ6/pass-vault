@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "Monitoreo de Rendimiento"
+  },
+  "screen": {
+    "sections": {
+      "diagnostics": {
+        "label": "Diagnósticos Anónimos",
+        "fields": {
+          "share": {
+            "label": "Compartir métricas de rendimiento",
+            "description": "Ayuda a identificar problemas de rendimiento, pantallas lentas y dificultades durante el inicio de la aplicación."
+          }
+        },
+        "hint": "Tus contraseñas, nombres de usuario, sitios web, notas y el contenido de tu bóveda nunca se recopilan."
+      }
+    }
+  }
+}

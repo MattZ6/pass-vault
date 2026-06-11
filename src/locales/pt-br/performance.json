@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "Monitoramento de Desempenho"
+  },
+  "screen": {
+    "sections": {
+      "diagnostics": {
+        "label": "Diagnósticos Anônimos",
+        "fields": {
+          "share": {
+            "label": "Compartilhar métricas de desempenho",
+            "description": "Ajude a identificar problemas de desempenho, telas lentas e dificuldades durante a inicialização do aplicativo."
+          }
+        },
+        "hint": "Suas senhas, usuários, sites, anotações e o conteúdo do seu cofre nunca são coletados."
+      }
+    }
+  }
+}

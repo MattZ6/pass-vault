@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "Performance Monitoring"
+  },
+  "screen": {
+    "sections": {
+      "diagnostics": {
+        "label": "Anonymous Diagnostics",
+        "fields": {
+          "share": {
+            "label": "Share performance metrics",
+            "description": "Help identify performance issues, slow screens and startup problems."
+          }
+        },
+        "hint": "Your passwords, usernames, websites, notes and vault contents are never collected."
+      }
+    }
+  }
+}

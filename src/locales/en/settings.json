@@ -34,6 +34,9 @@
         "fields": {
           "policy": {
             "label": "Privacy Policy"
+          },
+          "performance": {
+            "label": "Performance Monitoring"
           }
         }
       },

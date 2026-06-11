@@ -17,6 +17,11 @@
   },
   "changelog": {
     "meta": {
+      "v0.5.0": {
+        "title": "Privacidad, transparencia y control",
+        "excerpt": "Se añadieron estadísticas de almacenamiento, diagnósticos biométricos, una política de privacidad integrada y controles de monitoreo de rendimiento.",
+        "date": "2026-06-11"
+      },
       "v0.4.0": {
         "title": "Puliendo la bóveda",
         "excerpt": "Mejoras en las pantallas de credenciales, formularios refinados y monitoreo de rendimiento ampliado en toda la aplicación.",

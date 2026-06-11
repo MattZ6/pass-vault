@@ -1,4 +1,32 @@
 {
+  "v0.5.0": {
+    "paragraphs": [
+      "Esta versão foi focada em ajudar você a entender melhor como o Pass Vault funciona.",
+      "Novas telas oferecem visibilidade sobre armazenamento, capacidades biométricas e informações relacionadas à privacidade diretamente dentro do aplicativo.",
+      "Agora você pode consultar a política de privacidade sem sair do Pass Vault e escolher se deseja compartilhar diagnósticos anônimos de desempenho."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Destaques",
+        "highlights": [
+          "Adicionada tela de Armazenamento com estatísticas do cofre",
+          "Adicionada tela de diagnósticos biométricos",
+          "Adicionada tela de Política de Privacidade integrada",
+          "Adicionados controles de Monitoramento de Desempenho",
+          "Melhorias de privacidade e transparência em todo o aplicativo"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Nota do desenvolvedor",
+      "content": [
+        "Segurança não é apenas criptografia.",
+        "Esta versão teve como objetivo tornar o Pass Vault mais transparente, explicando como as informações são armazenadas, protegidas e utilizadas pelo aplicativo.",
+        "A maioria das pessoas talvez nunca abra essas telas, mas para quem procurar as respostas, queremos que elas estejam lá."
+      ]
+    }
+  },
   "v0.4.0": {
     "paragraphs": [
       "Esta versão foi focada em melhorar a experiência geral de uso do Pass Vault.",

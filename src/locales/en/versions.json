@@ -1,4 +1,32 @@
 {
+  "v0.5.0": {
+    "paragraphs": [
+      "This release focused on helping you better understand how Pass Vault works.",
+      "New screens provide visibility into storage usage, biometric capabilities and privacy-related information directly inside the app.",
+      "You can now review the privacy policy without leaving Pass Vault and choose whether anonymous performance diagnostics should be shared."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Highlights",
+        "highlights": [
+          "Added Storage screen with vault statistics",
+          "Added Biometrics diagnostics screen",
+          "Added built-in Privacy Policy screen",
+          "Added Performance Monitoring controls",
+          "Improved privacy and transparency across the app"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Dev note",
+      "content": [
+        "Security is not only about encryption.",
+        "This release focused on making Pass Vault more transparent by explaining how information is stored, protected and handled throughout the app.",
+        "Most users may never open these screens, but for those who do, we want the answers to be there."
+      ]
+    }
+  },
   "v0.4.0": {
     "paragraphs": [
       "This release focused on improving the overall experience of using Pass Vault.",

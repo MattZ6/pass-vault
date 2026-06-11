@@ -17,6 +17,11 @@
   },
   "changelog": {
     "meta": {
+      "v0.5.0": {
+        "title": "Privacidade, transparência e controle",
+        "excerpt": "Adicionadas informações de armazenamento, diagnósticos biométricos, política de privacidade integrada e controles de monitoramento de desempenho.",
+        "date": "2026-06-11"
+      },
       "v0.4.0": {
         "title": "Polindo o cofre",
         "excerpt": "Melhorias nas telas de credenciais, formulários refinados e monitoramento de performance expandido em todo o app.",

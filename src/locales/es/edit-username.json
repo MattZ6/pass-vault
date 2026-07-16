@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "Editar nombre de usuario"
+  },
+  "screen": {
+    "form": {
+      "actions": {
+        "submit": {
+          "label": "Guardar"
+        }
+      },
+      "fields": {
+        "username": {
+          "placeholder": "Correo electrónico o nombre de usuario"
+        }
+      }
+    }
+  }
+}

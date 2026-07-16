@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "Edit username"
+  },
+  "screen": {
+    "form": {
+      "actions": {
+        "submit": {
+          "label": "Save"
+        }
+      },
+      "fields": {
+        "username": {
+          "placeholder": "Email or username"
+        }
+      }
+    }
+  }
+}

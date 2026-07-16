@@ -71,7 +71,7 @@ function RootStack() {
           presentation: "formSheet",
           sheetAllowedDetents: Platform.select({
             ios: [1],
-            default: [0.85, 1],
+            default: [0.8, 1],
           }),
           contentStyle: {
             backgroundColor: theme.colors.surface.elevated,

@@ -8,6 +8,7 @@ import { StatusBar } from "expo-status-bar";
 import type { ReactNode } from "react";
 import { StyleSheet } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { KeyboardProvider } from "react-native-keyboard-controller";
 import {
   initialWindowMetrics,
   SafeAreaProvider,
@@ -30,17 +31,19 @@ export function Provider(props: Props) {
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
       <GestureHandlerRootView style={styles.fill}>
-        <QueryClientProvider client={queryClient}>
-          <ThemeProvider>
-            <LanguageProvider>
-              <PreferencesProvider defaultHapticsEnabled={true}>
-                <ConfirmProvider>
-                  <NavigationProvider {...props} />
-                </ConfirmProvider>
-              </PreferencesProvider>
-            </LanguageProvider>
-          </ThemeProvider>
-        </QueryClientProvider>
+        <KeyboardProvider>
+          <QueryClientProvider client={queryClient}>
+            <ThemeProvider>
+              <LanguageProvider>
+                <PreferencesProvider defaultHapticsEnabled={true}>
+                  <ConfirmProvider>
+                    <NavigationProvider {...props} />
+                  </ConfirmProvider>
+                </PreferencesProvider>
+              </LanguageProvider>
+            </ThemeProvider>
+          </QueryClientProvider>
+        </KeyboardProvider>
       </GestureHandlerRootView>
     </SafeAreaProvider>
   );

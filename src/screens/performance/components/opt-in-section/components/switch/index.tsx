@@ -6,21 +6,21 @@ type Props = {
 };
 
 export function Switch({ value }: Props) {
-  const { theme } = useTheme();
+  const { theme, resolvedThemeOption } = useTheme();
 
   return (
-    <Host matchContents>
+    <Host matchContents colorScheme={resolvedThemeOption}>
       <JCSwitch
         value={value}
         colors={{
           uncheckedTrackColor: theme.colors.surface.elevated,
-          checkedTrackColor: theme.colors.surface.elevated,
-          uncheckedBorderColor: theme.colors.border.element,
-          checkedBorderColor: theme.colors.border.element,
+          checkedTrackColor: theme.colors.content.base,
+          uncheckedBorderColor: theme.colors.content.muted,
+          checkedBorderColor: theme.colors.content.base,
           uncheckedThumbColor: theme.colors.content.muted,
-          checkedThumbColor: theme.colors.content.base,
-          uncheckedIconColor: theme.colors.content.base,
-          checkedIconColor: theme.colors.content.base,
+          checkedThumbColor: theme.colors.surface.element,
+          uncheckedIconColor: theme.colors.content.element,
+          checkedIconColor: theme.colors.surface.element,
         }}
       />
     </Host>

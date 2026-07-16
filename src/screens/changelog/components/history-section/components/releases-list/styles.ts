@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 import type { Theme } from "@/styles/themes/types";
 
-const VERSION_TEXT_SIZE = 40;
+const VERSION_TEXT_SIZE = 48;
 
 export function getStyles(theme: Theme) {
   return StyleSheet.create({

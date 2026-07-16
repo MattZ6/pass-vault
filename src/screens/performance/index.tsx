@@ -27,6 +27,7 @@ export function PerformanceMonitoringScreen() {
         contentInsetAdjustmentBehavior="automatic"
         style={styles.container}
         contentContainerStyle={styles.scrollContainer}
+        fadingEdgeLength={styles.fadingEdgeLength}
       >
         {/* Just an idea */}
         {/* <Card color="element">

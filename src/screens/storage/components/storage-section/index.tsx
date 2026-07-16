@@ -54,7 +54,7 @@ export function StorageSection() {
           </Section.Item.Trailing>
         </Section.Item.Root>
 
-        <Section.Divider />
+        <Section.Divider style={styles.divider} />
 
         <Section.Item.Root>
           <Section.Item.Content>

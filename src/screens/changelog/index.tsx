@@ -36,10 +36,10 @@ type ParsedVersion = VersionMetadata & {
 };
 
 export function ChangelogScreen() {
-  const safeInsets = useSafeAreaInsets();
-  const { styles, theme } = useStyles((input) => getStyles(input, safeInsets));
-  const { t } = useTranslation("changelog", { keyPrefix: "changelog" });
   const { markInteractive } = useObserve();
+  const safeInsets = useSafeAreaInsets();
+  const { styles } = useStyles((input) => getStyles(input, safeInsets));
+  const { t } = useTranslation("changelog", { keyPrefix: "changelog" });
 
   const { latestRelease, releases, alphaReleases } = useMemo(() => {
     const versionsMetadata = t("meta", {
@@ -85,13 +85,11 @@ export function ChangelogScreen() {
       <ScreenHeader />
 
       <ScrollView
+        nestedScrollEnabled
         contentInsetAdjustmentBehavior="automatic"
-        style={styles.list}
+        style={styles.container}
         contentContainerStyle={styles.scrollContainer}
-        fadingEdgeLength={{
-          start: theme.size[2],
-          end: theme.size[8],
-        }}
+        fadingEdgeLength={styles.fadingEdgeLength}
       >
         <LatestReleaseSection release={latestRelease} />
         <HistorySection releases={releases} />

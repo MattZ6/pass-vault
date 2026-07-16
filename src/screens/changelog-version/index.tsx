@@ -21,9 +21,9 @@ type Props = {
 };
 
 export function ChangelogVersionScreen({ version }: Props) {
-  const edgeInsets = useSafeAreaInsets();
-  const { styles, theme } = useStyles((input) => getStyles(input, edgeInsets));
   const { markInteractive } = useObserve();
+  const safeInsets = useSafeAreaInsets();
+  const { styles } = useStyles((input) => getStyles(input, safeInsets));
 
   useEffect(() => {
     if (version === ApplicationService.version) {
@@ -40,13 +40,11 @@ export function ChangelogVersionScreen({ version }: Props) {
       <ScreenHeader version={version} />
 
       <ScrollView
+        nestedScrollEnabled
         contentInsetAdjustmentBehavior="automatic"
-        style={styles.list}
+        style={styles.container}
         contentContainerStyle={styles.scrollContainer}
-        fadingEdgeLength={{
-          start: theme.size[2],
-          end: theme.size[8],
-        }}
+        fadingEdgeLength={styles.fadingEdgeLength}
       >
         <VersionHeader version={version} />
         <ParagraphsSection version={version} />

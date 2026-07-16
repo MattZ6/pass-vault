@@ -1,6 +1,7 @@
 import { useObserve } from "expo-observe";
 import { useEffect } from "react";
 import { ScrollView } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useStyles } from "@/hooks/use-styles";
 
@@ -10,7 +11,8 @@ import { ThemeSection } from "./components/theme-section";
 import { getStyles } from "./styles";
 
 export function AppearanceScreen() {
-  const { styles } = useStyles(getStyles);
+  const safeInsets = useSafeAreaInsets();
+  const { styles } = useStyles((input) => getStyles(input, safeInsets));
   const { markInteractive } = useObserve();
 
   useEffect(() => {
@@ -23,8 +25,9 @@ export function AppearanceScreen() {
 
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={styles.list}
+        style={styles.container}
         contentContainerStyle={styles.scrollContainer}
+        fadingEdgeLength={styles.fadingEdgeLength}
       >
         <ThemeSection />
       </ScrollView>

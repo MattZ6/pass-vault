@@ -5,11 +5,15 @@ import type { Theme } from "@/styles/themes/types";
 
 export function getStyles(theme: Theme, insets: EdgeInsets) {
   return StyleSheet.create({
-    list: {
+    container: {
       flex: 1,
     },
     scrollContainer: {
-      paddingBottom: insets.bottom + theme.spacing[4],
+      paddingBottom: theme.spacing[4] + insets.bottom,
     },
+    fadingEdgeLength: {
+      start: theme.size[2],
+      end: theme.size[8],
+    }
   });
 }

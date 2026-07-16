@@ -75,13 +75,11 @@ export function PrivacyPolicyScreen() {
       <ScreenHeader />
 
       <ScrollView
+        nestedScrollEnabled
         contentInsetAdjustmentBehavior="automatic"
-        style={styles.list}
+        style={styles.container}
         contentContainerStyle={styles.scrollContainer}
-        fadingEdgeLength={{
-          start: theme.size[2],
-          end: theme.size[8],
-        }}
+        fadingEdgeLength={styles.fadingEdgeLength}
       >
         {sections.map((section) => (
           <View key={section.title} style={styles.section}>

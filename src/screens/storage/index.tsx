@@ -29,6 +29,7 @@ export function StorageScreen() {
         contentInsetAdjustmentBehavior="automatic"
         style={styles.container}
         contentContainerStyle={styles.scrollContainer}
+        fadingEdgeLength={styles.fadingEdgeLength}
       >
         <VaultSection />
         <StorageSection />

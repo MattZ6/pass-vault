@@ -12,7 +12,11 @@ export function getStyles(theme: Theme, insets: EdgeInsets) {
       paddingTop: theme.spacing[4],
       paddingBottom: theme.spacing[4] + insets.bottom,
       paddingHorizontal: theme.spacing[4],
-      gap: theme.spacing[8],
+      gap: theme.spacing[8]
+    },
+    fadingEdgeLength: {
+      start: theme.size[2],
+      end: theme.size[8],
     },
   });
 }

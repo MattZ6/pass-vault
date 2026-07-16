@@ -31,6 +31,7 @@ export function SettingsScreen() {
         contentInsetAdjustmentBehavior="automatic"
         style={styles.container}
         contentContainerStyle={styles.scrollContainer}
+        fadingEdgeLength={styles.fadingEdgeLength}
       >
         <PreferencesSection />
         <AboutSection />

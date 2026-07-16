@@ -15,11 +15,12 @@ import { PerformanceMonitoringService } from "@/services/analytics/performance-m
 import { ChangelogService } from "@/services/changelog/changelog";
 
 ExpoSplashScreen.preventAutoHideAsync();
-
 ChangelogService.initialize();
+
 Observe.configure({
   integrations: { "expo-router": true },
   dispatchingEnabled: PerformanceMonitoringService.isEnabled(),
+  environment: process.env.EXPO_PUBLIC_APP_VARIANT,
 });
 
 function RootLayout() {

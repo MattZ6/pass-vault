@@ -4,9 +4,8 @@ import { ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useStyles } from "@/hooks/use-styles";
-
+import { ApplicationService } from "@/services/application/application";
 import { ChangelogService } from "@/services/changelog/changelog";
-import { ApplicationService } from "@/services/device/application";
 
 import { DevNoteSection } from "./components/dev-note-section";
 import { HighlightsSections } from "./components/highlights-sections";

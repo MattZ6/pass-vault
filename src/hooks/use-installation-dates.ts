@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Platform } from "react-native";
 
-import { ApplicationService } from "@/services/device/application";
+import { ApplicationService } from "@/services/application/application";
 
 export function useInstallationDates() {
   return useQuery({

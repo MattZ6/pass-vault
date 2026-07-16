@@ -20,13 +20,13 @@ export function AboutSection() {
       </Section.Header>
 
       <Card color="element">
-        <MenuItem
+        {/* <MenuItem
           title={t("fields.about.label")}
           href="/settings/about"
           leadingIcon={{ ios: "info", android: "info" }}
         />
 
-        <Section.Divider />
+        <Section.Divider /> */}
 
         <MenuItem
           title={t("fields.changelog.label")}

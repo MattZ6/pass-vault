@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "title": "App"
+  },
+  "screen": {
+    "sections": {
+      "general": {
+        "title": "General",
+        "fields": {
+          "version": {
+            "label": "Version"
+          },
+          "build": {
+            "label": "Build"
+          },
+          "package": {
+            "label": "Package"
+          }
+        }
+      },
+      "installation": {
+        "title": "Installation",
+        "fields": {
+          "installed-at": {
+            "label": "Installed at"
+          },
+          "updated-at": {
+            "label": "Updated at"
+          }
+        }
+      },
+      "explore": {
+        "title": "Explore",
+        "fields": {
+          "play-store": {
+            "label": "Open Play Store",
+            "description": "Check for updates or leave a review."
+          }
+        }
+      }
+    }
+  }
+}

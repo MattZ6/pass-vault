@@ -51,6 +51,9 @@
       "diagnostics": {
         "label": "Diagnostics",
         "fields": {
+          "application": {
+            "label": "App"
+          },
           "device": {
             "label": "Device"
           },

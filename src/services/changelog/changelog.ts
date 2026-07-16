@@ -1,5 +1,5 @@
 import { PreferencesRepository } from "@/repositories/preferences.repository";
-import { ApplicationService } from "@/services/device/application";
+import { ApplicationService } from "@/services/application/application";
 
 import { useChangelogStore } from "@/store/changelog/changelog.store";
 

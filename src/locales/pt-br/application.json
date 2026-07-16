@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "title": "Aplicativo"
+  },
+  "screen": {
+    "sections": {
+      "general": {
+        "title": "Geral",
+        "fields": {
+          "version": {
+            "label": "Versão"
+          },
+          "build": {
+            "label": "Build"
+          },
+          "package": {
+            "label": "Pacote"
+          }
+        }
+      },
+      "installation": {
+        "title": "Instalação",
+        "fields": {
+          "installed-at": {
+            "label": "Instalado em"
+          },
+          "updated-at": {
+            "label": "Atualizado em"
+          }
+        }
+      },
+      "explore": {
+        "title": "Explorar",
+        "fields": {
+          "play-store": {
+            "label": "Abrir na Play Store",
+            "description": "Confira atualizações ou avalie o aplicativo."
+          }
+        }
+      }
+    }
+  }
+}

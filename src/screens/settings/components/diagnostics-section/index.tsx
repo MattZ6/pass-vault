@@ -18,6 +18,14 @@ export function DiagnosticsSection() {
 
       <Card color="element">
         <MenuItem
+          title={t("fields.application.label")}
+          href="/settings/application"
+          leadingIcon={{ ios: "iphone", android: "hexagon" }}
+        />
+
+        <Section.Divider />
+
+        <MenuItem
           title={t("fields.device.label")}
           href="/settings/device"
           leadingIcon={{ ios: "iphone", android: "phone_android" }}

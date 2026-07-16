@@ -7,7 +7,7 @@ import { Text } from "@/components/ui/text";
 import { useInstallationDates } from "@/hooks/use-installation-dates";
 import { useLanguage } from "@/hooks/use-language";
 
-import { ApplicationService } from "@/services/device/application";
+import { ApplicationService } from "@/services/application/application";
 
 import { ItemDivider } from "../item-divider";
 

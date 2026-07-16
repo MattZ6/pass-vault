@@ -17,6 +17,6 @@ export function getStyles(theme: Theme, insets: EdgeInsets) {
     fadingEdgeLength: {
       start: theme.size[2],
       end: theme.size[8],
-    }
+    },
   });
 }

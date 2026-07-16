@@ -29,6 +29,10 @@ type DeleteMetadataInput = {
   id: string;
 };
 
+type GetMetadataByIdInput = {
+  id: string;
+};
+
 type StoredCredentialMeta = {
   provider: string;
   /** @deprecated Use `provider` instead. */
@@ -40,6 +44,28 @@ type StoredCredentialMeta = {
 };
 
 export const CredentialsMetaRepository = {
+  getMetadataById: async (input: GetMetadataByIdInput) => {
+    const storage = await getStorage();
+
+    const storedCredential = storage.getString(input.id);
+
+    if (!storedCredential) {
+      return null;
+    }
+
+    const parsedObject = JSON.parse(storedCredential) as StoredCredentialMeta;
+
+    return {
+      id: input.id,
+      provider: parsedObject.provider ?? parsedObject.app,
+      website: parsedObject.website,
+      username: parsedObject.username,
+      notes: parsedObject.notes,
+      updatedAt: parsedObject.updatedAt
+        ? new Date(parsedObject.updatedAt)
+        : undefined,
+    };
+  },
   getAllMetadata: async () => {
     const storage = await getStorage();
 

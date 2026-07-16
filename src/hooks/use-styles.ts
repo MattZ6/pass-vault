@@ -17,12 +17,13 @@ export function useStyles<T extends StyleSheet.NamedStyles<T>>(
   factory: StyleFactory<T>,
   _options: UseStylesOptions = {},
 ) {
-  const { theme } = useTheme();
+  const { theme, resolvedThemeOption } = useTheme();
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: Re-mount only when theme changes.
   return useMemo(
     () => ({
       theme,
+      resolvedThemeOption,
       styles: factory(theme),
     }),
     [theme],

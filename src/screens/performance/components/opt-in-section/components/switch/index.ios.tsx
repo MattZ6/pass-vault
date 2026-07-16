@@ -10,9 +10,7 @@ export function Switch({ value }: Props) {
 
   return (
     <Host matchContents colorScheme={resolvedThemeOption}>
-      <SUIToggle
-        isOn={value}
-      />
+      <SUIToggle isOn={value} />
     </Host>
   );
 }

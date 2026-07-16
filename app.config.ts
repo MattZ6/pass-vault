@@ -213,6 +213,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
         launchMode: "launcher",
       },
     ],
+    ["expo-status-bar"],
     [
       "expo-splash-screen",
       {

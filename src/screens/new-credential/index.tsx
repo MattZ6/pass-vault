@@ -1,6 +1,6 @@
 import { useObserve } from "expo-observe";
 import { useEffect } from "react";
-import { KeyboardAvoidingView, ScrollView } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-controller";
 
 import { useStyles } from "@/hooks/use-styles";
 
@@ -10,7 +10,7 @@ import { ScreenHeader } from "./components/screen-header";
 import { getStyles } from "./styles";
 
 export function NewCredentialScreen() {
-  const { styles } = useStyles(getStyles);
+  const { styles, theme } = useStyles(getStyles);
   const { markInteractive } = useObserve();
 
   useEffect(() => {
@@ -21,15 +21,18 @@ export function NewCredentialScreen() {
     <>
       <ScreenHeader />
 
-      <KeyboardAvoidingView style={styles.container}>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.list}
-          contentContainerStyle={styles.scrollContainer}
-        >
-          <CreateCredentialForm />
-        </ScrollView>
-      </KeyboardAvoidingView>
+      <KeyboardAwareScrollView
+        nestedScrollEnabled
+        keyboardShouldPersistTaps="handled"
+        keyboardDismissMode="interactive"
+        automaticallyAdjustKeyboardInsets
+        contentInsetAdjustmentBehavior="automatic"
+        bottomOffset={theme.size["24"]}
+        style={styles.list}
+        contentContainerStyle={styles.scrollContainer}
+      >
+        <CreateCredentialForm />
+      </KeyboardAwareScrollView>
     </>
   );
 }

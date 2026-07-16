@@ -3,6 +3,7 @@ import appearance from "./appearance.json";
 import biometrics from "./biometrics.json";
 import changelog from "./changelog.json";
 import credentialDetails from "./credential-details.json";
+import device from "./device.json";
 import home from "./home.json";
 import language from "./language.json";
 import licenses from "./licenses.json";
@@ -19,6 +20,7 @@ export const en = {
   biometrics,
   changelog,
   "credential-details": credentialDetails,
+  device,
   home,
   language,
   licenses,

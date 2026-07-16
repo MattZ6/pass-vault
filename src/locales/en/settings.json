@@ -51,6 +51,9 @@
       "diagnostics": {
         "label": "Diagnostics",
         "fields": {
+          "device": {
+            "label": "Device"
+          },
           "biometrics": {
             "label": "Biometrics"
           }

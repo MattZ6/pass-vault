@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "title": "Device"
+  },
+  "screen": {
+    "sections": {
+      "device": {
+        "label": "Device",
+        "fields": {
+          "manufacturer": {
+            "label": "Manufacturer"
+          },
+          "model": {
+            "label": "Model"
+          }
+        }
+      },
+      "os": {
+        "label": "Operational System",
+        "fields": {
+          "os": {
+            "label": "Version"
+          },
+          "android_sdk": {
+            "label": "Android SDK"
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,20 +4,16 @@ import { ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useStyles } from "@/hooks/use-styles";
-
-import { AboutSection } from "./components/about-section";
-import { DiagnosticsSection } from "./components/diagnostics-section";
-import { PreferencesSection } from "./components/preferences-section";
-import { PrivacySection } from "./components/privacy-section";
+import { DeviceSection } from "./components/device-section";
+import { OSSection } from "./components/os-section";
 import { ScreenHeader } from "./components/screen-header";
-import { StorageSection } from "./components/storage-section";
 
 import { getStyles } from "./styles";
 
-export function SettingsScreen() {
-  const { markInteractive } = useObserve();
+export function DeviceScreen() {
   const safeInsets = useSafeAreaInsets();
   const { styles } = useStyles((input) => getStyles(input, safeInsets));
+  const { markInteractive } = useObserve();
 
   useEffect(() => {
     markInteractive();
@@ -28,17 +24,13 @@ export function SettingsScreen() {
       <ScreenHeader />
 
       <ScrollView
-        nestedScrollEnabled
         contentInsetAdjustmentBehavior="automatic"
         style={styles.container}
         contentContainerStyle={styles.scrollContainer}
         fadingEdgeLength={styles.fadingEdgeLength}
       >
-        <PreferencesSection />
-        <AboutSection />
-        <PrivacySection />
-        <StorageSection />
-        <DiagnosticsSection />
+        <DeviceSection />
+        <OSSection />
       </ScrollView>
     </>
   );

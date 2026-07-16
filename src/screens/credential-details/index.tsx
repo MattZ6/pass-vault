@@ -18,7 +18,9 @@ import { ScreenHeader } from "./components/screen-header";
 
 import { getStyles } from "./styles";
 
-type Props = { id: string };
+type Props = {
+  id: string;
+};
 
 export function CredentialDetailsScreen({ id }: Props) {
   const safeInsets = useSafeAreaInsets();
@@ -46,6 +48,7 @@ export function CredentialDetailsScreen({ id }: Props) {
         contentInsetAdjustmentBehavior="automatic"
         style={styles.container}
         contentContainerStyle={styles.scrollContainer}
+        fadingEdgeLength={styles.fadingEdgeLength}
       >
         <CredentialSection
           username={credential.username}

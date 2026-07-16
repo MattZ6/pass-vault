@@ -19,7 +19,7 @@ import { getStyles } from "./styles";
 export function LicensesScreen() {
   const safeInsets = useSafeAreaInsets();
   const { markInteractive } = useObserve();
-  const { styles, theme } = useStyles((input) => getStyles(input, safeInsets));
+  const { styles } = useStyles((input) => getStyles(input, safeInsets));
 
   useEffect(() => {
     markInteractive();
@@ -44,18 +44,16 @@ export function LicensesScreen() {
       <ScreenHeader />
 
       <LegendList
+        nestedScrollEnabled
+        contentInsetAdjustmentBehavior="automatic"
+        recycleItems
         data={licenses}
         keyExtractor={(item) => item.key}
         renderItem={renderItem}
-        recycleItems
         ItemSeparatorComponent={LicensesDivider}
-        contentInsetAdjustmentBehavior="automatic"
-        style={styles.list}
+        style={styles.container}
         contentContainerStyle={styles.scrollContainer}
-        fadingEdgeLength={{
-          start: theme.size[2],
-          end: theme.size[8],
-        }}
+        fadingEdgeLength={styles.fadingEdgeLength}
       />
     </>
   );

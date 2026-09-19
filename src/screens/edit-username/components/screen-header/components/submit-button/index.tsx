@@ -24,7 +24,7 @@ export function SubmitButton({ credentialId }: Props) {
   const { performTapFeedback } = useHaptics();
   const form = useFormContext<EditCredentialUsernameSchemaType>();
   const { submit } = useSubmitCredentialUsernameForm();
-  const { t } = useTranslation("edit-email", {
+  const { t } = useTranslation("edit-username", {
     keyPrefix: "screen.form.actions",
   });
 

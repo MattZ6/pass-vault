@@ -22,7 +22,7 @@ export function EditCredentialUsernameForm({ credentialId, username }: Props) {
   const { styles, theme, resolvedThemeOption } = useStyles(getStyles);
   const form = useFormContext<EditCredentialUsernameSchemaType>();
   const { submit } = useSubmitCredentialUsernameForm();
-  const { t } = useTranslation("edit-email", {
+  const { t } = useTranslation("edit-username", {
     keyPrefix: "screen.form.fields",
   });
 

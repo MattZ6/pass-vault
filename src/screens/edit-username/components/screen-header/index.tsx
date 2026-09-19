@@ -9,7 +9,7 @@ type Props = {
 };
 
 export function ScreenHeader({ credentialId }: Props) {
-  const { t } = useTranslation("edit-email", { keyPrefix: "meta" });
+  const { t } = useTranslation("edit-username", { keyPrefix: "meta" });
 
   return (
     <SheetHeader.Root>

@@ -43,4 +43,19 @@ export const VaultKeyService = {
 
     return cachedVaultKey;
   },
+
+  // Used once a key has been established through MasterPasswordService
+  // (setup/unlock), so the rest of the app keeps reading it from here
+  // without knowing how it was obtained.
+  setVaultKey: (vaultKey: VaultKey) => {
+    cachedVaultKey = vaultKey;
+  },
+
+  // Drops the in-memory key when the app re-locks, so a locked app doesn't
+  // keep it sitting in memory. getVaultKey() falls back to re-reading (or,
+  // pre-master-password, generating) the raw key from SecureStore, so this
+  // never leaves the app unable to decrypt anything.
+  clearVaultKey: () => {
+    cachedVaultKey = null;
+  },
 };

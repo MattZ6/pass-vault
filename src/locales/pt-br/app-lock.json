@@ -1,10 +1,42 @@
 {
   "screen": {
     "title": "Pass Vault",
-    "subtitle": "Toque para desbloquear",
+    "subtitle": "Digite sua senha mestra para desbloquear",
+    "fields": {
+      "password": {
+        "placeholder": "Senha mestra"
+      }
+    },
+    "errors": {
+      "incorrect": "Senha mestra incorreta"
+    },
     "actions": {
       "unlock": {
         "label": "Desbloquear"
+      }
+    },
+    "setup": {
+      "title": "Proteja seu cofre",
+      "subtitle": "Escolha uma senha mestra. É a única forma de desbloquear o cofre se a biometria não estiver disponível.",
+      "form": {
+        "fields": {
+          "password": {
+            "placeholder": "Senha mestra"
+          },
+          "confirmPassword": {
+            "placeholder": "Confirmar senha mestra"
+          }
+        },
+        "errors": {
+          "tooShort": "Deve ter pelo menos 8 caracteres",
+          "mismatch": "As senhas não coincidem",
+          "setupFailed": "Algo deu errado. Tente novamente."
+        },
+        "actions": {
+          "submit": {
+            "label": "Criar senha mestra"
+          }
+        }
       }
     }
   }

@@ -55,6 +55,18 @@ async function wrapVaultKey(
   return sealedVaultKey.combined("base64");
 }
 
+// Best-effort: on Android, requireAuthentication:true items need the user
+// to authenticate even to write them, so this can fail or be cancelled.
+// It's only a convenience fast path — setup/unlock must still succeed
+// without it, falling back to the password on the next unlock.
+async function seedBiometricFastPath(vaultKeySerialized: string) {
+  try {
+    await MasterPasswordRepository.saveBiometricVaultKey(vaultKeySerialized);
+  } catch (error) {
+    console.log(error); // TODO: tratar aqui o erro
+  }
+}
+
 async function unwrapVaultKey(
   wrappedVaultKeyBase64: string,
   masterKey: AESEncryptionKey,
@@ -109,7 +121,9 @@ export const MasterPasswordService = {
       wrappedVaultKeyBase64,
     });
 
-    await MasterPasswordRepository.saveBiometricVaultKey(vaultKey.serialized);
+    await seedBiometricFastPath(vaultKey.serialized);
+
+    return vaultKey;
   },
 
   unlock: async ({ password }: UnlockInput) => {
@@ -130,7 +144,7 @@ export const MasterPasswordService = {
       masterKey,
     );
 
-    await MasterPasswordRepository.saveBiometricVaultKey(vaultKey.serialized);
+    await seedBiometricFastPath(vaultKey.serialized);
 
     return vaultKey;
   },

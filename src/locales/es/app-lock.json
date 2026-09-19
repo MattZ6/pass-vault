@@ -1,10 +1,42 @@
 {
   "screen": {
     "title": "Pass Vault",
-    "subtitle": "Toca para desbloquear",
+    "subtitle": "Ingresa tu contraseña maestra para desbloquear",
+    "fields": {
+      "password": {
+        "placeholder": "Contraseña maestra"
+      }
+    },
+    "errors": {
+      "incorrect": "Contraseña maestra incorrecta"
+    },
     "actions": {
       "unlock": {
         "label": "Desbloquear"
+      }
+    },
+    "setup": {
+      "title": "Protege tu caja fuerte",
+      "subtitle": "Elige una contraseña maestra. Es la única forma de desbloquear tu caja fuerte si la biometría no está disponible.",
+      "form": {
+        "fields": {
+          "password": {
+            "placeholder": "Contraseña maestra"
+          },
+          "confirmPassword": {
+            "placeholder": "Confirmar contraseña maestra"
+          }
+        },
+        "errors": {
+          "tooShort": "Debe tener al menos 8 caracteres",
+          "mismatch": "Las contraseñas no coinciden",
+          "setupFailed": "Algo salió mal. Inténtalo de nuevo."
+        },
+        "actions": {
+          "submit": {
+            "label": "Crear contraseña maestra"
+          }
+        }
       }
     }
   }

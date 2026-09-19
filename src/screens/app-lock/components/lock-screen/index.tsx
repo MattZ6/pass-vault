@@ -1,23 +1,27 @@
 import { SymbolView } from "expo-symbols";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { View } from "react-native";
+import { TextInput, View } from "react-native";
 import Animated, { ZoomIn } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { IconButton } from "@/components/ui/icon-button";
+import { Section } from "@/components/ui/section";
 import { Text } from "@/components/ui/text";
 
 import { useBiometrics } from "@/hooks/use-biometrics";
 import { useHaptics } from "@/hooks/use-haptics";
 import { useStyles } from "@/hooks/use-styles";
 
-import { LocalAuthenticationService } from "@/services/device/local-authentication";
+import type { VaultKey } from "@/services/vault/key";
+import { MasterPasswordService } from "@/services/vault/master-password";
 
 import { getStyles } from "./styles";
 
 type Props = {
-  onUnlock: () => void;
+  onUnlock: (vaultKey: VaultKey) => void;
 };
 
 function getBiometricIconName(
@@ -35,44 +39,78 @@ function getBiometricIconName(
     return { android: "fingerprint" } as const;
   }
 
-  return { android: "lock" } as const;
+  return null;
 }
 
 export function LockScreen({ onUnlock }: Props) {
+  const [password, setPassword] = useState("");
+  const [visible, setVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hasFailed, setHasFailed] = useState(false);
   const safeInsets = useSafeAreaInsets();
-  const { styles, theme } = useStyles((input) => getStyles(input, safeInsets));
+  const { styles, theme, resolvedThemeOption } = useStyles((input) =>
+    getStyles(input, safeInsets),
+  );
   const { performTapFeedback, notifySuccess, notifyFailure } = useHaptics();
   const { data: biometrics } = useBiometrics();
   const { t } = useTranslation("app-lock", { keyPrefix: "screen" });
 
-  const iconName = getBiometricIconName(biometrics?.supportedAuthTypes);
+  const biometricIconName = getBiometricIconName(
+    biometrics?.supportedAuthTypes,
+  );
 
-  const handleAuthenticate = useCallback(async () => {
+  const handleUnlockWithBiometrics = useCallback(async () => {
     try {
-      const localAuthOutput = await LocalAuthenticationService.authenticate();
+      const vaultKey = await MasterPasswordService.unlockWithBiometrics();
 
-      if (!localAuthOutput.success) {
-        notifyFailure();
+      if (!vaultKey) {
         return;
       }
 
       notifySuccess();
-      onUnlock();
+      onUnlock(vaultKey);
     } catch (error) {
       console.log(error); // TODO: tratar aqui o erro
-      notifyFailure();
     }
-  }, [notifyFailure, notifySuccess, onUnlock]);
+  }, [notifySuccess, onUnlock]);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: Only run once, when the lock screen first appears.
   useEffect(() => {
-    handleAuthenticate();
+    handleUnlockWithBiometrics();
   }, []);
 
-  const handleUnlockPress = useCallback(() => {
+  const handleBiometricButtonPress = useCallback(() => {
     performTapFeedback();
-    handleAuthenticate();
-  }, [performTapFeedback, handleAuthenticate]);
+    handleUnlockWithBiometrics();
+  }, [performTapFeedback, handleUnlockWithBiometrics]);
+
+  const handleToggleVisibility = useCallback(() => {
+    performTapFeedback();
+    setVisible((current) => !current);
+  }, [performTapFeedback]);
+
+  const handleUnlockWithPassword = useCallback(async () => {
+    performTapFeedback();
+
+    if (!password.trim()) {
+      return;
+    }
+
+    setHasFailed(false);
+    setIsSubmitting(true);
+
+    try {
+      const vaultKey = await MasterPasswordService.unlock({ password });
+
+      notifySuccess();
+      onUnlock(vaultKey);
+    } catch (error) {
+      console.log(error); // TODO: tratar aqui o erro
+      notifyFailure();
+      setHasFailed(true);
+      setIsSubmitting(false);
+    }
+  }, [password, performTapFeedback, notifySuccess, notifyFailure, onUnlock]);
 
   return (
     <View style={styles.container}>
@@ -82,7 +120,7 @@ export function LockScreen({ onUnlock }: Props) {
           style={styles.iconContainer}
         >
           <SymbolView
-            name={iconName}
+            name={{ android: "lock" }}
             size={theme.size[10]}
             tintColor={theme.colors.content.base}
           />
@@ -95,11 +133,58 @@ export function LockScreen({ onUnlock }: Props) {
         <Text color="muted" style={styles.subtitle}>
           {t("subtitle")}
         </Text>
+
+        <Section.Root style={styles.form}>
+          <Card color="element">
+            <View style={styles.row}>
+              <TextInput
+                value={password}
+                onChangeText={(value) => {
+                  setPassword(value);
+                  setHasFailed(false);
+                }}
+                editable={!isSubmitting}
+                placeholder={t("fields.password.placeholder")}
+                placeholderTextColor={theme.colors.content.muted}
+                keyboardAppearance={resolvedThemeOption}
+                autoCapitalize="none"
+                autoCorrect={false}
+                secureTextEntry={!visible}
+                enterKeyHint="done"
+                onSubmitEditing={handleUnlockWithPassword}
+                style={styles.field}
+                cursorColor={
+                  hasFailed
+                    ? theme.colors.content.error
+                    : theme.colors.content.base
+                }
+                selectionHandleColor={
+                  hasFailed
+                    ? theme.colors.content.error
+                    : theme.colors.content.base
+                }
+              />
+
+              <IconButton size={10} onPress={handleToggleVisibility}>
+                <SymbolView
+                  name={{ android: visible ? "visibility_off" : "visibility" }}
+                  tintColor={theme.colors.content.element}
+                />
+              </IconButton>
+            </View>
+          </Card>
+
+          {hasFailed && (
+            <Text color="error" typography="bodySmall" style={styles.error}>
+              {t("errors.incorrect")}
+            </Text>
+          )}
+        </Section.Root>
       </View>
 
       <View style={styles.footer}>
         <View style={styles.buttonWrapper}>
-          <Button onPress={handleUnlockPress}>
+          <Button disabled={isSubmitting} onPress={handleUnlockWithPassword}>
             <View style={styles.buttonContent}>
               <Text weight="medium" style={styles.buttonText}>
                 {t("actions.unlock.label")}
@@ -107,6 +192,15 @@ export function LockScreen({ onUnlock }: Props) {
             </View>
           </Button>
         </View>
+
+        {biometricIconName && (
+          <IconButton size={12} onPress={handleBiometricButtonPress}>
+            <SymbolView
+              name={biometricIconName}
+              tintColor={theme.colors.content.element}
+            />
+          </IconButton>
+        )}
       </View>
     </View>
   );

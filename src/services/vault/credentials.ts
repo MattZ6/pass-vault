@@ -30,6 +30,11 @@ type UpdateCredentialUsernameInput = {
   username: string;
 };
 
+type UpdateCredentialProviderInput = {
+  credentialId: string;
+  provider: string;
+};
+
 type UpdateCredentialNotesInput = {
   credentialId: string;
   notes?: string;
@@ -192,6 +197,44 @@ export const VaultService = {
     const now = new Date();
 
     metadata.username = input.username;
+    metadata.updatedAt = now;
+
+    await CredentialsMetaRepository.saveMetadata(metadata);
+
+    PreferencesRepository.setLastUpdateDate(now);
+
+    useVaultStore.getState().updateCredentialMeta(metadata);
+
+    const [metadataStorageSizeInBytes, secretStorageSizeInBytes] =
+      await Promise.all([
+        CredentialsMetaRepository.getSizeInBytes(),
+        CredentialsSecretRepository.getSizeInBytes(),
+      ]);
+
+    const sizeInBytes = metadataStorageSizeInBytes + secretStorageSizeInBytes;
+
+    useVaultStore.getState().setStorageSizeInBytes(sizeInBytes);
+    useVaultStore.getState().setLastUpdateDate(now);
+  },
+  updateCredentialProvider: async (input: UpdateCredentialProviderInput) => {
+    const metadata = await CredentialsMetaRepository.getMetadataById({
+      id: input.credentialId,
+    });
+
+    if (!metadata) {
+      return;
+    }
+
+    const isSameProvider =
+      String(metadata.provider).trim() === String(input.provider).trim();
+
+    if (isSameProvider) {
+      return;
+    }
+
+    const now = new Date();
+
+    metadata.provider = input.provider;
     metadata.updatedAt = now;
 
     await CredentialsMetaRepository.saveMetadata(metadata);

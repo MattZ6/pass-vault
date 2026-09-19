@@ -54,6 +54,7 @@ export function CredentialDetailsScreen({ id }: Props) {
       >
         <CredentialSection
           credentialId={credential.id}
+          provider={credential.provider}
           username={credential.username}
           website={credential.website}
         />

@@ -207,6 +207,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       },
     ],
     ["expo-secure-store"],
+    ["react-native-quick-crypto"],
     [
       "expo-dev-client",
       {

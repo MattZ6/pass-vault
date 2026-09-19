@@ -15,6 +15,14 @@
           }
         }
       },
+      "security": {
+        "label": "Seguridad",
+        "fields": {
+          "masterPassword": {
+            "label": "Cambiar contraseña maestra"
+          }
+        }
+      },
       "about": {
         "label": "Acerca de",
         "fields": {

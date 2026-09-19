@@ -3,6 +3,7 @@ import appLock from "./app-lock.json";
 import appearance from "./appearance.json";
 import application from "./application.json";
 import biometrics from "./biometrics.json";
+import changeMasterPassword from "./change-master-password.json";
 import changelog from "./changelog.json";
 import credentialDetails from "./credential-details.json";
 import device from "./device.json";
@@ -27,6 +28,7 @@ export const es = {
   appearance,
   application,
   biometrics,
+  "change-master-password": changeMasterPassword,
   changelog,
   "credential-details": credentialDetails,
   device,

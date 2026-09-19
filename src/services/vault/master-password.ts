@@ -30,6 +30,13 @@ type ChangePasswordInput = {
   newPassword: string;
 };
 
+export class IncorrectMasterPasswordError extends Error {
+  constructor() {
+    super("Incorrect master password.");
+    this.name = "IncorrectMasterPasswordError";
+  }
+}
+
 async function deriveMasterKey(
   password: string,
   saltBase64: string,
@@ -80,7 +87,7 @@ async function unwrapVaultKey(
       output: "base64",
     });
   } catch {
-    throw new Error("Incorrect master password.");
+    throw new IncorrectMasterPasswordError();
   }
 
   const key = await AESEncryptionKey.import(vaultKeySerialized, "base64");

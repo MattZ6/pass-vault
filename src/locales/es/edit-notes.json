@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "Editar notas"
+  },
+  "screen": {
+    "form": {
+      "actions": {
+        "submit": {
+          "label": "Guardar"
+        }
+      },
+      "fields": {
+        "notes": {
+          "placeholder": "Agregar notas"
+        }
+      }
+    }
+  }
+}

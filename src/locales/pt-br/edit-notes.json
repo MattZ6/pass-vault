@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "Editar anotações"
+  },
+  "screen": {
+    "form": {
+      "actions": {
+        "submit": {
+          "label": "Salvar"
+        }
+      },
+      "fields": {
+        "notes": {
+          "placeholder": "Adicionar anotações"
+        }
+      }
+    }
+  }
+}

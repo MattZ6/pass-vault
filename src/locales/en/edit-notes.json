@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "Edit notes"
+  },
+  "screen": {
+    "form": {
+      "actions": {
+        "submit": {
+          "label": "Save"
+        }
+      },
+      "fields": {
+        "notes": {
+          "placeholder": "Add notes"
+        }
+      }
+    }
+  }
+}

@@ -1,14 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AppState, type AppStateStatus } from "react-native";
-
-import { MasterPasswordService } from "@/services/vault/master-password";
 import { type VaultKey, VaultKeyService } from "@/services/vault/key";
+import { MasterPasswordService } from "@/services/vault/master-password";
 
 export type AppLockPhase = "checking" | "setup" | "locked" | "unlocked";
 
 export function useAppLock() {
   const [phase, setPhase] = useState<AppLockPhase>("checking");
-  const appStateRef = useRef<AppStateStatus>(AppState.currentState);
+  const appStateRef = useRef<AppStateStatus | null>(AppState.currentState as AppStateStatus);
 
   useEffect(() => {
     let cancelled = false;
@@ -33,8 +32,7 @@ export function useAppLock() {
 
     const subscription = AppState.addEventListener("change", (nextAppState) => {
       const isReturningToForeground =
-        /inactive|background/.test(appStateRef.current) &&
-        nextAppState === "active";
+        /inactive|background/.test(appStateRef.current ?? "") && nextAppState === "active";
 
       if (isReturningToForeground) {
         VaultKeyService.clearVaultKey();

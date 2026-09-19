@@ -54,7 +54,6 @@ function RootStack() {
 
   return (
     <Stack
-      initialRouteName="(main)"
       screenOptions={{
         headerShadowVisible: false,
         headerShown: false,

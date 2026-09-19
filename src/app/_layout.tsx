@@ -11,6 +11,8 @@ import { Provider } from "@/contexts/provider";
 import { useFontFamily } from "@/hooks/use-font-family";
 import { useTheme } from "@/hooks/use-theme";
 
+import { AppLockGate } from "@/screens/app-lock";
+
 import { PerformanceMonitoringService } from "@/services/analytics/performance-monitoring";
 import { ChangelogService } from "@/services/changelog/changelog";
 
@@ -40,7 +42,9 @@ function RootLayout() {
 
   return (
     <Provider>
-      <RootStack />
+      <AppLockGate>
+        <RootStack />
+      </AppLockGate>
     </Provider>
   );
 }

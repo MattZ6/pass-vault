@@ -1,4 +1,3 @@
-import { Link } from "expo-router";
 import { SymbolView } from "expo-symbols";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -6,7 +5,6 @@ import { View } from "react-native";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { IconButton } from "@/components/ui/icon-button";
 import { Section } from "@/components/ui/section";
 import { Text } from "@/components/ui/text";
 
@@ -22,12 +20,12 @@ type Props = {
   credentialId: string;
 };
 
-export function PasswordSection({ credentialId }: Props) {
+export function CurrentPasswordSection({ credentialId }: Props) {
   const [password, setPassword] = useState<string | null>(null);
   const { styles, theme } = useStyles(getStyles);
   const { performTapFeedback, notifySuccess, notifyFailure } = useHaptics();
-  const { t } = useTranslation("credential-details", {
-    keyPrefix: "screen.sections.password",
+  const { t } = useTranslation("edit-password", {
+    keyPrefix: "screen.sections.current",
   });
 
   const handleShowPassword = useCallback(async () => {
@@ -74,15 +72,6 @@ export function PasswordSection({ credentialId }: Props) {
     <Section.Root>
       <Section.Header>
         <Section.Header.Title>{t("label")}</Section.Header.Title>
-
-        <Link asChild href={`/credentials/${credentialId}/edit/password`}>
-          <IconButton size={10} onPress={performTapFeedback}>
-            <SymbolView
-              name={{ android: "edit" }}
-              tintColor={theme.colors.content.element}
-            />
-          </IconButton>
-        </Link>
       </Section.Header>
 
       <Card color="element">

@@ -40,6 +40,11 @@ type UpdateCredentialWebsiteInput = {
   website?: string;
 };
 
+type UpdateCredentialPasswordInput = {
+  credentialId: string;
+  password: string;
+};
+
 export const VaultService = {
   loadCredentialsIntoStore: async () => {
     const [
@@ -264,6 +269,45 @@ export const VaultService = {
     const now = new Date();
 
     metadata.website = input.website?.trim() || undefined;
+    metadata.updatedAt = now;
+
+    await CredentialsMetaRepository.saveMetadata(metadata);
+
+    PreferencesRepository.setLastUpdateDate(now);
+
+    useVaultStore.getState().updateCredentialMeta(metadata);
+
+    const [metadataStorageSizeInBytes, secretStorageSizeInBytes] =
+      await Promise.all([
+        CredentialsMetaRepository.getSizeInBytes(),
+        CredentialsSecretRepository.getSizeInBytes(),
+      ]);
+
+    const sizeInBytes = metadataStorageSizeInBytes + secretStorageSizeInBytes;
+
+    useVaultStore.getState().setStorageSizeInBytes(sizeInBytes);
+    useVaultStore.getState().setLastUpdateDate(now);
+  },
+  updateCredentialPassword: async (input: UpdateCredentialPasswordInput) => {
+    const metadata = await CredentialsMetaRepository.getMetadataById({
+      id: input.credentialId,
+    });
+
+    if (!metadata) {
+      return;
+    }
+
+    const now = new Date();
+
+    const encryptedPassword = await CryptographyService.encrypt({
+      value: input.password,
+    });
+
+    await CredentialsSecretRepository.saveSecret({
+      id: input.credentialId,
+      encryptedBytes: BinaryUtils.toArrayBuffer(encryptedPassword),
+    });
+
     metadata.updatedAt = now;
 
     await CredentialsMetaRepository.saveMetadata(metadata);

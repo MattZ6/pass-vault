@@ -6,6 +6,7 @@ import changelog from "./changelog.json";
 import credentialDetails from "./credential-details.json";
 import device from "./device.json";
 import editNotes from "./edit-notes.json";
+import editPassword from "./edit-password.json";
 import editUsername from "./edit-username.json";
 import editWebsite from "./edit-website.json";
 import home from "./home.json";
@@ -27,6 +28,7 @@ export const ptBR = {
   "credential-details": credentialDetails,
   device,
   "edit-notes": editNotes,
+  "edit-password": editPassword,
   "edit-username": editUsername,
   "edit-website": editWebsite,
   home,

@@ -26,7 +26,7 @@ export function ThemeProvider({ children }: ThemeProviderTypes.Props) {
 
   const resolvedColorMode = useMemo(() => {
     if (appColorMode === "system") {
-      if (deviceColorScheme === "unspecified" || !deviceColorScheme) {
+      if (deviceColorScheme !== "light" && deviceColorScheme !== "dark") {
         return "light";
       }
 

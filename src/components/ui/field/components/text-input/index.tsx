@@ -1,4 +1,4 @@
-import { forwardRef, useCallback, useEffect } from "react";
+import { type ComponentRef, forwardRef, useCallback, useEffect } from "react";
 import {
   type BlurEvent,
   type FocusEvent,
@@ -22,7 +22,7 @@ const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
 
 const ANIMATION_DURATION_IN_MS = 140;
 
-type Ref = TextInput;
+type Ref = ComponentRef<typeof AnimatedTextInput>;
 type Props = TextInputProps;
 
 export const FieldTextInput = forwardRef<Ref, Props>(

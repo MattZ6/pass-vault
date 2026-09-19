@@ -5,91 +5,91 @@
     "licenseUrl": "https://github.com/expo/google-fonts/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "@hookform/resolvers@5.4.0": {
+  "@hookform/resolvers@5.9.1": {
     "licenses": "MIT",
     "repository": "https://github.com/react-hook-form/resolvers",
     "licenseUrl": "https://github.com/react-hook-form/resolvers/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "@legendapp/list@3.3.2": {
+  "@legendapp/list@3.3.11": {
     "licenses": "MIT",
     "repository": "github:LegendApp/legend-list",
     "licenseUrl": "github:LegendApp/legend-list",
     "parents": "pass-vault"
   },
-  "@tanstack/react-query@5.101.2": {
+  "@tanstack/react-query@5.103.1": {
     "licenses": "MIT",
     "repository": "https://github.com/TanStack/query",
     "licenseUrl": "https://github.com/TanStack/query/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-application@57.0.1": {
+  "expo-application@58.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-constants@57.0.5": {
+  "expo-constants@58.0.3": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-crypto@57.0.1": {
+  "expo-crypto@58.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-dev-client@57.0.6": {
+  "expo-dev-client@58.0.3": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-device@57.0.1": {
+  "expo-device@58.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-font@57.0.1": {
+  "expo-font@58.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-insights@57.0.4": {
+  "expo-insights@58.0.3": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-linking@57.0.3": {
+  "expo-linking@58.0.3": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-local-authentication@57.0.1": {
+  "expo-local-authentication@58.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-localization@57.0.1": {
+  "expo-localization@58.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-navigation-bar@57.0.2": {
+  "expo-navigation-bar@58.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-observe@57.0.6": {
+  "expo-observe@58.0.5": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
@@ -101,73 +101,73 @@
     "licenseUrl": "https://github.com/evanbacon/expo-quick-actions/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-router@57.0.6": {
+  "expo-router@58.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo",
     "parents": "pass-vault"
   },
-  "expo-secure-store@57.0.1": {
+  "expo-secure-store@58.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-splash-screen@57.0.4": {
+  "expo-splash-screen@58.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-status-bar@57.0.1": {
+  "expo-status-bar@58.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-symbols@57.0.1": {
+  "expo-symbols@58.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-system-ui@57.0.1": {
+  "expo-system-ui@58.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo@57.0.6": {
+  "expo@58.0.0-preview.3": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "i18next@26.3.6": {
+  "i18next@26.4.2": {
     "licenses": "MIT",
     "repository": "https://github.com/i18next/i18next",
     "licenseUrl": "https://github.com/i18next/i18next/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "react-hook-form@7.81.0": {
+  "react-hook-form@7.88.0": {
     "licenses": "MIT",
     "repository": "https://github.com/react-hook-form/react-hook-form",
     "licenseUrl": "https://github.com/react-hook-form/react-hook-form/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "react-i18next@17.0.10": {
+  "react-i18next@17.0.14": {
     "licenses": "MIT",
     "repository": "https://github.com/i18next/react-i18next",
     "licenseUrl": "https://github.com/i18next/react-i18next/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "react-native-gesture-handler@2.32.0": {
+  "react-native-gesture-handler@3.2.1": {
     "licenses": "MIT",
     "repository": "https://github.com/software-mansion/react-native-gesture-handler",
     "licenseUrl": "https://github.com/software-mansion/react-native-gesture-handler/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "react-native-keyboard-controller@1.21.9": {
+  "react-native-keyboard-controller@1.22.4": {
     "licenses": "MIT",
     "repository": "https://github.com/kirillzyusko/react-native-keyboard-controller",
     "licenseUrl": "https://github.com/kirillzyusko/react-native-keyboard-controller/raw/master/LICENSE",
@@ -179,40 +179,58 @@
     "licenseUrl": "https://github.com/mrousavy/react-native-mmkv",
     "parents": "pass-vault"
   },
+  "react-native-nitro-modules@0.37.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mrousavy/nitro",
+    "licenseUrl": "https://github.com/mrousavy/nitro",
+    "parents": "pass-vault"
+  },
   "react-native-pulsar@1.6.1": {
     "licenses": "MIT",
     "repository": "https://github.com/software-mansion/pulsar",
     "licenseUrl": "https://github.com/software-mansion/pulsar/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "react-native-reanimated@4.5.0": {
+  "react-native-quick-base64@3.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/craftzdog/react-native-quick-base64",
+    "licenseUrl": "https://github.com/craftzdog/react-native-quick-base64/raw/master/LICENSE",
+    "parents": "pass-vault"
+  },
+  "react-native-quick-crypto@1.1.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/margelo/react-native-quick-crypto",
+    "licenseUrl": "https://github.com/margelo/react-native-quick-crypto",
+    "parents": "pass-vault"
+  },
+  "react-native-reanimated@4.6.0": {
     "licenses": "MIT",
     "repository": "https://github.com/software-mansion/react-native-reanimated",
     "licenseUrl": "https://github.com/software-mansion/react-native-reanimated/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "react-native-safe-area-context@5.7.0": {
+  "react-native-safe-area-context@5.9.1": {
     "licenses": "MIT",
     "repository": "https://github.com/AppAndFlow/react-native-safe-area-context",
     "licenseUrl": "https://github.com/AppAndFlow/react-native-safe-area-context/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "react-native-screens@4.25.2": {
+  "react-native-screens@4.27.0": {
     "licenses": "MIT",
     "repository": "https://github.com/software-mansion/react-native-screens",
     "licenseUrl": "https://github.com/software-mansion/react-native-screens/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "react-native-worklets@0.10.0": {
+  "react-native-worklets@0.12.2": {
     "licenses": "MIT",
     "repository": "https://github.com/software-mansion/react-native-reanimated",
     "licenseUrl": "https://github.com/software-mansion/react-native-reanimated/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "react-native@0.86.0": {
+  "react-native@0.88.0-rc.0": {
     "licenses": "MIT",
-    "repository": "https://github.com/facebook/react-native",
-    "licenseUrl": "https://github.com/facebook/react-native/raw/master/LICENSE",
+    "repository": "https://github.com/react/react-native",
+    "licenseUrl": "https://github.com/react/react-native/raw/master/LICENSE",
     "parents": "pass-vault"
   },
   "react@19.2.3": {
@@ -221,13 +239,13 @@
     "licenseUrl": "https://github.com/facebook/react/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "zod@4.4.3": {
+  "zod@4.6.5": {
     "licenses": "MIT",
     "repository": "https://github.com/colinhacks/zod",
     "licenseUrl": "https://github.com/colinhacks/zod/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "zustand@5.0.14": {
+  "zustand@5.0.15": {
     "licenses": "MIT",
     "repository": "https://github.com/pmndrs/zustand",
     "licenseUrl": "https://github.com/pmndrs/zustand/raw/master/LICENSE",

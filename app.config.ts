@@ -244,6 +244,10 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     ],
     ["expo-quick-actions"],
   ],
+  experiments: {
+    typedRoutes: true,
+    reactCompiler: true,
+  },
   extra: {
     eas: {
       projectId: "be904ac7-2434-437b-a4ae-c5e9412d3168",

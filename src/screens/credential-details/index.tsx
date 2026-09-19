@@ -24,9 +24,7 @@ type Props = {
 
 export function CredentialDetailsScreen({ id }: Props) {
   const safeInsets = useSafeAreaInsets();
-  const credential = useVaultStore((s) =>
-    s.credentialsMeta.find((credential) => credential.id === id),
-  );
+  const credential = useVaultStore((s) => s.credentialsById[id]);
   const { styles } = useStyles((t) => getStyles(t, safeInsets));
   const { markInteractive } = useObserve();
 

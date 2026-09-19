@@ -7,6 +7,22 @@ export const BinaryUtils = {
     return new Uint8Array(buffer);
   },
 
+  toBase64: (bytes: Uint8Array) => {
+    let binary = "";
+
+    for (const byte of bytes) {
+      binary += String.fromCharCode(byte);
+    }
+
+    return btoa(binary);
+  },
+
+  fromBase64: (base64: string) => {
+    const binary = atob(base64);
+
+    return Uint8Array.from(binary, (char) => char.charCodeAt(0));
+  },
+
   formatBytes: (
     bytes: number,
     options?: {

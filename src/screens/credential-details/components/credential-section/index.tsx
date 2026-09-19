@@ -38,7 +38,7 @@ export function CredentialSection({ credentialId, username, website }: Props) {
           </Section.Item.Content>
 
           <Section.Item.Trailing>
-            <Link asChild href={`/credentials/${credentialId}/edit/email`}>
+            <Link asChild href={`/credentials/${credentialId}/edit/username`}>
               <IconButton size={10} onPress={performTapFeedback}>
                 <SymbolView
                   name={{ android: "edit" }}
@@ -49,33 +49,29 @@ export function CredentialSection({ credentialId, username, website }: Props) {
           </Section.Item.Trailing>
         </Section.Item.Root>
 
-        {website && (
-          <>
-            <Section.Divider style={styles.divider} />
+        <Section.Divider style={styles.divider} />
 
-            <Section.Item.Root>
-              <Section.Item.Content>
-                <Section.Item.Content.Title>
-                  {t("fields.website.label")}
-                </Section.Item.Content.Title>
-                <Section.Item.Content.Description>
-                  {website}
-                </Section.Item.Content.Description>
-              </Section.Item.Content>
-              {/* <Section.Item.Trailing style={{ marginRight: -12 }}>
-                <IconButton size={10}>
-                  <Section.Item.Trailing.Icon
-                    size={Platform.select({
-                      ios: theme.size[5],
-                      default: theme.size[5],
-                    })}
-                    name={{ android: "arrow_outward" }}
-                  />
-                </IconButton>
-              </Section.Item.Trailing> */}
-            </Section.Item.Root>
-          </>
-        )}
+        <Section.Item.Root>
+          <Section.Item.Content>
+            <Section.Item.Content.Title>
+              {t("fields.website.label")}
+            </Section.Item.Content.Title>
+            <Section.Item.Content.Description>
+              {website || t("fields.website.empty")}
+            </Section.Item.Content.Description>
+          </Section.Item.Content>
+
+          <Section.Item.Trailing>
+            <Link asChild href={`/credentials/${credentialId}/edit/website`}>
+              <IconButton size={10} onPress={performTapFeedback}>
+                <SymbolView
+                  name={{ android: website ? "edit" : "add" }}
+                  tintColor={theme.colors.content.element}
+                />
+              </IconButton>
+            </Link>
+          </Section.Item.Trailing>
+        </Section.Item.Root>
       </Card>
     </Section.Root>
   );

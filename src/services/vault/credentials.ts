@@ -35,6 +35,11 @@ type UpdateCredentialNotesInput = {
   notes?: string;
 };
 
+type UpdateCredentialWebsiteInput = {
+  credentialId: string;
+  website?: string;
+};
+
 export const VaultService = {
   loadCredentialsIntoStore: async () => {
     const [
@@ -211,8 +216,7 @@ export const VaultService = {
     }
 
     const isSameNotes =
-      String(metadata.notes ?? "").trim() ===
-      String(input.notes ?? "").trim();
+      String(metadata.notes ?? "").trim() === String(input.notes ?? "").trim();
 
     if (isSameNotes) {
       return;
@@ -221,6 +225,45 @@ export const VaultService = {
     const now = new Date();
 
     metadata.notes = input.notes?.trim() || undefined;
+    metadata.updatedAt = now;
+
+    await CredentialsMetaRepository.saveMetadata(metadata);
+
+    PreferencesRepository.setLastUpdateDate(now);
+
+    useVaultStore.getState().updateCredentialMeta(metadata);
+
+    const [metadataStorageSizeInBytes, secretStorageSizeInBytes] =
+      await Promise.all([
+        CredentialsMetaRepository.getSizeInBytes(),
+        CredentialsSecretRepository.getSizeInBytes(),
+      ]);
+
+    const sizeInBytes = metadataStorageSizeInBytes + secretStorageSizeInBytes;
+
+    useVaultStore.getState().setStorageSizeInBytes(sizeInBytes);
+    useVaultStore.getState().setLastUpdateDate(now);
+  },
+  updateCredentialWebsite: async (input: UpdateCredentialWebsiteInput) => {
+    const metadata = await CredentialsMetaRepository.getMetadataById({
+      id: input.credentialId,
+    });
+
+    if (!metadata) {
+      return;
+    }
+
+    const isSameWebsite =
+      String(metadata.website ?? "").trim() ===
+      String(input.website ?? "").trim();
+
+    if (isSameWebsite) {
+      return;
+    }
+
+    const now = new Date();
+
+    metadata.website = input.website?.trim() || undefined;
     metadata.updatedAt = now;
 
     await CredentialsMetaRepository.saveMetadata(metadata);

@@ -2,7 +2,7 @@ import { AESEncryptionKey, AESKeySize } from "expo-crypto";
 
 import { VaultRepository } from "@/repositories/vault.repository";
 
-type VaultKey = {
+export type VaultKey = {
   key: AESEncryptionKey;
   serialized: string;
 };

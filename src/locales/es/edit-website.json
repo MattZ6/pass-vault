@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "Editar sitio web"
+  },
+  "screen": {
+    "form": {
+      "actions": {
+        "submit": {
+          "label": "Guardar"
+        }
+      },
+      "fields": {
+        "website": {
+          "placeholder": "Sitio web"
+        }
+      }
+    }
+  }
+}

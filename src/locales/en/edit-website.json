@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "Edit website"
+  },
+  "screen": {
+    "form": {
+      "actions": {
+        "submit": {
+          "label": "Save"
+        }
+      },
+      "fields": {
+        "website": {
+          "placeholder": "Website"
+        }
+      }
+    }
+  }
+}

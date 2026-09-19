@@ -7,6 +7,7 @@ import credentialDetails from "./credential-details.json";
 import device from "./device.json";
 import editNotes from "./edit-notes.json";
 import editUsername from "./edit-username.json";
+import editWebsite from "./edit-website.json";
 import home from "./home.json";
 import language from "./language.json";
 import licenses from "./licenses.json";
@@ -27,6 +28,7 @@ export const es = {
   device,
   "edit-notes": editNotes,
   "edit-username": editUsername,
+  "edit-website": editWebsite,
   home,
   language,
   licenses,

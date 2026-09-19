@@ -1,4 +1,5 @@
 import about from "./about.json";
+import appLock from "./app-lock.json";
 import appearance from "./appearance.json";
 import application from "./application.json";
 import biometrics from "./biometrics.json";
@@ -22,6 +23,7 @@ import versions from "./versions.json";
 
 export const es = {
   about,
+  "app-lock": appLock,
   appearance,
   application,
   biometrics,

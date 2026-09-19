@@ -1,0 +1,11 @@
+{
+  "screen": {
+    "title": "Pass Vault",
+    "subtitle": "Toque para desbloquear",
+    "actions": {
+      "unlock": {
+        "label": "Desbloquear"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "screen": {
+    "title": "Pass Vault",
+    "subtitle": "Tap to unlock",
+    "actions": {
+      "unlock": {
+        "label": "Unlock"
+      }
+    }
+  }
+}

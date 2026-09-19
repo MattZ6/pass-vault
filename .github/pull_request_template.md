@@ -1,13 +1,13 @@
 ## Summary
 
-<!-- O que essa PR muda e por quê? -->
+<!-- What does this PR change and why? -->
 
 ## Changes
 
-<!-- Principais mudanças feitas -->
+<!-- Key changes made -->
 
 ## Test plan
 
-<!-- Como você validou essa mudança? -->
+<!-- How did you validate this change? -->
 
 - [ ]

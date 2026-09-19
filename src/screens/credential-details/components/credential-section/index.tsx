@@ -13,11 +13,17 @@ import { getStyles } from "./styles";
 
 type Props = {
   credentialId: string;
+  provider: string;
   username: string;
   website?: string;
 };
 
-export function CredentialSection({ credentialId, username, website }: Props) {
+export function CredentialSection({
+  credentialId,
+  provider,
+  username,
+  website,
+}: Props) {
   const { styles, theme } = useStyles(getStyles);
   const { performTapFeedback } = useHaptics();
   const { t } = useTranslation("credential-details", {
@@ -27,6 +33,30 @@ export function CredentialSection({ credentialId, username, website }: Props) {
   return (
     <Section.Root>
       <Card color="element">
+        <Section.Item.Root>
+          <Section.Item.Content>
+            <Section.Item.Content.Title>
+              {t("fields.provider.label")}
+            </Section.Item.Content.Title>
+            <Section.Item.Content.Description>
+              {provider}
+            </Section.Item.Content.Description>
+          </Section.Item.Content>
+
+          <Section.Item.Trailing>
+            <Link asChild href={`/credentials/${credentialId}/edit/provider`}>
+              <IconButton size={10} onPress={performTapFeedback}>
+                <SymbolView
+                  name={{ android: "edit" }}
+                  tintColor={theme.colors.content.element}
+                />
+              </IconButton>
+            </Link>
+          </Section.Item.Trailing>
+        </Section.Item.Root>
+
+        <Section.Divider style={styles.divider} />
+
         <Section.Item.Root>
           <Section.Item.Content>
             <Section.Item.Content.Title>

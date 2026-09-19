@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "title": "Editar nome do app"
+  },
+  "screen": {
+    "form": {
+      "actions": {
+        "submit": {
+          "label": "Salvar"
+        }
+      },
+      "fields": {
+        "provider": {
+          "placeholder": "Nome do app"
+        }
+      }
+    }
+  }
+}

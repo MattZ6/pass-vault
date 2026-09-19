@@ -36,10 +36,33 @@ export function getStyles(theme: Theme, insets: EdgeInsets) {
     subtitle: {
       textAlign: "center",
     },
+    form: {
+      width: "100%",
+      marginTop: theme.spacing[6],
+      gap: theme.spacing[2],
+    },
+    row: {
+      flexDirection: "row",
+      alignItems: "center",
+    },
+    field: {
+      flex: 1,
+      padding: theme.spacing[4],
+      fontFamily: theme.fontFamily.regular,
+      fontSize: theme.typography.body.fontSize,
+      color: theme.colors.content.base,
+    },
+    error: {
+      textAlign: "center",
+    },
     footer: {
+      flexDirection: "row",
+      alignItems: "center",
+      gap: theme.spacing[3],
       paddingHorizontal: theme.spacing[4],
     },
     buttonWrapper: {
+      flex: 1,
       height: theme.size[11],
       borderRadius: theme.radii[6],
       overflow: "hidden",

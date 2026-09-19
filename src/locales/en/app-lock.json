@@ -1,10 +1,42 @@
 {
   "screen": {
     "title": "Pass Vault",
-    "subtitle": "Tap to unlock",
+    "subtitle": "Enter your master password to unlock",
+    "fields": {
+      "password": {
+        "placeholder": "Master password"
+      }
+    },
+    "errors": {
+      "incorrect": "Incorrect master password"
+    },
     "actions": {
       "unlock": {
         "label": "Unlock"
+      }
+    },
+    "setup": {
+      "title": "Protect your vault",
+      "subtitle": "Choose a master password. It's the only way to unlock your vault if biometrics isn't available.",
+      "form": {
+        "fields": {
+          "password": {
+            "placeholder": "Master password"
+          },
+          "confirmPassword": {
+            "placeholder": "Confirm master password"
+          }
+        },
+        "errors": {
+          "tooShort": "Must be at least 8 characters",
+          "mismatch": "Passwords don't match",
+          "setupFailed": "Something went wrong. Please try again."
+        },
+        "actions": {
+          "submit": {
+            "label": "Create master password"
+          }
+        }
       }
     }
   }

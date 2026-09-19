@@ -16,12 +16,23 @@ export type RemoveCredentialMetaInput = Pick<CredentialMeta, "id">;
 
 export type CredentialsMetaSlice = {
   credentialsMeta: CredentialMeta[];
+  credentialsById: Record<string, CredentialMeta>;
   setupCredentialsMeta: (input: CredentialMeta[]) => void;
   addCredentialMeta: (input: AddCredentialMetaInput) => void;
   updateCredentialMeta: (input: UpdateCredentialMetaInput) => void;
   getCredentialMeta: (input: GetCredentialMetaInput) => CredentialMeta | null;
   removeCredentialMeta: (input: RemoveCredentialMetaInput) => void;
 };
+
+function indexById(credentialsMeta: CredentialMeta[]) {
+  const credentialsById: Record<string, CredentialMeta> = {};
+
+  for (const credential of credentialsMeta) {
+    credentialsById[credential.id] = credential;
+  }
+
+  return credentialsById;
+}
 
 export const createCredentialsMetaSlice: StateCreator<
   CredentialsMetaSlice,
@@ -30,9 +41,13 @@ export const createCredentialsMetaSlice: StateCreator<
   CredentialsMetaSlice
 > = (set, get) => ({
   credentialsMeta: [],
+  credentialsById: {},
 
   setupCredentialsMeta(input) {
-    set({ credentialsMeta: input });
+    set({
+      credentialsMeta: input,
+      credentialsById: indexById(input),
+    });
   },
 
   addCredentialMeta(input) {
@@ -51,7 +66,13 @@ export const createCredentialsMetaSlice: StateCreator<
 
     const updatedCredentialsMeta = [...credentialsMeta, newCredentialMeta];
 
-    set({ credentialsMeta: updatedCredentialsMeta });
+    set({
+      credentialsMeta: updatedCredentialsMeta,
+      credentialsById: {
+        ...get().credentialsById,
+        [newCredentialMeta.id]: newCredentialMeta,
+      },
+    });
   },
 
   updateCredentialMeta(input) {
@@ -74,17 +95,17 @@ export const createCredentialsMetaSlice: StateCreator<
         : credential,
     );
 
-    set({ credentialsMeta: updatedCredentialsMeta });
+    set({
+      credentialsMeta: updatedCredentialsMeta,
+      credentialsById: {
+        ...get().credentialsById,
+        [updatedCredentialMeta.id]: updatedCredentialMeta,
+      },
+    });
   },
 
   getCredentialMeta(input) {
-    const credentialsMeta = get().credentialsMeta;
-
-    const credential = credentialsMeta.find(
-      (credential) => credential.id === input.id,
-    );
-
-    return credential ?? null;
+    return get().credentialsById[input.id] ?? null;
   },
 
   removeCredentialMeta(input) {
@@ -94,6 +115,12 @@ export const createCredentialsMetaSlice: StateCreator<
       (credential) => credential.id !== input.id,
     );
 
-    set({ credentialsMeta: updatedCredentialsMetaList });
+    const credentialsById = { ...get().credentialsById };
+    delete credentialsById[input.id];
+
+    set({
+      credentialsMeta: updatedCredentialsMetaList,
+      credentialsById,
+    });
   },
 });

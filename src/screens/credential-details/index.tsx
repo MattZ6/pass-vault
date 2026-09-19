@@ -58,7 +58,7 @@ export function CredentialDetailsScreen({ id }: Props) {
           website={credential.website}
         />
         <PasswordSection credentialId={id} />
-        <NotesSection notes={credential.notes} />
+        <NotesSection credentialId={credential.id} notes={credential.notes} />
         <DangerSection credentialId={id} />
         <FooterSection updatedAt={credential.updatedAt} />
       </ScrollView>

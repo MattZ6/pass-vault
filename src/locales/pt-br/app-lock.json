@@ -15,6 +15,11 @@
         "label": "Desbloquear"
       }
     },
+    "onboarding": {
+      "title": "Bem-vindo ao Pass Vault",
+      "subtitle": "Tudo que você guardar aqui fica criptografado, offline, e acessível só por você.",
+      "hint": "Gire para desbloquear"
+    },
     "setup": {
       "title": "Proteja seu cofre",
       "subtitle": "Escolha uma senha mestra. É a única forma de desbloquear o cofre se a biometria não estiver disponível.",

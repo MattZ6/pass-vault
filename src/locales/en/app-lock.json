@@ -15,6 +15,11 @@
         "label": "Unlock"
       }
     },
+    "onboarding": {
+      "title": "Welcome to Pass Vault",
+      "subtitle": "Everything you store here stays encrypted, offline, and only ever accessible by you.",
+      "hint": "Turn to unlock"
+    },
     "setup": {
       "title": "Protect your vault",
       "subtitle": "Choose a master password. It's the only way to unlock your vault if biometrics isn't available.",

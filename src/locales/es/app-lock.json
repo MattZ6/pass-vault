@@ -15,6 +15,11 @@
         "label": "Desbloquear"
       }
     },
+    "onboarding": {
+      "title": "Bienvenido a Pass Vault",
+      "subtitle": "Todo lo que guardes aquí permanece cifrado, sin conexión, y solo tú puedes acceder a ello.",
+      "hint": "Gira para desbloquear"
+    },
     "setup": {
       "title": "Protege tu caja fuerte",
       "subtitle": "Elige una contraseña maestra. Es la única forma de desbloquear tu caja fuerte si la biometría no está disponible.",

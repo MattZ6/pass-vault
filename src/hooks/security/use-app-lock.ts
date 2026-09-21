@@ -3,11 +3,18 @@ import { AppState, type AppStateStatus } from "react-native";
 import { type VaultKey, VaultKeyService } from "@/services/vault/key";
 import { MasterPasswordService } from "@/services/vault/master-password";
 
-export type AppLockPhase = "checking" | "setup" | "locked" | "unlocked";
+export type AppLockPhase =
+  | "checking"
+  | "onboarding"
+  | "setup"
+  | "locked"
+  | "unlocked";
 
 export function useAppLock() {
   const [phase, setPhase] = useState<AppLockPhase>("checking");
-  const appStateRef = useRef<AppStateStatus | null>(AppState.currentState as AppStateStatus);
+  const appStateRef = useRef<AppStateStatus | null>(
+    AppState.currentState as AppStateStatus,
+  );
 
   useEffect(() => {
     let cancelled = false;
@@ -17,7 +24,7 @@ export function useAppLock() {
         return;
       }
 
-      setPhase(hasMasterPassword ? "locked" : "setup");
+      setPhase(hasMasterPassword ? "locked" : "onboarding");
     });
 
     return () => {
@@ -32,7 +39,8 @@ export function useAppLock() {
 
     const subscription = AppState.addEventListener("change", (nextAppState) => {
       const isReturningToForeground =
-        /inactive|background/.test(appStateRef.current ?? "") && nextAppState === "active";
+        /inactive|background/.test(appStateRef.current ?? "") &&
+        nextAppState === "active";
 
       if (isReturningToForeground) {
         VaultKeyService.clearVaultKey();
@@ -44,6 +52,10 @@ export function useAppLock() {
 
     return () => subscription.remove();
   }, [phase]);
+
+  const completeOnboarding = useCallback(() => {
+    setPhase("setup");
+  }, []);
 
   const completeSetup = useCallback((vaultKey: VaultKey) => {
     VaultKeyService.setVaultKey(vaultKey);
@@ -57,6 +69,7 @@ export function useAppLock() {
 
   return {
     phase,
+    completeOnboarding,
     completeSetup,
     unlock,
   };

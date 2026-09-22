@@ -20,14 +20,9 @@ class FakeAESEncryptionKey {
     return new FakeAESEncryptionKey(Buffer.from(bytes).toString("base64"));
   };
 
-  static import = async (
-    data: Uint8Array | string,
-    encoding?: "base64",
-  ) => {
+  static import = async (data: Uint8Array | string, encoding?: "base64") => {
     const base64 =
-      typeof data === "string"
-        ? data
-        : Buffer.from(data).toString("base64");
+      typeof data === "string" ? data : Buffer.from(data).toString("base64");
 
     return new FakeAESEncryptionKey(encoding === "base64" ? base64 : base64);
   };

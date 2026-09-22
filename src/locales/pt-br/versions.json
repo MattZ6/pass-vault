@@ -1,4 +1,34 @@
 {
+  "v0.6.0": {
+    "paragraphs": [
+      "Esta versão introduz a senha mestra do Pass Vault, uma nova camada de proteção que passa a ficar entre você e o cofre.",
+      "Na primeira abertura do app, uma tela de boas-vindas apresenta a tampa do cofre: gire duas voltas completas para destravá-la e configurar sua senha mestra. Dali em diante, ela passa a trabalhar lado a lado com a biometria para proteger o acesso, e pode ser trocada a qualquer momento nas configurações.",
+      "Editar uma credencial também ficou mais direto: agora dá para alterar o nome do app, o usuário, a senha, o site e as notas individualmente, sem passar pelo formulário inteiro. Esta versão também adiciona telas de diagnóstico do dispositivo e do aplicativo, além de deixar a listagem de credenciais mais rápida."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Destaques",
+        "highlights": [
+          "Adicionada senha mestra para desbloquear o cofre",
+          "Nova tela de boas-vindas com a tampa do cofre",
+          "Senha mestra pode ser alterada nas configurações",
+          "Edição individual dos campos da credencial (app, usuário, senha, site, notas)",
+          "Adicionada tela de diagnósticos do dispositivo",
+          "Adicionada tela de diagnósticos do aplicativo",
+          "Listagem de credenciais mais rápida"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Nota do desenvolvedor",
+      "content": [
+        "Até aqui, o Pass Vault dependia só da biometria do aparelho para proteger o cofre.",
+        "Esta versão adiciona uma segunda camada: uma senha que só você conhece, derivada com scrypt e nunca guardada em texto puro. Foi também a desculpa perfeita pra desenhar a tela de boas-vindas com a tampa — gire duas voltas inteiras pra abrir o cofre pela primeira vez.",
+        "Não é a funcionalidade mais vistosa, mas é provavelmente a mais importante que o Pass Vault já recebeu até agora."
+      ]
+    }
+  },
   "v0.5.0": {
     "paragraphs": [
       "Esta versão foi focada em ajudar você a entender melhor como o Pass Vault funciona.",

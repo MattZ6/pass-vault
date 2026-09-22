@@ -17,6 +17,11 @@
   },
   "changelog": {
     "meta": {
+      "v0.6.0": {
+        "title": "A senha mestra do cofre",
+        "excerpt": "Adicionada uma senha mestra para desbloquear o Pass Vault, uma tela de boas-vindas com a tampa do cofre, edição individual dos campos da credencial e novas telas de diagnóstico.",
+        "date": "2026-09-22"
+      },
       "v0.5.0": {
         "title": "Privacidade, transparência e controle",
         "excerpt": "Adicionadas informações de armazenamento, diagnósticos biométricos, política de privacidade integrada e controles de monitoramento de desempenho.",

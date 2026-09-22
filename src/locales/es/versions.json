@@ -1,4 +1,34 @@
 {
+  "v0.6.0": {
+    "paragraphs": [
+      "Esta versión introduce la contraseña maestra de Pass Vault, una nueva capa de protección que ahora se interpone entre tú y la bóveda.",
+      "Al abrir la app por primera vez, una pantalla de bienvenida presenta la tapa de la bóveda: gírala dos vueltas completas para desbloquearla y configurar tu contraseña maestra. A partir de ahí, trabaja junto con la biometría para proteger el acceso, y puede cambiarse en cualquier momento desde los ajustes.",
+      "Editar una credencial también es más directo: ahora puedes cambiar el nombre de la app, el usuario, la contraseña, el sitio web y las notas de forma individual, sin pasar por todo el formulario. Esta versión también añade pantallas de diagnóstico del dispositivo y de la aplicación, y hace que la lista de credenciales sea más rápida."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Aspectos destacados",
+        "highlights": [
+          "Nueva contraseña maestra para desbloquear la bóveda",
+          "Nueva pantalla de bienvenida con la tapa de la bóveda",
+          "La contraseña maestra se puede cambiar desde los ajustes",
+          "Edición individual de los campos de la credencial (app, usuario, contraseña, sitio, notas)",
+          "Nueva pantalla de diagnóstico del dispositivo",
+          "Nueva pantalla de diagnóstico de la aplicación",
+          "Lista de credenciales más rápida"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Nota del desarrollador",
+      "content": [
+        "Hasta ahora, Pass Vault dependía solo de la biometría del dispositivo para proteger la bóveda.",
+        "Esta versión añade una segunda capa: una contraseña que solo tú conoces, derivada con scrypt y que nunca se guarda en texto plano. También fue la excusa perfecta para diseñar la pantalla de bienvenida con la tapa — gírala dos vueltas completas para abrir la bóveda por primera vez.",
+        "No es la función más vistosa, pero probablemente sea la más importante que Pass Vault ha recibido hasta ahora."
+      ]
+    }
+  },
   "v0.5.0": {
     "paragraphs": [
       "Esta versión se centró en ayudarte a comprender mejor cómo funciona Pass Vault.",

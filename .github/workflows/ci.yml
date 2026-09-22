@@ -32,5 +32,8 @@ jobs:
       - name: 🛠️ Lint
         run: bun lint:ci
 
+      - name: 🧪 Test
+        run: bun test
+
       - name: 🥼 Expo Doctor
         run: bunx expo-doctor

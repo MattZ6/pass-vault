@@ -23,10 +23,7 @@ export function EditCredentialNotesForm({ notes }: Props) {
     keyPrefix: "screen.form.fields",
   });
 
-  useEffect(
-    () => form.reset({ notes: notes ?? "" }),
-    [form.reset, notes],
-  );
+  useEffect(() => form.reset({ notes: notes ?? "" }), [form.reset, notes]);
 
   useLayoutEffect(() => {
     setTimeout(() => {

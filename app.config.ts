@@ -1,7 +1,12 @@
 import type { ConfigContext, ExpoConfig } from "expo/config";
+import { z } from "zod";
 import { name, version } from "./package.json";
 
-type Variant = "development" | "preview" | "production";
+const variantSchema = z.enum(["development", "preview", "production"]);
+
+const buildVariant = variantSchema.parse(
+  process.env.EXPO_PUBLIC_APP_VARIANT ?? "development",
+);
 
 const packageName = "dev.zanin.passvault";
 
@@ -149,10 +154,7 @@ const variantConfig = {
   },
 } as const;
 
-const buildVariant: Variant =
-  process.env.EXPO_PUBLIC_APP_VARIANT ?? "development";
-
-const variant = variantConfig[buildVariant] ?? variantConfig.development;
+const variant = variantConfig[buildVariant];
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,

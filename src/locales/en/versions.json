@@ -1,4 +1,34 @@
 {
+  "v0.6.0": {
+    "paragraphs": [
+      "This release introduces Pass Vault's master password, a new layer of protection that now stands between you and the vault.",
+      "On first launch, an onboarding screen introduces the vault's lid: turn it two full turns to unlock it and set up your master password. From then on, it works alongside biometrics to protect access, and can be changed at any time from settings.",
+      "Editing a credential is also more direct now: you can change the app name, username, password, website and notes individually, without going through the whole form. This release also adds device and application diagnostics screens, and makes the credentials list faster."
+    ],
+    "sections": [
+      {
+        "type": "highlights",
+        "title": "Highlights",
+        "highlights": [
+          "Added a master password to unlock the vault",
+          "New onboarding screen with the vault's lid",
+          "Master password can be changed from settings",
+          "Per-field credential editing (app, username, password, website, notes)",
+          "Added a device diagnostics screen",
+          "Added an application diagnostics screen",
+          "Faster credentials list"
+        ]
+      }
+    ],
+    "note": {
+      "title": "Dev note",
+      "content": [
+        "Until now, Pass Vault relied only on your device's biometrics to protect the vault.",
+        "This release adds a second layer: a password only you know, derived with scrypt and never stored in plain text. It was also the perfect excuse to design the onboarding screen with the vault's lid — turn it two full turns to open the vault for the first time.",
+        "It's not the flashiest feature, but it's probably the most important one Pass Vault has shipped so far."
+      ]
+    }
+  },
   "v0.5.0": {
     "paragraphs": [
       "This release focused on helping you better understand how Pass Vault works.",

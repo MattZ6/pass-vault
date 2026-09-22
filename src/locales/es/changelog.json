@@ -17,6 +17,11 @@
   },
   "changelog": {
     "meta": {
+      "v0.6.0": {
+        "title": "La contraseña maestra de la bóveda",
+        "excerpt": "Se añadió una contraseña maestra para desbloquear Pass Vault, una nueva pantalla de bienvenida con la tapa de la bóveda, edición individual de los campos de la credencial y nuevas pantallas de diagnóstico.",
+        "date": "2026-09-22"
+      },
       "v0.5.0": {
         "title": "Privacidad, transparencia y control",
         "excerpt": "Se añadieron estadísticas de almacenamiento, diagnósticos biométricos, una política de privacidad integrada y controles de monitoreo de rendimiento.",

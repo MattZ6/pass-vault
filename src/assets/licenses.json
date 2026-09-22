@@ -5,7 +5,7 @@
     "licenseUrl": "https://github.com/expo/google-fonts/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "@expo/ui@58.0.4": {
+  "@expo/ui@58.0.5": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo",
@@ -35,7 +35,7 @@
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-constants@58.0.4": {
+  "expo-constants@58.0.5": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
@@ -47,13 +47,13 @@
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-dev-client@58.0.4": {
+  "expo-dev-client@58.0.5": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-device@58.0.1": {
+  "expo-device@58.0.2": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
@@ -65,13 +65,13 @@
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-insights@58.0.4": {
+  "expo-insights@58.0.5": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-linking@58.0.4": {
+  "expo-linking@58.0.5": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
@@ -95,7 +95,7 @@
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-observe@58.0.6": {
+  "expo-observe@58.0.7": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
@@ -107,7 +107,7 @@
     "licenseUrl": "https://github.com/evanbacon/expo-quick-actions/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo-router@58.0.5": {
+  "expo-router@58.0.6": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo",
@@ -143,7 +143,7 @@
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",
     "parents": "pass-vault"
   },
-  "expo@58.0.0-preview.4": {
+  "expo@58.0.0-preview.5": {
     "licenses": "MIT",
     "repository": "https://github.com/expo/expo",
     "licenseUrl": "https://github.com/expo/expo/raw/master/LICENSE",

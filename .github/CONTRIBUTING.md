@@ -10,7 +10,7 @@ For anything bigger than a small fix, please open an issue first so we can align
 
 Pick the template that matches what you're reporting (bug or feature request), there's no required title format, just a clear, specific title. For example, "credential list doesn't scroll on Android" is more useful than "bug in list".
 
-If what you found is a security vulnerability, please don't open an issue for it. See [SECURITY.md](SECURITY.md) instead.
+If what you found is a security vulnerability, please don't open an issue for it. See [SECURITY.md](/.github/SECURITY.md) instead.
 
 ## Commit messages and PR titles
 

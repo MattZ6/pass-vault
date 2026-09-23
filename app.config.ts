@@ -8,47 +8,54 @@ const buildVariant = variantSchema.parse(
   process.env.EXPO_PUBLIC_APP_VARIANT ?? "development",
 );
 
+const appName = "Pass Vault";
 const packageName = "dev.zanin.passvault";
 
 const variantConfig = {
   development: {
-    name: "Pass Vault (Dev Client)",
+    name: `${appName} (Dev Client)`,
     package: `${packageName}.dev`,
-    primaryColor: "#ffffff",
+    primaryColor: "#1458E8",
     splash: {
       android: {
-        imagePath: "./assets/splash.png",
         light: {
-          backgroundColor: "#121214",
+          imagePath: "./assets/variants/dev/splash.png",
+          backgroundColor: "#1458E8",
         },
         dark: {
-          backgroundColor: "#121214",
+          imagePath: "./assets/variants/dev/splash.png",
+          backgroundColor: "#1458E8",
         },
       },
       ios: {
-        imagePath: "./assets/splash.png",
         light: {
-          backgroundColor: "#121214",
+          imagePath: "./assets/variants/dev/splash.png",
+          backgroundColor: "#1458E8",
         },
         dark: {
-          backgroundColor: "#121214",
+          imagePath: "./assets/variants/dev/splash.png",
+          backgroundColor: "#1458E8",
         },
       },
     },
     icon: {
       android: {
-        imagePath: "./assets/adaptive-icon.png",
-        backgroundColor: "#121214",
+        foregroundImagePath:
+          "./assets/variants/dev/android-adaptive-icon-foreground.png",
+        backgroundImagePath:
+          "./assets/variants/dev/android-adaptive-icon-background.png",
+        monochromeImagePath: "./assets/variants/android-monochrome-icon.png",
+        backgroundColor: "#1458E8",
       },
       ios: {
         light: {
-          imagePath: "./assets/icon.png",
+          imagePath: "./assets/variants/dev/ios-icon.png",
         },
         dark: {
-          imagePath: "./assets/icon.png",
+          imagePath: "./assets/variants/dev/ios-icon.png",
         },
         tinted: {
-          imagePath: "./assets/icon.png",
+          imagePath: "./assets/variants/ios-tinted-icon.png",
         },
       },
     },
@@ -59,43 +66,49 @@ const variantConfig = {
     },
   },
   preview: {
-    name: "Pass Vault (Preview)",
+    name: `${appName} (Preview)`,
     package: `${packageName}.preview`,
-    primaryColor: "#ffffff",
+    primaryColor: "#eeeef0",
     splash: {
       android: {
-        imagePath: "./assets/splash.png",
         light: {
-          backgroundColor: "#121214",
+          imagePath: "./assets/variants/preview/splash-light.png",
+          backgroundColor: "#fdfcfd",
         },
         dark: {
-          backgroundColor: "#121214",
+          imagePath: "./assets/variants/preview/splash-dark.png",
+          backgroundColor: "#121113",
         },
       },
       ios: {
-        imagePath: "./assets/splash.png",
         light: {
-          backgroundColor: "#121214",
+          imagePath: "./assets/variants/preview/splash-light.png",
+          backgroundColor: "#fdfcfd",
         },
         dark: {
-          backgroundColor: "#121214",
+          imagePath: "./assets/variants/preview/splash-dark.png",
+          backgroundColor: "#121113",
         },
       },
     },
     icon: {
       android: {
-        imagePath: "./assets/adaptive-icon.png",
-        backgroundColor: "#121214",
+        foregroundImagePath:
+          "./assets/variants/preview/android-adaptive-icon-foreground.png",
+        backgroundImagePath:
+          "./assets/variants/preview/android-adaptive-icon-background.png",
+        monochromeImagePath: "./assets/variants/android-monochrome-icon.png",
+        backgroundColor: "#121113",
       },
       ios: {
         light: {
-          imagePath: "./assets/icon.png",
+          imagePath: "./assets/variants/preview/ios-light-icon.png",
         },
         dark: {
-          imagePath: "./assets/icon.png",
+          imagePath: "./assets/variants/preview/ios-dark-icon.png",
         },
         tinted: {
-          imagePath: "./assets/icon.png",
+          imagePath: "./assets/variants/ios-tinted-icon.png",
         },
       },
     },
@@ -106,43 +119,48 @@ const variantConfig = {
     },
   },
   production: {
-    name: "Pass Vault",
+    name: appName,
     package: packageName,
-    primaryColor: "#ffffff",
+    primaryColor: "#eeeef0",
     splash: {
       android: {
-        imagePath: "./assets/splash.png",
         light: {
-          backgroundColor: "#121214",
+          imagePath: "./assets/variants/production/splash-light.png",
+          backgroundColor: "#fdfcfd",
         },
         dark: {
-          backgroundColor: "#121214",
+          imagePath: "./assets/variants/production/splash-dark.png",
+          backgroundColor: "#121113",
         },
       },
       ios: {
-        imagePath: "./assets/splash.png",
         light: {
-          backgroundColor: "#121214",
+          imagePath: "./assets/variants/production/splash-light.png",
+          backgroundColor: "#fdfcfd",
         },
         dark: {
-          backgroundColor: "#121214",
+          imagePath: "./assets/variants/production/splash-dark.png",
+          backgroundColor: "#121113",
         },
       },
     },
     icon: {
       android: {
-        imagePath: "./assets/adaptive-icon.png",
-        backgroundColor: "#121214",
+        foregroundImagePath:
+          "./assets/variants/production/android-adaptive-icon-foreground.png",
+        backgroundImagePath: undefined,
+        monochromeImagePath: "./assets/variants/android-monochrome-icon.png",
+        backgroundColor: "#121113",
       },
       ios: {
         light: {
-          imagePath: "./assets/icon.png",
+          imagePath: "./assets/variants/production/ios-light-icon.png",
         },
         dark: {
-          imagePath: "./assets/icon.png",
+          imagePath: "./assets/variants/production/ios-dark-icon.png",
         },
         tinted: {
-          imagePath: "./assets/icon.png",
+          imagePath: "./assets/variants/ios-tinted-icon.png",
         },
       },
     },
@@ -170,7 +188,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   orientation: "default",
   userInterfaceStyle: "automatic",
 
-  icon: variant.icon.ios.light.imagePath,
+  icon: variant.icon.ios.dark.imagePath,
 
   ios: {
     bundleIdentifier: variant.package,
@@ -188,7 +206,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   android: {
     package: variant.package,
     adaptiveIcon: {
-      foregroundImage: variant.icon.android.imagePath,
+      foregroundImage: variant.icon.android.foregroundImagePath,
+      backgroundImage: variant.icon.android.backgroundImagePath,
+      monochromeImage: variant.icon.android.monochromeImagePath,
       backgroundColor: variant.icon.android.backgroundColor,
     },
   },
@@ -221,25 +241,29 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       "expo-splash-screen",
       {
         android: {
-          image: variant.splash.android.imagePath,
+          image: variant.splash.android.light.imagePath,
           backgroundColor: variant.splash.android.light.backgroundColor,
           resizeMode: "contain",
+          imageWidth: 200,
           dark: {
-            image: variant.splash.android.imagePath,
+            image: variant.splash.android.dark.imagePath,
             backgroundColor: variant.splash.android.dark.backgroundColor,
             resizeMode: "contain",
+            imageWidth: 200,
           },
         },
         ios: {
-          image: variant.splash.ios.imagePath,
-          tabletImage: variant.splash.ios.imagePath,
+          image: variant.splash.ios.light.imagePath,
+          tabletImage: variant.splash.ios.light.imagePath,
           backgroundColor: variant.splash.ios.light.backgroundColor,
           resizeMode: "contain",
+          imageWidth: 200,
           dark: {
-            image: variant.splash.ios.imagePath,
-            tabletImage: variant.splash.ios.imagePath,
+            image: variant.splash.ios.dark.imagePath,
+            tabletImage: variant.splash.ios.dark.imagePath,
             backgroundColor: variant.splash.ios.dark.backgroundColor,
             resizeMode: "contain",
+            imageWidth: 200,
           },
         },
       },

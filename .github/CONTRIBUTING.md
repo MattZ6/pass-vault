@@ -45,4 +45,4 @@ bun lint:ci
 bun test
 ```
 
-See [README.md](../README.md) for how to set up a dev client to run the app itself.
+See [README.md](/README.md) for how to set up a dev client to run the app itself.

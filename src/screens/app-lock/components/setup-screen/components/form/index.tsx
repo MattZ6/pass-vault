@@ -10,6 +10,7 @@ import { IconButton } from "@/components/ui/icon-button";
 import { Section } from "@/components/ui/section";
 import { Text } from "@/components/ui/text";
 
+import { useAnnounceOnChange } from "@/hooks/use-announce-on-change";
 import { useHaptics } from "@/hooks/use-haptics";
 import { useStyles } from "@/hooks/use-styles";
 
@@ -44,6 +45,17 @@ export function SetupMasterPasswordForm({ onSetupComplete }: Props) {
     submit();
   }, [performTapFeedback, submit]);
 
+  const showsMismatchError =
+    !form.formState.errors.password && Boolean(form.formState.errors.confirmPassword);
+
+  useAnnounceOnChange(
+    form.formState.errors.password ? t("form.errors.tooShort") : undefined,
+  );
+  useAnnounceOnChange(
+    showsMismatchError ? t("form.errors.mismatch") : undefined,
+  );
+  useAnnounceOnChange(hasFailed ? t("form.errors.setupFailed") : undefined);
+
   return (
     <View style={styles.container}>
       <Section.Root>
@@ -59,6 +71,7 @@ export function SetupMasterPasswordForm({ onSetupComplete }: Props) {
                   value={field.value}
                   onBlur={field.onBlur}
                   editable={!isSubmitting}
+                  accessibilityLabel={t("form.fields.password.placeholder")}
                   placeholder={t("form.fields.password.placeholder")}
                   placeholderTextColor={theme.colors.content.muted}
                   keyboardAppearance={resolvedThemeOption}
@@ -88,7 +101,15 @@ export function SetupMasterPasswordForm({ onSetupComplete }: Props) {
               )}
             />
 
-            <IconButton size={10} onPress={handleToggleVisibility}>
+            <IconButton
+              size={10}
+              accessibilityLabel={t(
+                visible
+                  ? "form.fields.password.actions.hide.label"
+                  : "form.fields.password.actions.show.label",
+              )}
+              onPress={handleToggleVisibility}
+            >
               <SymbolView
                 name={{ android: visible ? "visibility_off" : "visibility" }}
                 tintColor={theme.colors.content.element}
@@ -108,6 +129,9 @@ export function SetupMasterPasswordForm({ onSetupComplete }: Props) {
                 value={field.value}
                 onBlur={field.onBlur}
                 editable={!isSubmitting}
+                accessibilityLabel={t(
+                  "form.fields.confirmPassword.placeholder",
+                )}
                 placeholder={t("form.fields.confirmPassword.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
                 keyboardAppearance={resolvedThemeOption}
@@ -139,20 +163,31 @@ export function SetupMasterPasswordForm({ onSetupComplete }: Props) {
         </Card>
 
         {form.formState.errors.password && (
-          <Text color="error" typography="bodySmall">
+          <Text
+            color="error"
+            typography="bodySmall"
+            accessibilityLiveRegion="polite"
+          >
             {t("form.errors.tooShort")}
           </Text>
         )}
 
-        {!form.formState.errors.password &&
-          form.formState.errors.confirmPassword && (
-            <Text color="error" typography="bodySmall">
-              {t("form.errors.mismatch")}
-            </Text>
-          )}
+        {showsMismatchError && (
+          <Text
+            color="error"
+            typography="bodySmall"
+            accessibilityLiveRegion="polite"
+          >
+            {t("form.errors.mismatch")}
+          </Text>
+        )}
 
         {hasFailed && (
-          <Text color="error" typography="bodySmall">
+          <Text
+            color="error"
+            typography="bodySmall"
+            accessibilityLiveRegion="polite"
+          >
             {t("form.errors.setupFailed")}
           </Text>
         )}

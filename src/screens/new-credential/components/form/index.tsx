@@ -73,6 +73,9 @@ export function CreateCredentialForm() {
                 value={field.value}
                 onBlur={field.onBlur}
                 editable={!isSubmitting}
+                accessibilityLabel={t(
+                  "sections.provider.fields.provider.placeholder",
+                )}
                 placeholder={t("sections.provider.fields.provider.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
                 keyboardAppearance={resolvedThemeOption}
@@ -110,6 +113,9 @@ export function CreateCredentialForm() {
                 value={field.value}
                 onBlur={field.onBlur}
                 editable={!isSubmitting}
+                accessibilityLabel={t(
+                  "sections.provider.fields.website.placeholder",
+                )}
                 placeholder={t("sections.provider.fields.website.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
                 keyboardAppearance={resolvedThemeOption}
@@ -157,6 +163,9 @@ export function CreateCredentialForm() {
                 value={field.value}
                 onBlur={field.onBlur}
                 editable={!isSubmitting}
+                accessibilityLabel={t(
+                  "sections.account.fields.username.placeholder",
+                )}
                 placeholder={t("sections.account.fields.username.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
                 keyboardAppearance={resolvedThemeOption}
@@ -196,6 +205,9 @@ export function CreateCredentialForm() {
                 value={field.value}
                 onBlur={field.onBlur}
                 editable={!isSubmitting}
+                accessibilityLabel={t(
+                  "sections.account.fields.password.placeholder",
+                )}
                 placeholder={t("sections.account.fields.password.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
                 keyboardAppearance={resolvedThemeOption}
@@ -241,6 +253,9 @@ export function CreateCredentialForm() {
                 value={field.value}
                 onBlur={field.onBlur}
                 editable={!isSubmitting}
+                accessibilityLabel={t(
+                  "sections.notes.fields.notes.placeholder",
+                )}
                 placeholder={t("sections.notes.fields.notes.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
                 keyboardAppearance={resolvedThemeOption}

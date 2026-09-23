@@ -4,7 +4,15 @@
     "subtitle": "Digite sua senha mestra para desbloquear",
     "fields": {
       "password": {
-        "placeholder": "Senha mestra"
+        "placeholder": "Senha mestra",
+        "actions": {
+          "show": {
+            "label": "Mostrar senha"
+          },
+          "hide": {
+            "label": "Ocultar senha"
+          }
+        }
       }
     },
     "errors": {
@@ -13,6 +21,9 @@
     "actions": {
       "unlock": {
         "label": "Desbloquear"
+      },
+      "biometric": {
+        "label": "Desbloquear com biometria"
       }
     },
     "onboarding": {
@@ -26,7 +37,15 @@
       "form": {
         "fields": {
           "password": {
-            "placeholder": "Senha mestra"
+            "placeholder": "Senha mestra",
+            "actions": {
+              "show": {
+                "label": "Mostrar senha"
+              },
+              "hide": {
+                "label": "Ocultar senha"
+              }
+            }
           },
           "confirmPassword": {
             "placeholder": "Confirmar senha mestra"

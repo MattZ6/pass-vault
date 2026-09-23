@@ -4,7 +4,15 @@
     "subtitle": "Enter your master password to unlock",
     "fields": {
       "password": {
-        "placeholder": "Master password"
+        "placeholder": "Master password",
+        "actions": {
+          "show": {
+            "label": "Show password"
+          },
+          "hide": {
+            "label": "Hide password"
+          }
+        }
       }
     },
     "errors": {
@@ -13,6 +21,9 @@
     "actions": {
       "unlock": {
         "label": "Unlock"
+      },
+      "biometric": {
+        "label": "Unlock with biometrics"
       }
     },
     "onboarding": {
@@ -26,7 +37,15 @@
       "form": {
         "fields": {
           "password": {
-            "placeholder": "Master password"
+            "placeholder": "Master password",
+            "actions": {
+              "show": {
+                "label": "Show password"
+              },
+              "hide": {
+                "label": "Hide password"
+              }
+            }
           },
           "confirmPassword": {
             "placeholder": "Confirm master password"

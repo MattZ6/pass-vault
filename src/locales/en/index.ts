@@ -5,6 +5,7 @@ import application from "./application.json";
 import biometrics from "./biometrics.json";
 import changeMasterPassword from "./change-master-password.json";
 import changelog from "./changelog.json";
+import common from "./common.json";
 import credentialDetails from "./credential-details.json";
 import device from "./device.json";
 import editNotes from "./edit-notes.json";
@@ -30,6 +31,7 @@ export const en = {
   biometrics,
   "change-master-password": changeMasterPassword,
   changelog,
+  common,
   "credential-details": credentialDetails,
   device,
   "edit-notes": editNotes,

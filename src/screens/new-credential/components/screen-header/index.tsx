@@ -9,6 +9,7 @@ import { useHaptics } from "@/hooks/use-haptics";
 export function ScreenHeader() {
   const router = useRouter();
   const { t } = useTranslation("new-credential", { keyPrefix: "meta" });
+  const { t: tCommon } = useTranslation("common", { keyPrefix: "actions" });
   const { performTapFeedback } = useHaptics();
 
   const handleBack = useCallback(() => {
@@ -26,6 +27,7 @@ export function ScreenHeader() {
           onPress={handleBack}
           iosIcon="xmark"
           androidIcon="close"
+          accessibilityLabel={tCommon("close")}
         />
       </SheetHeader.LeftActions>
       <SheetHeader.Title>{t("title")}</SheetHeader.Title>

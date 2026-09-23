@@ -48,6 +48,7 @@ export function EditCredentialUsernameForm({ credentialId, username }: Props) {
                 value={field.value}
                 onBlur={field.onBlur}
                 // editable={!isSubmitting}
+                accessibilityLabel={t("username.placeholder")}
                 placeholder={t("username.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
                 keyboardAppearance={resolvedThemeOption}

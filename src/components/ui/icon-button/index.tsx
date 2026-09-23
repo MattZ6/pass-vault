@@ -11,7 +11,12 @@ export type IconButtonProps = Omit<
 > &
   Partial<IconButtonStyledOptions>;
 
-export function IconButton({ children, size = 12, ...props }: IconButtonProps) {
+export function IconButton({
+  children,
+  size = 12,
+  accessibilityRole = "button",
+  ...props
+}: IconButtonProps) {
   const { styles, theme } = useStyles((input) => getStyles(input, { size }));
 
   return (
@@ -20,6 +25,7 @@ export function IconButton({ children, size = 12, ...props }: IconButtonProps) {
         android_disableSound
         android_ripple={theme.colors.androidRipple}
         {...props}
+        accessibilityRole={accessibilityRole}
       >
         <View style={styles.content}>{children as ReactNode}</View>
       </Pressable>

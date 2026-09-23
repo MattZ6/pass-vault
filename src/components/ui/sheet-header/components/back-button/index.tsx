@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import { SymbolView } from "expo-symbols";
 import { useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { View } from "react-native";
 
 import { IconButton } from "@/components/ui/icon-button";
@@ -14,6 +15,7 @@ export function SheetHeaderBackButton() {
   const router = useRouter();
   const { performTapFeedback } = useHaptics();
   const { styles, theme } = useStyles(getStyles);
+  const { t } = useTranslation("common", { keyPrefix: "actions" });
 
   const handleBack = useCallback(() => {
     performTapFeedback();
@@ -27,6 +29,7 @@ export function SheetHeaderBackButton() {
     <View style={styles.wrapper}>
       <IconButton
         size={12}
+        accessibilityLabel={t("back")}
         hitSlop={{
           left: theme.spacing[1],
           top: theme.spacing[6],

@@ -4,12 +4,17 @@ import { useTheme } from "@/hooks/use-theme";
 
 import type { ButtonProps } from "./types";
 
-export function Button({ children, ...props }: ButtonProps) {
+export function Button({
+  children,
+  accessibilityRole = "button",
+  ...props
+}: ButtonProps) {
   const { theme } = useTheme();
 
   return (
     <Pressable
       {...props}
+      accessibilityRole={accessibilityRole}
       android_disableSound
       android_ripple={theme.colors.androidRipple}
     >

@@ -11,6 +11,7 @@ import { IconButton } from "@/components/ui/icon-button";
 import { Section } from "@/components/ui/section";
 import { Text } from "@/components/ui/text";
 
+import { useAnnounceOnChange } from "@/hooks/use-announce-on-change";
 import { useBiometrics } from "@/hooks/use-biometrics";
 import { useHaptics } from "@/hooks/use-haptics";
 import { useStyles } from "@/hooks/use-styles";
@@ -112,6 +113,8 @@ export function LockScreen({ onUnlock }: Props) {
     }
   }, [password, performTapFeedback, notifySuccess, notifyFailure, onUnlock]);
 
+  useAnnounceOnChange(hasFailed ? t("errors.incorrect") : undefined);
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
@@ -144,6 +147,7 @@ export function LockScreen({ onUnlock }: Props) {
                   setHasFailed(false);
                 }}
                 editable={!isSubmitting}
+                accessibilityLabel={t("fields.password.placeholder")}
                 placeholder={t("fields.password.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
                 keyboardAppearance={resolvedThemeOption}
@@ -165,7 +169,15 @@ export function LockScreen({ onUnlock }: Props) {
                 }
               />
 
-              <IconButton size={10} onPress={handleToggleVisibility}>
+              <IconButton
+                size={10}
+                accessibilityLabel={t(
+                  visible
+                    ? "fields.password.actions.hide.label"
+                    : "fields.password.actions.show.label",
+                )}
+                onPress={handleToggleVisibility}
+              >
                 <SymbolView
                   name={{ android: visible ? "visibility_off" : "visibility" }}
                   tintColor={theme.colors.content.element}
@@ -175,7 +187,12 @@ export function LockScreen({ onUnlock }: Props) {
           </Card>
 
           {hasFailed && (
-            <Text color="error" typography="bodySmall" style={styles.error}>
+            <Text
+              color="error"
+              typography="bodySmall"
+              style={styles.error}
+              accessibilityLiveRegion="polite"
+            >
               {t("errors.incorrect")}
             </Text>
           )}
@@ -194,7 +211,11 @@ export function LockScreen({ onUnlock }: Props) {
         </View>
 
         {biometricIconName && (
-          <IconButton size={12} onPress={handleBiometricButtonPress}>
+          <IconButton
+            size={12}
+            accessibilityLabel={t("actions.biometric.label")}
+            onPress={handleBiometricButtonPress}
+          >
             <SymbolView
               name={biometricIconName}
               tintColor={theme.colors.content.element}

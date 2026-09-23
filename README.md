@@ -15,7 +15,7 @@
 <br />
 
 ![Expo](https://img.shields.io/badge/Expo-000020?style=flat-square&logo=expo&logoColor=white)
-[![License: MIT](https://img.shields.io/badge/license-MIT-222222?style=flat-square)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-222222?style=flat-square)](LICENSE.md)
 
 Pass Vault keeps your credentials encrypted on your device, and nothing is ever sent to a server.
 
@@ -66,12 +66,12 @@ Then open the project in your dev client.
 
 ## Security
 
-Pass Vault's threat model, and how it derives and stores keys, is documented in [SECURITY.md](SECURITY.md). That's also where to report a vulnerability.
+Pass Vault's threat model, and how it derives and stores keys, is documented in [SECURITY.md](.github/SECURITY.md). That's also where to report a vulnerability.
 
 ## Contributing
 
-Issues and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for how issues, PRs and commits are named, and what to run before opening one.
+Issues and pull requests are welcome. See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for how issues, PRs and commits are named, and what to run before opening one.
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE.md)

@@ -1,20 +1,39 @@
+<div align="center">
+
 # Pass Vault
 
-🔐 Private, encrypted and offline-first password manager.
+> Private, encrypted and offline-first password manager.
 
-[![CI](https://github.com/MattZ6/pass-vault/actions/workflows/ci.yml/badge.svg)](https://github.com/MattZ6/pass-vault/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+<!-- <br /> -->
 
-Pass Vault keeps your credentials encrypted on your device, and nothing is ever sent to a server. Unlock with a master password and/or biometrics, and everything else, like adding, editing and viewing credentials, stays local.
+<!-- [Website](https://passvault.zanin.dev) · -->
+<!-- [Play Store](https://play.google.com/store/apps/details?id=dev.zanin.passvault) · -->
+<!-- [Changelog](https://passvault.zanin.dev/changelog) · -->
+<!-- [Privacy](https://passvault.zanin.dev/privacy-policy) · -->
+<!-- [Contributing](.github/CONTRIBUTING.md) -->
+
+<br />
+
+![Expo](https://img.shields.io/badge/Expo-000020?style=flat-square&logo=expo&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/license-MIT-222222?style=flat-square)](LICENSE)
+
+Pass Vault keeps your credentials encrypted on your device, and nothing is ever sent to a server.
+
+Unlock with a master password and/or biometrics, and everything else, like adding, editing and viewing credentials, stays local.
+
+</div>
+
+---
 
 ## Features
 
-- Local, encrypted storage, with no account, no cloud sync and no telemetry sent anywhere by default
-- Master password (scrypt key derivation) and biometric unlock, working side by side
-- Add, view and edit credentials, where username, password, website and notes can each be edited individually
-- Storage and biometrics diagnostics, and a built-in privacy policy
-- In-app changelog with release notes per version
-- Light/dark theme, and English, Portuguese (BR) and Spanish translations
+- 🔣 Local, encrypted storage, with no account, no cloud sync and no telemetry sent anywhere by default
+- 🗝️ Master password (scrypt key derivation) and biometric unlock, working side by side
+- ✏️ Add, view and edit credentials, where username, password, website and notes can each be edited individually
+- 📊 Storage and biometrics diagnostics, and a built-in privacy policy
+- 📜 In-app changelog with release notes per version
+- 🎨 Light and dark themes
+- 🌐 English, Portuguese (BR) and Spanish translations
 
 ## Tech stack
 

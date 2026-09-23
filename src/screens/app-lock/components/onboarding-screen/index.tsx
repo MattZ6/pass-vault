@@ -63,11 +63,7 @@ export function OnboardingScreen({ onOnboardingComplete }: Props) {
         </View>
 
         <View style={styles.wheelContainer}>
-          <VaultWheel
-            wheelRef={wheelRef}
-            rotation={rotation}
-            progress={progress}
-          />
+          <VaultWheel wheelRef={wheelRef} rotation={rotation} />
         </View>
 
         <Animated.View style={[styles.hint, animatedHintStyle]}>

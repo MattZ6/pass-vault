@@ -2,4 +2,4 @@ blank_issues_enabled: false
 contact_links:
   - name: Report a security vulnerability
     url: https://github.com/MattZ6/pass-vault/security/advisories/new
-    about: Please don't open a public issue for security vulnerabilities — report them privately instead.
+    about: Please don't open a public issue for security vulnerabilities, and report them privately instead.

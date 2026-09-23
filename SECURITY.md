@@ -4,9 +4,9 @@ Pass Vault stores every credential locally, encrypted, and never sends it anywhe
 
 ## Threat model
 
-- All credential data is encrypted with AES-256 and stored on-device. The vault key itself is wrapped with a key derived from your master password via scrypt, and unwrapped locally on unlock — Pass Vault has no server, so there is nothing to breach remotely.
+- All credential data is encrypted with AES-256 and stored on-device. The vault key itself is wrapped with a key derived from your master password via scrypt, and unwrapped locally on unlock. Pass Vault has no server, so there is nothing to breach remotely.
 - Biometric unlock (Face ID / Touch ID / fingerprint) is a convenience fast path gated by the OS; the master password is always what actually protects the vault key.
-- Security here does **not** rely on the app's source being secret — keeping the code closed would not make the encryption stronger. Being able to read and audit how keys are derived and stored is the point of this document being public.
+- Security here does **not** rely on the app's source being secret, and keeping the code closed would not make the encryption stronger. Being able to read and audit how keys are derived and stored is the point of this document being public.
 
 ## Reporting a vulnerability
 
@@ -22,4 +22,4 @@ When reporting, please include:
 
 ## Supported versions
 
-Pass Vault is pre-1.0 and under active development. Only the latest released version is supported — please make sure you can reproduce an issue on the current version before reporting it.
+Pass Vault is pre-1.0 and under active development. Only the latest released version is supported, so please make sure you can reproduce an issue on the current version before reporting it.

@@ -5,8 +5,21 @@ on:
     branches: ["prod"]
 
 jobs:
+  checks:
+    name: Checks
+    steps:
+      - uses: eas/checkout
+      - uses: eas/install_node_modules
+      - name: Type check
+        run: bun typecheck
+      - name: Lint
+        run: bun lint:ci
+      - name: Test
+        run: bun test
+
   build_android:
     name: Build Android App
+    needs: [checks]
     type: build
     params:
       platform: android
@@ -16,8 +29,6 @@ jobs:
     name: Submit to Google Play Store
     needs: [build_android]
     type: submit
-    env:
-      EXPO_DEBUG: "1"
     params:
       profile: production
       build_id: ${{ needs.build_android.outputs.build_id }}

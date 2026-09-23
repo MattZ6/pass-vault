@@ -44,6 +44,7 @@ export function EditCredentialNotesForm({ notes }: Props) {
                 onChangeText={field.onChange}
                 value={field.value}
                 onBlur={field.onBlur}
+                accessibilityLabel={t("notes.placeholder")}
                 placeholder={t("notes.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
                 keyboardAppearance={resolvedThemeOption}

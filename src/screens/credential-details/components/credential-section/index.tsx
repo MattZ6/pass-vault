@@ -45,7 +45,11 @@ export function CredentialSection({
 
           <Section.Item.Trailing>
             <Link asChild href={`/credentials/${credentialId}/edit/provider`}>
-              <IconButton size={10} onPress={performTapFeedback}>
+              <IconButton
+                size={10}
+                accessibilityLabel={t("fields.provider.actions.edit.label")}
+                onPress={performTapFeedback}
+              >
                 <SymbolView
                   name={{ android: "edit" }}
                   tintColor={theme.colors.content.element}
@@ -69,7 +73,11 @@ export function CredentialSection({
 
           <Section.Item.Trailing>
             <Link asChild href={`/credentials/${credentialId}/edit/username`}>
-              <IconButton size={10} onPress={performTapFeedback}>
+              <IconButton
+                size={10}
+                accessibilityLabel={t("fields.username.actions.edit.label")}
+                onPress={performTapFeedback}
+              >
                 <SymbolView
                   name={{ android: "edit" }}
                   tintColor={theme.colors.content.element}
@@ -93,7 +101,15 @@ export function CredentialSection({
 
           <Section.Item.Trailing>
             <Link asChild href={`/credentials/${credentialId}/edit/website`}>
-              <IconButton size={10} onPress={performTapFeedback}>
+              <IconButton
+                size={10}
+                accessibilityLabel={t(
+                  website
+                    ? "fields.website.actions.edit.label"
+                    : "fields.website.actions.add.label",
+                )}
+                onPress={performTapFeedback}
+              >
                 <SymbolView
                   name={{ android: website ? "edit" : "add" }}
                   tintColor={theme.colors.content.element}

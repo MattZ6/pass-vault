@@ -9,6 +9,7 @@ import { IconButton } from "@/components/ui/icon-button";
 import { Section } from "@/components/ui/section";
 import { Text } from "@/components/ui/text";
 
+import { useAnnounceOnChange } from "@/hooks/use-announce-on-change";
 import { useHaptics } from "@/hooks/use-haptics";
 import { useStyles } from "@/hooks/use-styles";
 
@@ -37,6 +38,23 @@ export function ChangeMasterPasswordForm() {
     setNewVisible((current) => !current);
   }, [performTapFeedback]);
 
+  const showsMismatchError =
+    !form.formState.errors.newPassword &&
+    Boolean(form.formState.errors.confirmNewPassword);
+
+  useAnnounceOnChange(
+    form.formState.errors.currentPassword
+      ? t("errors.incorrectCurrentPassword")
+      : undefined,
+  );
+  useAnnounceOnChange(
+    form.formState.errors.newPassword ? t("errors.tooShort") : undefined,
+  );
+  useAnnounceOnChange(showsMismatchError ? t("errors.mismatch") : undefined);
+  useAnnounceOnChange(
+    form.formState.errors.root ? t("errors.changeFailed") : undefined,
+  );
+
   return (
     <View style={styles.container}>
       <Section.Root>
@@ -61,6 +79,7 @@ export function ChangeMasterPasswordForm() {
                   value={field.value}
                   onBlur={field.onBlur}
                   editable={!isSubmitting}
+                  accessibilityLabel={t("fields.currentPassword.placeholder")}
                   placeholder={t("fields.currentPassword.placeholder")}
                   placeholderTextColor={theme.colors.content.muted}
                   keyboardAppearance={resolvedThemeOption}
@@ -90,7 +109,15 @@ export function ChangeMasterPasswordForm() {
               )}
             />
 
-            <IconButton size={10} onPress={handleToggleCurrentVisibility}>
+            <IconButton
+              size={10}
+              accessibilityLabel={t(
+                currentVisible
+                  ? "fields.currentPassword.actions.hide.label"
+                  : "fields.currentPassword.actions.show.label",
+              )}
+              onPress={handleToggleCurrentVisibility}
+            >
               <SymbolView
                 name={{
                   android: currentVisible ? "visibility_off" : "visibility",
@@ -102,7 +129,11 @@ export function ChangeMasterPasswordForm() {
         </Card>
 
         {form.formState.errors.currentPassword && (
-          <Text color="error" typography="bodySmall">
+          <Text
+            color="error"
+            typography="bodySmall"
+            accessibilityLiveRegion="polite"
+          >
             {t("errors.incorrectCurrentPassword")}
           </Text>
         )}
@@ -127,6 +158,7 @@ export function ChangeMasterPasswordForm() {
                   value={field.value}
                   onBlur={field.onBlur}
                   editable={!isSubmitting}
+                  accessibilityLabel={t("fields.newPassword.placeholder")}
                   placeholder={t("fields.newPassword.placeholder")}
                   placeholderTextColor={theme.colors.content.muted}
                   keyboardAppearance={resolvedThemeOption}
@@ -156,7 +188,15 @@ export function ChangeMasterPasswordForm() {
               )}
             />
 
-            <IconButton size={10} onPress={handleToggleNewVisibility}>
+            <IconButton
+              size={10}
+              accessibilityLabel={t(
+                newVisible
+                  ? "fields.newPassword.actions.hide.label"
+                  : "fields.newPassword.actions.show.label",
+              )}
+              onPress={handleToggleNewVisibility}
+            >
               <SymbolView
                 name={{ android: newVisible ? "visibility_off" : "visibility" }}
                 tintColor={theme.colors.content.element}
@@ -176,6 +216,9 @@ export function ChangeMasterPasswordForm() {
                 value={field.value}
                 onBlur={field.onBlur}
                 editable={!isSubmitting}
+                accessibilityLabel={t(
+                  "fields.confirmNewPassword.placeholder",
+                )}
                 placeholder={t("fields.confirmNewPassword.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
                 keyboardAppearance={resolvedThemeOption}
@@ -206,20 +249,31 @@ export function ChangeMasterPasswordForm() {
         </Card>
 
         {form.formState.errors.newPassword && (
-          <Text color="error" typography="bodySmall">
+          <Text
+            color="error"
+            typography="bodySmall"
+            accessibilityLiveRegion="polite"
+          >
             {t("errors.tooShort")}
           </Text>
         )}
 
-        {!form.formState.errors.newPassword &&
-          form.formState.errors.confirmNewPassword && (
-            <Text color="error" typography="bodySmall">
-              {t("errors.mismatch")}
-            </Text>
-          )}
+        {showsMismatchError && (
+          <Text
+            color="error"
+            typography="bodySmall"
+            accessibilityLiveRegion="polite"
+          >
+            {t("errors.mismatch")}
+          </Text>
+        )}
 
         {form.formState.errors.root && (
-          <Text color="error" typography="bodySmall">
+          <Text
+            color="error"
+            typography="bodySmall"
+            accessibilityLiveRegion="polite"
+          >
             {t("errors.changeFailed")}
           </Text>
         )}

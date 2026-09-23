@@ -11,6 +11,7 @@ import { type ButtonProps, IOS_SCALE_CONFIG, IOS_SPRINT_CONFIG } from "./types";
 
 export function Button({
   children,
+  accessibilityRole = "button",
   iosPressedScale = IOS_SCALE_CONFIG.PRESSED,
   ioSpringConfig = IOS_SPRINT_CONFIG,
   ...props
@@ -39,7 +40,12 @@ export function Button({
   );
 
   return (
-    <Pressable {...props} onPressIn={handlePressIn} onPressOut={handlePressOut}>
+    <Pressable
+      {...props}
+      accessibilityRole={accessibilityRole}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
+    >
       <Animated.View style={animatedStyle}>{children}</Animated.View>
     </Pressable>
   );

@@ -59,6 +59,7 @@ export function EditCredentialPasswordForm({ credentialId }: Props) {
                   onChangeText={field.onChange}
                   value={field.value}
                   onBlur={field.onBlur}
+                  accessibilityLabel={t("password.placeholder")}
                   placeholder={t("password.placeholder")}
                   placeholderTextColor={theme.colors.content.muted}
                   keyboardAppearance={resolvedThemeOption}
@@ -88,7 +89,13 @@ export function EditCredentialPasswordForm({ credentialId }: Props) {
               )}
             />
 
-            <IconButton size={10} onPress={handleToggleVisibility}>
+            <IconButton
+              size={10}
+              accessibilityLabel={t(
+                visible ? "password.actions.hide.label" : "password.actions.show.label",
+              )}
+              onPress={handleToggleVisibility}
+            >
               <SymbolView
                 name={{ android: visible ? "visibility_off" : "visibility" }}
                 tintColor={theme.colors.content.element}

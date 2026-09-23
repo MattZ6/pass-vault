@@ -55,7 +55,7 @@ export function DevNoteSection({ version }: Props) {
       </View>
 
       <View style={styles.footer}>
-        <IconButton size={11}>
+        <IconButton size={11} accessible={false}>
           <ImageBackground
             src={author.avatar}
             alt=""

@@ -47,6 +47,7 @@ export function EditCredentialProviderForm({ credentialId, provider }: Props) {
                 onChangeText={field.onChange}
                 value={field.value}
                 onBlur={field.onBlur}
+                accessibilityLabel={t("provider.placeholder")}
                 placeholder={t("provider.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
                 keyboardAppearance={resolvedThemeOption}

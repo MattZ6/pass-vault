@@ -32,7 +32,11 @@ export function NotesSection({ credentialId, notes }: Props) {
         <Section.Header.Title>{t("label")}</Section.Header.Title>
 
         <Link asChild href={`/credentials/${credentialId}/edit/notes`}>
-          <IconButton size={10} onPress={performTapFeedback}>
+          <IconButton
+            size={10}
+            accessibilityLabel={t("actions.edit.label")}
+            onPress={performTapFeedback}
+          >
             <SymbolView
               name={{ android: "edit" }}
               tintColor={theme.colors.content.element}

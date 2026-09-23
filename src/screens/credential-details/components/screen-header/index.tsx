@@ -1,5 +1,6 @@
 import { useRouter } from "expo-router";
 import { useCallback } from "react";
+import { useTranslation } from "react-i18next";
 
 import { SheetHeader } from "@/components/ui/sheet-header";
 
@@ -11,6 +12,7 @@ type Props = {
 
 export function ScreenHeader({ title }: Props) {
   const router = useRouter();
+  const { t: tCommon } = useTranslation("common", { keyPrefix: "actions" });
   const { performTapFeedback } = useHaptics();
 
   const handleBack = useCallback(() => {
@@ -28,6 +30,7 @@ export function ScreenHeader({ title }: Props) {
           onPress={handleBack}
           iosIcon="xmark"
           androidIcon="close"
+          accessibilityLabel={tCommon("close")}
         />
       </SheetHeader.LeftActions>
       <SheetHeader.Title>{title}</SheetHeader.Title>

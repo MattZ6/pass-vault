@@ -4,7 +4,15 @@
     "subtitle": "Ingresa tu contraseña maestra para desbloquear",
     "fields": {
       "password": {
-        "placeholder": "Contraseña maestra"
+        "placeholder": "Contraseña maestra",
+        "actions": {
+          "show": {
+            "label": "Mostrar contraseña"
+          },
+          "hide": {
+            "label": "Ocultar contraseña"
+          }
+        }
       }
     },
     "errors": {
@@ -13,6 +21,9 @@
     "actions": {
       "unlock": {
         "label": "Desbloquear"
+      },
+      "biometric": {
+        "label": "Desbloquear con biometría"
       }
     },
     "onboarding": {
@@ -26,7 +37,15 @@
       "form": {
         "fields": {
           "password": {
-            "placeholder": "Contraseña maestra"
+            "placeholder": "Contraseña maestra",
+            "actions": {
+              "show": {
+                "label": "Mostrar contraseña"
+              },
+              "hide": {
+                "label": "Ocultar contraseña"
+              }
+            }
           },
           "confirmPassword": {
             "placeholder": "Confirmar contraseña maestra"

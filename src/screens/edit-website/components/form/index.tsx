@@ -50,6 +50,7 @@ export function EditCredentialWebsiteForm({ credentialId, website }: Props) {
                 onChangeText={field.onChange}
                 value={field.value}
                 onBlur={field.onBlur}
+                accessibilityLabel={t("website.placeholder")}
                 placeholder={t("website.placeholder")}
                 placeholderTextColor={theme.colors.content.muted}
                 keyboardAppearance={resolvedThemeOption}

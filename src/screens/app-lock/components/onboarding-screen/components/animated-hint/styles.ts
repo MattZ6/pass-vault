@@ -16,7 +16,7 @@ export function getStyles(theme: Theme) {
     },
     icon: {
       width: theme.size[5],
-      color: theme.colors.content.muted,
+      color: theme.colors.content.element,
     },
   });
 }

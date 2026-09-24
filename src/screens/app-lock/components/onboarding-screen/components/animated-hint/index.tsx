@@ -17,7 +17,7 @@ const HINT_MOVING_AREA = 30;
 // Dragging forward (unlocking) moves the hint a lot less than dragging
 // backward does — the wheel itself is already carrying the motion forward,
 // the hint doesn't need to travel as far to read as "following along".
-const HINT_MOVING_AREA_FORWARD = 12;
+const HINT_MOVING_AREA_FORWARD = 30;
 
 // Unlike the wheel's own rotation, the hint never hard-stops: it keeps
 // drifting toward its area limit for as long as you keep dragging, just at a
@@ -47,9 +47,9 @@ export function AnimatedHint({ delay, children, translationX }: Props) {
     const panOffset =
       distance >= 0
         ? (distance / (distance + HINT_FORWARD_SOFTNESS)) *
-          HINT_MOVING_AREA_FORWARD
+        HINT_MOVING_AREA_FORWARD
         : -((-distance / (-distance + HINT_BACKWARD_SOFTNESS)) *
-            HINT_MOVING_AREA);
+          HINT_MOVING_AREA);
 
     return {
       opacity: interpolate(visibility.value, [0, 0.9], [0, 1]),
@@ -70,7 +70,7 @@ export function AnimatedHint({ delay, children, translationX }: Props) {
 
   return (
     <Animated.View style={[styles.container, animatedStyle]}>
-      <Text color="muted" style={[styles.text]}>
+      <Text color="element" style={[styles.text]}>
         {children}
       </Text>
 

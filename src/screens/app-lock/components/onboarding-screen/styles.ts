@@ -9,7 +9,7 @@ export function getStyles(theme: Theme, insets: EdgeInsets) {
       flex: 1,
       alignItems: "center",
       justifyContent: "center",
-      gap: theme.spacing[10],
+      gap: theme.spacing[12],
       backgroundColor: theme.colors.surface.base,
       paddingTop: insets.top + theme.spacing[4],
       paddingBottom: insets.bottom + theme.spacing[4],
@@ -26,15 +26,6 @@ export function getStyles(theme: Theme, insets: EdgeInsets) {
       textAlign: "center",
     },
     subtitle: {
-      textAlign: "center",
-    },
-    hint: {
-      flexDirection: "row",
-      alignItems: "center",
-      gap: theme.spacing[2],
-      height: theme.size[8],
-    },
-    hintText: {
       textAlign: "center",
     },
   });

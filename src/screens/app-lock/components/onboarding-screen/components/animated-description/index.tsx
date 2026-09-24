@@ -11,6 +11,7 @@ import {
   AnimatedText,
   type AnimatedTextProps,
 } from "@/components/ui/text/animated";
+
 import { SPRING_CONFIG } from "@/config/animations/spring";
 
 type Props = AnimatedTextProps & {
@@ -37,7 +38,7 @@ export function AnimatedDescription({ style, delay, ...props }: Props) {
 
   return (
     <AnimatedText
-      typography="subtitle"
+      typography="body"
       color="muted"
       {...props}
       style={[style, animatedStyle]}

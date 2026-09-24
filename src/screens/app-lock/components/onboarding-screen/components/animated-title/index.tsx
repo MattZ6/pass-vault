@@ -39,8 +39,8 @@ export function AnimatedTitle({ style, delay, ...props }: Props) {
   return (
     <AnimatedText
       key="animated-title"
-      weight="medium"
-      typography="title"
+      weight="semiBold"
+      typography="subtitle"
       {...props}
       style={[style, animatedStyle]}
     />

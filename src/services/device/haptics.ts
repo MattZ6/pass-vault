@@ -42,6 +42,14 @@ export const HapticsService = {
 
     play();
   },
+  performConfirmFeedback: () => {
+    const play = Platform.select({
+      android: Presets.System.impactSoft,
+      default: Presets.System.impactHeavy,
+    });
+
+    play();
+  },
   performSuccessNotificationFeedback: () => {
     Presets.System.notificationSuccess();
   },

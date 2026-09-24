@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import type { View } from "react-native";
 import Animated, {
   type AnimatedRef,
+  interpolate,
   type SharedValue,
   useAnimatedStyle,
   useSharedValue,
@@ -30,11 +31,11 @@ export function AnimatedLogo({ delay, rotation, wheelRef }: Props) {
   const animatedStyle = useAnimatedStyle(() => {
     return {
       opacity: visibility.value,
-      // transform: [
-      //   {
-      //     translateY: interpolate(visibility.value, [0, 1], [4, 0]),
-      //   },
-      // ],
+      transform: [
+        {
+          translateY: interpolate(visibility.value, [0, 1], [4, 0]),
+        },
+      ],
     };
   });
 

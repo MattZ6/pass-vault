@@ -5,7 +5,9 @@ import Animated, {
   useAnimatedStyle,
 } from "react-native-reanimated";
 import Svg, { Circle, Rect } from "react-native-svg";
+
 import { useStyles } from "@/hooks/use-styles";
+
 import { getStyles, getWheelGeometry } from "./styles";
 
 type Props = {
@@ -15,7 +17,7 @@ type Props = {
 
 export function VaultWheel({ wheelRef, rotation }: Props) {
   const { width, height } = useWindowDimensions();
-  const diameter = Math.round((Math.min(width, height) / 3) * 1.25);
+  const diameter = Math.round((Math.min(width, height) / 3) * 1.125);
   const { styles } = useStyles((theme) => getStyles(theme, diameter));
   const geometry = getWheelGeometry(diameter);
 

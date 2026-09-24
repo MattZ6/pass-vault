@@ -10,6 +10,10 @@ export const spacing = {
   8: 32,
   9: 36,
   10: 40,
+  11: 44,
+  12: 48,
+  13: 52,
+  14: 56,
 } as const;
 
 export type Spacing = typeof spacing;

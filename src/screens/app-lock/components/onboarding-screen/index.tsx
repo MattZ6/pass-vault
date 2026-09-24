@@ -18,7 +18,7 @@ type Props = {
   onOnboardingComplete: () => void;
 };
 
-const initialDelay = 400;
+const initialDelay = 200;
 const hintDelay = initialDelay * 6;
 
 export function OnboardingScreen({ onOnboardingComplete }: Props) {

@@ -1,15 +1,12 @@
 import { SymbolView } from "expo-symbols";
 import { useEffect } from "react";
-import { StyleSheet } from "react-native";
 import Animated, {
   interpolate,
   type SharedValue,
   useAnimatedStyle,
   useSharedValue,
-  withDelay,
   withSpring,
 } from "react-native-reanimated";
-import { scheduleOnRN } from "react-native-worklets";
 import { Text } from "@/components/ui/text";
 import { SPRING_CONFIG } from "@/config/animations/spring";
 import { useHaptics } from "@/hooks/use-haptics";
@@ -19,12 +16,12 @@ import { getStyles } from "./styles";
 const HINT_MOVING_AREA = 30;
 
 type Props = {
-  panTranslationX: SharedValue<number>;
+  progress: SharedValue<number>;
   children: string;
   delay?: number;
 };
 
-export function AnimatedHint({ delay, children, panTranslationX }: Props) {
+export function AnimatedHint({ delay, children, progress }: Props) {
   const visibility = useSharedValue(0);
   const { styles } = useStyles(getStyles);
   const { performSelectFeedback } = useHaptics();
@@ -37,9 +34,9 @@ export function AnimatedHint({ delay, children, panTranslationX }: Props) {
     );
 
     const panOffset = interpolate(
-      panTranslationX.value,
+      progress.value,
       [-1, 0, 1],
-      [-HINT_MOVING_AREA, 0, HINT_MOVING_AREA]
+      [-HINT_MOVING_AREA, 0, HINT_MOVING_AREA],
     );
 
     return {

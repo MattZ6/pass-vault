@@ -18,6 +18,9 @@ export const HapticsService = {
 
     play();
   },
+  performImpactFeedback: () => {
+    Presets.System.impactHeavy();
+  },
   performSuccessNotificationFeedback: () => {
     Presets.System.notificationSuccess();
   },

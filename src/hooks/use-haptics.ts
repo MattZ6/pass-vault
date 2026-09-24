@@ -23,6 +23,14 @@ export function useHaptics() {
     HapticsService.performSelectFeedback();
   }, [hapticsEnabled]);
 
+  const performImpactFeedback = useCallback(() => {
+    if (!hapticsEnabled) {
+      return;
+    }
+
+    HapticsService.performImpactFeedback();
+  }, [hapticsEnabled]);
+
   const notifySuccess = useCallback(() => {
     if (!hapticsEnabled) {
       return;
@@ -42,6 +50,7 @@ export function useHaptics() {
   return {
     performTapFeedback,
     performSelectFeedback,
+    performImpactFeedback,
     notifySuccess,
     notifyFailure,
   };

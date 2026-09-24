@@ -14,10 +14,10 @@ import { useAnnounceOnChange } from "@/hooks/use-announce-on-change";
 import { useHaptics } from "@/hooks/use-haptics";
 import { useStyles } from "@/hooks/use-styles";
 
-import type { VaultKey } from "@/services/vault/key";
-
 import type { SetupMasterPasswordSchemaType } from "@/screens/app-lock/components/setup-screen/hooks/schema";
 import { useSubmitSetupMasterPasswordForm } from "@/screens/app-lock/components/setup-screen/hooks/use-submit-setup-master-password-form";
+
+import type { VaultKey } from "@/services/vault/key";
 
 import { getStyles } from "./styles";
 
@@ -46,7 +46,8 @@ export function SetupMasterPasswordForm({ onSetupComplete }: Props) {
   }, [performTapFeedback, submit]);
 
   const showsMismatchError =
-    !form.formState.errors.password && Boolean(form.formState.errors.confirmPassword);
+    !form.formState.errors.password &&
+    Boolean(form.formState.errors.confirmPassword);
 
   const errorMessage = form.formState.errors.password
     ? t("form.errors.tooShort")

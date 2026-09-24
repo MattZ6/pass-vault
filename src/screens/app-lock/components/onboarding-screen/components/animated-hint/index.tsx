@@ -19,13 +19,19 @@ const HINT_MOVING_AREA = 30;
 // the hint doesn't need to travel as far to read as "following along".
 const HINT_MOVING_AREA_FORWARD = 12;
 
+// Unlike the wheel's own rotation, the hint never hard-stops: it keeps
+// drifting toward its area limit for as long as you keep dragging, just at a
+// diminishing rate. Smaller softness = the curve saturates sooner (heavier).
+const HINT_FORWARD_SOFTNESS = 90;
+const HINT_BACKWARD_SOFTNESS = 40;
+
 type Props = {
-  progress: SharedValue<number>;
+  translationX: SharedValue<number>;
   children: string;
   delay?: number;
 };
 
-export function AnimatedHint({ delay, children, progress }: Props) {
+export function AnimatedHint({ delay, children, translationX }: Props) {
   const visibility = useSharedValue(0);
   const { styles } = useStyles(getStyles);
   const { performSelectFeedback } = useHaptics();
@@ -37,11 +43,13 @@ export function AnimatedHint({ delay, children, progress }: Props) {
       [-HINT_MOVING_AREA, 0],
     );
 
-    const panOffset = interpolate(
-      progress.value,
-      [-1, 0, 1],
-      [-HINT_MOVING_AREA, 0, HINT_MOVING_AREA_FORWARD],
-    );
+    const distance = translationX.value;
+    const panOffset =
+      distance >= 0
+        ? (distance / (distance + HINT_FORWARD_SOFTNESS)) *
+          HINT_MOVING_AREA_FORWARD
+        : -((-distance / (-distance + HINT_BACKWARD_SOFTNESS)) *
+            HINT_MOVING_AREA);
 
     return {
       opacity: interpolate(visibility.value, [0, 0.9], [0, 1]),

@@ -19,11 +19,16 @@ export const HapticsService = {
     play();
   },
   performDragFeedback: () => {
-    Presets.System.impactLight();
+    const play = Platform.select({
+      android: Presets.System.Android.gestureStart,
+      default: Presets.System.impactLight,
+    });
+
+    play();
   },
   performReleaseFeedback: () => {
     const play = Platform.select({
-      android: Presets.System.Android.gestureEnd,
+      android: Presets.System.Android.release,
       default: Presets.System.impactSoft,
     });
 

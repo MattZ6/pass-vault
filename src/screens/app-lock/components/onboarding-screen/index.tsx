@@ -26,7 +26,7 @@ export function OnboardingScreen({ onOnboardingComplete }: Props) {
   const { styles } = useStyles((input) => getStyles(input, safeInsets));
   const { t } = useTranslation("app-lock", { keyPrefix: "screen.onboarding" });
 
-  const { wheelRef, rotation, progress, panGesture } = useVaultWheelGesture({
+  const { wheelRef, rotation, dragDistance, panGesture } = useVaultWheelGesture({
     onUnlocked: onOnboardingComplete,
     hintDelay,
   });
@@ -43,7 +43,7 @@ export function OnboardingScreen({ onOnboardingComplete }: Props) {
           <AnimatedDescription delay={initialDelay * 4} style={styles.title}>
             {t("subtitle")}
           </AnimatedDescription>
-          <AnimatedHint delay={hintDelay} progress={progress}>
+          <AnimatedHint delay={hintDelay} translationX={dragDistance}>
             {t("hint")}
           </AnimatedHint>
         </View>

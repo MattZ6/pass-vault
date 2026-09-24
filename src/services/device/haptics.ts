@@ -18,8 +18,24 @@ export const HapticsService = {
 
     play();
   },
+  performDragFeedback: () => {
+    Presets.System.impactLight();
+  },
+  performReleaseFeedback: () => {
+    const play = Platform.select({
+      android: Presets.System.Android.gestureEnd,
+      default: Presets.System.impactSoft,
+    });
+
+    play();
+  },
   performImpactFeedback: () => {
-    Presets.System.impactHeavy();
+    const play = Platform.select({
+      android: Presets.System.Android.confirm,
+      default: Presets.System.impactHeavy,
+    });
+
+    play();
   },
   performSuccessNotificationFeedback: () => {
     Presets.System.notificationSuccess();

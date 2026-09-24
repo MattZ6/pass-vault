@@ -19,7 +19,7 @@ const REST_ROTATION_DEG = -10;
 // How far right you need to drag to unlock. Rotation beyond rest ramps up
 // linearly with the drag and clamps here, so "fully rotated" and "far
 // enough to unlock" are the same point.
-const FORWARD_UNLOCK_DISTANCE = 96;
+const FORWARD_UNLOCK_DISTANCE = 150;
 const FORWARD_ROTATION_RANGE_DEG = 70;
 
 // Dragging left ("closing" the door further, back past rest) never unlocks
@@ -29,6 +29,11 @@ const FORWARD_ROTATION_RANGE_DEG = 70;
 // no matter how far you drag.
 const BACKWARD_ROTATION_RANGE_DEG = 10;
 const BACKWARD_RUBBER_DISTANCE = 50;
+
+// Fires a light tick every degree of rotation change while dragging, in
+// either direction — noticeably lighter than the release/unlock haptics
+// below, so it reads as "still turning" rather than another event.
+const HAPTIC_STEP_DEG = 1;
 
 type Input = {
   onUnlocked: () => void;
@@ -40,6 +45,7 @@ export function useVaultWheelGesture({ onUnlocked, hintDelay }: Input) {
   const rotation = useSharedValue(0);
   const hasUnlocked = useSharedValue(false);
   const hasInteracted = useSharedValue(false);
+  const lastHapticStep = useSharedValue(0);
 
   const { performDragFeedback, performReleaseFeedback, performImpactFeedback } =
     useHaptics();
@@ -49,7 +55,7 @@ export function useVaultWheelGesture({ onUnlocked, hintDelay }: Input) {
     .failOffsetY([-10, 10])
     .onStart(() => {
       hasInteracted.value = true;
-      scheduleOnRN(performDragFeedback);
+      lastHapticStep.value = 0;
     })
     .onUpdate((event) => {
       if (hasUnlocked.value) {
@@ -69,6 +75,15 @@ export function useVaultWheelGesture({ onUnlocked, hintDelay }: Input) {
           distance / (distance + BACKWARD_RUBBER_DISTANCE);
         rotation.value =
           REST_ROTATION_DEG + rubberBandFactor * BACKWARD_ROTATION_RANGE_DEG;
+      }
+
+      const step = Math.floor(
+        Math.abs(rotation.value - REST_ROTATION_DEG) / HAPTIC_STEP_DEG,
+      );
+
+      if (step !== lastHapticStep.value) {
+        lastHapticStep.value = step;
+        scheduleOnRN(performDragFeedback);
       }
     })
     .onEnd((event) => {

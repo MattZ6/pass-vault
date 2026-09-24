@@ -14,6 +14,10 @@ import { useStyles } from "@/hooks/use-styles";
 import { getStyles } from "./styles";
 
 const HINT_MOVING_AREA = 30;
+// Dragging forward (unlocking) moves the hint a lot less than dragging
+// backward does — the wheel itself is already carrying the motion forward,
+// the hint doesn't need to travel as far to read as "following along".
+const HINT_MOVING_AREA_FORWARD = 12;
 
 type Props = {
   progress: SharedValue<number>;
@@ -36,7 +40,7 @@ export function AnimatedHint({ delay, children, progress }: Props) {
     const panOffset = interpolate(
       progress.value,
       [-1, 0, 1],
-      [-HINT_MOVING_AREA, 0, HINT_MOVING_AREA],
+      [-HINT_MOVING_AREA, 0, HINT_MOVING_AREA_FORWARD],
     );
 
     return {

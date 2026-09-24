@@ -1,5 +1,5 @@
-import { Gesture } from "react-native-gesture-handler";
 import type { View } from "react-native";
+import { Gesture } from "react-native-gesture-handler";
 import {
   measure,
   runOnJS,

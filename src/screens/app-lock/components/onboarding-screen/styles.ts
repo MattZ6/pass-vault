@@ -8,25 +8,25 @@ export function getStyles(theme: Theme, insets: EdgeInsets) {
     container: {
       flex: 1,
       alignItems: "center",
-      justifyContent: "space-between",
+      justifyContent: "center",
+      gap: theme.spacing[10],
       backgroundColor: theme.colors.surface.base,
-      paddingTop: insets.top + theme.spacing[8],
-      paddingBottom: insets.bottom + theme.spacing[8],
+      paddingTop: insets.top + theme.spacing[4],
+      paddingBottom: insets.bottom + theme.spacing[4],
       paddingHorizontal: theme.spacing[6],
     },
-    header: {
-      gap: theme.spacing[2],
+    wheelContainer: {
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    content: {
+      gap: theme.spacing[4],
     },
     title: {
       textAlign: "center",
     },
     subtitle: {
       textAlign: "center",
-    },
-    wheelContainer: {
-      flex: 1,
-      alignItems: "center",
-      justifyContent: "center",
     },
     hint: {
       flexDirection: "row",

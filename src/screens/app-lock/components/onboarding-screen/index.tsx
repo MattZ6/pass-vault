@@ -14,16 +14,18 @@ import { Text } from "@/components/ui/text";
 
 import { useHaptics } from "@/hooks/use-haptics";
 import { useStyles } from "@/hooks/use-styles";
-
-import { VaultWheel } from "./components/wheel";
-
+import { AnimatedDescription } from "./components/animated-description";
+import { AnimatedHint } from "./components/animated-hint";
+import { AnimatedLogo } from "./components/animated-logo";
+import { AnimatedTitle } from "./components/animated-title";
 import { useVaultWheelGesture } from "./hooks/use-vault-wheel-gesture";
-
 import { getStyles } from "./styles";
 
 type Props = {
   onOnboardingComplete: () => void;
 };
+
+const initialDelay = 400;
 
 export function OnboardingScreen({ onOnboardingComplete }: Props) {
   const safeInsets = useSafeAreaInsets();
@@ -52,30 +54,19 @@ export function OnboardingScreen({ onOnboardingComplete }: Props) {
   return (
     <GestureDetector gesture={panGesture}>
       <View style={styles.container}>
-        <View style={styles.header}>
-          <Text weight="bold" typography="title" style={styles.title}>
+        <AnimatedLogo delay={initialDelay} wheelRef={wheelRef} rotation={rotation} />
+
+        <View style={styles.content}>
+          <AnimatedTitle delay={initialDelay * 2} style={styles.title}>
             {t("title")}
-          </Text>
-
-          <Text color="muted" style={styles.subtitle}>
+          </AnimatedTitle>
+          <AnimatedDescription delay={initialDelay * 4} style={styles.title}>
             {t("subtitle")}
-          </Text>
-        </View>
-
-        <View style={styles.wheelContainer}>
-          <VaultWheel wheelRef={wheelRef} rotation={rotation} />
-        </View>
-
-        <Animated.View style={[styles.hint, animatedHintStyle]}>
-          <Text color="muted" style={styles.hintText}>
+          </AnimatedDescription>
+          <AnimatedHint delay={initialDelay * 6} panTranslationX={rotation}>
             {t("hint")}
-          </Text>
-
-          <SymbolView
-            name={{ android: "arrow_forward", ios: "arrow.right" }}
-            tintColor={theme.colors.content.muted}
-          />
-        </Animated.View>
+          </AnimatedHint>
+        </View>
       </View>
     </GestureDetector>
   );

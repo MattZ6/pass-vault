@@ -7,7 +7,7 @@ export function getStyles(theme: Theme, insets: EdgeInsets) {
   return StyleSheet.create({
     container: {
       flex: 1,
-      alignItems: "center",
+      alignItems: "stretch",
       justifyContent: "center",
       gap: theme.spacing[12],
       backgroundColor: theme.colors.surface.base,
@@ -15,18 +15,14 @@ export function getStyles(theme: Theme, insets: EdgeInsets) {
       paddingBottom: insets.bottom + theme.spacing[4],
       paddingHorizontal: theme.spacing[6],
     },
-    wheelContainer: {
-      alignItems: "center",
-      justifyContent: "center",
-    },
     content: {
       gap: theme.spacing[4],
     },
     title: {
-      textAlign: "center",
+      textAlign: "left",
     },
     subtitle: {
-      textAlign: "center",
+      textAlign: "left",
     },
   });
 }

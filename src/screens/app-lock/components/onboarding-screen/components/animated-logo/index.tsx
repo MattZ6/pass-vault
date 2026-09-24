@@ -1,18 +1,9 @@
-import { useEffect } from "react";
 import type { View } from "react-native";
-import Animated, {
-  type AnimatedRef,
-  interpolate,
-  type SharedValue,
-  useAnimatedStyle,
-  useSharedValue,
-  withDelay,
-  withSpring,
-} from "react-native-reanimated";
-
-import { SPRING_CONFIG } from "@/config/animations/spring";
+import Animated, { type AnimatedRef, type SharedValue } from "react-native-reanimated";
 
 import { useStyles } from "@/hooks/use-styles";
+
+import { useRevealAnimation } from "../../hooks/use-reveal-animation";
 
 import { VaultWheel } from "./components/wheel";
 
@@ -25,26 +16,11 @@ type Props = {
 };
 
 export function AnimatedLogo({ delay, rotation, wheelRef }: Props) {
-  const visibility = useSharedValue(0);
   const { styles } = useStyles(getStyles);
-
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      opacity: visibility.value,
-      transform: [
-        {
-          translateY: interpolate(visibility.value, [0, 1], [4, 0]),
-        },
-      ],
-    };
-  });
-
-  useEffect(() => {
-    visibility.value = withDelay(delay ?? 0, withSpring(1, SPRING_CONFIG));
-  }, [visibility, delay]);
+  const animatedStyle = useRevealAnimation(delay);
 
   return (
-    <Animated.View key="animated-logo" style={[styles.container, animatedStyle]}>
+    <Animated.View style={[styles.container, animatedStyle]}>
       <VaultWheel wheelRef={wheelRef} rotation={rotation} />
     </Animated.View>
   );

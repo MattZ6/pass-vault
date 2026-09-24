@@ -40,7 +40,7 @@ export function OnboardingScreen({ onOnboardingComplete }: Props) {
           <AnimatedTitle delay={initialDelay * 2} style={styles.title}>
             {t("title")}
           </AnimatedTitle>
-          <AnimatedDescription delay={initialDelay * 4} style={styles.title}>
+          <AnimatedDescription delay={initialDelay * 4} style={styles.subtitle}>
             {t("subtitle")}
           </AnimatedDescription>
           <AnimatedHint delay={hintDelay} translationX={dragDistance}>

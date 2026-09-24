@@ -9,8 +9,8 @@ export function getStyles(theme: Theme, insets: EdgeInsets) {
       flex: 1,
       backgroundColor: theme.colors.surface.base,
     },
-    content: {
-      flex: 1,
+    scrollContainer: {
+      flexGrow: 1,
       justifyContent: "center",
       gap: theme.spacing[8],
       paddingTop: insets.top + theme.spacing[6],

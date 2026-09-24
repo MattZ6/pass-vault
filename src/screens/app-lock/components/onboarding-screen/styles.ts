@@ -19,10 +19,10 @@ export function getStyles(theme: Theme, insets: EdgeInsets) {
       gap: theme.spacing[4],
     },
     title: {
-      textAlign: "left",
+      textAlign: "center",
     },
     subtitle: {
-      textAlign: "left",
+      textAlign: "center",
     },
   });
 }

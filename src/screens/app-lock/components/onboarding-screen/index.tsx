@@ -37,10 +37,18 @@ export function OnboardingScreen({ onOnboardingComplete }: Props) {
         <AnimatedLogo delay={initialDelay} wheelRef={wheelRef} rotation={rotation} />
 
         <View style={styles.content}>
-          <AnimatedTitle delay={initialDelay * 2} style={styles.title}>
+          <AnimatedTitle
+            delay={initialDelay * 2}
+            style={styles.title}
+            textBreakStrategy="balanced"
+          >
             {t("title")}
           </AnimatedTitle>
-          <AnimatedDescription delay={initialDelay * 4} style={styles.subtitle}>
+          <AnimatedDescription
+            delay={initialDelay * 4}
+            style={styles.subtitle}
+            textBreakStrategy="balanced"
+          >
             {t("subtitle")}
           </AnimatedDescription>
           <AnimatedHint delay={hintDelay} translationX={dragDistance}>

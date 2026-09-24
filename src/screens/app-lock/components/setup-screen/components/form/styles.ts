@@ -21,6 +21,9 @@ export function getStyles(theme: Theme) {
     divider: {
       marginLeft: theme.spacing[4],
     },
+    error: {
+      textAlign: "center",
+    },
     buttonWrapper: {
       height: theme.size[11],
       borderRadius: theme.radii[6],

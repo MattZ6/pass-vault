@@ -3,7 +3,7 @@ import {
   type AnimatedTextProps,
 } from "@/components/ui/text/animated";
 
-import { useRevealAnimation } from "../../hooks/use-reveal-animation";
+import { useRevealAnimation } from "@/hooks/use-reveal-animation";
 
 type Props = AnimatedTextProps & {
   delay?: number;

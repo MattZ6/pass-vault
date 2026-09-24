@@ -1,9 +1,8 @@
 import type { View } from "react-native";
 import Animated, { type AnimatedRef, type SharedValue } from "react-native-reanimated";
 
+import { useRevealAnimation } from "@/hooks/use-reveal-animation";
 import { useStyles } from "@/hooks/use-styles";
-
-import { useRevealAnimation } from "../../hooks/use-reveal-animation";
 
 import { VaultWheel } from "./components/wheel";
 

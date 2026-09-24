@@ -48,13 +48,15 @@ export function SetupMasterPasswordForm({ onSetupComplete }: Props) {
   const showsMismatchError =
     !form.formState.errors.password && Boolean(form.formState.errors.confirmPassword);
 
-  useAnnounceOnChange(
-    form.formState.errors.password ? t("form.errors.tooShort") : undefined,
-  );
-  useAnnounceOnChange(
-    showsMismatchError ? t("form.errors.mismatch") : undefined,
-  );
-  useAnnounceOnChange(hasFailed ? t("form.errors.setupFailed") : undefined);
+  const errorMessage = form.formState.errors.password
+    ? t("form.errors.tooShort")
+    : showsMismatchError
+      ? t("form.errors.mismatch")
+      : hasFailed
+        ? t("form.errors.setupFailed")
+        : undefined;
+
+  useAnnounceOnChange(errorMessage);
 
   return (
     <View style={styles.container}>
@@ -162,33 +164,14 @@ export function SetupMasterPasswordForm({ onSetupComplete }: Props) {
           />
         </Card>
 
-        {form.formState.errors.password && (
+        {errorMessage && (
           <Text
             color="error"
             typography="bodySmall"
+            style={styles.error}
             accessibilityLiveRegion="polite"
           >
-            {t("form.errors.tooShort")}
-          </Text>
-        )}
-
-        {showsMismatchError && (
-          <Text
-            color="error"
-            typography="bodySmall"
-            accessibilityLiveRegion="polite"
-          >
-            {t("form.errors.mismatch")}
-          </Text>
-        )}
-
-        {hasFailed && (
-          <Text
-            color="error"
-            typography="bodySmall"
-            accessibilityLiveRegion="polite"
-          >
-            {t("form.errors.setupFailed")}
+            {errorMessage}
           </Text>
         )}
       </Section.Root>

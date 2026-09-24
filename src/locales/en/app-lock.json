@@ -28,8 +28,8 @@
     },
     "onboarding": {
       "title": "Welcome to Pass Vault",
-      "subtitle": "Everything you store here stays encrypted, offline, and only ever accessible by you.",
-      "hint": "Turn to unlock"
+      "subtitle": "Private, encrypted and offline-first password manager.",
+      "hint": "Swipe to unlock"
     },
     "setup": {
       "title": "Protect your vault",

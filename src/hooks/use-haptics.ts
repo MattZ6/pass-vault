@@ -23,6 +23,38 @@ export function useHaptics() {
     HapticsService.performSelectFeedback();
   }, [hapticsEnabled]);
 
+  const performDragFeedback = useCallback(() => {
+    if (!hapticsEnabled) {
+      return;
+    }
+
+    HapticsService.performDragFeedback();
+  }, [hapticsEnabled]);
+
+  const performReleaseFeedback = useCallback(() => {
+    if (!hapticsEnabled) {
+      return;
+    }
+
+    HapticsService.performReleaseFeedback();
+  }, [hapticsEnabled]);
+
+  const performImpactFeedback = useCallback(() => {
+    if (!hapticsEnabled) {
+      return;
+    }
+
+    HapticsService.performImpactFeedback();
+  }, [hapticsEnabled]);
+
+  const performConfirmFeedback = useCallback(() => {
+    if (!hapticsEnabled) {
+      return;
+    }
+
+    HapticsService.performConfirmFeedback();
+  }, [hapticsEnabled]);
+
   const notifySuccess = useCallback(() => {
     if (!hapticsEnabled) {
       return;
@@ -42,6 +74,10 @@ export function useHaptics() {
   return {
     performTapFeedback,
     performSelectFeedback,
+    performDragFeedback,
+    performReleaseFeedback,
+    performImpactFeedback,
+    performConfirmFeedback,
     notifySuccess,
     notifyFailure,
   };

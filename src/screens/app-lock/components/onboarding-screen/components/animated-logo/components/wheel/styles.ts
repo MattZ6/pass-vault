@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+import type { Theme } from "@/styles/themes/types";
+
 // Ratios lifted directly from the source icon (614x614 viewBox, center at
 // 307,307): stroke width 8, body rect x/y 4 rx 124, door rect x/y 60 rx 92,
 // ring r 120, hub r 64, each spoke bar 28 thick spanning the full width/
@@ -97,8 +99,14 @@ export function getWheelGeometry(size: number) {
   };
 }
 
-export function getStyles(size: number) {
+export function getStyles(theme: Theme, size: number) {
   return StyleSheet.create({
+    stroke: {
+      color: theme.colors.content.element,
+    },
+    fill: {
+      color: theme.colors.surface.base,
+    },
     container: {
       width: size,
       height: size,

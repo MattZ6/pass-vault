@@ -6,7 +6,7 @@ import Animated, {
 } from "react-native-reanimated";
 import Svg, { Circle, Rect } from "react-native-svg";
 
-import { useTheme } from "@/hooks/use-theme";
+import { useStyles } from "@/hooks/use-styles";
 
 import { getStyles, getWheelGeometry } from "./styles";
 
@@ -15,20 +15,11 @@ type Props = {
   rotation: SharedValue<number>;
 };
 
-// Vault icon, drawn flat with no baked-in lighting so it keeps reading
-// correctly at any rotation. The body/door/hinges stay put; only the ring +
-// crossbars + hub (the "tampa" you turn) rotate with the drag gesture, so
-// they're a separate layer stacked on top rather than part of the same Svg.
-// See components/wheel/styles.ts for where the geometry ratios come from.
 export function VaultWheel({ wheelRef, rotation }: Props) {
   const { width, height } = useWindowDimensions();
-  const diameter = Math.round(Math.min(width, height) * 0.55);
-  const { theme } = useTheme();
-  const styles = getStyles(diameter);
+  const diameter = Math.round((Math.min(width, height) / 3) * 1.125);
+  const { styles } = useStyles((theme) => getStyles(theme, diameter));
   const geometry = getWheelGeometry(diameter);
-
-  const strokeColor = theme.colors.content.element.toString();
-  const punchThroughColor = theme.colors.surface.base.toString();
 
   const animatedWheelStyle = useAnimatedStyle(() => ({
     transform: [{ rotate: `${rotation.value}deg` }],
@@ -49,7 +40,7 @@ export function VaultWheel({ wheelRef, rotation }: Props) {
           height={geometry.body.size}
           rx={geometry.body.radius}
           fill="none"
-          stroke={strokeColor}
+          stroke={styles.stroke.color}
           strokeWidth={geometry.strokeWidth}
         />
 
@@ -60,7 +51,7 @@ export function VaultWheel({ wheelRef, rotation }: Props) {
           height={geometry.door.size}
           rx={geometry.door.radius}
           fill="none"
-          stroke={strokeColor}
+          stroke={styles.stroke.color}
           strokeWidth={geometry.strokeWidth}
         />
 
@@ -72,8 +63,8 @@ export function VaultWheel({ wheelRef, rotation }: Props) {
             width={hinge.width}
             height={hinge.height}
             rx={hinge.radius}
-            fill={punchThroughColor}
-            stroke={strokeColor}
+            fill={styles.fill.color}
+            stroke={styles.stroke.color}
             strokeWidth={geometry.strokeWidth}
           />
         ))}
@@ -89,8 +80,8 @@ export function VaultWheel({ wheelRef, rotation }: Props) {
             cx={geometry.center}
             cy={geometry.center}
             r={geometry.ring.radius}
-            fill={punchThroughColor}
-            stroke={strokeColor}
+            fill={styles.fill.color}
+            stroke={styles.stroke.color}
             strokeWidth={geometry.strokeWidth}
           />
 
@@ -100,8 +91,8 @@ export function VaultWheel({ wheelRef, rotation }: Props) {
             width={geometry.horizontalBar.width}
             height={geometry.horizontalBar.height}
             rx={geometry.horizontalBar.radius}
-            fill={punchThroughColor}
-            stroke={strokeColor}
+            fill={styles.fill.color}
+            stroke={styles.stroke.color}
             strokeWidth={geometry.strokeWidth}
           />
 
@@ -111,8 +102,8 @@ export function VaultWheel({ wheelRef, rotation }: Props) {
             width={geometry.verticalBar.width}
             height={geometry.verticalBar.height}
             rx={geometry.verticalBar.radius}
-            fill={punchThroughColor}
-            stroke={strokeColor}
+            fill={styles.fill.color}
+            stroke={styles.stroke.color}
             strokeWidth={geometry.strokeWidth}
           />
 
@@ -120,8 +111,8 @@ export function VaultWheel({ wheelRef, rotation }: Props) {
             cx={geometry.center}
             cy={geometry.center}
             r={geometry.hub.radius}
-            fill={punchThroughColor}
-            stroke={strokeColor}
+            fill={styles.fill.color}
+            stroke={styles.stroke.color}
             strokeWidth={geometry.strokeWidth}
           />
         </Svg>

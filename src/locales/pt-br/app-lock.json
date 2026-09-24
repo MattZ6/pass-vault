@@ -28,8 +28,8 @@
     },
     "onboarding": {
       "title": "Bem-vindo ao Pass Vault",
-      "subtitle": "Tudo que você guardar aqui fica criptografado, offline, e acessível só por você.",
-      "hint": "Gire para desbloquear"
+      "subtitle": "Gerenciador de senhas privado, criptografado e 100% offline.",
+      "hint": "Deslize para desbloquear"
     },
     "setup": {
       "title": "Proteja seu cofre",

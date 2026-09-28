@@ -102,10 +102,10 @@ const variantConfig = {
       },
       ios: {
         light: {
-          imagePath: "./assets/variants/preview/ios-light-icon.png",
+          imagePath: "./assets/variants/preview/ios-icon-light.png",
         },
         dark: {
-          imagePath: "./assets/variants/preview/ios-dark-icon.png",
+          imagePath: "./assets/variants/preview/ios-icon-dark.png",
         },
         tinted: {
           imagePath: "./assets/variants/ios-tinted-icon.png",
@@ -154,10 +154,10 @@ const variantConfig = {
       },
       ios: {
         light: {
-          imagePath: "./assets/variants/production/ios-light-icon.png",
+          imagePath: "./assets/variants/production/ios-icon-light.png",
         },
         dark: {
-          imagePath: "./assets/variants/production/ios-dark-icon.png",
+          imagePath: "./assets/variants/production/ios-icon-dark.png",
         },
         tinted: {
           imagePath: "./assets/variants/ios-tinted-icon.png",
@@ -200,6 +200,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     },
     infoPlist: {
       CFBundleAllowMixedLocalizations: true,
+      ITSAppUsesNonExemptEncryption: false,
     },
   },
 

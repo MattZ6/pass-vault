@@ -31,7 +31,9 @@ export function ExploreSection() {
         <Button onPress={handleOpenPlayStore}>
           <Section.Item.Root>
             <Section.Item.Leading>
-              <Section.Item.Leading.Icon name={{ android: "shop" }} />
+              <Section.Item.Leading.Icon
+                name={{ android: "shop", ios: "storefront" }}
+              />
             </Section.Item.Leading>
             <Section.Item.Content>
               <Section.Item.Content.Title>
@@ -42,7 +44,9 @@ export function ExploreSection() {
               </Section.Item.Content.Description>
             </Section.Item.Content>
             <Section.Item.Trailing>
-              <Section.Item.Trailing.Icon name={{ android: "arrow_outward" }} />
+              <Section.Item.Trailing.Icon
+                name={{ android: "arrow_outward", ios: "arrow.up.right" }}
+              />
             </Section.Item.Trailing>
           </Section.Item.Root>
         </Button>

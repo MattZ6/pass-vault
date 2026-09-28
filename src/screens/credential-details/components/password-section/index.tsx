@@ -82,7 +82,7 @@ export function PasswordSection({ credentialId }: Props) {
             onPress={performTapFeedback}
           >
             <SymbolView
-              name={{ android: "edit" }}
+              name={{ android: "edit", ios: "pencil" }}
               tintColor={theme.colors.content.element}
             />
           </IconButton>
@@ -105,6 +105,7 @@ export function PasswordSection({ credentialId }: Props) {
                 <SymbolView
                   name={{
                     android: password ? "visibility_off" : "visibility",
+                    ios: password ? "eye.slash" : "eye",
                   }}
                   tintColor={theme.colors.content.base}
                 />

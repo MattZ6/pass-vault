@@ -51,7 +51,7 @@ export function CredentialSection({
                 onPress={performTapFeedback}
               >
                 <SymbolView
-                  name={{ android: "edit" }}
+                  name={{ android: "edit", ios: "pencil" }}
                   tintColor={theme.colors.content.element}
                 />
               </IconButton>
@@ -79,7 +79,7 @@ export function CredentialSection({
                 onPress={performTapFeedback}
               >
                 <SymbolView
-                  name={{ android: "edit" }}
+                  name={{ android: "edit", ios: "pencil" }}
                   tintColor={theme.colors.content.element}
                 />
               </IconButton>
@@ -111,7 +111,10 @@ export function CredentialSection({
                 onPress={performTapFeedback}
               >
                 <SymbolView
-                  name={{ android: website ? "edit" : "add" }}
+                  name={{
+                    android: website ? "edit" : "add",
+                    ios: website ? "pencil" : "plus",
+                  }}
                   tintColor={theme.colors.content.element}
                 />
               </IconButton>

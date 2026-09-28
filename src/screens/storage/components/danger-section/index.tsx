@@ -57,7 +57,7 @@ export function DangerSection() {
 
             <Section.Item.Trailing>
               <Section.Item.Trailing.Icon
-                name={{ android: "delete" }}
+                name={{ android: "delete", ios: "trash" }}
                 color="error"
               />
             </Section.Item.Trailing>

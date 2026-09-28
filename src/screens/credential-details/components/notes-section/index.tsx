@@ -38,7 +38,7 @@ export function NotesSection({ credentialId, notes }: Props) {
             onPress={performTapFeedback}
           >
             <SymbolView
-              name={{ android: "edit" }}
+              name={{ android: "edit", ios: "pencil" }}
               tintColor={theme.colors.content.element}
             />
           </IconButton>

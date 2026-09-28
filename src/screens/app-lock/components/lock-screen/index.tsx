@@ -123,7 +123,7 @@ export function LockScreen({ onUnlock }: Props) {
           style={styles.iconContainer}
         >
           <SymbolView
-            name={{ android: "lock" }}
+            name={{ android: "lock", ios: "lock.fill" }}
             size={theme.size[10]}
             tintColor={theme.colors.content.base}
           />
@@ -179,7 +179,10 @@ export function LockScreen({ onUnlock }: Props) {
                 onPress={handleToggleVisibility}
               >
                 <SymbolView
-                  name={{ android: visible ? "visibility_off" : "visibility" }}
+                  name={{
+                    android: visible ? "visibility_off" : "visibility",
+                    ios: visible ? "eye.slash" : "eye",
+                  }}
                   tintColor={theme.colors.content.element}
                 />
               </IconButton>

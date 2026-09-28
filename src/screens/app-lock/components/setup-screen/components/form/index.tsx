@@ -114,7 +114,10 @@ export function SetupMasterPasswordForm({ onSetupComplete }: Props) {
               onPress={handleToggleVisibility}
             >
               <SymbolView
-                name={{ android: visible ? "visibility_off" : "visibility" }}
+                name={{
+                  android: visible ? "visibility_off" : "visibility",
+                  ios: visible ? "eye.slash" : "eye",
+                }}
                 tintColor={theme.colors.content.element}
               />
             </IconButton>

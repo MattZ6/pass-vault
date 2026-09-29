@@ -9,18 +9,11 @@ type GetStorageInput = Pick<Configuration, "id" | "compareBeforeSet">;
 async function createEncryptedStorage(configuration: GetStorageInput) {
   const { serialized } = await VaultKeyService.getVaultKey();
 
-  // AES-128 (not AES-256) is this library's own default
-  // (`config.encryptionType.value_or(EncryptionType::AES_128)` in its
-  // HybridMMKV.cpp) — the better-trodden path in a native module this
-  // new. `encryptionKey` must be at most 16 bytes for AES-128. Every
-  // base64 character is a single ASCII byte, so slicing to 16 characters
-  // is exactly 16 bytes once it crosses the JSI bridge (which encodes
-  // strings as UTF-8), with no risk of the encoding inflating it.
-  const encryptionKey = serialized.slice(0, 16);
+  const encryptionKey = serialized.slice(0, 32);
 
   return createMMKV({
     ...configuration,
-    encryptionType: "AES-128",
+    encryptionType: "AES-256",
     encryptionKey,
   });
 }

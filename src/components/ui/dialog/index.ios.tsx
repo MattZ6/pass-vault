@@ -1,20 +1,10 @@
-import { Alert, Button as SwiftUIButton, Host } from "@expo/ui/swift-ui";
+import { Alert, Host, Button as SwiftUIButton, Text as SwiftUIText } from "@expo/ui/swift-ui";
 import { useCallback } from "react";
-import { View } from "react-native";
 
 import { useHaptics } from "@/hooks/use-haptics";
 import { useTheme } from "@/hooks/use-theme";
 
-type Props = {
-  isOpen: boolean;
-  title: string;
-  description?: string;
-  confirmLabel: string;
-  cancelLabel?: string;
-  destructive?: boolean;
-  onConfirm: () => void;
-  onCancel?: () => void;
-};
+import type { DialogProps } from "./types";
 
 export function Dialog({
   isOpen,
@@ -25,7 +15,7 @@ export function Dialog({
   onCancel,
   confirmLabel,
   onConfirm,
-}: Props) {
+}: DialogProps) {
   const { resolvedThemeOption } = useTheme();
   const { performTapFeedback } = useHaptics();
 
@@ -45,9 +35,6 @@ export function Dialog({
     }
   }, [performTapFeedback, onConfirm]);
 
-  // SwiftUI's alert() modifier attaches to an anchor view rather than
-  // mounting on demand, so the trigger stays in the tree as an invisible
-  // 0x0 view and `isPresented` alone drives visibility.
   return (
     <Host matchContents colorScheme={resolvedThemeOption}>
       <Alert
@@ -60,10 +47,16 @@ export function Dialog({
         }}
       >
         <Alert.Trigger>
-          <View />
+          <SwiftUIButton
+            onPress={() => { }}
+          />
         </Alert.Trigger>
 
-        {description && <Alert.Message>{description}</Alert.Message>}
+        {description && (
+          <Alert.Message>
+            <SwiftUIText>{description}</SwiftUIText>
+          </Alert.Message>
+        )}
 
         <Alert.Actions>
           {cancelLabel && (

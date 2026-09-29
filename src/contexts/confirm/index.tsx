@@ -1,6 +1,6 @@
 import { createContext, useCallback, useMemo, useState } from "react";
 
-import { Dialog } from "@/components/ui/dialog/index";
+import { Dialog } from "@/components/ui/dialog";
 
 import type {
   ConfirmDialogContextTypes as ContextTypes,

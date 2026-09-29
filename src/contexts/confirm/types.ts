@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { DialogIcon } from "@/components/ui/dialog";
+import type { DialogIcon } from "@/components/ui/dialog/types";
 
 export namespace ConfirmDialogContextTypes {
   export type DialogState = {

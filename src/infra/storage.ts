@@ -2,17 +2,11 @@ import { type Configuration, createMMKV, type MMKV } from "react-native-mmkv";
 
 import { VaultKeyService } from "@/services/vault/key";
 
-const storageInstances = new Map<string, MMKV>();
+const storageInstances = new Map<string, Promise<MMKV>>();
 
 type GetStorageInput = Pick<Configuration, "id" | "compareBeforeSet">;
 
-export async function getEncryptedStorage(configuration: GetStorageInput) {
-  const cached = storageInstances.get(configuration.id);
-
-  if (cached) {
-    return cached;
-  }
-
+async function createEncryptedStorage(configuration: GetStorageInput) {
   const { serialized } = await VaultKeyService.getVaultKey();
 
   // MMKV rejects an AES-256 `encryptionKey` longer than 32 bytes.
@@ -24,13 +18,30 @@ export async function getEncryptedStorage(configuration: GetStorageInput) {
   // inflating it further.
   const encryptionKey = serialized.slice(0, 32);
 
-  const storage = createMMKV({
+  return createMMKV({
     ...configuration,
     encryptionType: "AES-256",
     encryptionKey,
   });
+}
 
-  storageInstances.set(configuration.id, storage);
+export function getEncryptedStorage(configuration: GetStorageInput) {
+  const cached = storageInstances.get(configuration.id);
 
-  return storage;
+  if (cached) {
+    return cached;
+  }
+
+  // Cache the in-flight promise itself, not just its resolved value:
+  // loadCredentialsIntoStore() reads meta size/contents through
+  // Promise.all, which calls this twice for the same id before either
+  // call's first await resolves. Caching only the resolved MMKV instance
+  // left both calls racing past the "not cached yet" check and each
+  // constructing (and registering) their own native MMKV instance for
+  // the same id.
+  const storagePromise = createEncryptedStorage(configuration);
+
+  storageInstances.set(configuration.id, storagePromise);
+
+  return storagePromise;
 }

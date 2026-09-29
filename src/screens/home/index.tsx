@@ -6,7 +6,7 @@ import { useObserve } from "expo-observe";
 import { Stack } from "expo-router";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Platform } from "react-native";
+import { Alert, Platform } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useStyles } from "@/hooks/use-styles";
@@ -35,7 +35,16 @@ export function HomeScreen() {
   };
 
   useEffect(() => {
-    VaultService.loadCredentialsIntoStore();
+    VaultService.loadCredentialsIntoStore().catch((error) => {
+      // TODO: replace this with real error handling once we know what,
+      // if anything, can actually fail here — this is temporarily loud on
+      // purpose so a failure is visible without a debugger attached.
+      console.error(error);
+      Alert.alert(
+        "loadCredentialsIntoStore failed",
+        error instanceof Error ? `${error.name}: ${error.message}` : String(error),
+      );
+    });
   }, []);
 
   useEffect(() => {

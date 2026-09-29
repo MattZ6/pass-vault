@@ -23,7 +23,7 @@ export function DeviceSection() {
             </Section.Item.Content.Title>
           </Section.Item.Content>
           <Section.Item.Trailing>
-            <Text>{DeviceService.manufacturer}</Text>
+            <Text color="muted">{DeviceService.manufacturer}</Text>
           </Section.Item.Trailing>
         </Section.Item.Root>
 
@@ -36,7 +36,7 @@ export function DeviceSection() {
             </Section.Item.Content.Title>
           </Section.Item.Content>
           <Section.Item.Trailing>
-            <Text>{DeviceService.modelName}</Text>
+            <Text color="muted">{DeviceService.modelName}</Text>
           </Section.Item.Trailing>
         </Section.Item.Root>
       </Card>

@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 
 import { Card } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
-
+import { DeviceService } from "@/services/device/device";
 import { MenuItem } from "../menu-item";
 
 export function DiagnosticsSection() {
@@ -20,7 +20,7 @@ export function DiagnosticsSection() {
         <MenuItem
           title={t("fields.application.label")}
           href="/settings/application"
-          leadingIcon={{ ios: "iphone", android: "hexagon" }}
+          leadingIcon={{ ios: "info.circle", android: "hexagon" }}
         />
 
         <Section.Divider />
@@ -28,7 +28,10 @@ export function DiagnosticsSection() {
         <MenuItem
           title={t("fields.device.label")}
           href="/settings/device"
-          leadingIcon={{ ios: "iphone", android: "phone_android" }}
+          leadingIcon={{
+            ios: DeviceService.isTablet() ? "ipad" : "iphone",
+            android: "phone_android",
+          }}
         />
 
         <Section.Divider />
@@ -36,7 +39,7 @@ export function DiagnosticsSection() {
         <MenuItem
           title={t("fields.biometrics.label")}
           href="/settings/biometrics"
-          leadingIcon={{ ios: "info", android: "fingerprint" }}
+          leadingIcon={{ ios: "touchid", android: "fingerprint" }}
         />
       </Card>
     </Section.Root>

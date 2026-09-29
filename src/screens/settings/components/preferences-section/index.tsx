@@ -20,7 +20,7 @@ export function PreferencesSection() {
         <MenuItem
           title={t("fields.appearance.label")}
           href="/settings/appearance"
-          leadingIcon={{ ios: "paintpalette.fill", android: "palette" }}
+          leadingIcon={{ ios: "paintpalette", android: "palette" }}
         />
 
         <Section.Divider />
@@ -28,7 +28,7 @@ export function PreferencesSection() {
         <MenuItem
           title={t("fields.language.label")}
           href="/settings/language"
-          leadingIcon={{ ios: "translate", android: "translate" }}
+          leadingIcon={{ ios: "character.ja", android: "translate" }}
         />
       </Card>
     </Section.Root>

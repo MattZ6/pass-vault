@@ -31,7 +31,7 @@ export function AboutSection() {
         <MenuItem
           title={t("fields.changelog.label")}
           href="/settings/changelog"
-          leadingIcon={{ android: "history_edu", ios: "doc.on.doc" }}
+          leadingIcon={{ ios: "scroll", android: "history_edu" }}
           hasNews={hasUnreadVersion}
         />
 
@@ -40,7 +40,7 @@ export function AboutSection() {
         <MenuItem
           title={t("fields.licenses.label")}
           href="/settings/licenses"
-          leadingIcon={{ ios: "doc.text", android: "description" }}
+          leadingIcon={{ ios: "square.text.square", android: "description" }}
         />
       </Card>
     </Section.Root>

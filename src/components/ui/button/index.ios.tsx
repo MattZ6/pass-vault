@@ -35,8 +35,7 @@ export function Button({
         "clamp",
       ),
       transform: [{ scale: scale.value }],
-    }),
-    [iosPressedScale],
+    })
   );
 
   return (

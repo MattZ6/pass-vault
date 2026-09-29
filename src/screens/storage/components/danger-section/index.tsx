@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
+import { Platform } from "react-native";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -7,12 +8,14 @@ import { Section } from "@/components/ui/section";
 
 import { useConfirm } from "@/hooks/use-confirm";
 import { useHaptics } from "@/hooks/use-haptics";
+import { useTheme } from "@/hooks/use-theme";
 
 import { VaultService } from "@/services/vault/credentials";
 
 export function DangerSection() {
   const { confirm } = useConfirm();
   const { performTapFeedback } = useHaptics();
+  const { theme } = useTheme()
   const { t } = useTranslation("storage", {
     keyPrefix: "screen.sections.danger",
   });
@@ -57,8 +60,9 @@ export function DangerSection() {
 
             <Section.Item.Trailing>
               <Section.Item.Trailing.Icon
-                name={{ android: "delete" }}
+                name={{ android: "delete", ios: "trash" }}
                 color="error"
+                size={Platform.select({ ios: theme.size[5], default: theme.size[6] })}
               />
             </Section.Item.Trailing>
           </Section.Item.Root>

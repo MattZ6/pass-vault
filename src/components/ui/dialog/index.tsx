@@ -1,25 +1,10 @@
 import { AlertDialog, Host, Text, TextButton } from "@expo/ui/jetpack-compose";
-import type { AndroidSymbol, SFSymbol } from "expo-symbols";
 import { useCallback } from "react";
 
 import { useHaptics } from "@/hooks/use-haptics";
 import { useTheme } from "@/hooks/use-theme";
 
-export type DialogIcon = {
-  ios?: SFSymbol;
-  android?: AndroidSymbol;
-};
-
-type Props = {
-  isOpen: boolean;
-  title: string;
-  description?: string;
-  confirmLabel: string;
-  cancelLabel?: string;
-  destructive?: boolean;
-  onConfirm: () => void;
-  onCancel?: () => void;
-};
+import type { DialogProps } from "./types";
 
 export function Dialog({
   isOpen,
@@ -30,7 +15,7 @@ export function Dialog({
   onCancel,
   confirmLabel,
   onConfirm,
-}: Props) {
+}: DialogProps) {
   const { theme, resolvedThemeOption } = useTheme();
   const { performTapFeedback } = useHaptics();
 

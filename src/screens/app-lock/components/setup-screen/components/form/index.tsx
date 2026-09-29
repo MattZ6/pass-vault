@@ -14,10 +14,10 @@ import { useAnnounceOnChange } from "@/hooks/use-announce-on-change";
 import { useHaptics } from "@/hooks/use-haptics";
 import { useStyles } from "@/hooks/use-styles";
 
-import type { VaultKey } from "@/services/vault/key";
-
 import type { SetupMasterPasswordSchemaType } from "@/screens/app-lock/components/setup-screen/hooks/schema";
 import { useSubmitSetupMasterPasswordForm } from "@/screens/app-lock/components/setup-screen/hooks/use-submit-setup-master-password-form";
+
+import type { VaultKey } from "@/services/vault/key";
 
 import { getStyles } from "./styles";
 
@@ -46,15 +46,18 @@ export function SetupMasterPasswordForm({ onSetupComplete }: Props) {
   }, [performTapFeedback, submit]);
 
   const showsMismatchError =
-    !form.formState.errors.password && Boolean(form.formState.errors.confirmPassword);
+    !form.formState.errors.password &&
+    Boolean(form.formState.errors.confirmPassword);
 
-  useAnnounceOnChange(
-    form.formState.errors.password ? t("form.errors.tooShort") : undefined,
-  );
-  useAnnounceOnChange(
-    showsMismatchError ? t("form.errors.mismatch") : undefined,
-  );
-  useAnnounceOnChange(hasFailed ? t("form.errors.setupFailed") : undefined);
+  const errorMessage = form.formState.errors.password
+    ? t("form.errors.tooShort")
+    : showsMismatchError
+      ? t("form.errors.mismatch")
+      : hasFailed
+        ? t("form.errors.setupFailed")
+        : undefined;
+
+  useAnnounceOnChange(errorMessage);
 
   return (
     <View style={styles.container}>
@@ -111,7 +114,10 @@ export function SetupMasterPasswordForm({ onSetupComplete }: Props) {
               onPress={handleToggleVisibility}
             >
               <SymbolView
-                name={{ android: visible ? "visibility_off" : "visibility" }}
+                name={{
+                  android: visible ? "visibility_off" : "visibility",
+                  ios: visible ? "eye.slash" : "eye",
+                }}
                 tintColor={theme.colors.content.element}
               />
             </IconButton>
@@ -162,33 +168,14 @@ export function SetupMasterPasswordForm({ onSetupComplete }: Props) {
           />
         </Card>
 
-        {form.formState.errors.password && (
+        {errorMessage && (
           <Text
             color="error"
             typography="bodySmall"
+            style={styles.error}
             accessibilityLiveRegion="polite"
           >
-            {t("form.errors.tooShort")}
-          </Text>
-        )}
-
-        {showsMismatchError && (
-          <Text
-            color="error"
-            typography="bodySmall"
-            accessibilityLiveRegion="polite"
-          >
-            {t("form.errors.mismatch")}
-          </Text>
-        )}
-
-        {hasFailed && (
-          <Text
-            color="error"
-            typography="bodySmall"
-            accessibilityLiveRegion="polite"
-          >
-            {t("form.errors.setupFailed")}
+            {errorMessage}
           </Text>
         )}
       </Section.Root>

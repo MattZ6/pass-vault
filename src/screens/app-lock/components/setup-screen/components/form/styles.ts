@@ -21,6 +21,9 @@ export function getStyles(theme: Theme) {
     divider: {
       marginLeft: theme.spacing[4],
     },
+    error: {
+      textAlign: "center",
+    },
     buttonWrapper: {
       height: theme.size[11],
       borderRadius: theme.radii[6],
@@ -31,10 +34,11 @@ export function getStyles(theme: Theme) {
       alignItems: "center",
       justifyContent: "center",
       height: theme.size[11],
+      backgroundColor: theme.colors.content.base,
     },
     buttonText: {
       textAlign: "center",
-      color: theme.colors.content.base,
+      color: theme.colors.surface.base,
     },
     buttonTextDisabled: {
       color: theme.colors.content.element,

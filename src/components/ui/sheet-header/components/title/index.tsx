@@ -11,7 +11,7 @@ export function SheetHeaderTitle(props: SheetHeaderTitleProps) {
 
   return (
     <Text
-      weight="semiBold"
+      weight="medium"
       typography="subtitle"
       numberOfLines={1}
       style={styles.title}

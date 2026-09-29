@@ -38,9 +38,14 @@ export function useAppLock() {
     }
 
     const subscription = AppState.addEventListener("change", (nextAppState) => {
+      // Only "background" means the app was actually left (home button,
+      // app switcher, ...). "inactive" is a transient, iOS-only state the
+      // app also passes through for system UI that doesn't leave the app
+      // at all — the Face ID prompt chief among them (active -> inactive
+      // -> active) — so treating it the same as "background" re-locked
+      // the app immediately after every successful Face ID unlock.
       const isReturningToForeground =
-        /inactive|background/.test(appStateRef.current ?? "") &&
-        nextAppState === "active";
+        appStateRef.current === "background" && nextAppState === "active";
 
       if (isReturningToForeground) {
         VaultKeyService.clearVaultKey();

@@ -20,7 +20,7 @@ export function StorageSection() {
         <MenuItem
           title={t("fields.storage.label")}
           href="/settings/storage"
-          leadingIcon={{ ios: "info", android: "home_storage" }}
+          leadingIcon={{ ios: "cylinder.split.1x2", android: "home_storage" }}
         />
       </Card>
     </Section.Root>

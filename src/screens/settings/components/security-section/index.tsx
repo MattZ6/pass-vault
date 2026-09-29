@@ -20,7 +20,7 @@ export function SecuritySection() {
         <MenuItem
           title={t("fields.masterPassword.label")}
           href="/settings/change-master-password"
-          leadingIcon={{ ios: "key.fill", android: "key" }}
+          leadingIcon={{ ios: "key", android: "key" }}
         />
       </Card>
     </Section.Root>

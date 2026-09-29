@@ -12,12 +12,14 @@ import type { ThemeContextTypes } from "@/contexts/theme/types";
 import { useHaptics } from "@/hooks/use-haptics";
 import { useTheme } from "@/hooks/use-theme";
 
+import { DeviceService } from "@/services/device/device";
+
 const iconsMap: Record<ThemeContextTypes.ThemeOption, SymbolViewProps["name"]> =
-  {
-    system: { ios: "iphone", android: "contrast" },
-    light: { ios: "moon.fill", android: "light_mode" },
-    dark: { ios: "sun.max.fill", android: "dark_mode" },
-  };
+{
+  system: { ios: DeviceService.isTablet() ? "ipad" : "iphone", android: "contrast" },
+  light: { ios: "moon", android: "light_mode" },
+  dark: { ios: "sun.max", android: "dark_mode" },
+};
 
 export function ThemeSection() {
   const { t } = useTranslation("appearance", {

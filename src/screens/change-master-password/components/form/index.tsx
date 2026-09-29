@@ -121,6 +121,7 @@ export function ChangeMasterPasswordForm() {
               <SymbolView
                 name={{
                   android: currentVisible ? "visibility_off" : "visibility",
+                  ios: currentVisible ? "eye.slash" : "eye",
                 }}
                 tintColor={theme.colors.content.element}
               />
@@ -198,7 +199,10 @@ export function ChangeMasterPasswordForm() {
               onPress={handleToggleNewVisibility}
             >
               <SymbolView
-                name={{ android: newVisible ? "visibility_off" : "visibility" }}
+                name={{
+                  android: newVisible ? "visibility_off" : "visibility",
+                  ios: newVisible ? "eye.slash" : "eye",
+                }}
                 tintColor={theme.colors.content.element}
               />
             </IconButton>

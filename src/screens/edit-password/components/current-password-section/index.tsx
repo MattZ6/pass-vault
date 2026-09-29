@@ -90,6 +90,7 @@ export function CurrentPasswordSection({ credentialId }: Props) {
                 <SymbolView
                   name={{
                     android: password ? "visibility_off" : "visibility",
+                    ios: password ? "eye.slash" : "eye",
                   }}
                   tintColor={theme.colors.content.base}
                 />

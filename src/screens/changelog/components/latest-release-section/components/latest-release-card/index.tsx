@@ -50,7 +50,7 @@ export function LatestReleaseCard({ release }: Props) {
               <View style={styles.left}>
                 <SymbolView
                   tintColor={theme.colors.content.base}
-                  name={{ android: "auto_awesome" }}
+                  name={{ android: "auto_awesome", ios: "sparkles" }}
                   size={16}
                 />
                 <Text typography="bodySmall" color="muted">

@@ -138,6 +138,10 @@ export function PrivacyPolicyScreen() {
                               action.type === "email"
                                 ? "email"
                                 : "arrow_outward",
+                            ios:
+                              action.type === "email"
+                                ? "envelope"
+                                : "arrow.up.right",
                           }}
                           size={20}
                           tintColor={theme.colors.content.element}

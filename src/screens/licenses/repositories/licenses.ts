@@ -29,6 +29,14 @@ export const licenses = Object.keys(licensesJson)
       repository = repository.replace("github:", "https://github.com/");
     }
 
+    let licenseUrl = String(
+      licensesJson[key as keyof typeof licensesJson].licenseUrl || "",
+    );
+
+    if (licenseUrl.startsWith("github:")) {
+      licenseUrl = licenseUrl.replace("github:", "https://github.com/");
+    }
+
     const paths = repository.split("/");
     paths.pop();
 
@@ -38,6 +46,7 @@ export const licenses = Object.keys(licensesJson)
       name,
       version,
       imageUrl: paths.join("/").concat(".png?size=40"),
+      licenseUrl,
     } as License;
   })
   .sort((previous, current) => previous.name.localeCompare(current.name));

@@ -1,46 +1,40 @@
-import { ImageBackground, View } from "react-native";
+import { Linking } from "react-native";
 
+import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
-import { Text } from "@/components/ui/text";
 
-import { useStyles } from "@/hooks/use-styles";
-
-import { getStyles } from "./styles";
+import { useHaptics } from "@/hooks/use-haptics";
 
 type Props = {
-  imageUrl: string;
   name: string;
   licenses: string;
-  version: string;
+  licenseUrl: string;
 };
 
-export function LicenseItem({ imageUrl, name, licenses, version }: Props) {
-  const { styles } = useStyles(getStyles);
+export function LicenseItem({ name, licenses, licenseUrl }: Props) {
+  const { performTapFeedback } = useHaptics();
+
+  function handlePress() {
+    performTapFeedback();
+    Linking.openURL(licenseUrl);
+  }
 
   return (
-    <Section.Item.Root>
-      <Section.Item.Leading style={styles.avatarContainer}>
-        <ImageBackground
-          source={{ uri: imageUrl }}
-          style={styles.avatar}
-          alt=""
-        />
-        <View style={styles.avatarRing} />
-      </Section.Item.Leading>
-      <Section.Item.Content>
-        <Section.Item.Content.Title numberOfLines={undefined}>
-          {name}
-        </Section.Item.Content.Title>
-        <Section.Item.Content.Description>
-          {licenses}
-        </Section.Item.Content.Description>
-      </Section.Item.Content>
+    <Button onPress={handlePress}>
+      <Section.Item.Root>
+        <Section.Item.Content>
+          <Section.Item.Content.Title numberOfLines={undefined}>
+            {name}
+          </Section.Item.Content.Title>
+          <Section.Item.Content.Description>
+            {licenses}
+          </Section.Item.Content.Description>
+        </Section.Item.Content>
 
-      <Section.Item.Trailing>
-        <Text color="muted" typography="bodySmall" style={styles.version}>
-          {version}
-        </Text>
-      </Section.Item.Trailing>
-    </Section.Item.Root>
+        <Section.Item.Trailing>
+          <Section.Item.Trailing.Icon />
+        </Section.Item.Trailing>
+      </Section.Item.Root>
+    </Button>
   );
 }

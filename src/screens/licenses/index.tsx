@@ -29,10 +29,9 @@ export function LicensesScreen() {
     ({ item }: LegendListRenderItemProps<License>) => {
       return (
         <LicenseItem
-          imageUrl={item.imageUrl}
           name={item.name}
           licenses={item.licenses}
-          version={item.version}
+          licenseUrl={item.licenseUrl}
         />
       );
     },

@@ -3,22 +3,26 @@ import { StyleSheet } from "react-native";
 import type { Theme } from "@/styles/themes/types";
 
 export function getStyles(theme: Theme) {
+  const imageSize = theme.size[8];
+
   return StyleSheet.create({
     avatarContainer: {
-      width: theme.size[9],
-      height: theme.size[9],
+      position: "relative",
+      width: imageSize,
+      height: imageSize,
       borderRadius: theme.radii[3],
       backgroundColor: theme.colors.surface.element,
       overflow: "hidden",
     },
     avatar: {
-      width: theme.size[9],
-      height: theme.size[9],
+      position: "absolute",
+      width: imageSize,
+      height: imageSize,
     },
     avatarRing: {
       position: "absolute",
-      width: theme.size[9],
-      height: theme.size[9],
+      width: imageSize,
+      height: imageSize,
       borderRadius: theme.radii[3],
       borderWidth: 1.5,
       borderColor: theme.colors.content.base,

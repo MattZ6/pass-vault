@@ -1,13 +1,10 @@
 import { Stack } from "expo-router";
 import { Children, isValidElement } from "react";
-
 import { useTheme } from "@/hooks/use-theme";
-
 import { SheetHeaderRightActionsButton } from "./components/button";
 import type { SheetHeaderRightActionsButtonProps } from "./components/button/types";
 import { SheetHeaderRightActionsTextButton } from "./components/text-button";
 import type { SheetHeaderRightActionsTextButtonProps } from "./components/text-button/types";
-
 import type { SheetHeaderRightActionsProps } from "./types";
 
 export function SheetHeaderRightActions({
@@ -36,6 +33,11 @@ export function SheetHeaderRightActions({
             <Stack.Toolbar.Button
               accessibilityLabel={accessibilityLabel}
               onPress={onPress}
+              tintColor={theme.colors.surface.element}
+              style={{
+                fontFamily: theme.fontFamily.medium,
+                color: theme.colors.content.base,
+              }}
             >
               <Stack.Toolbar.Icon sf={iosIcon} />
             </Stack.Toolbar.Button>
@@ -51,9 +53,15 @@ export function SheetHeaderRightActions({
               variant="done"
               disabled={disabled}
               onPress={onPress}
-              tintColor={theme.colors.content.base.toString()}
+              tintColor={theme.colors.surface.element}
+              style={{
+                fontFamily: theme.fontFamily.medium,
+                color: theme.colors.content.base,
+              }}
             >
-              {label}
+              <Stack.Toolbar.Label>
+                {label}
+              </Stack.Toolbar.Label>
             </Stack.Toolbar.Button>
           );
         }

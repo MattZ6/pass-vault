@@ -33,11 +33,7 @@ export function SheetHeaderRightActions({
             <Stack.Toolbar.Button
               accessibilityLabel={accessibilityLabel}
               onPress={onPress}
-              tintColor={theme.colors.surface.element}
-              style={{
-                fontFamily: theme.fontFamily.medium,
-                color: theme.colors.content.base,
-              }}
+              tintColor={theme.colors.content.base.toString()}
             >
               <Stack.Toolbar.Icon sf={iosIcon} />
             </Stack.Toolbar.Button>
@@ -51,17 +47,22 @@ export function SheetHeaderRightActions({
           return (
             <Stack.Toolbar.Button
               variant="done"
-              disabled={disabled}
+              // Not passed as the native `disabled` prop: on iOS, a
+              // Stack.Toolbar.Button (title-bar placement) that starts out
+              // disabled never receives taps again, even after this re-renders
+              // with disabled=false (e.g. once the form becomes valid) — the
+              // native item doesn't react to the prop changing. `onPress`
+              // fires unconditionally instead, and relies on
+              // `form.handleSubmit` (inside `onPress`) to no-op when the form
+              // is invalid, same as it already does. `tintColor` still dims
+              // the label so the disabled state stays visible.
               onPress={onPress}
-              tintColor={theme.colors.surface.element}
-              style={{
-                fontFamily: theme.fontFamily.medium,
-                color: theme.colors.content.base,
-              }}
+              tintColor={(disabled
+                ? theme.colors.content.element
+                : theme.colors.content.base
+              ).toString()}
             >
-              <Stack.Toolbar.Label>
-                {label}
-              </Stack.Toolbar.Label>
+              {label}
             </Stack.Toolbar.Button>
           );
         }

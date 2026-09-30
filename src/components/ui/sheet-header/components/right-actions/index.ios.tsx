@@ -33,11 +33,7 @@ export function SheetHeaderRightActions({
             <Stack.Toolbar.Button
               accessibilityLabel={accessibilityLabel}
               onPress={onPress}
-              tintColor={theme.colors.surface.element}
-              style={{
-                fontFamily: theme.fontFamily.medium,
-                color: theme.colors.content.base,
-              }}
+              tintColor={theme.colors.content.base}
             >
               <Stack.Toolbar.Icon sf={iosIcon} />
             </Stack.Toolbar.Button>
@@ -45,18 +41,16 @@ export function SheetHeaderRightActions({
         }
 
         if (child.type === SheetHeaderRightActionsTextButton) {
-          const { label, disabled, onPress } =
+          const { label, onPress } =
             child.props as SheetHeaderRightActionsTextButtonProps;
 
           return (
             <Stack.Toolbar.Button
               variant="done"
-              disabled={disabled}
               onPress={onPress}
-              tintColor={theme.colors.surface.element}
+              tintColor={theme.colors.content.base}
               style={{
                 fontFamily: theme.fontFamily.medium,
-                color: theme.colors.content.base,
               }}
             >
               <Stack.Toolbar.Label>

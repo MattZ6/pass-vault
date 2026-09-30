@@ -1,6 +1,8 @@
 import { Stack } from "expo-router";
 import { Children, isValidElement } from "react";
 
+import { useTheme } from "@/hooks/use-theme";
+
 import { SheetHeaderRightActionsButton } from "./components/button";
 import type { SheetHeaderRightActionsButtonProps } from "./components/button/types";
 import { SheetHeaderRightActionsTextButton } from "./components/text-button";
@@ -11,6 +13,8 @@ import type { SheetHeaderRightActionsProps } from "./types";
 export function SheetHeaderRightActions({
   children,
 }: SheetHeaderRightActionsProps) {
+  const { theme } = useTheme();
+
   return (
     <Stack.Toolbar placement="right">
       {Children.map(children, (child) => {
@@ -47,6 +51,7 @@ export function SheetHeaderRightActions({
               variant="done"
               disabled={disabled}
               onPress={onPress}
+              tintColor={theme.colors.content.base.toString()}
             >
               {label}
             </Stack.Toolbar.Button>

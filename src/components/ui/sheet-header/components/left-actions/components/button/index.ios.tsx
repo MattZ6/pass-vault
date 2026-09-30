@@ -1,16 +1,14 @@
-import { Stack } from "expo-router";
-
 import type { SheetHeaderLeftActionsButtonProps } from "./types";
 
+// Never rendered directly: Stack.Toolbar only accepts <Stack.Toolbar.Button>
+// (and a couple of other exact component references) as its own direct
+// children — it checks the child's element type, not what it renders to,
+// so a custom component that merely wraps Stack.Toolbar.Button internally
+// still gets rejected. SheetHeaderLeftActions (../../index.ios.tsx) reads
+// this element's props instead and builds the real Stack.Toolbar.Button in
+// its place.
 export function SheetHeaderLeftActionsButton(
-  props: SheetHeaderLeftActionsButtonProps,
+  _props: SheetHeaderLeftActionsButtonProps,
 ) {
-  return (
-    <Stack.Toolbar.Button
-      accessibilityLabel={props.accessibilityLabel}
-      onPress={props.onPress}
-    >
-      <Stack.Toolbar.Icon sf={props.iosIcon} />
-    </Stack.Toolbar.Button>
-  );
+  return null;
 }

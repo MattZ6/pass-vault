@@ -1,8 +1,8 @@
-import { SheetHeaderBackButton } from "./components/back-button/index";
-import { SheetHeaderLeftActions } from "./components/left-actions/index";
-import { SheetHeaderRightActions } from "./components/right-actions/index";
-import { SheetHeaderRoot } from "./components/root/index";
-import { SheetHeaderTitle } from "./components/title/index";
+import { SheetHeaderBackButton } from "./components/back-button";
+import { SheetHeaderLeftActions } from "./components/left-actions";
+import { SheetHeaderRightActions } from "./components/right-actions";
+import { SheetHeaderRoot } from "./components/root";
+import { SheetHeaderTitle } from "./components/title";
 
 export const SheetHeader = {
   Root: SheetHeaderRoot,

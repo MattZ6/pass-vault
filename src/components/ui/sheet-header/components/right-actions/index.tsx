@@ -3,6 +3,7 @@ import { View } from "react-native";
 import { useStyles } from "@/hooks/use-styles";
 
 import { SheetHeaderRightActionsButton } from "./components/button";
+import { SheetHeaderRightActionsTextButton } from "./components/text-button";
 
 import { getStyles } from "./styles";
 
@@ -15,3 +16,4 @@ export function SheetHeaderRightActions(props: SheetHeaderRightActionsProps) {
 }
 
 SheetHeaderRightActions.Button = SheetHeaderRightActionsButton;
+SheetHeaderRightActions.TextButton = SheetHeaderRightActionsTextButton;

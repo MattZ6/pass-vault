@@ -2,7 +2,7 @@ import { View } from "react-native";
 
 import { useStyles } from "@/hooks/use-styles";
 
-import { SheetHeaderRightActionsButton } from "./components/button/index";
+import { SheetHeaderRightActionsButton } from "./components/button";
 
 import { getStyles } from "./styles";
 

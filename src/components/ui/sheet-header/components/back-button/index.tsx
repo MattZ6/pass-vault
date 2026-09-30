@@ -28,7 +28,7 @@ export function SheetHeaderBackButton() {
   return (
     <View style={styles.wrapper}>
       <IconButton
-        size={12}
+        size={theme.size[3]}
         accessibilityLabel={t("back")}
         hitSlop={{
           left: theme.spacing[1],

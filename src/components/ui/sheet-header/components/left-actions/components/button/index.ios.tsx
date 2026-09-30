@@ -8,7 +8,7 @@ import type { SheetHeaderLeftActionsButtonProps } from "./types";
 // this element's props instead and builds the real Stack.Toolbar.Button in
 // its place.
 export function SheetHeaderLeftActionsButton(
-  _props: SheetHeaderLeftActionsButtonProps,
+  _: SheetHeaderLeftActionsButtonProps,
 ) {
   return null;
 }

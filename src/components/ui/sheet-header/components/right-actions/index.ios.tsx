@@ -1,7 +1,7 @@
-import { Children, isValidElement } from "react";
 import { Stack } from "expo-router";
+import { Children, isValidElement } from "react";
 
-import { SheetHeaderRightActionsButton } from "./components/button/index";
+import { SheetHeaderRightActionsButton } from "./components/button";
 import type { SheetHeaderRightActionsButtonProps } from "./components/button/types";
 
 import type { SheetHeaderRightActionsProps } from "./types";

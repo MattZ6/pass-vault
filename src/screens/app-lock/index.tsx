@@ -6,8 +6,6 @@ import { useAppLock } from "@/hooks/security/use-app-lock";
 import { useStyles } from "@/hooks/use-styles";
 
 import { LockScreen } from "./components/lock-screen";
-import { OnboardingScreen } from "./components/onboarding-screen";
-import { SetupScreen } from "./components/setup-screen";
 
 import { getStyles } from "./styles";
 
@@ -17,15 +15,11 @@ type Props = {
 
 export function AppLockGate({ children }: Props) {
   const { styles } = useStyles(getStyles);
-  const { phase, completeOnboarding, completeSetup, unlock } = useAppLock();
+  const { phase, unlock } = useAppLock();
   const hasUnlockedOnceRef = useRef(false);
 
   if (phase === "unlocked") {
     hasUnlockedOnceRef.current = true;
-  }
-
-  if (phase === "checking") {
-    return null;
   }
 
   return (
@@ -39,18 +33,6 @@ export function AppLockGate({ children }: Props) {
         master password.
       */}
       {hasUnlockedOnceRef.current && children}
-
-      {phase === "onboarding" && (
-        <View style={styles.overlay}>
-          <OnboardingScreen onOnboardingComplete={completeOnboarding} />
-        </View>
-      )}
-
-      {phase === "setup" && (
-        <View style={styles.overlay}>
-          <SetupScreen onSetupComplete={completeSetup} />
-        </View>
-      )}
 
       {phase === "locked" && (
         <View style={styles.overlay}>

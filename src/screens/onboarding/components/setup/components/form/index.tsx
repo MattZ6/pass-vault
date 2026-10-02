@@ -14,8 +14,8 @@ import { useAnnounceOnChange } from "@/hooks/use-announce-on-change";
 import { useHaptics } from "@/hooks/use-haptics";
 import { useStyles } from "@/hooks/use-styles";
 
-import type { SetupMasterPasswordSchemaType } from "@/screens/app-lock/components/setup-screen/hooks/schema";
-import { useSubmitSetupMasterPasswordForm } from "@/screens/app-lock/components/setup-screen/hooks/use-submit-setup-master-password-form";
+import type { SetupMasterPasswordSchemaType } from "@/screens/onboarding/components/setup/hooks/schema";
+import { useSubmitSetupMasterPasswordForm } from "@/screens/onboarding/components/setup/hooks/use-submit-setup-master-password-form";
 
 import type { VaultKey } from "@/services/vault/key";
 
@@ -33,7 +33,7 @@ export function SetupMasterPasswordForm({ onSetupComplete }: Props) {
   const { submit, isSubmitting, hasFailed } = useSubmitSetupMasterPasswordForm({
     onSetupComplete,
   });
-  const { t } = useTranslation("app-lock", { keyPrefix: "screen.setup" });
+  const { t } = useTranslation("onboarding", { keyPrefix: "setup" });
 
   const handleToggleVisibility = useCallback(() => {
     performTapFeedback();

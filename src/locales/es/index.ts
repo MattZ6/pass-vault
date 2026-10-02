@@ -17,6 +17,7 @@ import home from "./home.json";
 import language from "./language.json";
 import licenses from "./licenses.json";
 import newCredential from "./new-credential.json";
+import onboarding from "./onboarding.json";
 import performance from "./performance.json";
 import privacyPolicy from "./privacy-policy.json";
 import settings from "./settings.json";
@@ -43,6 +44,7 @@ export const es = {
   language,
   licenses,
   "new-credential": newCredential,
+  onboarding,
   performance,
   "privacy-policy": privacyPolicy,
   settings,

@@ -1,0 +1,39 @@
+{
+  "welcome": {
+    "title": "Bienvenido a Pass Vault",
+    "subtitle": "Gestor de contraseñas privado, cifrado y 100% offline.",
+    "hint": "Desliza para desbloquear"
+  },
+  "setup": {
+    "title": "Protege tu caja fuerte",
+    "subtitle": "Elige una contraseña maestra. Es la única forma de desbloquear tu caja fuerte si la biometría no está disponible.",
+    "form": {
+      "fields": {
+        "password": {
+          "placeholder": "Contraseña maestra",
+          "actions": {
+            "show": {
+              "label": "Mostrar contraseña"
+            },
+            "hide": {
+              "label": "Ocultar contraseña"
+            }
+          }
+        },
+        "confirmPassword": {
+          "placeholder": "Confirmar contraseña maestra"
+        }
+      },
+      "errors": {
+        "tooShort": "Debe tener al menos 8 caracteres",
+        "mismatch": "Las contraseñas no coinciden",
+        "setupFailed": "Algo salió mal. Inténtalo de nuevo."
+      },
+      "actions": {
+        "submit": {
+          "label": "Crear contraseña maestra"
+        }
+      }
+    }
+  }
+}

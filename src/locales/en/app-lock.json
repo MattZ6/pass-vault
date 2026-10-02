@@ -25,43 +25,6 @@
       "biometric": {
         "label": "Unlock with biometrics"
       }
-    },
-    "onboarding": {
-      "title": "Welcome to Pass Vault",
-      "subtitle": "Private, encrypted and offline-first password manager.",
-      "hint": "Swipe to unlock"
-    },
-    "setup": {
-      "title": "Protect your vault",
-      "subtitle": "Choose a master password. It's the only way to unlock your vault if biometrics isn't available.",
-      "form": {
-        "fields": {
-          "password": {
-            "placeholder": "Master password",
-            "actions": {
-              "show": {
-                "label": "Show password"
-              },
-              "hide": {
-                "label": "Hide password"
-              }
-            }
-          },
-          "confirmPassword": {
-            "placeholder": "Confirm master password"
-          }
-        },
-        "errors": {
-          "tooShort": "Must be at least 8 characters",
-          "mismatch": "Passwords don't match",
-          "setupFailed": "Something went wrong. Please try again."
-        },
-        "actions": {
-          "submit": {
-            "label": "Create master password"
-          }
-        }
-      }
     }
   }
 }

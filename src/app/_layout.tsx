@@ -4,17 +4,17 @@ import { Observe, ObserveRoot, useObserve } from "expo-observe";
 import { Stack } from "expo-router";
 import * as ExpoSplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
-import { Platform } from "react-native";
 
 import { Provider } from "@/contexts/provider";
 
 import { useFontFamily } from "@/hooks/use-font-family";
 import { useTheme } from "@/hooks/use-theme";
 
-import { AppLockGate } from "@/screens/app-lock";
-
 import { PerformanceMonitoringService } from "@/services/analytics/performance-monitoring";
 import { ChangelogService } from "@/services/changelog/changelog";
+import { MasterPasswordService } from "@/services/vault/master-password";
+
+import { useMasterPasswordStore } from "@/store/master-password/master-password.store";
 
 ExpoSplashScreen.preventAutoHideAsync();
 ChangelogService.initialize();
@@ -28,6 +28,14 @@ Observe.configure({
 function RootLayout() {
   const [fontsLoaded] = useFontFamily();
   const { markInteractive } = useObserve();
+  const hasMasterPassword = useMasterPasswordStore((s) => s.hasMasterPassword);
+  const setHasMasterPassword = useMasterPasswordStore(
+    (s) => s.setHasMasterPassword,
+  );
+
+  useEffect(() => {
+    MasterPasswordService.hasMasterPassword().then(setHasMasterPassword);
+  }, [setHasMasterPassword]);
 
   useEffect(() => {
     if (fontsLoaded) {
@@ -36,20 +44,22 @@ function RootLayout() {
     }
   }, [fontsLoaded, markInteractive]);
 
-  if (!fontsLoaded) {
+  if (!fontsLoaded || hasMasterPassword === null) {
     return null;
   }
 
   return (
     <Provider>
-      <AppLockGate>
-        <RootStack />
-      </AppLockGate>
+      <RootStack hasMasterPassword={hasMasterPassword} />
     </Provider>
   );
 }
 
-function RootStack() {
+type RootStackProps = {
+  hasMasterPassword: boolean;
+};
+
+function RootStack({ hasMasterPassword }: RootStackProps) {
   const { theme } = useTheme();
 
   return (
@@ -62,25 +72,13 @@ function RootStack() {
         },
       }}
     >
-      <Stack.Screen
-        name="(modal)"
-        options={{
-          headerStyle: {
-            backgroundColor: Platform.select({
-              ios: "transparent",
-              default: theme.colors.surface.base.toString(),
-            }),
-          },
-          presentation: "formSheet",
-          sheetAllowedDetents: Platform.select({
-            ios: [1],
-            default: [0.8, 1],
-          }),
-          contentStyle: {
-            backgroundColor: theme.colors.surface.elevated,
-          },
-        }}
-      />
+      <Stack.Protected guard={!hasMasterPassword}>
+        <Stack.Screen name="onboarding" options={{ gestureEnabled: false }} />
+      </Stack.Protected>
+
+      <Stack.Protected guard={hasMasterPassword}>
+        <Stack.Screen name="(app)" />
+      </Stack.Protected>
     </Stack>
   );
 }

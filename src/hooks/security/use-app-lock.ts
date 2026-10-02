@@ -1,42 +1,24 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AppState, type AppStateStatus } from "react-native";
 import { type VaultKey, VaultKeyService } from "@/services/vault/key";
-import { MasterPasswordService } from "@/services/vault/master-password";
 
-export type AppLockPhase =
-  | "checking"
-  | "onboarding"
-  | "setup"
-  | "locked"
-  | "unlocked";
+export type AppLockPhase = "locked" | "unlocked";
 
+// Only reached once a master password is already known to exist — the root
+// layout routes to onboarding instead of mounting this when it doesn't — so
+// this never needs its own async check. It starts "unlocked" only when a
+// vault key is already cached, which happens right after onboarding sets
+// one and navigates here — otherwise a fresh cold boot flashes the lock
+// screen for a key the app already has.
 export function useAppLock() {
-  const [phase, setPhase] = useState<AppLockPhase>("checking");
+  const [phase, setPhase] = useState<AppLockPhase>(() =>
+    VaultKeyService.hasVaultKey() ? "unlocked" : "locked",
+  );
   const appStateRef = useRef<AppStateStatus | null>(
     AppState.currentState as AppStateStatus,
   );
 
   useEffect(() => {
-    let cancelled = false;
-
-    MasterPasswordService.hasMasterPassword().then((hasMasterPassword) => {
-      if (cancelled) {
-        return;
-      }
-
-      setPhase(hasMasterPassword ? "locked" : "onboarding");
-    });
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  useEffect(() => {
-    if (phase !== "locked" && phase !== "unlocked") {
-      return;
-    }
-
     const subscription = AppState.addEventListener("change", (nextAppState) => {
       // Only "background" means the app was actually left (home button,
       // app switcher, ...). "inactive" is a transient, iOS-only state the
@@ -56,15 +38,6 @@ export function useAppLock() {
     });
 
     return () => subscription.remove();
-  }, [phase]);
-
-  const completeOnboarding = useCallback(() => {
-    setPhase("setup");
-  }, []);
-
-  const completeSetup = useCallback((vaultKey: VaultKey) => {
-    VaultKeyService.setVaultKey(vaultKey);
-    setPhase("unlocked");
   }, []);
 
   const unlock = useCallback((vaultKey: VaultKey) => {
@@ -74,8 +47,6 @@ export function useAppLock() {
 
   return {
     phase,
-    completeOnboarding,
-    completeSetup,
     unlock,
   };
 }

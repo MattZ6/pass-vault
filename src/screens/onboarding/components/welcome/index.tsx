@@ -15,19 +15,19 @@ import { useVaultWheelGesture } from "./hooks/use-vault-wheel-gesture";
 import { getStyles } from "./styles";
 
 type Props = {
-  onOnboardingComplete: () => void;
+  onComplete: () => void;
 };
 
 const initialDelay = 200;
 const hintDelay = initialDelay * 6;
 
-export function OnboardingScreen({ onOnboardingComplete }: Props) {
+export function WelcomeScreen({ onComplete }: Props) {
   const safeInsets = useSafeAreaInsets();
   const { styles } = useStyles((input) => getStyles(input, safeInsets));
-  const { t } = useTranslation("app-lock", { keyPrefix: "screen.onboarding" });
+  const { t } = useTranslation("onboarding", { keyPrefix: "welcome" });
 
   const { wheelRef, rotation, dragDistance, panGesture } = useVaultWheelGesture({
-    onUnlocked: onOnboardingComplete,
+    onUnlocked: onComplete,
     hintDelay,
   });
 

@@ -29,7 +29,7 @@ export function SetupScreen({ onSetupComplete }: Props) {
   const safeInsets = useSafeAreaInsets();
   const { styles, theme } = useStyles((input) => getStyles(input, safeInsets));
   const form = useSetupMasterPasswordForm();
-  const { t } = useTranslation("app-lock", { keyPrefix: "screen.setup" });
+  const { t } = useTranslation("onboarding", { keyPrefix: "setup" });
 
   const iconStyle = useRevealAnimation(initialDelay);
   const titleStyle = useRevealAnimation(initialDelay * 2);

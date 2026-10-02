@@ -51,6 +51,11 @@ export const VaultKeyService = {
     cachedVaultKey = vaultKey;
   },
 
+  // Lets AppLockGate start already "unlocked" when it mounts right after
+  // onboarding (setVaultKey was just called there), instead of flashing the
+  // lock screen for a key the app already has.
+  hasVaultKey: () => cachedVaultKey !== null,
+
   // Drops the in-memory key when the app re-locks, so a locked app doesn't
   // keep it sitting in memory. getVaultKey() falls back to re-reading (or,
   // pre-master-password, generating) the raw key from SecureStore, so this
